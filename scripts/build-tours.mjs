@@ -19,10 +19,10 @@ import { gzipSync } from 'zlib';
 import path from 'path';
 
 const ROOT = process.cwd();
-const ENTRY = path.join(ROOT, 'src/tours/index.js');
+const ENTRY = path.join(ROOT, 'src/index.js');
 const OUT_DIR = path.join(ROOT, 'dist');
 const OUT_FILE = path.join(OUT_DIR, 'player.js');
-const BUDGET_GZ_KB = 42;
+const BUDGET_GZ_KB = 55;
 
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 

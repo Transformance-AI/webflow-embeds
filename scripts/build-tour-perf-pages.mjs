@@ -22,6 +22,9 @@ const TOURS = [
   { id: 'vero-chat-v2', title: 'Vero agent',           h2: 'Vero runs your AR overnight',            sub: 'Cash app, collections, deductions — every morning a recap, ready for review.' },
 ];
 
+// `hero.html` is written by hand (simulates the homepage layout).
+// Just include it in the index page listing below.
+
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, 'dist/perf');
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
@@ -98,6 +101,7 @@ const indexPage = `<!DOCTYPE html>
 <h1>Lighthouse test pages</h1>
 <p class="lede">One marketing-style host page per tour. Run Lighthouse on each to verify the embed does not regress LCP / CLS / TBT.</p>
 <ul>
+  <li><a href="hero.html">Homepage hero animation</a><span class="hint">transformance-hero</span></li>
 ${TOURS.map((t) => `  <li><a href="${t.id}.html">${t.title}</a><span class="hint">${t.id}</span></li>`).join('\n')}
 </ul>
 <p style="margin-top:32px;color:rgba(0,0,0,0.5);font-size:13px;">

@@ -1,4 +1,4 @@
-(()=>{var F=`/*
+(()=>{var G=`/*
  * Tour player base styles \u2014 injected into Shadow DOM so they cannot
  * collide with Webflow's CSS. Targets system-stack font (inherits the
  * host page's Geist if present).
@@ -458,8 +458,8 @@
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
-`;var H={};function y(e){H[e.id]=e,document.querySelectorAll(`transformance-tour[data-tour="${e.id}"]`).forEach(s=>{s._mounted||s._tryMount()})}var D=class extends HTMLElement{constructor(){super(),this._mounted=!1,this._stepIndex=0,this._tour=null}connectedCallback(){this._mounted||this._tryMount()}_tryMount(){let s=this.dataset.tour,t=s&&H[s];t&&(this._mounted=!0,this._tour=t,this._shadow=this.attachShadow({mode:"open"}),this._shadow.innerHTML=`
-      <style>${F}</style>
+`;var W={};function $(s){W[s.id]=s,document.querySelectorAll(`transformance-tour[data-tour="${s.id}"]`).forEach(e=>{e._mounted||e._tryMount()})}var K=class extends HTMLElement{constructor(){super(),this._mounted=!1,this._stepIndex=0,this._tour=null}connectedCallback(){this._mounted||this._tryMount()}_tryMount(){let e=this.dataset.tour,a=e&&W[e];a&&(this._mounted=!0,this._tour=a,this._shadow=this.attachShadow({mode:"open"}),this._shadow.innerHTML=`
+      <style>${G}</style>
       <svg width="0" height="0" style="position:absolute" aria-hidden="true">
         <defs>
           <linearGradient id="tour-grad" x1="0" y1="0" x2="1" y2="0">
@@ -470,55 +470,55 @@
         </defs>
       </svg>
       <div class="frame" part="frame">
-        <div class="cover-tag">${t.tag||"Interactive demo"}</div>
+        <div class="cover-tag">${a.tag||"Interactive demo"}</div>
         <button class="fs-close" data-fs-close aria-label="Close demo">\u2715</button>
         <div class="stage" data-stage></div>
         <div class="cover" data-cover>
           <div class="cover-pill">
             <span class="cover-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></span>
-            ${t.coverLabel||"Watch demo"}
+            ${a.coverLabel||"Watch demo"}
           </div>
         </div>
       </div>
-    `,this._frame=this._shadow.querySelector(".frame"),this._stage=this._shadow.querySelector("[data-stage]"),this._cover=this._shadow.querySelector("[data-cover]"),this._fsClose=this._shadow.querySelector("[data-fs-close]"),this._cover.addEventListener("click",()=>this._start(),{once:!0}),this._fsClose.addEventListener("click",i=>{i.stopPropagation(),this._exitFullscreen()}),this._renderSceneContent(0))}_isMobile(){return typeof matchMedia=="function"&&matchMedia("(max-width: 767px)").matches}_enterFullscreen(){this._frame.classList.add("fs"),document.body.style.overflow="hidden"}_exitFullscreen(){if(this._frame.classList.remove("fs"),document.body.style.overflow="",this._shadow.querySelector(".spotlight")?.remove(),this._shadow.querySelector(".tooltip")?.remove(),this._shadow.querySelector(".toolbar")?.remove(),this._shadow.querySelector(".closing")?.remove(),this._shadow.querySelector(".cover-tag")?.classList.remove("hidden"),!this._shadow.querySelector("[data-cover]")){let s=document.createElement("div");s.className="cover",s.setAttribute("data-cover",""),s.innerHTML=`
+    `,this._frame=this._shadow.querySelector(".frame"),this._stage=this._shadow.querySelector("[data-stage]"),this._cover=this._shadow.querySelector("[data-cover]"),this._fsClose=this._shadow.querySelector("[data-fs-close]"),this._cover.addEventListener("click",()=>this._start(),{once:!0}),this._fsClose.addEventListener("click",i=>{i.stopPropagation(),this._exitFullscreen()}),this._renderSceneContent(0))}_isMobile(){return typeof matchMedia=="function"&&matchMedia("(max-width: 767px)").matches}_enterFullscreen(){this._frame.classList.add("fs"),document.body.style.overflow="hidden"}_exitFullscreen(){if(this._frame.classList.remove("fs"),document.body.style.overflow="",this._shadow.querySelector(".spotlight")?.remove(),this._shadow.querySelector(".tooltip")?.remove(),this._shadow.querySelector(".toolbar")?.remove(),this._shadow.querySelector(".closing")?.remove(),this._shadow.querySelector(".cover-tag")?.classList.remove("hidden"),!this._shadow.querySelector("[data-cover]")){let e=document.createElement("div");e.className="cover",e.setAttribute("data-cover",""),e.innerHTML=`
         <div class="cover-pill">
           <span class="cover-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></span>
           ${this._tour.coverLabel||"Watch demo"}
         </div>
-      `,this._frame.appendChild(s),this._cover=s,s.addEventListener("click",()=>this._start(),{once:!0})}this._renderSceneContent(0),this._stepIndex=0}_start(){this._isMobile()&&this._enterFullscreen(),this._cover.classList.add("hidden"),this._shadow.querySelector(".cover-tag")?.classList.add("hidden"),setTimeout(()=>this._cover.remove(),320),this._activateScene(0),this._renderToolbar()}_renderToolbar(){let s=this._shadow.querySelector(".toolbar");s&&s.remove(),s=document.createElement("div"),s.className="toolbar",s.innerHTML=`
+      `,this._frame.appendChild(e),this._cover=e,e.addEventListener("click",()=>this._start(),{once:!0})}this._renderSceneContent(0),this._stepIndex=0}_start(){this._isMobile()&&this._enterFullscreen(),this._cover.classList.add("hidden"),this._shadow.querySelector(".cover-tag")?.classList.add("hidden"),setTimeout(()=>this._cover.remove(),320),this._activateScene(0),this._renderToolbar()}_renderToolbar(){let e=this._shadow.querySelector(".toolbar");e&&e.remove(),e=document.createElement("div"),e.className="toolbar",e.innerHTML=`
       <div class="dots">
-        ${this._tour.scenes.map((t,i)=>`<span class="dot ${i===this._stepIndex?"active":i<this._stepIndex?"done":""}"></span>`).join("")}
+        ${this._tour.scenes.map((a,i)=>`<span class="dot ${i===this._stepIndex?"active":i<this._stepIndex?"done":""}"></span>`).join("")}
       </div>
       <button class="toolbar-btn" data-skip>Skip</button>
-    `,this._frame.appendChild(s),s.querySelector("[data-skip]").addEventListener("click",()=>this._renderClosing())}_renderSceneContent(s){let t=this._tour.scenes[s];this._stage.innerHTML=`<div class="scene scene-${t.id}">${t.html}</div>`}_activateScene(s){this._stepIndex=s;let t=this._tour.scenes[s];if(this._shadow.querySelector(".spotlight")?.remove(),this._shadow.querySelector(".tooltip")?.remove(),typeof t.onMount=="function")try{t.onMount(this._stage,this)}catch(i){console.error("[tour] scene.onMount error:",i)}requestAnimationFrame(()=>{t.spotlight&&this._renderSpotlight(t),t.body&&this._renderTooltip(t),this._bindAdvance(t)})}_renderScene(s){this._renderSceneContent(s),this._activateScene(s),this._renderToolbar()}_renderSpotlight(s){let t=this._stage.querySelector(s.spotlight);if(!t)return;this._shadow.querySelectorAll(".tour-hilite").forEach(m=>m.classList.remove("tour-hilite"));let i=t.parentElement;for(;i&&i!==this._frame;){let m=i.ownerDocument.defaultView.getComputedStyle(i);if(/(auto|scroll)/.test(m.overflowY)){let g=i.getBoundingClientRect(),h=t.getBoundingClientRect();if(!(h.top>=g.top&&h.bottom<=g.bottom)){let I=h.bottom-(g.bottom-24);i.scrollTop+=I}break}i=i.parentElement}let o=this._frame.getBoundingClientRect(),r=t.getBoundingClientRect(),l=s.spotlightPad??8,b=r.left-o.left-l,$=r.top-o.top-l,f=r.width+l*2,v=r.height+l*2,p=s.spotlightRadius??12,w=`
+    `,this._frame.appendChild(e),e.querySelector("[data-skip]").addEventListener("click",()=>this._renderClosing())}_renderSceneContent(e){let a=this._tour.scenes[e];this._stage.innerHTML=`<div class="scene scene-${a.id}">${a.html}</div>`}_activateScene(e){this._stepIndex=e;let a=this._tour.scenes[e];if(this._shadow.querySelector(".spotlight")?.remove(),this._shadow.querySelector(".tooltip")?.remove(),typeof a.onMount=="function")try{a.onMount(this._stage,this)}catch(i){console.error("[tour] scene.onMount error:",i)}requestAnimationFrame(()=>{a.spotlight&&this._renderSpotlight(a),a.body&&this._renderTooltip(a),this._bindAdvance(a)})}_renderScene(e){this._renderSceneContent(e),this._activateScene(e),this._renderToolbar()}_renderSpotlight(e){let a=this._stage.querySelector(e.spotlight);if(!a)return;this._shadow.querySelectorAll(".tour-hilite").forEach(u=>u.classList.remove("tour-hilite"));let i=a.parentElement;for(;i&&i!==this._frame;){let u=i.ownerDocument.defaultView.getComputedStyle(i);if(/(auto|scroll)/.test(u.overflowY)){let b=i.getBoundingClientRect(),c=a.getBoundingClientRect();if(!(c.top>=b.top&&c.bottom<=b.bottom)){let _=c.bottom-(b.bottom-24);i.scrollTop+=_}break}i=i.parentElement}let r=this._frame.getBoundingClientRect(),o=a.getBoundingClientRect(),l=e.spotlightPad??8,d=o.left-r.left-l,p=o.top-r.top-l,v=o.width+l*2,x=o.height+l*2,h=e.spotlightRadius??12,y=`
       <div class="spotlight">
-        <svg viewBox="0 0 ${o.width} ${o.height}" preserveAspectRatio="none">
+        <svg viewBox="0 0 ${r.width} ${r.height}" preserveAspectRatio="none">
           <defs>
             <mask id="m" maskUnits="userSpaceOnUse">
-              <rect class="outer" x="0" y="0" width="${o.width}" height="${o.height}" />
-              <rect class="inner" x="${b}" y="${$}" width="${f}" height="${v}" rx="${p}" />
+              <rect class="outer" x="0" y="0" width="${r.width}" height="${r.height}" />
+              <rect class="inner" x="${d}" y="${p}" width="${v}" height="${x}" rx="${h}" />
             </mask>
           </defs>
-          <rect class="spotlight-dim" x="0" y="0" width="${o.width}" height="${o.height}" mask="url(#m)" />
+          <rect class="spotlight-dim" x="0" y="0" width="${r.width}" height="${r.height}" mask="url(#m)" />
         </svg>
       </div>
-    `;this._frame.insertAdjacentHTML("beforeend",w),t.classList.add("tour-hilite"),this._currentTargetRect={x:b,y:$,w:f,h:v}}_renderTooltip(s){let t=this._stepIndex===this._tour.scenes.length-1,i=s.advanceOn?.click?null:t?"Finish":"Next",o=document.createElement("div");o.className="tooltip",o.dataset.side=s.tooltipSide||"right",o.innerHTML=`
-      ${s.title?`<div class="tooltip-tag">${s.title}</div>`:""}
-      <div class="tooltip-body">${s.body}</div>
+    `;this._frame.insertAdjacentHTML("beforeend",y),a.classList.add("tour-hilite"),this._currentTargetRect={x:d,y:p,w:v,h:x}}_renderTooltip(e){let a=this._stepIndex===this._tour.scenes.length-1,i=e.advanceOn?.click?null:a?"Finish":"Next",r=document.createElement("div");r.className="tooltip",r.dataset.side=e.tooltipSide||"right",r.innerHTML=`
+      ${e.title?`<div class="tooltip-tag">${e.title}</div>`:""}
+      <div class="tooltip-body">${e.body}</div>
       <div class="tooltip-controls">
         <span class="step-of">${this._stepIndex+1} / ${this._tour.scenes.length}</span>
         ${i?`<button class="tooltip-next" data-next>${i}<svg viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 8,5 2,9"/></svg></button>`:'<span style="color: var(--tour-ink-40); font-size: 11px;">\u2193 Click highlighted</span>'}
       </div>
-    `,this._frame.appendChild(o),this._positionTooltip(o,s),o.querySelector("[data-next]")?.addEventListener("click",()=>this._advance())}_positionTooltip(s,t){let i=this._currentTargetRect;if(!i){s.style.left="50%",s.style.top="50%",s.style.transform="translate(-50%, -50%)",s.removeAttribute("data-side");return}let o=this._frame.getBoundingClientRect(),r=280,l=140,b=14,$=t.tooltipSide||"right",f,v;switch($){case"right":f=i.x+i.w+b,v=i.y;break;case"left":f=i.x-r-b,v=i.y;break;case"top":f=i.x,v=i.y-l-b;break;case"bottom":f=i.x,v=i.y+i.h+b;break}f=Math.max(12,Math.min(f,o.width-r-12)),v=Math.max(12,Math.min(v,o.height-l-12)),s.style.left=`${f}px`,s.style.top=`${v}px`}_bindAdvance(s){if(!s.advanceOn?.click)return;let t=this._stage.querySelector(s.advanceOn.click);t&&(t.addEventListener("click",i=>{i.preventDefault(),this._advance()},{once:!0}),t.style.cursor="pointer")}_advance(){this._stepIndex+1>=this._tour.scenes.length?this._renderClosing():this._renderScene(this._stepIndex+1)}_renderClosing(){this._shadow.querySelector(".spotlight")?.remove(),this._shadow.querySelector(".tooltip")?.remove(),this._shadow.querySelector(".toolbar")?.remove();let s=this.dataset.ctaHtml||`
+    `,this._frame.appendChild(r),this._positionTooltip(r,e),r.querySelector("[data-next]")?.addEventListener("click",()=>this._advance())}_positionTooltip(e,a){let i=this._currentTargetRect;if(!i){e.style.left="50%",e.style.top="50%",e.style.transform="translate(-50%, -50%)",e.removeAttribute("data-side");return}let r=this._frame.getBoundingClientRect(),o=280,l=140,d=14,p=a.tooltipSide||"right",v,x;switch(p){case"right":v=i.x+i.w+d,x=i.y;break;case"left":v=i.x-o-d,x=i.y;break;case"top":v=i.x,x=i.y-l-d;break;case"bottom":v=i.x,x=i.y+i.h+d;break}v=Math.max(12,Math.min(v,r.width-o-12)),x=Math.max(12,Math.min(x,r.height-l-12)),e.style.left=`${v}px`,e.style.top=`${x}px`}_bindAdvance(e){if(!e.advanceOn?.click)return;let a=this._stage.querySelector(e.advanceOn.click);a&&(a.addEventListener("click",i=>{i.preventDefault(),this._advance()},{once:!0}),a.style.cursor="pointer")}_advance(){this._stepIndex+1>=this._tour.scenes.length?this._renderClosing():this._renderScene(this._stepIndex+1)}_renderClosing(){this._shadow.querySelector(".spotlight")?.remove(),this._shadow.querySelector(".tooltip")?.remove(),this._shadow.querySelector(".toolbar")?.remove();let e=this.dataset.ctaHtml||`
       <a class="closing-default-cta" href="https://transformance.ai/meeting">
         Book a meeting \u2192
       </a>
-    `,t=document.createElement("div");t.className="closing",t.innerHTML=`
+    `,a=document.createElement("div");a.className="closing",a.innerHTML=`
       <h3>${this._tour.closing?.headline||'Want to see it on <span class="grad">your data</span>?'}</h3>
       ${this._tour.closing?.sub?`<p>${this._tour.closing.sub}</p>`:""}
-      <div class="closing-cta-slot">${s}</div>
+      <div class="closing-cta-slot">${e}</div>
       <button class="closing-replay" data-replay>\u21BB Replay</button>
-    `,this._frame.appendChild(t),t.querySelector("[data-replay]").addEventListener("click",()=>{t.remove(),this._renderScene(0)})}};customElements.get("transformance-tour")||customElements.define("transformance-tour",D);var n={factory:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>',wind:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>',truck:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>',pill:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>',shoppingBag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',cpu:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>',wheat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 9c.5.5 1.12.5 2.5 2-1.38 1.5-2 1.5-2.5 2-.5-.5-1.12-.5-2.5-2 1.38-1.5 2-1.5 2.5-2Z"/><path d="M16 13c.5.5 1.12.5 2.5 2-1.38 1.5-2 1.5-2.5 2-.5-.5-1.12-.5-2.5-2 1.38-1.5 2-1.5 2.5-2Z"/></svg>',car:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L19 9c-.3-.1-.6-.3-.8-.6L16.5 6.4c-.6-.8-1.5-1.4-2.5-1.4H7.6c-1 0-1.9.6-2.5 1.4L3.8 8.4c-.2.3-.5.5-.8.6L1.5 10.1C.7 10.3 0 11.1 0 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>',hardHat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg>',shirt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>',clapperboard:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"/><path d="m6.2 5.3 3.1 3.9"/><path d="m12.4 3.4 3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',coins:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg>',phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>',check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>',alert:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>',play:'<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>',arrowRight:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>',trendingUp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',trendingDown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>',phoneOff:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="23" y1="1" x2="1" y2="23"/></svg>',globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',sliders:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>',fuel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="22" x2="15" y2="22"/><line x1="4" y1="9" x2="14" y2="9"/><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/></svg>',shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',zap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'};function c(e){return`<span class="co-av ${e.cls}">${n[e.icon]}</span>`}function C(e){return`<span class="co-av ${e.cls} sz-sm">${n[e.icon]}</span>`}var U={DE:'<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#000"/><rect y="6" width="24" height="6" fill="#DD0000"/><rect y="12" width="24" height="6" fill="#FFCE00"/></svg>',AT:'<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#ED2939"/><rect y="6" width="24" height="6" fill="#fff"/><rect y="12" width="24" height="6" fill="#ED2939"/></svg>',NL:'<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#AE1C28"/><rect y="6" width="24" height="6" fill="#fff"/><rect y="12" width="24" height="6" fill="#21468B"/></svg>',ES:'<svg viewBox="0 0 24 18"><rect width="24" height="4.5" fill="#AA151B"/><rect y="4.5" width="24" height="9" fill="#F1BF00"/><rect y="13.5" width="24" height="4.5" fill="#AA151B"/></svg>',FR:'<svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#0055A4"/><rect x="8" width="8" height="18" fill="#fff"/><rect x="16" width="8" height="18" fill="#EF4135"/></svg>',IT:'<svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#009246"/><rect x="8" width="8" height="18" fill="#fff"/><rect x="16" width="8" height="18" fill="#CE2B37"/></svg>',IE:'<svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#169B62"/><rect x="8" width="8" height="18" fill="#fff"/><rect x="16" width="8" height="18" fill="#FF883E"/></svg>',BE:'<svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#000"/><rect x="8" width="8" height="18" fill="#FAE042"/><rect x="16" width="8" height="18" fill="#ED2939"/></svg>',PT:'<svg viewBox="0 0 24 18"><rect width="10" height="18" fill="#046A38"/><rect x="10" width="14" height="18" fill="#DA291C"/><circle cx="10" cy="9" r="2.4" fill="#FFD100"/></svg>',SE:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#006AA7"/><rect x="7" width="3" height="18" fill="#FECC00"/><rect y="7.5" width="24" height="3" fill="#FECC00"/></svg>',DK:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#C8102E"/><rect x="7" width="3" height="18" fill="#fff"/><rect y="7.5" width="24" height="3" fill="#fff"/></svg>',CH:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#DC143C"/><rect x="10" y="4" width="4" height="10" fill="#fff"/><rect x="7" y="7" width="10" height="4" fill="#fff"/></svg>',GB:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#012169"/><path d="M0 0L24 18M24 0L0 18" stroke="#fff" stroke-width="2.5"/><path d="M0 0L24 18M24 0L0 18" stroke="#C8102E" stroke-width="1.5"/><rect x="10" width="4" height="18" fill="#fff"/><rect y="7" width="24" height="4" fill="#fff"/><rect x="11" width="2" height="18" fill="#C8102E"/><rect y="8" width="24" height="2" fill="#C8102E"/></svg>',US:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#fff"/><rect width="24" height="1.4" fill="#B22234"/><rect width="24" height="1.4" y="2.8" fill="#B22234"/><rect width="24" height="1.4" y="5.6" fill="#B22234"/><rect width="24" height="1.4" y="8.4" fill="#B22234"/><rect width="24" height="1.4" y="11.2" fill="#B22234"/><rect width="24" height="1.4" y="14" fill="#B22234"/><rect width="24" height="1.4" y="16.8" fill="#B22234"/><rect width="10" height="9.7" fill="#3C3B6E"/></svg>',BR:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#009C3B"/><polygon points="12,3 22,9 12,15 2,9" fill="#FFDF00"/><circle cx="12" cy="9" r="3" fill="#002776"/></svg>'};function W(e){let s=U[e];return s?s.replace("<svg",'<svg class="flag-svg"'):""}var a={industries:{name:"Acme Industries",sector:"Manufacturing",country:"DE",flag:"de",cls:"co-industries",icon:"factory",contact:"Lars Olsen"},energy:{name:"Acme Energy",sector:"Renewables",country:"PT",flag:"pt",cls:"co-energy",icon:"wind",contact:"Maria Santos"},logistics:{name:"Acme Logistics",sector:"Shipping",country:"GB",flag:"gb",cls:"co-logistics",icon:"truck",contact:"James Clarke"},pharma:{name:"Acme Pharma",sector:"Healthcare",country:"ES",flag:"es",cls:"co-pharma",icon:"pill",contact:"Hans Weber"},retail:{name:"Acme Retail",sector:"Consumer goods",country:"FR",flag:"fr",cls:"co-retail",icon:"shoppingBag",contact:"Claire Dubois"},tech:{name:"Acme Tech",sector:"Technology",country:"IE",flag:"ie",cls:"co-tech",icon:"cpu",contact:"Aidan Murphy"},food:{name:"Acme Food",sector:"Food & beverage",country:"IT",flag:"it",cls:"co-food",icon:"wheat",contact:"Giulia Rossi"},motors:{name:"Acme Motors",sector:"Automotive",country:"DE",flag:"de",cls:"co-motors",icon:"car",contact:"Anja Becker"},build:{name:"Acme Build",sector:"Construction",country:"NL",flag:"nl",cls:"co-build",icon:"hardHat",contact:"Pieter de Vries"},fashion:{name:"Acme Fashion",sector:"Apparel",country:"SE",flag:"se",cls:"co-fashion",icon:"shirt",contact:"Lina Andersson"},media:{name:"Acme Media",sector:"Media",country:"US",flag:"us",cls:"co-media",icon:"clapperboard",contact:"Jordan Reed"},finance:{name:"Acme Finance",sector:"Financial services",country:"CH",flag:"ch",cls:"co-finance",icon:"coins",contact:"Samuel Keller"}},be=Object.values(a);var j=`
+    `,this._frame.appendChild(a),a.querySelector("[data-replay]").addEventListener("click",()=>{a.remove(),this._renderScene(0)})}};customElements.get("transformance-tour")||customElements.define("transformance-tour",K);var n={factory:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>',wind:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>',truck:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>',pill:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>',shoppingBag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>',cpu:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>',wheat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 9c.5.5 1.12.5 2.5 2-1.38 1.5-2 1.5-2.5 2-.5-.5-1.12-.5-2.5-2 1.38-1.5 2-1.5 2.5-2Z"/><path d="M16 13c.5.5 1.12.5 2.5 2-1.38 1.5-2 1.5-2.5 2-.5-.5-1.12-.5-2.5-2 1.38-1.5 2-1.5 2.5-2Z"/></svg>',car:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L19 9c-.3-.1-.6-.3-.8-.6L16.5 6.4c-.6-.8-1.5-1.4-2.5-1.4H7.6c-1 0-1.9.6-2.5 1.4L3.8 8.4c-.2.3-.5.5-.8.6L1.5 10.1C.7 10.3 0 11.1 0 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>',hardHat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></svg>',shirt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>',clapperboard:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"/><path d="m6.2 5.3 3.1 3.9"/><path d="m12.4 3.4 3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',coins:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg>',phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>',check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>',alert:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>',play:'<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>',arrowRight:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>',trendingUp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',trendingDown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>',phoneOff:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/><line x1="23" y1="1" x2="1" y2="23"/></svg>',globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',sliders:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>',fuel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="22" x2="15" y2="22"/><line x1="4" y1="9" x2="14" y2="9"/><path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"/><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"/></svg>',shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',zap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'};function f(s){return`<span class="co-av ${s.cls}">${n[s.icon]}</span>`}function A(s){return`<span class="co-av ${s.cls} sz-sm">${n[s.icon]}</span>`}var se={DE:'<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#000"/><rect y="6" width="24" height="6" fill="#DD0000"/><rect y="12" width="24" height="6" fill="#FFCE00"/></svg>',AT:'<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#ED2939"/><rect y="6" width="24" height="6" fill="#fff"/><rect y="12" width="24" height="6" fill="#ED2939"/></svg>',NL:'<svg viewBox="0 0 24 18"><rect width="24" height="6" fill="#AE1C28"/><rect y="6" width="24" height="6" fill="#fff"/><rect y="12" width="24" height="6" fill="#21468B"/></svg>',ES:'<svg viewBox="0 0 24 18"><rect width="24" height="4.5" fill="#AA151B"/><rect y="4.5" width="24" height="9" fill="#F1BF00"/><rect y="13.5" width="24" height="4.5" fill="#AA151B"/></svg>',FR:'<svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#0055A4"/><rect x="8" width="8" height="18" fill="#fff"/><rect x="16" width="8" height="18" fill="#EF4135"/></svg>',IT:'<svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#009246"/><rect x="8" width="8" height="18" fill="#fff"/><rect x="16" width="8" height="18" fill="#CE2B37"/></svg>',IE:'<svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#169B62"/><rect x="8" width="8" height="18" fill="#fff"/><rect x="16" width="8" height="18" fill="#FF883E"/></svg>',BE:'<svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#000"/><rect x="8" width="8" height="18" fill="#FAE042"/><rect x="16" width="8" height="18" fill="#ED2939"/></svg>',PT:'<svg viewBox="0 0 24 18"><rect width="10" height="18" fill="#046A38"/><rect x="10" width="14" height="18" fill="#DA291C"/><circle cx="10" cy="9" r="2.4" fill="#FFD100"/></svg>',SE:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#006AA7"/><rect x="7" width="3" height="18" fill="#FECC00"/><rect y="7.5" width="24" height="3" fill="#FECC00"/></svg>',DK:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#C8102E"/><rect x="7" width="3" height="18" fill="#fff"/><rect y="7.5" width="24" height="3" fill="#fff"/></svg>',CH:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#DC143C"/><rect x="10" y="4" width="4" height="10" fill="#fff"/><rect x="7" y="7" width="10" height="4" fill="#fff"/></svg>',GB:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#012169"/><path d="M0 0L24 18M24 0L0 18" stroke="#fff" stroke-width="2.5"/><path d="M0 0L24 18M24 0L0 18" stroke="#C8102E" stroke-width="1.5"/><rect x="10" width="4" height="18" fill="#fff"/><rect y="7" width="24" height="4" fill="#fff"/><rect x="11" width="2" height="18" fill="#C8102E"/><rect y="8" width="24" height="2" fill="#C8102E"/></svg>',US:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#fff"/><rect width="24" height="1.4" fill="#B22234"/><rect width="24" height="1.4" y="2.8" fill="#B22234"/><rect width="24" height="1.4" y="5.6" fill="#B22234"/><rect width="24" height="1.4" y="8.4" fill="#B22234"/><rect width="24" height="1.4" y="11.2" fill="#B22234"/><rect width="24" height="1.4" y="14" fill="#B22234"/><rect width="24" height="1.4" y="16.8" fill="#B22234"/><rect width="10" height="9.7" fill="#3C3B6E"/></svg>',BR:'<svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#009C3B"/><polygon points="12,3 22,9 12,15 2,9" fill="#FFDF00"/><circle cx="12" cy="9" r="3" fill="#002776"/></svg>'};function Y(s){let e=se[s];return e?e.replace("<svg",'<svg class="flag-svg"'):""}var t={industries:{name:"Acme Industries",sector:"Manufacturing",country:"DE",flag:"de",cls:"co-industries",icon:"factory",contact:"Lars Olsen"},energy:{name:"Acme Energy",sector:"Renewables",country:"PT",flag:"pt",cls:"co-energy",icon:"wind",contact:"Maria Santos"},logistics:{name:"Acme Logistics",sector:"Shipping",country:"GB",flag:"gb",cls:"co-logistics",icon:"truck",contact:"James Clarke"},pharma:{name:"Acme Pharma",sector:"Healthcare",country:"ES",flag:"es",cls:"co-pharma",icon:"pill",contact:"Hans Weber"},retail:{name:"Acme Retail",sector:"Consumer goods",country:"FR",flag:"fr",cls:"co-retail",icon:"shoppingBag",contact:"Claire Dubois"},tech:{name:"Acme Tech",sector:"Technology",country:"IE",flag:"ie",cls:"co-tech",icon:"cpu",contact:"Aidan Murphy"},food:{name:"Acme Food",sector:"Food & beverage",country:"IT",flag:"it",cls:"co-food",icon:"wheat",contact:"Giulia Rossi"},motors:{name:"Acme Motors",sector:"Automotive",country:"DE",flag:"de",cls:"co-motors",icon:"car",contact:"Anja Becker"},build:{name:"Acme Build",sector:"Construction",country:"NL",flag:"nl",cls:"co-build",icon:"hardHat",contact:"Pieter de Vries"},fashion:{name:"Acme Fashion",sector:"Apparel",country:"SE",flag:"se",cls:"co-fashion",icon:"shirt",contact:"Lina Andersson"},media:{name:"Acme Media",sector:"Media",country:"US",flag:"us",cls:"co-media",icon:"clapperboard",contact:"Jordan Reed"},finance:{name:"Acme Finance",sector:"Financial services",country:"CH",flag:"ch",cls:"co-finance",icon:"coins",contact:"Samuel Keller"}},je=Object.values(t);var S=`
   <style>
     .scene { position: absolute; inset: 0; padding: 28px 32px; font: 13px/1.45 Geist, system-ui, sans-serif; color: #0a0a0a; }
     .scene .row { display: flex; align-items: center; gap: 12px; }
@@ -535,7 +535,7 @@
     .scene .eyebrow { font: 500 10px/1 Geist, system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(10,10,10,0.5); }
     .scene h2 { font: 500 18px/1.2 Geist, system-ui, sans-serif; letter-spacing: -0.015em; margin: 0; }
   </style>
-`,J={id:"cash-app",tag:"CASH APPLICATION \xB7 INTERACTIVE DEMO",coverLabel:"See cash application in 30 seconds",closing:{headline:`That's 90% of cash application, <span class="grad">automated</span>.`,sub:"Want to see it on your own data?"},scenes:[{id:"01-inbox",title:"Step 1 \xB7 Inbox",body:"Three remittances arrived overnight. Vero already started on the first.",tooltipSide:"right",spotlight:"#row-hero",advanceOn:{click:"#row-hero"},html:`${j}
+`,ae={id:"cash-app",tag:"CASH APPLICATION \xB7 INTERACTIVE DEMO",coverLabel:"See cash application in 30 seconds",closing:{headline:`That's 90% of cash application, <span class="grad">automated</span>.`,sub:"Want to see it on your own data?"},scenes:[{id:"01-inbox",title:"Step 1 \xB7 Inbox",body:"Three remittances arrived overnight. Vero already started on the first.",tooltipSide:"right",spotlight:"#row-hero",advanceOn:{click:"#row-hero"},html:`${S}
         <style>
           .scene-01-inbox .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
           .scene-01-inbox .header-tag { color: rgba(10,10,10,0.5); font-size: 12px; }
@@ -555,31 +555,31 @@
         </div>
         <div class="inbox">
           <div class="email" id="row-hero">
-            ${c(a.industries)}
+            ${f(t.industries)}
             <div class="email-meta">
-              <div class="email-from">${a.industries.name} \xB7 Accounts Payable</div>
+              <div class="email-from">${t.industries.name} \xB7 Accounts Payable</div>
               <div class="email-subj">Remittance advice \u2014 Wire transfer \u20AC530,000 \u2014 3 invoices</div>
             </div>
             <span class="email-time">2 min ago</span>
           </div>
           <div class="email faded">
-            ${c(a.energy)}
+            ${f(t.energy)}
             <div class="email-meta">
-              <div class="email-from">${a.energy.name} \xB7 Treasury</div>
+              <div class="email-from">${t.energy.name} \xB7 Treasury</div>
               <div class="email-subj">Payment notification \u2014 Invoices INV-0014, INV-0017</div>
             </div>
             <span class="email-time">14 min ago</span>
           </div>
           <div class="email faded">
-            ${c(a.logistics)}
+            ${f(t.logistics)}
             <div class="email-meta">
-              <div class="email-from">${a.logistics.name} \xB7 Finance</div>
+              <div class="email-from">${t.logistics.name} \xB7 Finance</div>
               <div class="email-subj">Aviso de pagamento \u2014 R$ 180.000</div>
             </div>
             <span class="email-time">42 min ago</span>
           </div>
         </div>
-      `},{id:"02-extract",title:"Step 2 \xB7 Extraction",body:'Every field extracted with <span class="grad">confidence</span>. No templates to maintain.',tooltipSide:"top",spotlight:"#extraction-table",html:`${j}
+      `},{id:"02-extract",title:"Step 2 \xB7 Extraction",body:'Every field extracted with <span class="grad">confidence</span>. No templates to maintain.',tooltipSide:"top",spotlight:"#extraction-table",html:`${S}
         <style>
           .scene-02-extract .head { margin-bottom: 14px; }
           .scene-02-extract .grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 16px; }
@@ -636,7 +636,7 @@
             <div class="field"><span class="field-key">FX rate</span><span class="field-val">N/A (same ccy)</span><span class="field-conf"><span class="pill green">99%</span></span></div>
           </div>
         </div>
-      `},{id:"03-match",title:"Step 3 \xB7 Auto-match",body:'Three invoices, three matches. <span class="grad">\u20AC530K accounted for</span> in under 4 seconds.',tooltipSide:"right",spotlight:"#match-cards",html:`${j}
+      `},{id:"03-match",title:"Step 3 \xB7 Auto-match",body:'Three invoices, three matches. <span class="grad">\u20AC530K accounted for</span> in under 4 seconds.',tooltipSide:"right",spotlight:"#match-cards",html:`${S}
         <style>
           .scene-03-match .head { margin-bottom: 16px; }
           .scene-03-match .summary { display: flex; gap: 12px; margin-bottom: 16px; }
@@ -681,7 +681,7 @@
             <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M3 6L5 8L9 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>
           </div>
         </div>
-      `},{id:"04-edge",title:"Step 4 \xB7 Edge case",body:`This one's borderline. Vero surfaces it, <span class="grad">you decide</span> in one click.`,tooltipSide:"left",spotlight:"#edge-card",advanceOn:{click:"#edge-confirm"},html:`${j}
+      `},{id:"04-edge",title:"Step 4 \xB7 Edge case",body:`This one's borderline. Vero surfaces it, <span class="grad">you decide</span> in one click.`,tooltipSide:"left",spotlight:"#edge-card",advanceOn:{click:"#edge-confirm"},html:`${S}
         <style>
           .scene-04-edge .head { margin-bottom: 14px; }
           .scene-04-edge .matched { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; opacity: 0.55; }
@@ -736,7 +736,7 @@
             <button class="btn" id="edge-confirm">Confirm match</button>
           </div>
         </div>
-      `},{id:"05-je",title:"Step 5 \xB7 Journal entry",body:'Journal entry assembled, audit trail attached. One click to <span class="grad">post to ERP</span>.',tooltipSide:"top",spotlight:"#post-btn",advanceOn:{click:"#post-btn"},html:`${j}
+      `},{id:"05-je",title:"Step 5 \xB7 Journal entry",body:'Journal entry assembled, audit trail attached. One click to <span class="grad">post to ERP</span>.',tooltipSide:"top",spotlight:"#post-btn",advanceOn:{click:"#post-btn"},html:`${S}
         <style>
           .scene-05-je .head { margin-bottom: 14px; }
           .scene-05-je .je { background: #fff; border: 1px solid rgba(10,10,10,0.08); border-radius: 12px; overflow: hidden; }
@@ -791,7 +791,7 @@
             <button class="btn" id="post-btn">Post to ERP \u2192</button>
           </div>
         </div>
-      `},{id:"06-posted",title:"Step 6 \xB7 Posted",body:"Vero noticed this is a daily pattern. Want it to handle every morning?",tooltipSide:"right",spotlight:"#vero-card",advanceOn:{click:"#vero-yes"},html:`${j}
+      `},{id:"06-posted",title:"Step 6 \xB7 Posted",body:"Vero noticed this is a daily pattern. Want it to handle every morning?",tooltipSide:"right",spotlight:"#vero-card",advanceOn:{click:"#vero-yes"},html:`${S}
         <style>
           .scene-06-posted { display: flex; flex-direction: column; align-items: center; justify-content: center; }
           .scene-06-posted .success-card { background: #fff; border: 1px solid rgba(1,146,115,0.3); border-radius: 14px; padding: 28px 32px; text-align: center; box-shadow: 0 4px 18px rgba(0,0,0,0.06); width: 460px; }
@@ -831,7 +831,7 @@
             </div>
           </div>
         </div>
-      `},{id:"07-schedule",title:"Step 7 \xB7 Schedule",body:'Vero proposes the rules. <span class="grad">You stay in control</span> of every threshold.',tooltipSide:"left",spotlight:"#approve-btn",advanceOn:{click:"#approve-btn"},html:`${j}
+      `},{id:"07-schedule",title:"Step 7 \xB7 Schedule",body:'Vero proposes the rules. <span class="grad">You stay in control</span> of every threshold.',tooltipSide:"left",spotlight:"#approve-btn",advanceOn:{click:"#approve-btn"},html:`${S}
         <style>
           .scene-07-schedule { display: flex; flex-direction: column; align-items: center; justify-content: center; }
           .scene-07-schedule .modal { background: #fff; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.12); width: 520px; overflow: hidden; border: 1px solid rgba(10,10,10,0.08); }
@@ -881,7 +881,7 @@
             <button class="btn" id="approve-btn">Approve & schedule</button>
           </div>
         </div>
-      `},{id:"08-done",title:"Step 8 \xB7 Live",body:'Done. Vero handles it tomorrow at <span class="grad">8:00 AM</span>, and every morning after.',tooltipSide:"right",spotlight:"#tile",html:`${j}
+      `},{id:"08-done",title:"Step 8 \xB7 Live",body:'Done. Vero handles it tomorrow at <span class="grad">8:00 AM</span>, and every morning after.',tooltipSide:"right",spotlight:"#tile",html:`${S}
         <style>
           .scene-08-done { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
           .scene-08-done .greeting { text-align: center; max-width: 520px; }
@@ -923,7 +923,7 @@
             <div class="tile-stat"><div class="v mono">\u2265 95%</div><div class="l">Auto-post threshold</div></div>
           </div>
         </div>
-      `}]};y(J);function Q(e){return e>=36?"red":e>=16?"amber":"green"}var M=[{co:a.energy,balance:"\u20AC179K",days:45,last:"Last Fri"},{co:a.logistics,balance:"\u20AC92K",days:18,last:"Never"},{co:a.pharma,balance:"\u20AC47K",days:22,last:"Email sent"},{co:a.retail,balance:"\u20AC18K",days:60,last:"3d ago"},{co:a.tech,balance:"\u20AC22K",days:35,last:"Call Thu"},{co:a.food,balance:"\u20AC14K",days:28,last:"1w ago"},{co:a.motors,balance:"\u20AC63K",days:12,last:"Never"},{co:a.build,balance:"\u20AC38K",days:40,last:"Email sent"}],Z="\u20AC475K",S=M.length,A=`
+      `}]};$(ae);function te(s){return s>=36?"red":s>=16?"amber":"green"}var T=[{co:t.energy,balance:"\u20AC179K",days:45,last:"Last Fri"},{co:t.logistics,balance:"\u20AC92K",days:18,last:"Never"},{co:t.pharma,balance:"\u20AC47K",days:22,last:"Email sent"},{co:t.retail,balance:"\u20AC18K",days:60,last:"3d ago"},{co:t.tech,balance:"\u20AC22K",days:35,last:"Call Thu"},{co:t.food,balance:"\u20AC14K",days:28,last:"1w ago"},{co:t.motors,balance:"\u20AC63K",days:12,last:"Never"},{co:t.build,balance:"\u20AC38K",days:40,last:"Email sent"}],ie="\u20AC475K",C=T.length,M=`
   <style>
     /* Base scene frame */
     .scene[class*="scene-c-"] { position: absolute; inset: 0; padding: 24px 28px; font: 13px/1.45 Geist, system-ui, sans-serif; color: #0a0a0a; }
@@ -960,26 +960,26 @@
     /* Dimming non-focused rows (scenes 3 + 4) */
     .scene[class*="scene-c-"] .wl-row.dim { opacity: 0.25; }
   </style>
-`;function E(e,s={}){let{status:t="",dim:i=!1,highlight:o=!1,id:r=""}=s,l=["wl-row"];i&&l.push("dim"),o&&l.push("highlight");let b=t||`<span style="font-size: 11px; color: rgba(10,10,10,0.5);">${e.last}</span>`,$=Q(e.days);return`
-    <div class="${l.join(" ")}"${r?` id="${r}"`:""}>
-      ${c(e.co)}
+`;function E(s,e={}){let{status:a="",dim:i=!1,highlight:r=!1,id:o=""}=e,l=["wl-row"];i&&l.push("dim"),r&&l.push("highlight");let d=a||`<span style="font-size: 11px; color: rgba(10,10,10,0.5);">${s.last}</span>`,p=te(s.days);return`
+    <div class="${l.join(" ")}"${o?` id="${o}"`:""}>
+      ${f(s.co)}
       <div>
-        <div class="wl-co-name">${e.co.name}</div>
-        <div class="wl-co-sector">${e.co.sector}</div>
+        <div class="wl-co-name">${s.co.name}</div>
+        <div class="wl-co-sector">${s.co.sector}</div>
       </div>
-      <span class="wl-flag" title="${e.co.country}">${W(e.co.country)}</span>
-      <span class="wl-bal mono">${e.balance}</span>
-      <span class="wl-days"><span class="pill ${$}">${e.days}d</span></span>
-      <span class="wl-status">${b}</span>
+      <span class="wl-flag" title="${s.co.country}">${Y(s.co.country)}</span>
+      <span class="wl-bal mono">${s.balance}</span>
+      <span class="wl-days"><span class="pill ${p}">${s.days}d</span></span>
+      <span class="wl-status">${d}</span>
     </div>
-  `}var X={id:"collections",tag:"COLLECTIONS \xB7 INTERACTIVE DEMO",coverLabel:"See collections in 30 seconds",closing:{headline:'8 PTPs captured. 3 escalations routed. <span class="grad">Hours back.</span>',sub:"Want Vero to run your morning queue, every morning?"},scenes:[{id:"c-01-worklist",title:"Step 1 \xB7 Worklist",body:`${S} accounts overdue today. Vero works them all at once: calls in <span class="grad">their language</span>, emails in your tone.`,tooltipSide:"left",spotlight:"#run-batch",advanceOn:{click:"#run-batch"},html:`${A}
+  `}var ne={id:"collections",tag:"COLLECTIONS \xB7 INTERACTIVE DEMO",coverLabel:"See collections in 30 seconds",closing:{headline:'8 PTPs captured. 3 escalations routed. <span class="grad">Hours back.</span>',sub:"Want Vero to run your morning queue, every morning?"},scenes:[{id:"c-01-worklist",title:"Step 1 \xB7 Worklist",body:`${C} accounts overdue today. Vero works them all at once: calls in <span class="grad">their language</span>, emails in your tone.`,tooltipSide:"left",spotlight:"#run-batch",advanceOn:{click:"#run-batch"},html:`${M}
         <div class="head">
           <div>
             <h2>Overdue worklist</h2>
-            <div class="head-sub">${S} accounts \xB7 ${Z} past due \xB7 updated 2 min ago</div>
+            <div class="head-sub">${C} accounts \xB7 ${ie} past due \xB7 updated 2 min ago</div>
           </div>
           <button class="btn" id="run-batch">
-            Run batch (${S}) \u2192
+            Run batch (${C}) \u2192
           </button>
         </div>
         <div class="card">
@@ -990,9 +990,9 @@
             </div>
             <span style="font-size: 11px; color: rgba(10,10,10,0.5);">Last touch \xB7 next action</span>
           </div>
-          ${M.map(e=>E(e)).join("")}
+          ${T.map(s=>E(s)).join("")}
         </div>
-      `},{id:"c-02-batch",title:"Step 2 \xB7 Batch running",body:`One queue, ${S} parallel workstreams. Vero follows your <span class="grad">playbook</span> for each: channel, language, escalation rules.`,tooltipSide:"left",spotlight:"#wl-running",html:`${A}
+      `},{id:"c-02-batch",title:"Step 2 \xB7 Batch running",body:`One queue, ${C} parallel workstreams. Vero follows your <span class="grad">playbook</span> for each: channel, language, escalation rules.`,tooltipSide:"left",spotlight:"#wl-running",html:`${M}
         <style>
           .scene-c-02-batch .runner-bar { background: #fff; border: 1px solid rgba(130,89,247,0.3); border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
           .scene-c-02-batch .runner-spin { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(130,89,247,0.2); border-top-color: #8259f7; animation: spin 0.9s linear infinite; }
@@ -1032,7 +1032,7 @@
         <div class="head">
           <div>
             <h2>Batch running</h2>
-            <div class="head-sub">${S} accounts in flight \xB7 calls in native language, emails localized</div>
+            <div class="head-sub">${C} accounts in flight \xB7 calls in native language, emails localized</div>
           </div>
           <span class="pill violet">\u25CF Live</span>
         </div>
@@ -1046,15 +1046,15 @@
           <span class="runner-meta mono">00:03.7</span>
         </div>
         <div class="card" id="wl-running">
-          ${M.map((e,s)=>{let t=['<span class="pill green"><span>\u2713</span> PTP \u20AC179K</span>','<span class="pill blue"><span>\u2709</span> Email sent</span>','<span class="pill amber"><span>\u26A0</span> Escalated</span>','<span class="pill amber"><span>\u26A0</span> Escalated</span>','<span class="pill amber"><span>\u26A0</span> Escalated</span>','<span class="pill green"><span>\u2713</span> PTP \u20AC14K</span>','<span class="pill green"><span>\u2713</span> Paid today</span>','<span class="pill blue"><span>\u2709</span> Reminder sent</span>'][s],o=`
+          ${T.map((s,e)=>{let a=['<span class="pill green"><span>\u2713</span> PTP \u20AC179K</span>','<span class="pill blue"><span>\u2709</span> Email sent</span>','<span class="pill amber"><span>\u26A0</span> Escalated</span>','<span class="pill amber"><span>\u26A0</span> Escalated</span>','<span class="pill amber"><span>\u26A0</span> Escalated</span>','<span class="pill green"><span>\u2713</span> PTP \u20AC14K</span>','<span class="pill green"><span>\u2713</span> Paid today</span>','<span class="pill blue"><span>\u2709</span> Reminder sent</span>'][e],r=`
               <div class="p-stages">
                 <span class="p-stage s1"><span class="pill gray">\u25CF Queued</span></span>
-                <span class="p-stage s2"><span class="pill violet">\u25CF ${s===1||s===7?"Emailing":"Calling"}</span></span>
-                <span class="p-stage final">${t}</span>
+                <span class="p-stage s2"><span class="pill violet">\u25CF ${e===1||e===7?"Emailing":"Calling"}</span></span>
+                <span class="p-stage final">${a}</span>
               </div>
-            `;return E(e,{status:o}).replace('<div class="wl-row',`<div data-idx="${s}" class="wl-row`)}).join("")}
+            `;return E(s,{status:r}).replace('<div class="wl-row',`<div data-idx="${e}" class="wl-row`)}).join("")}
         </div>
-      `},{id:"c-03-ptp",title:"Step 3 \xB7 Promise to pay",body:`Maria at ${a.energy.name} committed <span class="grad">\u20AC179K</span> by Friday. Logged, with the full transcript attached.`,tooltipSide:"left",spotlight:"#ptp-card",html:`${A}
+      `},{id:"c-03-ptp",title:"Step 3 \xB7 Promise to pay",body:`Maria at ${t.energy.name} committed <span class="grad">\u20AC179K</span> by Friday. Logged, with the full transcript attached.`,tooltipSide:"left",spotlight:"#ptp-card",html:`${M}
         <style>
           .scene-c-03-ptp .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; align-items: start; }
           .scene-c-03-ptp #ptp-card { background: #fff; border: 1px solid rgba(10,10,10,0.08); border-radius: 10px; padding: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
@@ -1072,7 +1072,7 @@
           .scene-c-03-ptp .outcome-date { font-size: 11px; color: rgba(10,10,10,0.55); margin-top: 2px; }
         </style>
         <div class="head">
-          <h2>${a.energy.name}</h2>
+          <h2>${t.energy.name}</h2>
           <span class="pill green">Resolved \xB7 autonomous</span>
         </div>
         <div class="wrap">
@@ -1080,17 +1080,17 @@
             <div class="card-head">
               <div>
                 <div class="card-title">Worklist</div>
-                <div class="card-meta">${S} accounts \xB7 1 focused</div>
+                <div class="card-meta">${C} accounts \xB7 1 focused</div>
               </div>
             </div>
-            ${M.map((e,s)=>E(e,{dim:s!==0,status:s===0?'<span class="pill green">PTP \u20AC179K</span>':""})).join("")}
+            ${T.map((s,e)=>E(s,{dim:e!==0,status:e===0?'<span class="pill green">PTP \u20AC179K</span>':""})).join("")}
           </div>
           <div id="ptp-card">
             <div class="call-head">
-              ${c(a.energy)}
+              ${f(t.energy)}
               <div>
-                <div class="call-name">${a.energy.contact}</div>
-                <div class="call-sub">AP \xB7 ${a.energy.name}</div>
+                <div class="call-name">${t.energy.contact}</div>
+                <div class="call-sub">AP \xB7 ${t.energy.name}</div>
               </div>
             </div>
             <div class="call-meta-row">
@@ -1114,7 +1114,7 @@
             </div>
           </div>
         </div>
-      `},{id:"c-04-fallback",title:"Step 4 \xB7 Fallback",body:'No answer? Vero switches to email, in their language, <span class="grad">per your rules</span>, no prompt required.',tooltipSide:"left",spotlight:"#fallback-card",html:`${A}
+      `},{id:"c-04-fallback",title:"Step 4 \xB7 Fallback",body:'No answer? Vero switches to email, in their language, <span class="grad">per your rules</span>, no prompt required.',tooltipSide:"left",spotlight:"#fallback-card",html:`${M}
         <style>
           .scene-c-04-fallback .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; align-items: start; }
           .scene-c-04-fallback #fallback-card { background: #fff; border: 1px solid rgba(10,10,10,0.08); border-radius: 10px; padding: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
@@ -1138,7 +1138,7 @@
           .scene-c-04-fallback .rule-chain { font-variant-numeric: tabular-nums; }
         </style>
         <div class="head">
-          <h2>${a.logistics.name}</h2>
+          <h2>${t.logistics.name}</h2>
           <span class="pill blue">Reminder sent \xB7 autonomous</span>
         </div>
         <div class="wrap">
@@ -1146,17 +1146,17 @@
             <div class="card-head">
               <div>
                 <div class="card-title">Worklist</div>
-                <div class="card-meta">${S} accounts \xB7 1 focused</div>
+                <div class="card-meta">${C} accounts \xB7 1 focused</div>
               </div>
             </div>
-            ${M.map((e,s)=>E(e,{dim:s!==1,status:s===1?'<span class="pill blue">Email sent</span>':""})).join("")}
+            ${T.map((s,e)=>E(s,{dim:e!==1,status:e===1?'<span class="pill blue">Email sent</span>':""})).join("")}
           </div>
           <div id="fallback-card">
             <div class="call-head">
-              ${c(a.logistics)}
+              ${f(t.logistics)}
               <div>
-                <div class="call-name">${a.logistics.contact}</div>
-                <div class="call-sub">Finance \xB7 ${a.logistics.name}</div>
+                <div class="call-name">${t.logistics.contact}</div>
+                <div class="call-sub">Finance \xB7 ${t.logistics.name}</div>
               </div>
             </div>
             <div class="flow">
@@ -1178,7 +1178,7 @@
             </div>
           </div>
         </div>
-      `},{id:"c-05-escalation",title:"Step 5 \xB7 Escalation",body:`Three accounts Vero shouldn't auto-resolve. Each lands in <span class="grad">your queue</span> with the full evidence pack.`,tooltipSide:"left",spotlight:"#esc-review-btn",advanceOn:{click:"#esc-review-btn"},html:`${A}
+      `},{id:"c-05-escalation",title:"Step 5 \xB7 Escalation",body:`Three accounts Vero shouldn't auto-resolve. Each lands in <span class="grad">your queue</span> with the full evidence pack.`,tooltipSide:"left",spotlight:"#esc-review-btn",advanceOn:{click:"#esc-review-btn"},html:`${M}
         <style>
           .scene-c-05-escalation #escalation-bar { background: #fff; border: 1.5px solid rgba(239,68,68,0.4); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(239,68,68,0.08); }
           .scene-c-05-escalation #escalation-bar .alert-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(239,68,68,0.12); display: inline-flex; align-items: center; justify-content: center; color: #b91c1c; flex-shrink: 0; }
@@ -1192,7 +1192,7 @@
         <div class="head" style="margin-bottom: 10px;">
           <div>
             <h2>Escalations</h2>
-            <div class="head-sub">${S} accounts processed \xB7 3 need your call</div>
+            <div class="head-sub">${C} accounts processed \xB7 3 need your call</div>
           </div>
           <span class="pill red">${n.alert} Action required</span>
         </div>
@@ -1205,14 +1205,14 @@
           <button class="btn" id="esc-review-btn">Review queue \u2192</button>
         </div>
         <div class="card">
-          ${M.map((e,s)=>{if(!(s>=2&&s<=4))return E(e,{dim:!0,status:s===0?'<span class="pill green">PTP \u20AC179K</span>':s===1?'<span class="pill blue">Email sent</span>':s===5?'<span class="pill green">PTP \u20AC14K</span>':s===6?'<span class="pill green">Paid today</span>':'<span class="pill blue">Reminder sent</span>'});let o=`
+          ${T.map((s,e)=>{if(!(e>=2&&e<=4))return E(s,{dim:!0,status:e===0?'<span class="pill green">PTP \u20AC179K</span>':e===1?'<span class="pill blue">Email sent</span>':e===5?'<span class="pill green">PTP \u20AC14K</span>':e===6?'<span class="pill green">Paid today</span>':'<span class="pill blue">Reminder sent</span>'});let r=`
               <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px;">
                 <span class="pill amber">\u26A0 Escalated</span>
-                <span class="esc-reason">${{2:"Price disagreement on PO 4421",3:"Short-pay \u20AC4,230 \xB7 trade promo?",4:"Invoice disputed \xB7 subscription cadence"}[s]}</span>
+                <span class="esc-reason">${{2:"Price disagreement on PO 4421",3:"Short-pay \u20AC4,230 \xB7 trade promo?",4:"Invoice disputed \xB7 subscription cadence"}[e]}</span>
               </div>
-            `;return E(e,{status:o}).replace('class="wl-row"','class="wl-row esc"')}).join("")}
+            `;return E(s,{status:r}).replace('class="wl-row"','class="wl-row esc"')}).join("")}
         </div>
-      `},{id:"c-06-done",title:"Step 6 \xB7 Done",body:'Eight minutes of Vero. Hours saved, <span class="grad">every morning</span>, if you want.',tooltipSide:"right",spotlight:"#coll-vero-card",advanceOn:{click:"#coll-yes"},html:`${A}
+      `},{id:"c-06-done",title:"Step 6 \xB7 Done",body:'Eight minutes of Vero. Hours saved, <span class="grad">every morning</span>, if you want.',tooltipSide:"right",spotlight:"#coll-vero-card",advanceOn:{click:"#coll-yes"},html:`${M}
         <style>
           .scene-c-06-done { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding-top: 40px; }
           .scene-c-06-done .greeting { text-align: center; max-width: 540px; }
@@ -1266,7 +1266,7 @@
             </div>
           </div>
         </div>
-      `}]};y(X);var q=[{co:a.retail,amount:"\u20AC4,230",reason:"Short-pay \xB7 possible trade promo",age:"2h",hero:!0},{co:a.pharma,amount:"\u20AC1,200",reason:"Price disagreement on PO 4421",age:"5h",hero:!1},{co:a.tech,amount:"\u20AC850",reason:"Subscription cadence mismatch",age:"1d",hero:!1},{co:a.fashion,amount:"\u20AC2,100",reason:"Quality claim \xB7 SKU 8842",age:"2d",hero:!1},{co:a.build,amount:"\u20AC300",reason:"Unexpected shipping fee",age:"3d",hero:!1}],B=`
+      `}]};$(ne);var D=[{co:t.retail,amount:"\u20AC4,230",reason:"Short-pay \xB7 possible trade promo",age:"2h",hero:!0},{co:t.pharma,amount:"\u20AC1,200",reason:"Price disagreement on PO 4421",age:"5h",hero:!1},{co:t.tech,amount:"\u20AC850",reason:"Subscription cadence mismatch",age:"1d",hero:!1},{co:t.fashion,amount:"\u20AC2,100",reason:"Quality claim \xB7 SKU 8842",age:"2d",hero:!1},{co:t.build,amount:"\u20AC300",reason:"Unexpected shipping fee",age:"3d",hero:!1}],O=`
   <style>
     .scene[class*="scene-d-"] { position: absolute; inset: 0; padding: 22px 28px; font: 13px/1.45 Geist, system-ui, sans-serif; color: #0a0a0a; }
     .scene[class*="scene-d-"] h2 { font: 500 18px/1.2 Geist, system-ui, sans-serif; letter-spacing: -0.015em; margin: 0; }
@@ -1284,7 +1284,7 @@
     .scene[class*="scene-d-"] .pill.gray  { background: rgba(10,10,10,0.06); color: rgba(10,10,10,0.6); }
     .scene[class*="scene-d-"] .eyebrow { font: 500 10px/1 Geist, system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(10,10,10,0.5); }
   </style>
-`,ee={id:"deductions",tag:"DEDUCTIONS \xB7 INTERACTIVE DEMO",coverLabel:"See deductions in 30 seconds",closing:{headline:'Short-pay investigated, settlement posted. <span class="grad">Hours saved.</span>',sub:"Want Vero to auto-resolve patterns it's already seen?"},scenes:[{id:"d-01-queue",title:"Step 1 \xB7 Deduction queue",body:`${a.retail.name} paid short by <span class="grad">\u20AC4,230</span> on a \u20AC92K invoice. Vero will pull the evidence.`,tooltipSide:"left",spotlight:"#ded-investigate",advanceOn:{click:"#ded-investigate"},html:`${B}
+`,oe={id:"deductions",tag:"DEDUCTIONS \xB7 INTERACTIVE DEMO",coverLabel:"See deductions in 30 seconds",closing:{headline:'Short-pay investigated, settlement posted. <span class="grad">Hours saved.</span>',sub:"Want Vero to auto-resolve patterns it's already seen?"},scenes:[{id:"d-01-queue",title:"Step 1 \xB7 Deduction queue",body:`${t.retail.name} paid short by <span class="grad">\u20AC4,230</span> on a \u20AC92K invoice. Vero will pull the evidence.`,tooltipSide:"left",spotlight:"#ded-investigate",advanceOn:{click:"#ded-investigate"},html:`${O}
         <style>
           .scene-d-01-queue .head-tag { display: flex; align-items: center; gap: 8px; }
           .scene-d-01-queue .queue-row { display: grid; grid-template-columns: 40px 1fr 100px 110px auto; align-items: center; gap: 14px; padding: 12px 18px; border-bottom: 1px solid rgba(10,10,10,0.04); font-size: 12px; transition: background 200ms ease; }
@@ -1301,9 +1301,9 @@
         <div class="head">
           <div>
             <h2>Deduction queue</h2>
-            <div class="head-sub">${q.length} open \xB7 \u20AC8,680 disputed \xB7 auto-classification running</div>
+            <div class="head-sub">${D.length} open \xB7 \u20AC8,680 disputed \xB7 auto-classification running</div>
           </div>
-          <span class="pill amber">\u26A0 ${q.length} unresolved</span>
+          <span class="pill amber">\u26A0 ${D.length} unresolved</span>
         </div>
         <div class="card">
           <div class="card-head">
@@ -1313,25 +1313,25 @@
             </div>
             <span class="eyebrow">Action</span>
           </div>
-          ${q.map((e,s)=>`
-            <div class="queue-row ${e.hero?"hero":"faded"}">
-              ${c(e.co)}
+          ${D.map((s,e)=>`
+            <div class="queue-row ${s.hero?"hero":"faded"}">
+              ${f(s.co)}
               <div>
-                <div class="qr-name">${e.co.name}</div>
-                <div class="qr-reason">${e.reason}</div>
+                <div class="qr-name">${s.co.name}</div>
+                <div class="qr-reason">${s.reason}</div>
               </div>
               <div>
-                <div class="qr-amt mono">-${e.amount}</div>
-                <div class="qr-age">${e.age} ago</div>
+                <div class="qr-amt mono">-${s.amount}</div>
+                <div class="qr-age">${s.age} ago</div>
               </div>
-              <span class="pill gray">${e.co.country==="FR"?"France":e.co.country==="ES"?"Spain":e.co.country==="IE"?"Ireland":e.co.country==="SE"?"Sweden":"Netherlands"}</span>
+              <span class="pill gray">${s.co.country==="FR"?"France":s.co.country==="ES"?"Spain":s.co.country==="IE"?"Ireland":s.co.country==="SE"?"Sweden":"Netherlands"}</span>
               <div class="qr-action">
-                ${e.hero?'<button class="btn" id="ded-investigate">Investigate \u2192</button>':'<button class="btn btn-light">Investigate</button>'}
+                ${s.hero?'<button class="btn" id="ded-investigate">Investigate \u2192</button>':'<button class="btn btn-light">Investigate</button>'}
               </div>
             </div>
           `).join("")}
         </div>
-      `},{id:"d-02-evidence",title:"Step 2 \xB7 Evidence chain",body:'Vero pulls the invoice, purchase order, proof of delivery, contract, and any active <span class="grad">trade-promo agreement</span>, then links them automatically.',tooltipSide:"bottom",spotlight:"#evidence-chain",html:`${B}
+      `},{id:"d-02-evidence",title:"Step 2 \xB7 Evidence chain",body:'Vero pulls the invoice, purchase order, proof of delivery, contract, and any active <span class="grad">trade-promo agreement</span>, then links them automatically.',tooltipSide:"bottom",spotlight:"#evidence-chain",html:`${O}
         <style>
           .scene-d-02-evidence .ctx-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; padding: 14px 18px; background: #fff; border: 1px solid rgba(10,10,10,0.08); border-radius: 10px; }
           .scene-d-02-evidence .ctx-amt { font-weight: 500; color: #b91c1c; }
@@ -1369,9 +1369,9 @@
           .scene-d-02-evidence .chain-caption .mono { color: #0a0a0a; font-weight: 500; }
         </style>
         <div class="ctx-head">
-          ${c(a.retail)}
+          ${f(t.retail)}
           <div style="flex: 1;">
-            <div style="font-weight: 500;">${a.retail.name} \xB7 ${a.retail.contact}</div>
+            <div style="font-weight: 500;">${t.retail.name} \xB7 ${t.retail.contact}</div>
             <div style="font-size: 11px; color: rgba(10,10,10,0.55); margin-top: 2px;">Invoice INV-3482 \xB7 \u20AC92,000 \xB7 paid \u20AC87,770 \xB7 <span class="ctx-amt">short \u20AC4,230</span></div>
           </div>
           <span class="pill violet">\u25CF Classifying</span>
@@ -1412,7 +1412,7 @@
             5 sources linked \xB7 <span class="mono">1,247 historical cases</span> cross-referenced \xB7 classification in 2.8s
           </div>
         </div>
-      `},{id:"d-03-recommend",title:"Step 3 \xB7 Vero's plan",body:'Evidence assembled, plan drafted. <span class="grad">One click</span> to apply.',tooltipSide:"left",spotlight:"#apply-btn",advanceOn:{click:"#apply-btn"},html:`${B}
+      `},{id:"d-03-recommend",title:"Step 3 \xB7 Vero's plan",body:'Evidence assembled, plan drafted. <span class="grad">One click</span> to apply.',tooltipSide:"left",spotlight:"#apply-btn",advanceOn:{click:"#apply-btn"},html:`${O}
         <style>
           .scene-d-03-recommend { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 24px; }
           .scene-d-03-recommend .rec-wrap { width: 620px; max-width: 100%; }
@@ -1455,7 +1455,7 @@
             <div class="vero-av thinking"><span class="vero-av-eyes"><span class="vero-av-eye">0</span><span class="vero-av-eye vero-av-eye-r">0</span></span></div>
             <div>
               <div class="vero-label">Vero \xB7 Classification complete</div>
-              <div class="vero-sub">${a.retail.name} \xB7 INV-3482 \xB7 short \u20AC4,230</div>
+              <div class="vero-sub">${t.retail.name} \xB7 INV-3482 \xB7 short \u20AC4,230</div>
             </div>
             <div style="margin-left: auto;"><span class="pill green">Ready to apply</span></div>
           </div>
@@ -1495,7 +1495,7 @@
             </div>
           </div>
         </div>
-      `},{id:"d-04-done",title:"Step 4 \xB7 Posted",body:'Settled in under 5 minutes. Vero spotted <span class="grad">14 similar cases</span> this quarter. Want Vero to resolve those automatically?',tooltipSide:"right",spotlight:"#ded-vero-card",advanceOn:{click:"#ded-yes"},html:`${B}
+      `},{id:"d-04-done",title:"Step 4 \xB7 Posted",body:'Settled in under 5 minutes. Vero spotted <span class="grad">14 similar cases</span> this quarter. Want Vero to resolve those automatically?',tooltipSide:"right",spotlight:"#ded-vero-card",advanceOn:{click:"#ded-yes"},html:`${O}
         <style>
           .scene-d-04-done { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding-top: 30px; }
           .scene-d-04-done .greeting { text-align: center; max-width: 520px; }
@@ -1554,7 +1554,7 @@
             </div>
           </div>
         </div>
-      `}]};y(ee);var se=[{co:a.energy,inv:"INV-0019",amount:179e3,risk:88,reason:"2 broken PTPs \xB7 sentiment declining"},{co:a.motors,inv:"INV-1183",amount:63e3,risk:71,reason:"DSO trend +9 days \xB7 last call 12d ago"},{co:a.fashion,inv:"INV-0876",amount:42e3,risk:64,reason:"New CFO \xB7 payment behavior unclear"},{co:a.tech,inv:"INV-2204",amount:22e3,risk:58,reason:"Subscription dispute open"},{co:a.build,inv:"INV-1144",amount:38e3,risk:52,reason:"POD discrepancy under review"}],V=`
+      `}]};$(oe);var re=[{co:t.energy,inv:"INV-0019",amount:179e3,risk:88,reason:"2 broken PTPs \xB7 sentiment declining"},{co:t.motors,inv:"INV-1183",amount:63e3,risk:71,reason:"DSO trend +9 days \xB7 last call 12d ago"},{co:t.fashion,inv:"INV-0876",amount:42e3,risk:64,reason:"New CFO \xB7 payment behavior unclear"},{co:t.tech,inv:"INV-2204",amount:22e3,risk:58,reason:"Subscription dispute open"},{co:t.build,inv:"INV-1144",amount:38e3,risk:52,reason:"POD discrepancy under review"}],P=`
   <style>
     .scene[class*="scene-p-"] { position: absolute; inset: 0; padding: 22px 28px; font: 13px/1.45 Geist, system-ui, sans-serif; color: #0a0a0a; }
     .scene[class*="scene-p-"] h2 { font: 500 18px/1.2 Geist, system-ui, sans-serif; letter-spacing: -0.015em; margin: 0; }
@@ -1572,36 +1572,36 @@
     .scene[class*="scene-p-"] .pill.indigo{ background: rgba(78,85,225,0.12); color: #3730a3; }
     .scene[class*="scene-p-"] .pill.gray  { background: rgba(10,10,10,0.06); color: rgba(10,10,10,0.6); }
   </style>
-`;function Y({weeks:e,highlight:s=-1,resolved:t=!1}){let p=d=>36+d/(e.length-1)*668,w=Math.max(...e)*1.1,m=Math.min(...e)*.85,g=d=>18+(1-(d-m)/(w-m))*174,h=3,T=e.slice(0,h).map((d,u)=>`${u===0?"M":"L"}${p(u).toFixed(1)},${g(d).toFixed(1)}`).join(" "),I=e.slice(h-1).map((d,u)=>`${u===0?"M":"L"}${p(u+h-1).toFixed(1)},${g(d).toFixed(1)}`).join(" "),K=e.slice(h-1).map((d,u)=>`${p(u+h-1).toFixed(1)},${g(d*1.1).toFixed(1)}`),N=e.slice(h-1).map((d,u)=>`${p(u+h-1).toFixed(1)},${g(d*.92).toFixed(1)}`).reverse(),L=`M${K.join(" L")} L${N.join(" L")} Z`,R=[0,3,6,9,12].map(d=>`<text x="${p(d)}" y="212" font-size="9" fill="rgba(10,10,10,0.45)" text-anchor="middle">W${d+1}</text>`).join(""),x=[0,.33,.66,1].map(d=>{let u=18+d*174;return`<line x1="36" y1="${u}" x2="704" y2="${u}" stroke="rgba(10,10,10,0.05)" stroke-width="1"/>`}).join(""),z=[w,w*.66+m*.34,w*.33+m*.67,m].map((d,u)=>`<text x="30" y="${18+u/3*174+3}" font-size="9" fill="rgba(10,10,10,0.4)" text-anchor="end">\u20AC${(d/1e3).toFixed(0)}K</text>`).join(""),P=s>=0?`
-    <line x1="${p(s)}" y1="18" x2="${p(s)}" y2="192" stroke="${t?"#019273":"#ef4444"}" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/>
-    <circle cx="${p(s)}" cy="${g(e[s])}" r="6" fill="${t?"#019273":"#ef4444"}"/>
-    <circle cx="${p(s)}" cy="${g(e[s])}" r="11" fill="none" stroke="${t?"#019273":"#ef4444"}" stroke-width="1.5" opacity="0.4"/>
-    <text x="${p(s)}" y="${g(e[s])-16}" font-size="10" font-weight="500" fill="${t?"#019273":"#ef4444"}" text-anchor="middle">\u20AC${(e[s]/1e3).toFixed(0)}K</text>
+`;function U({weeks:s,highlight:e=-1,resolved:a=!1}){let h=m=>36+m/(s.length-1)*668,y=Math.max(...s)*1.1,u=Math.min(...s)*.85,b=m=>18+(1-(m-u)/(y-u))*174,c=3,g=s.slice(0,c).map((m,w)=>`${w===0?"M":"L"}${h(w).toFixed(1)},${b(m).toFixed(1)}`).join(" "),_=s.slice(c-1).map((m,w)=>`${w===0?"M":"L"}${h(w+c-1).toFixed(1)},${b(m).toFixed(1)}`).join(" "),I=s.slice(c-1).map((m,w)=>`${h(w+c-1).toFixed(1)},${b(m*1.1).toFixed(1)}`),N=s.slice(c-1).map((m,w)=>`${h(w+c-1).toFixed(1)},${b(m*.92).toFixed(1)}`).reverse(),B=`M${I.join(" L")} L${N.join(" L")} Z`,q=[0,3,6,9,12].map(m=>`<text x="${h(m)}" y="212" font-size="9" fill="rgba(10,10,10,0.45)" text-anchor="middle">W${m+1}</text>`).join(""),k=[0,.33,.66,1].map(m=>{let w=18+m*174;return`<line x1="36" y1="${w}" x2="704" y2="${w}" stroke="rgba(10,10,10,0.05)" stroke-width="1"/>`}).join(""),j=[y,y*.66+u*.34,y*.33+u*.67,u].map((m,w)=>`<text x="30" y="${18+w/3*174+3}" font-size="9" fill="rgba(10,10,10,0.4)" text-anchor="end">\u20AC${(m/1e3).toFixed(0)}K</text>`).join(""),L=e>=0?`
+    <line x1="${h(e)}" y1="18" x2="${h(e)}" y2="192" stroke="${a?"#019273":"#ef4444"}" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/>
+    <circle cx="${h(e)}" cy="${b(s[e])}" r="6" fill="${a?"#019273":"#ef4444"}"/>
+    <circle cx="${h(e)}" cy="${b(s[e])}" r="11" fill="none" stroke="${a?"#019273":"#ef4444"}" stroke-width="1.5" opacity="0.4"/>
+    <text x="${h(e)}" y="${b(s[e])-16}" font-size="10" font-weight="500" fill="${a?"#019273":"#ef4444"}" text-anchor="middle">\u20AC${(s[e]/1e3).toFixed(0)}K</text>
   `:"";return`
     <svg viewBox="0 0 720 220" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">
-      ${x}
-      ${z}
-      <path d="${L}" fill="rgba(78,85,225,0.10)"/>
-      <path d="${T}" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="${I}" fill="none" stroke="#4e55e1" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round"/>
-      ${P}
-      ${R}
+      ${k}
+      ${j}
+      <path d="${B}" fill="rgba(78,85,225,0.10)"/>
+      <path d="${g}" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="${_}" fill="none" stroke="#4e55e1" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round"/>
+      ${L}
+      ${q}
     </svg>
-  `}var k=[820,850,870,890,910,880,740,820,900,940,980,1010,1040].map(e=>e*1e3),ae=[820,850,870,890,910,920,935,950,980,1e3,1030,1060,1090].map(e=>e*1e3),ne={fx:{id:"fx",label:"EUR +5% vs USD",icon:"globe",title:"EUR strengthens 5% vs USD",sub:"Affects US revenue conversion \xB7 Q ends in week 13",intensities:["+2%","+5%","+10%"],defaultIntensity:"+5%",driverCopy:"US receivables book: $1.2M \xB7 locked at \u20AC0.92 \xB7 adjustment applied from week 4",weeks:(e="+5%")=>{let s=e==="+2%"?.972:e==="+10%"?.88:.93;return k.map((t,i)=>i<3?t:Math.round(t*s))},risk:(e="+5%")=>({w13:e==="+2%"?"\u20AC1.01M":e==="+10%"?"\u20AC916K":"\u20AC970K",delta:e==="+2%"?"\u2212\u20AC30K":e==="+10%"?"\u2212\u20AC124K":"\u2212\u20AC70K",exposure:e==="+2%"?"\u20AC35K":e==="+10%"?"\u20AC184K":"\u20AC92K",exposureDesc:"USD receivables"})},costs:{id:"costs",label:"Input costs +8%",icon:"fuel",title:"Input costs rise 8%",sub:"Hits margin on AP payables \xB7 customers pass less-than-full through",intensities:["+4%","+8%","+15%"],defaultIntensity:"+8%",driverCopy:"Raw mat index +8% WoW \xB7 AP book \u20AC2.4M across 6 suppliers \xB7 60% pass-through",weeks:(e="+8%")=>{let s=e==="+4%"?.975:e==="+15%"?.91:.955;return k.map((t,i)=>i<3?t:Math.round(t*s))},risk:(e="+8%")=>({w13:e==="+4%"?"\u20AC1.01M":e==="+15%"?"\u20AC946K":"\u20AC993K",delta:e==="+4%"?"\u2212\u20AC30K":e==="+15%"?"\u2212\u20AC94K":"\u2212\u20AC47K",exposure:e==="+4%"?"\u20AC28K":e==="+15%"?"\u20AC95K":"\u20AC58K",exposureDesc:"margin compression"})},dso:{id:"dso",label:"DSO +5 days",icon:"trendingUp",title:"DSO slips +5 days",sub:"Receipts shift right \xB7 same cash, later week",intensities:["+3d","+5d","+10d"],defaultIntensity:"+5d",driverCopy:"Customer AP teams taking longer \xB7 4 accounts showing drift \xB7 early warning",weeks:(e="+5d")=>{let s=e==="+3d"?.4:e==="+10d"?1.4:.7;return k.map((t,i)=>{if(i<3)return t;let o=Math.max(0,Math.min(k.length-1,i-s)),r=Math.floor(o),l=Math.ceil(o),b=o-r;return Math.round(k[r]*(1-b)+k[l]*b)})},risk:(e="+5d")=>({w13:e==="+3d"?"\u20AC1.02M":e==="+10d"?"\u20AC950K":"\u20AC985K",delta:e==="+3d"?"\u2212\u20AC20K":e==="+10d"?"\u2212\u20AC90K":"\u2212\u20AC55K",exposure:e==="+3d"?"\u20AC52K":e==="+10d"?"\u20AC178K":"\u20AC108K",exposureDesc:"cash timing"})},delay:{id:"delay",label:"Top customer 30d delay",icon:"truck",title:`${a.energy.name} delays 30 days`,sub:"\u20AC179K PTP at risk \xB7 historical slippage pattern applies",intensities:["15d","30d","60d"],defaultIntensity:"30d",driverCopy:`${a.energy.name} \xB7 \u20AC179K invoice \xB7 88% slip risk \xB7 2 broken PTPs in 60d`,weeks:(e="30d")=>{let s=e==="15d"?110:179,t=e==="15d"?8:e==="60d"?12:10;return k.map((i,o)=>o===6?i-s*1e3:o===t&&e!=="60d"?i+Math.round(s*.8*1e3):i)},risk:(e="30d")=>({w13:e==="15d"?"\u20AC1.02M":e==="60d"?"\u20AC861K":"\u20AC931K",delta:e==="15d"?"\u2212\u20AC20K":e==="60d"?"\u2212\u20AC179K":"\u2212\u20AC109K",exposure:e==="15d"?"\u20AC110K":"\u20AC179K",exposureDesc:`${a.energy.name} PTP`})}};function te(e,s){let v=k.length,p=x=>36+x/(v-1)*668,w=[...k,...e],m=Math.max(...w)*1.05,g=Math.min(...w)*.9,h=x=>14+(1-(x-g)/(m-g))*150,T=x=>x.map((z,P)=>`${P===0?"M":"L"}${p(P).toFixed(1)},${h(z).toFixed(1)}`).join(" "),I=[0,.33,.66,1].map(x=>{let z=14+x*150;return`<line x1="36" y1="${z}" x2="704" y2="${z}" stroke="rgba(10,10,10,0.05)" stroke-width="1"/>`}).join(""),K=[0,3,6,9,12].map(x=>`<text x="${p(x)}" y="182" font-size="9" fill="rgba(10,10,10,0.45)" text-anchor="middle">W${x+1}</text>`).join(""),N=[m,(m+g)/2,g].map((x,z)=>`<text x="30" y="${14+z/2*150+3}" font-size="9" fill="rgba(10,10,10,0.4)" text-anchor="end">\u20AC${(x/1e3).toFixed(0)}K</text>`).join(""),L=p(v-1),R=h(e[v-1]);return`
+  `}var z=[820,850,870,890,910,880,740,820,900,940,980,1010,1040].map(s=>s*1e3),ce=[820,850,870,890,910,920,935,950,980,1e3,1030,1060,1090].map(s=>s*1e3),le={fx:{id:"fx",label:"EUR +5% vs USD",icon:"globe",title:"EUR strengthens 5% vs USD",sub:"Affects US revenue conversion \xB7 Q ends in week 13",intensities:["+2%","+5%","+10%"],defaultIntensity:"+5%",driverCopy:"US receivables book: $1.2M \xB7 locked at \u20AC0.92 \xB7 adjustment applied from week 4",weeks:(s="+5%")=>{let e=s==="+2%"?.972:s==="+10%"?.88:.93;return z.map((a,i)=>i<3?a:Math.round(a*e))},risk:(s="+5%")=>({w13:s==="+2%"?"\u20AC1.01M":s==="+10%"?"\u20AC916K":"\u20AC970K",delta:s==="+2%"?"\u2212\u20AC30K":s==="+10%"?"\u2212\u20AC124K":"\u2212\u20AC70K",exposure:s==="+2%"?"\u20AC35K":s==="+10%"?"\u20AC184K":"\u20AC92K",exposureDesc:"USD receivables"})},costs:{id:"costs",label:"Input costs +8%",icon:"fuel",title:"Input costs rise 8%",sub:"Hits margin on AP payables \xB7 customers pass less-than-full through",intensities:["+4%","+8%","+15%"],defaultIntensity:"+8%",driverCopy:"Raw mat index +8% WoW \xB7 AP book \u20AC2.4M across 6 suppliers \xB7 60% pass-through",weeks:(s="+8%")=>{let e=s==="+4%"?.975:s==="+15%"?.91:.955;return z.map((a,i)=>i<3?a:Math.round(a*e))},risk:(s="+8%")=>({w13:s==="+4%"?"\u20AC1.01M":s==="+15%"?"\u20AC946K":"\u20AC993K",delta:s==="+4%"?"\u2212\u20AC30K":s==="+15%"?"\u2212\u20AC94K":"\u2212\u20AC47K",exposure:s==="+4%"?"\u20AC28K":s==="+15%"?"\u20AC95K":"\u20AC58K",exposureDesc:"margin compression"})},dso:{id:"dso",label:"DSO +5 days",icon:"trendingUp",title:"DSO slips +5 days",sub:"Receipts shift right \xB7 same cash, later week",intensities:["+3d","+5d","+10d"],defaultIntensity:"+5d",driverCopy:"Customer AP teams taking longer \xB7 4 accounts showing drift \xB7 early warning",weeks:(s="+5d")=>{let e=s==="+3d"?.4:s==="+10d"?1.4:.7;return z.map((a,i)=>{if(i<3)return a;let r=Math.max(0,Math.min(z.length-1,i-e)),o=Math.floor(r),l=Math.ceil(r),d=r-o;return Math.round(z[o]*(1-d)+z[l]*d)})},risk:(s="+5d")=>({w13:s==="+3d"?"\u20AC1.02M":s==="+10d"?"\u20AC950K":"\u20AC985K",delta:s==="+3d"?"\u2212\u20AC20K":s==="+10d"?"\u2212\u20AC90K":"\u2212\u20AC55K",exposure:s==="+3d"?"\u20AC52K":s==="+10d"?"\u20AC178K":"\u20AC108K",exposureDesc:"cash timing"})},delay:{id:"delay",label:"Top customer 30d delay",icon:"truck",title:`${t.energy.name} delays 30 days`,sub:"\u20AC179K PTP at risk \xB7 historical slippage pattern applies",intensities:["15d","30d","60d"],defaultIntensity:"30d",driverCopy:`${t.energy.name} \xB7 \u20AC179K invoice \xB7 88% slip risk \xB7 2 broken PTPs in 60d`,weeks:(s="30d")=>{let e=s==="15d"?110:179,a=s==="15d"?8:s==="60d"?12:10;return z.map((i,r)=>r===6?i-e*1e3:r===a&&s!=="60d"?i+Math.round(e*.8*1e3):i)},risk:(s="30d")=>({w13:s==="15d"?"\u20AC1.02M":s==="60d"?"\u20AC861K":"\u20AC931K",delta:s==="15d"?"\u2212\u20AC20K":s==="60d"?"\u2212\u20AC179K":"\u2212\u20AC109K",exposure:s==="15d"?"\u20AC110K":"\u20AC179K",exposureDesc:`${t.energy.name} PTP`})}};function de(s,e){let x=z.length,h=k=>36+k/(x-1)*668,y=[...z,...s],u=Math.max(...y)*1.05,b=Math.min(...y)*.9,c=k=>14+(1-(k-b)/(u-b))*150,g=k=>k.map((j,L)=>`${L===0?"M":"L"}${h(L).toFixed(1)},${c(j).toFixed(1)}`).join(" "),_=[0,.33,.66,1].map(k=>{let j=14+k*150;return`<line x1="36" y1="${j}" x2="704" y2="${j}" stroke="rgba(10,10,10,0.05)" stroke-width="1"/>`}).join(""),I=[0,3,6,9,12].map(k=>`<text x="${h(k)}" y="182" font-size="9" fill="rgba(10,10,10,0.45)" text-anchor="middle">W${k+1}</text>`).join(""),N=[u,(u+b)/2,b].map((k,j)=>`<text x="30" y="${14+j/2*150+3}" font-size="9" fill="rgba(10,10,10,0.4)" text-anchor="end">\u20AC${(k/1e3).toFixed(0)}K</text>`).join(""),B=h(x-1),q=c(s[x-1]);return`
     <svg viewBox="0 0 720 190" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">
-      ${I}
+      ${_}
       ${N}
-      <path d="${T(k)}" fill="none" stroke="rgba(10,10,10,0.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="${T(e)}" fill="none" stroke="#4e55e1" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="${L}" cy="${R}" r="4" fill="#4e55e1"/>
-      <text x="${L-6}" y="${R-8}" font-size="10" font-weight="500" fill="#4e55e1" text-anchor="end">${s}</text>
-      ${K}
+      <path d="${g(z)}" fill="none" stroke="rgba(10,10,10,0.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="${g(s)}" fill="none" stroke="#4e55e1" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="${B}" cy="${q}" r="4" fill="#4e55e1"/>
+      <text x="${B-6}" y="${q-8}" font-size="10" font-weight="500" fill="#4e55e1" text-anchor="end">${e}</text>
+      ${I}
     </svg>
-  `}function G(e,s){let t=ne[e],i=s||t.defaultIntensity,o=t.weeks(i),r=t.risk(i);return`
+  `}function H(s,e){let a=le[s],i=e||a.defaultIntensity,r=a.weeks(i),o=a.risk(i);return`
     <div class="sc-head">
       <div>
-        <div class="sc-title">${t.title} \xB7 <span class="sc-intensity-label">${i}</span></div>
-        <div class="sc-sub">${t.sub}</div>
+        <div class="sc-title">${a.title} \xB7 <span class="sc-intensity-label">${i}</span></div>
+        <div class="sc-sub">${a.sub}</div>
       </div>
       <div class="sc-legend">
         <span class="key"><span class="swatch base"></span>Baseline</span>
@@ -1610,10 +1610,10 @@
     </div>
     <div class="intensity-row">
       <span class="int-label">Intensity</span>
-      ${t.intensities.map(l=>`<button class="int-chip ${l===i?"active":""}" data-scenario="${e}" data-intensity="${l}">${l}</button>`).join("")}
-      <span class="int-driver">${t.driverCopy}</span>
+      ${a.intensities.map(l=>`<button class="int-chip ${l===i?"active":""}" data-scenario="${s}" data-intensity="${l}">${l}</button>`).join("")}
+      <span class="int-driver">${a.driverCopy}</span>
     </div>
-    ${te(o,r.w13)}
+    ${de(r,o.w13)}
     <div class="impact-row">
       <div class="impact">
         <div class="l">Week 13 \xB7 baseline</div>
@@ -1622,16 +1622,16 @@
       </div>
       <div class="impact">
         <div class="l">Week 13 \xB7 scenario</div>
-        <div class="v mono" style="color: #b91c1c;">${r.w13}</div>
-        <div class="d down">${r.delta} exposure</div>
+        <div class="v mono" style="color: #b91c1c;">${o.w13}</div>
+        <div class="d down">${o.delta} exposure</div>
       </div>
       <div class="impact">
         <div class="l">Cash at risk</div>
-        <div class="v mono" style="color: #b91c1c;">${r.exposure}</div>
-        <div class="d down">${r.exposureDesc}</div>
+        <div class="v mono" style="color: #b91c1c;">${o.exposure}</div>
+        <div class="d down">${o.exposureDesc}</div>
       </div>
     </div>
-  `}var ie={id:"predictions",tag:"CASH FLOW FORECASTING \xB7 INTERACTIVE DEMO",coverLabel:"See cash predictions in 30 seconds",closing:{headline:'A \u20AC170K dip avoided. Forecast back on track. <span class="grad">Hours back.</span>',sub:"Want Vero to monitor and act on signals every morning?"},scenes:[{id:"p-01-forecast",title:"Step 1 \xB7 13-week forecast",body:'Cash holding strong, except a <span class="grad">\u20AC170K dip</span> in week 6. Vero spotted the risk before it lands.',tooltipSide:"left",spotlight:"#dip-investigate",advanceOn:{click:"#dip-investigate"},html:`${V}
+  `}var pe={id:"predictions",tag:"CASH FLOW FORECASTING \xB7 INTERACTIVE DEMO",coverLabel:"See cash predictions in 30 seconds",closing:{headline:'A \u20AC170K dip avoided. Forecast back on track. <span class="grad">Hours back.</span>',sub:"Want Vero to monitor and act on signals every morning?"},scenes:[{id:"p-01-forecast",title:"Step 1 \xB7 13-week forecast",body:'Cash holding strong, except a <span class="grad">\u20AC170K dip</span> in week 6. Vero spotted the risk before it lands.',tooltipSide:"left",spotlight:"#dip-investigate",advanceOn:{click:"#dip-investigate"},html:`${P}
         <style>
           .scene-p-01-forecast .chart-card { background: #fff; border: 1px solid rgba(10,10,10,0.08); border-radius: 10px; padding: 16px 18px 8px; }
           .scene-p-01-forecast .chart-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
@@ -1674,7 +1674,7 @@
               <span class="legend-key"><span class="swatch band"></span>Confidence</span>
             </div>
           </div>
-          ${Y({weeks:k,highlight:6})}
+          ${U({weeks:z,highlight:6})}
         </div>
         <div class="stats-row">
           <div class="stat">
@@ -1701,7 +1701,7 @@
           </div>
           <button class="btn" id="dip-investigate">Investigate \u2192</button>
         </div>
-      `},{id:"p-02-scenario",title:"Step 2 \xB7 Stress-test",body:'<span class="grad">Click any scenario</span>. The chart and numbers update live. Try switching and dialling intensities up.',tooltipSide:"top",spotlight:"#scenarios-frame",advanceOn:{click:"#scenario-drilldown"},onMount:e=>{let s=e.querySelector("#scenario-inner");s&&(e.querySelectorAll("[data-scenario-tab]").forEach(t=>{t.addEventListener("click",()=>{let i=t.getAttribute("data-scenario-tab");e.querySelectorAll("[data-scenario-tab]").forEach(o=>o.classList.toggle("active",o===t)),s.innerHTML=G(i)})}),e.addEventListener("click",t=>{let i=t.target.closest("[data-intensity]");if(!i)return;let o=i.getAttribute("data-scenario"),r=i.getAttribute("data-intensity");s.innerHTML=G(o,r)}))},html:`${V}
+      `},{id:"p-02-scenario",title:"Step 2 \xB7 Stress-test",body:'<span class="grad">Click any scenario</span>. The chart and numbers update live. Try switching and dialling intensities up.',tooltipSide:"top",spotlight:"#scenarios-frame",advanceOn:{click:"#scenario-drilldown"},onMount:s=>{let e=s.querySelector("#scenario-inner");e&&(s.querySelectorAll("[data-scenario-tab]").forEach(a=>{a.addEventListener("click",()=>{let i=a.getAttribute("data-scenario-tab");s.querySelectorAll("[data-scenario-tab]").forEach(r=>r.classList.toggle("active",r===a)),e.innerHTML=H(i)})}),s.addEventListener("click",a=>{let i=a.target.closest("[data-intensity]");if(!i)return;let r=i.getAttribute("data-scenario"),o=i.getAttribute("data-intensity");e.innerHTML=H(r,o)}))},html:`${P}
         <style>
           .scene-p-02-scenario #scenarios-frame { background: #fff; border: 1px solid rgba(10,10,10,0.08); border-radius: 10px; padding: 14px; }
           /* Tab strip for the four top-level scenarios */
@@ -1754,7 +1754,7 @@
             <button class="tab" data-scenario-tab="dso">${n.trendingUp} DSO drift</button>
             <button class="tab" data-scenario-tab="delay">${n.truck} Customer delay</button>
           </div>
-          <div id="scenario-inner">${G("fx")}</div>
+          <div id="scenario-inner">${H("fx")}</div>
           <div class="cta-bar">
             <div>
               <div class="cta-label">Pick a scenario and click through the intensities, then see the invoices at risk</div>
@@ -1763,7 +1763,7 @@
             <button class="btn" id="scenario-drilldown">See invoices at risk \u2192</button>
           </div>
         </div>
-      `},{id:"p-03-atrisk",title:"Step 3 \xB7 At-risk invoices",body:`${a.energy.name}'s \u20AC179K is the biggest exposure. <span class="grad">88% likely to slip</span> based on past behaviour plus signals.`,tooltipSide:"bottom",spotlight:"#energy-row",advanceOn:{click:"#energy-row"},html:`${V}
+      `},{id:"p-03-atrisk",title:"Step 3 \xB7 At-risk invoices",body:`${t.energy.name}'s \u20AC179K is the biggest exposure. <span class="grad">88% likely to slip</span> based on past behaviour plus signals.`,tooltipSide:"bottom",spotlight:"#energy-row",advanceOn:{click:"#energy-row"},html:`${P}
         <style>
           .scene-p-03-atrisk .ctx { display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.18); border-radius: 10px; margin-bottom: 14px; }
           .scene-p-03-atrisk .ctx-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(239,68,68,0.12); display: inline-flex; align-items: center; justify-content: center; color: #b91c1c; flex-shrink: 0; }
@@ -1810,27 +1810,27 @@
           <div class="card-head">
             <div>
               <div class="h3">Top 5 risk exposures</div>
-              <div class="head-meta">Total at risk: \u20AC344K \xB7 ${a.energy.name} highest</div>
+              <div class="head-meta">Total at risk: \u20AC344K \xB7 ${t.energy.name} highest</div>
             </div>
             <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(10,10,10,0.5);">Risk score</span>
           </div>
-          ${se.map((e,s)=>{let t=s===0,i=e.risk>=80?"red":e.risk>=65?"amber":"gray",o=e.risk>=80?"#ef4444":e.risk>=65?"#f59e0b":"#94a3b8";return`
-              <div class="risk-row ${t?"hero":""}" ${t?'id="energy-row"':""}>
-                ${c(e.co)}
+          ${re.map((s,e)=>{let a=e===0,i=s.risk>=80?"red":s.risk>=65?"amber":"gray",r=s.risk>=80?"#ef4444":s.risk>=65?"#f59e0b":"#94a3b8";return`
+              <div class="risk-row ${a?"hero":""}" ${a?'id="energy-row"':""}>
+                ${f(s.co)}
                 <div>
-                  <div class="rr-name">${e.co.name}</div>
-                  <div class="rr-inv">${e.inv} \xB7 ${e.co.country}</div>
+                  <div class="rr-name">${s.co.name}</div>
+                  <div class="rr-inv">${s.inv} \xB7 ${s.co.country}</div>
                 </div>
-                <div class="rr-amt mono">\u20AC${(e.amount/1e3).toFixed(0)}K</div>
+                <div class="rr-amt mono">\u20AC${(s.amount/1e3).toFixed(0)}K</div>
                 <div class="rr-risk">
-                  <div class="risk-bar"><div class="risk-bar-fill" style="width: ${e.risk}%; background: ${o};"></div></div>
-                  <span class="risk-pct" style="color: ${o};">${e.risk}</span>
+                  <div class="risk-bar"><div class="risk-bar-fill" style="width: ${s.risk}%; background: ${r};"></div></div>
+                  <span class="risk-pct" style="color: ${r};">${s.risk}</span>
                 </div>
-                <div class="rr-reason" style="grid-column: 5 / 7;">${e.reason}</div>
+                <div class="rr-reason" style="grid-column: 5 / 7;">${s.reason}</div>
               </div>
             `}).join("")}
         </div>
-      `},{id:"p-04-recommend",title:"Step 4 \xB7 Vero's plan",body:`Three risk signals stack up. Vero's plan: <span class="grad">act now</span>, before the dip lands.`,tooltipSide:"left",spotlight:"#pred-apply",advanceOn:{click:"#pred-apply"},html:`${V}
+      `},{id:"p-04-recommend",title:"Step 4 \xB7 Vero's plan",body:`Three risk signals stack up. Vero's plan: <span class="grad">act now</span>, before the dip lands.`,tooltipSide:"left",spotlight:"#pred-apply",advanceOn:{click:"#pred-apply"},html:`${P}
         <style>
           .scene-p-04-recommend { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 18px; }
           .scene-p-04-recommend .rec-wrap { width: 640px; max-width: 100%; }
@@ -1876,7 +1876,7 @@
             <div class="vero-av thinking"><span class="vero-av-eyes"><span class="vero-av-eye">0</span><span class="vero-av-eye vero-av-eye-r">0</span></span></div>
             <div>
               <div class="vero-label">Vero \xB7 Risk analysis complete</div>
-              <div class="vero-sub">${a.energy.name} \xB7 INV-0019 \xB7 \u20AC179,000 \xB7 PTP due Fri 25 Apr</div>
+              <div class="vero-sub">${t.energy.name} \xB7 INV-0019 \xB7 \u20AC179,000 \xB7 PTP due Fri 25 Apr</div>
             </div>
             <div style="margin-left: auto;"><span class="pill red">${n.alert} 88% slip risk</span></div>
           </div>
@@ -1915,7 +1915,7 @@
                   <span class="action-icon">${n.alert}</span>
                   <div class="body">
                     <div class="lab">Move to priority collections queue</div>
-                    <div class="det">If no response by Thursday, escalate to ${a.energy.contact}'s manager</div>
+                    <div class="det">If no response by Thursday, escalate to ${t.energy.contact}'s manager</div>
                   </div>
                 </div>
               </div>
@@ -1934,7 +1934,7 @@
             </div>
           </div>
         </div>
-      `},{id:"p-05-resolved",title:"Step 5 \xB7 Forecast restored",body:'Dip mitigated. Forecast back on trend. Want Vero to <span class="grad">monitor and act</span> on these signals every morning?',tooltipSide:"top",spotlight:"#pred-yes",advanceOn:{click:"#pred-yes"},html:`${V}
+      `},{id:"p-05-resolved",title:"Step 5 \xB7 Forecast restored",body:'Dip mitigated. Forecast back on trend. Want Vero to <span class="grad">monitor and act</span> on these signals every morning?',tooltipSide:"top",spotlight:"#pred-yes",advanceOn:{click:"#pred-yes"},html:`${P}
         <style>
           .scene-p-05-resolved { display: flex; flex-direction: column; gap: 14px; }
           .scene-p-05-resolved .greeting { display: flex; align-items: center; gap: 12px; }
@@ -1963,7 +1963,7 @@
           <div class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div>
           <div>
             <h3>Forecast restored</h3>
-            <p>Verification call placed \xB7 ${a.energy.contact} reaffirmed Fri 25 Apr \xB7 backup escalation queued</p>
+            <p>Verification call placed \xB7 ${t.energy.contact} reaffirmed Fri 25 Apr \xB7 backup escalation queued</p>
           </div>
           <div style="margin-left: auto;"><span class="pill green">\u20AC170K dip avoided</span></div>
         </div>
@@ -1972,7 +1972,7 @@
             <div class="ch-title">13-week cash forecast \xB7 after Vero's plan</div>
             <div class="ch-delta">+\u20AC50K vs prior forecast at week 13</div>
           </div>
-          ${Y({weeks:ae,highlight:6,resolved:!0})}
+          ${U({weeks:ce,highlight:6,resolved:!0})}
         </div>
         <div class="mini-stats">
           <div class="mini-stat"><div class="l">Week 6</div><div class="v mono">\u20AC920K</div></div>
@@ -1990,7 +1990,7 @@
             </div>
           </div>
         </div>
-      `}]};y(ie);var oe=[{co:a.energy,risk:88,amount:"\u20AC179K",insight:"2 broken PTPs \xB7 sentiment declining"},{co:a.motors,risk:71,amount:"\u20AC63K",insight:"DSO trend +9 days \xB7 last call 12d ago"},{co:a.fashion,risk:64,amount:"\u20AC42K",insight:"New CFO \xB7 payment behavior unclear"},{co:a.tech,risk:58,amount:"\u20AC22K",insight:"Subscription dispute open"},{co:a.build,risk:52,amount:"\u20AC38K",insight:"POD discrepancy under review"}],O=`
+      `}]};$(pe);var ve=[{co:t.energy,risk:88,amount:"\u20AC179K",insight:"2 broken PTPs \xB7 sentiment declining"},{co:t.motors,risk:71,amount:"\u20AC63K",insight:"DSO trend +9 days \xB7 last call 12d ago"},{co:t.fashion,risk:64,amount:"\u20AC42K",insight:"New CFO \xB7 payment behavior unclear"},{co:t.tech,risk:58,amount:"\u20AC22K",insight:"Subscription dispute open"},{co:t.build,risk:52,amount:"\u20AC38K",insight:"POD discrepancy under review"}],R=`
   <style>
     .scene[class*="scene-v-"] { position: absolute; inset: 0; padding: 20px 28px; font: 13px/1.45 Geist, system-ui, sans-serif; color: #0a0a0a; }
     .scene[class*="scene-v-"] h2 { font: 500 17px/1.2 Geist, system-ui, sans-serif; letter-spacing: -0.015em; margin: 0; }
@@ -2029,7 +2029,7 @@
     .scene[class*="scene-v-"] .send-btn { width: 32px; height: 32px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; background: #0a0a0a; color: #fff; border: 0; cursor: pointer; flex-shrink: 0; }
     .scene[class*="scene-v-"] .send-btn svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   </style>
-`,re={id:"vero-chat",tag:"VERO CHAT \xB7 INTERACTIVE DEMO",coverLabel:"See Vero Chat in 30 seconds",closing:{headline:'Ask anything. Get answers and <span class="grad">actions</span>.',sub:"Want Vero to monitor your risk landscape and brief you every morning?"},scenes:[{id:"v-01-ask",title:"Step 1 \xB7 Ask",body:'Type any question. Vero pulls from your <span class="grad">live data</span>. No SQL, no joins, no waiting on BI.',tooltipSide:"left",spotlight:"#send-btn",advanceOn:{click:"#send-btn"},html:`${O}
+`,ge={id:"vero-chat",tag:"VERO CHAT \xB7 INTERACTIVE DEMO",coverLabel:"See Vero Chat in 30 seconds",closing:{headline:'Ask anything. Get answers and <span class="grad">actions</span>.',sub:"Want Vero to monitor your risk landscape and brief you every morning?"},scenes:[{id:"v-01-ask",title:"Step 1 \xB7 Ask",body:'Type any question. Vero pulls from your <span class="grad">live data</span>. No SQL, no joins, no waiting on BI.',tooltipSide:"left",spotlight:"#send-btn",advanceOn:{click:"#send-btn"},html:`${R}
         <style>
           .scene-v-01-ask .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; color: rgba(10,10,10,0.4); text-align: center; padding: 40px 24px; }
           .scene-v-01-ask .empty-state .v-big { width: 56px; height: 56px; margin-bottom: 14px; }
@@ -2065,7 +2065,7 @@
             </div>
           </div>
         </div>
-      `},{id:"v-02-thinking",title:"Step 2 \xB7 Thinking",body:'Vero calls the right tools (aging report, credit scoring, communications history) <span class="grad">in parallel</span>.',tooltipSide:"right",spotlight:"#tool-stack",html:`${O}
+      `},{id:"v-02-thinking",title:"Step 2 \xB7 Thinking",body:'Vero calls the right tools (aging report, credit scoring, communications history) <span class="grad">in parallel</span>.',tooltipSide:"right",spotlight:"#tool-stack",html:`${R}
         <style>
           .scene-v-02-thinking .tool-stack { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border: 1px solid rgba(130,89,247,0.25); border-radius: 12px; background: rgba(130,89,247,0.04); }
           .scene-v-02-thinking .tool-stack .stack-head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid rgba(130,89,247,0.18); }
@@ -2134,7 +2134,7 @@
             </div>
           </div>
         </div>
-      `},{id:"v-03-answer",title:"Step 3 \xB7 Answer",body:'Ranked, scored, with the why. The action chips are <span class="grad">one click</span>. Not just an answer, an offer to act.',tooltipSide:"top",spotlight:"#schedule-calls-btn",advanceOn:{click:"#schedule-calls-btn"},html:`${O}
+      `},{id:"v-03-answer",title:"Step 3 \xB7 Answer",body:'Ranked, scored, with the why. The action chips are <span class="grad">one click</span>. Not just an answer, an offer to act.',tooltipSide:"top",spotlight:"#schedule-calls-btn",advanceOn:{click:"#schedule-calls-btn"},html:`${R}
         <style>
           .scene-v-03-answer .answer-intro { font-size: 13px; line-height: 1.55; margin-bottom: 12px; }
           .scene-v-03-answer .answer-intro strong { font-weight: 500; }
@@ -2177,19 +2177,19 @@
               <div class="msg-vero-content">
                 <div class="msg-vero-bubble">
                   <div class="answer-intro">
-                    Five customers stand out. Total exposure is <span class="grad">\u20AC344K</span> across these accounts. Top one is <strong>${a.energy.name}</strong>: they've broken 2 PTPs in 60 days and sentiment is shifting.
+                    Five customers stand out. Total exposure is <span class="grad">\u20AC344K</span> across these accounts. Top one is <strong>${t.energy.name}</strong>: they've broken 2 PTPs in 60 days and sentiment is shifting.
                   </div>
                   <div class="ranked-list">
-                    ${oe.slice(0,3).map((e,s)=>{let t=e.risk>=80?"r-red":e.risk>=65?"r-amber":"r-gray";return`
+                    ${ve.slice(0,3).map((s,e)=>{let a=s.risk>=80?"r-red":s.risk>=65?"r-amber":"r-gray";return`
                         <div class="ranked-item">
-                          <span class="rank-num">${s+1}</span>
-                          ${c(e.co)}
+                          <span class="rank-num">${e+1}</span>
+                          ${f(s.co)}
                           <div>
-                            <div class="ri-name">${e.co.name}</div>
-                            <div class="ri-insight">${e.insight}</div>
+                            <div class="ri-name">${s.co.name}</div>
+                            <div class="ri-insight">${s.insight}</div>
                           </div>
-                          <span class="ri-amt mono">${e.amount}</span>
-                          <span class="ri-risk ${t}">${e.risk}%</span>
+                          <span class="ri-amt mono">${s.amount}</span>
+                          <span class="ri-risk ${a}">${s.risk}%</span>
                         </div>
                       `}).join("")}
                     <div style="font-size: 11px; color: rgba(10,10,10,0.5); text-align: center; padding: 4px 0;">+ 2 more (Acme Tech, Acme Build)</div>
@@ -2217,7 +2217,7 @@
             </div>
           </div>
         </div>
-      `},{id:"v-04-done",title:"Step 4 \xB7 Done",body:'Three calls scheduled in <span class="grad">one click</span>. Want Vero to flag risks and brief you every morning?',tooltipSide:"top",spotlight:"#chat-yes",advanceOn:{click:"#chat-yes"},html:`${O}
+      `},{id:"v-04-done",title:"Step 4 \xB7 Done",body:'Three calls scheduled in <span class="grad">one click</span>. Want Vero to flag risks and brief you every morning?',tooltipSide:"top",spotlight:"#chat-yes",advanceOn:{click:"#chat-yes"},html:`${R}
         <style>
           .scene-v-04-done .scheduled-card { background: #fff; border: 1px solid rgba(1,146,115,0.25); border-radius: 12px; overflow: hidden; }
           .scene-v-04-done .sc-head { padding: 12px 16px; background: rgba(1,146,115,0.05); border-bottom: 1px solid rgba(1,146,115,0.15); display: flex; align-items: center; gap: 10px; }
@@ -2255,27 +2255,27 @@
                       <span class="pill green" style="margin-left: auto;">3 calls queued</span>
                     </div>
                     <div class="sc-row">
-                      ${C(a.energy)}
+                      ${A(t.energy)}
                       <div>
-                        <div class="sc-name">${a.energy.name} \xB7 ${a.energy.contact}</div>
+                        <div class="sc-name">${t.energy.name} \xB7 ${t.energy.contact}</div>
                         <div class="sc-script">Light-touch \xB7 re-confirm Fri payment timing</div>
                       </div>
                       <span class="sc-when mono">09:00 \xB7 PT</span>
                       <span class="pill gray">Portuguese</span>
                     </div>
                     <div class="sc-row">
-                      ${C(a.motors)}
+                      ${A(t.motors)}
                       <div>
-                        <div class="sc-name">${a.motors.name} \xB7 ${a.motors.contact}</div>
+                        <div class="sc-name">${t.motors.name} \xB7 ${t.motors.contact}</div>
                         <div class="sc-script">Check on aging \xB7 DSO trend</div>
                       </div>
                       <span class="sc-when mono">09:30 \xB7 DE</span>
                       <span class="pill gray">German</span>
                     </div>
                     <div class="sc-row">
-                      ${C(a.fashion)}
+                      ${A(t.fashion)}
                       <div>
-                        <div class="sc-name">${a.fashion.name} \xB7 ${a.fashion.contact}</div>
+                        <div class="sc-name">${t.fashion.name} \xB7 ${t.fashion.contact}</div>
                         <div class="sc-script">Intro to new CFO \xB7 payment cadence</div>
                       </div>
                       <span class="sc-when mono">10:00 \xB7 SE</span>
@@ -2305,7 +2305,7 @@
             </div>
           </div>
         </div>
-      `}]};y(re);var _=`
+      `}]};$(ge);var V=`
   <style>
     .scene[class*="scene-vb-"] { position: absolute; inset: 0; padding: 20px 28px; font: 13px/1.45 Geist, system-ui, sans-serif; color: #0a0a0a; }
     .scene[class*="scene-vb-"] h2 { font: 500 17px/1.2 Geist, system-ui, sans-serif; letter-spacing: -0.015em; margin: 0; }
@@ -2345,7 +2345,7 @@
     .scene[class*="scene-vb-"] .num-amber  { color: #b75e00; font-weight: 500; font-variant-numeric: tabular-nums; }
     .scene[class*="scene-vb-"] .num-violet { color: #6d28d9; font-weight: 500; font-variant-numeric: tabular-nums; }
   </style>
-`,ce={id:"vero-chat-v2",tag:"VERO AGENT \xB7 INTERACTIVE DEMO",coverLabel:"Meet Vero, your AR team lead",closing:{headline:'Reviewed, approved, fired. <span class="grad">One agent</span> running your AR.',sub:"This is what your mornings could look like."},scenes:[{id:"vb-01-recap",title:"Step 1 \xB7 Overnight recap",body:`Vero already handled the obvious work. Below is what's left, <span class="grad">waiting on you</span>.`,tooltipSide:"top",spotlight:"#vb-start-review",advanceOn:{click:"#vb-start-review"},html:`${_}
+`,he={id:"vero-chat-v2",tag:"VERO AGENT \xB7 INTERACTIVE DEMO",coverLabel:"Meet Vero, your AR team lead",closing:{headline:'Reviewed, approved, fired. <span class="grad">One agent</span> running your AR.',sub:"This is what your mornings could look like."},scenes:[{id:"vb-01-recap",title:"Step 1 \xB7 Overnight recap",body:`Vero already handled the obvious work. Below is what's left, <span class="grad">waiting on you</span>.`,tooltipSide:"top",spotlight:"#vb-start-review",advanceOn:{click:"#vb-start-review"},html:`${V}
         <style>
           .scene-vb-01-recap .work-ribbon { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; padding: 10px 12px; background: rgba(1,146,115,0.04); border: 1px solid rgba(1,146,115,0.18); border-radius: 8px; align-items: center; }
           .scene-vb-01-recap .work-label { font: 500 10px/1 Geist; letter-spacing: 0.08em; text-transform: uppercase; color: #019273; margin-right: 4px; }
@@ -2480,7 +2480,7 @@
             </div>
           </div>
         </div>
-      `},{id:"vb-02-jes",title:"Step 2 \xB7 Cash app \xB7 2 JEs",body:'Every ledger line is visible. No black box, <span class="grad">no surprises</span>.',tooltipSide:"top",spotlight:"#vb-approve-jes",advanceOn:{click:"#vb-approve-jes"},html:`${_}
+      `},{id:"vb-02-jes",title:"Step 2 \xB7 Cash app \xB7 2 JEs",body:'Every ledger line is visible. No black box, <span class="grad">no surprises</span>.',tooltipSide:"top",spotlight:"#vb-approve-jes",advanceOn:{click:"#vb-approve-jes"},html:`${V}
         <style>
           .scene-vb-02-jes .sub-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding: 10px 12px; background: rgba(1,146,115,0.04); border: 1px solid rgba(1,146,115,0.18); border-radius: 8px; }
           .scene-vb-02-jes .sub-head-icon { width: 26px; height: 26px; border-radius: 6px; background: #019273; color: #fff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -2535,9 +2535,9 @@
                   <div class="je-list">
                     <div class="je">
                       <div class="je-head">
-                        ${C(a.industries)}
+                        ${A(t.industries)}
                         <div class="je-meta">
-                          <div class="je-title">JE-2024-04-22-A-0042 \xB7 ${a.industries.name}</div>
+                          <div class="je-title">JE-2024-04-22-A-0042 \xB7 ${t.industries.name}</div>
                           <div class="je-sub">Wire \u20AC530,000 \xB7 match confidence 87% \xB7 1 line needs split between INV-0021 and INV-0023</div>
                         </div>
                         <span class="pill amber">87% \xB7 below threshold</span>
@@ -2562,9 +2562,9 @@
                     </div>
                     <div class="je">
                       <div class="je-head">
-                        ${C(a.pharma)}
+                        ${A(t.pharma)}
                         <div class="je-meta">
-                          <div class="je-title">JE-2024-04-22-A-0043 \xB7 ${a.pharma.name}</div>
+                          <div class="je-title">JE-2024-04-22-A-0043 \xB7 ${t.pharma.name}</div>
                           <div class="je-sub">Wire \u20AC92,400 \xB7 match confidence 81% \xB7 FX rate EUR/USD locked at 1.084</div>
                         </div>
                         <span class="pill amber">81% \xB7 below threshold</span>
@@ -2605,7 +2605,7 @@
             </div>
           </div>
         </div>
-      `},{id:"vb-03-calls",title:"Step 3 \xB7 Collections \xB7 3 calls",body:'Per-customer script, language and time. Vero waits for your <span class="grad">green light</span>.',tooltipSide:"top",spotlight:"#vb-approve-calls",advanceOn:{click:"#vb-approve-calls"},html:`${_}
+      `},{id:"vb-03-calls",title:"Step 3 \xB7 Collections \xB7 3 calls",body:'Per-customer script, language and time. Vero waits for your <span class="grad">green light</span>.',tooltipSide:"top",spotlight:"#vb-approve-calls",advanceOn:{click:"#vb-approve-calls"},html:`${V}
         <style>
           .scene-vb-03-calls .sub-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding: 10px 12px; background: rgba(78,85,225,0.04); border: 1px solid rgba(78,85,225,0.22); border-radius: 8px; }
           .scene-vb-03-calls .sub-head-icon { width: 26px; height: 26px; border-radius: 6px; background: #4e55e1; color: #fff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -2658,9 +2658,9 @@
                   </div>
                   <div class="call-list">
                     <div class="call">
-                      ${c(a.energy)}
+                      ${f(t.energy)}
                       <div class="call-meta">
-                        <div class="call-name">${a.energy.contact} \xB7 ${a.energy.name} <span class="call-amt">\u20AC179K</span></div>
+                        <div class="call-name">${t.energy.contact} \xB7 ${t.energy.name} <span class="call-amt">\u20AC179K</span></div>
                         <div class="call-why"><span class="tag">Why</span>Verify Friday PTP. Has broken 2 PTPs in 60d, sentiment declined last 3 calls.</div>
                         <div class="call-script">"Bom dia Maria, liga\xE7\xE3o r\xE1pida, s\xF3 para confirmar a transfer\xEAncia de \u20AC179.000 para sexta-feira, como combinado. Tudo em ordem do vosso lado?"</div>
                       </div>
@@ -2671,9 +2671,9 @@
                       </div>
                     </div>
                     <div class="call">
-                      ${c(a.motors)}
+                      ${f(t.motors)}
                       <div class="call-meta">
-                        <div class="call-name">${a.motors.contact} \xB7 ${a.motors.name} <span class="call-amt">\u20AC63K</span></div>
+                        <div class="call-name">${t.motors.contact} \xB7 ${t.motors.name} <span class="call-amt">\u20AC63K</span></div>
                         <div class="call-why"><span class="tag">Why</span>DSO drift, 9 days over Q1 average, no response to last email 12 days ago.</div>
                         <div class="call-script">"Guten Morgen Frau Becker, Anruf zu Ihrer offenen Rechnung INV-1183 \xFCber \u20AC63.000. K\xF6nnen wir \xFCber den Zahlungseingang sprechen?"</div>
                       </div>
@@ -2684,9 +2684,9 @@
                       </div>
                     </div>
                     <div class="call">
-                      ${c(a.fashion)}
+                      ${f(t.fashion)}
                       <div class="call-meta">
-                        <div class="call-name">${a.fashion.contact} \xB7 ${a.fashion.name} <span class="call-amt">\u20AC37K</span></div>
+                        <div class="call-name">${t.fashion.contact} \xB7 ${t.fashion.name} <span class="call-amt">\u20AC37K</span></div>
                         <div class="call-why"><span class="tag">Why</span>New CFO joined 30d ago. No payment history yet, intro call to set cadence.</div>
                         <div class="call-script">"Hi Lina, quick call to welcome you to the role and understand your payment cycle. We have INV-0876 outstanding for \u20AC37,000, non-urgent, but wanted to connect."</div>
                       </div>
@@ -2719,7 +2719,7 @@
             </div>
           </div>
         </div>
-      `},{id:"vb-04-flag",title:"Step 4 \xB7 Deductions \xB7 1 flag",body:'Vero settled 5 itself. This one hit the <span class="grad">guardrail</span>, packaged for you.',tooltipSide:"top",spotlight:"#vb-send-to-queue",advanceOn:{click:"#vb-send-to-queue"},html:`${_}
+      `},{id:"vb-04-flag",title:"Step 4 \xB7 Deductions \xB7 1 flag",body:'Vero settled 5 itself. This one hit the <span class="grad">guardrail</span>, packaged for you.',tooltipSide:"top",spotlight:"#vb-send-to-queue",advanceOn:{click:"#vb-send-to-queue"},html:`${V}
         <style>
           .scene-vb-04-flag .sub-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding: 10px 12px; background: rgba(239,137,1,0.04); border: 1px solid rgba(239,137,1,0.22); border-radius: 8px; }
           .scene-vb-04-flag .sub-head-icon { width: 26px; height: 26px; border-radius: 6px; background: #b45309; color: #fff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -2775,9 +2775,9 @@
                   </div>
                   <div class="case-card">
                     <div class="case-head">
-                      ${c(a.retail)}
+                      ${f(t.retail)}
                       <div>
-                        <div class="case-title">${a.retail.name} \xB7 short-pay investigation</div>
+                        <div class="case-title">${t.retail.name} \xB7 short-pay investigation</div>
                         <div class="case-sub">INV-3482 \xB7 expected \u20AC92,000 \xB7 received \u20AC87,770 \xB7 short \u20AC4,230</div>
                       </div>
                       <span class="pill amber">\u20AC450 flagged</span>
@@ -2805,7 +2805,7 @@
                         <div class="c-label">Why I stopped \xB7 \u20AC450</div>
                         <div class="flag-reason">
                           <strong>No promo, PO line, or POD note</strong> I could match to this \u20AC450 portion. Could be a one-off discount agreed off-system, a missed trade allowance, or a short-pay error.
-                          <div class="vero-tried">Cross-referenced: 1,247 historical cases \xB7 TP-041 rate card \xB7 ${a.retail.contact}'s last 3 emails. No matches above 62%.</div>
+                          <div class="vero-tried">Cross-referenced: 1,247 historical cases \xB7 TP-041 rate card \xB7 ${t.retail.contact}'s last 3 emails. No matches above 62%.</div>
                         </div>
                       </div>
                     </div>
@@ -2828,7 +2828,7 @@
             </div>
           </div>
         </div>
-      `},{id:"vb-05-schedule",title:"Step 5 \xB7 Schedule as a task",body:'Six items in three clicks. Let Vero run this morning <span class="grad">every morning</span>.',tooltipSide:"top",spotlight:"#vb-schedule",advanceOn:{click:"#vb-schedule"},html:`${_}
+      `},{id:"vb-05-schedule",title:"Step 5 \xB7 Schedule as a task",body:'Six items in three clicks. Let Vero run this morning <span class="grad">every morning</span>.',tooltipSide:"top",spotlight:"#vb-schedule",advanceOn:{click:"#vb-schedule"},html:`${V}
         <style>
           .scene-vb-05-schedule .run-card { background: #fff; border: 1px solid rgba(1,146,115,0.25); border-radius: 12px; overflow: hidden; }
           .scene-vb-05-schedule .run-head { padding: 11px 14px; background: rgba(1,146,115,0.05); display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(1,146,115,0.15); }
@@ -2926,4 +2926,552 @@
             </div>
           </div>
         </div>
-      `}]};y(ce);})();
+      `}]};$(he);var J=`
+:host {
+  --violet-100: #ede9fe; --violet-200: #ddd6fe; --violet-300: #c4b5fd;
+  --violet-400: #a78bfa; --violet-600: #7c3aed;
+  --emerald-50: #ecfdf5; --emerald-100: #d1fae5; --emerald-200: #a7f3d0;
+  --emerald-400: #34d399; --emerald-500: #10b981; --emerald-600: #059669;
+  --emerald-700: #047857; --emerald-800: #065f46;
+  --amber-100: #fef3c7; --amber-400: #fbbf24; --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --indigo-100: #e0e7ff; --indigo-500: #6366f1; --indigo-600: #4f46e5;
+  --rose-100: #ffe4e6; --rose-500: #f43f5e; --rose-600: #e11d48;
+  --blue-400: #60a5fa;
+  --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+  --gray-300: #d1d5db; --gray-400: #9ca3af; --gray-500: #6b7280;
+  --gray-600: #4b5563; --gray-700: #374151; --gray-800: #1f2937;
+  --gray-900: #111827;
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
+  display: block;
+  font-family: Geist, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.canvas-wrap {
+  position: relative; width: 920px; height: 500px; margin: 0 auto;
+  max-width: 100%;
+}
+
+.card {
+  position: absolute; background: #fff; border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
+  border: 1px solid var(--gray-100);
+  opacity: 0; transform: scale(0.85);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo), border-color 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform, opacity;
+}
+.card.visible { opacity: 1; transform: scale(1); }
+.card.done { border-color: var(--emerald-200); box-shadow: 0 0 0 2px var(--emerald-100), 0 10px 15px -3px rgba(0,0,0,.1); }
+.card-pad { padding: 12px; }
+
+.card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.card-head-between { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.card-head-left { display: flex; align-items: center; gap: 8px; }
+.icon-box { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.icon-box-sm { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.card-title { font-size: 11px; font-weight: 700; color: var(--gray-900); }
+.card-sub { font-size: 9px; color: var(--gray-400); }
+.card-foot { font-size: 9px; }
+
+.bg-emerald-100 { background: var(--emerald-100); }
+.bg-rose-100 { background: var(--rose-100); }
+.bg-amber-100 { background: var(--amber-100); }
+.bg-indigo-100 { background: var(--indigo-100); }
+.bg-violet-100 { background: var(--violet-100); }
+
+.anim-check { transition: opacity 0.5s ease, transform 0.5s ease; opacity: 0; transform: scale(0.5); will-change: transform, opacity; }
+.anim-check.visible { opacity: 1; transform: scale(1); }
+.anim-check-circle { width: 20px; height: 20px; border-radius: 50%; background: var(--emerald-500); display: flex; align-items: center; justify-content: center; }
+.anim-check-path { stroke-dasharray: 12; stroke-dashoffset: 12; transition: stroke-dashoffset 0.4s ease 0.2s; }
+.anim-check.visible .anim-check-path { stroke-dashoffset: 0; }
+
+.svg-connections { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+
+.vero-hub {
+  position: absolute; z-index: 5;
+  left: 375px; top: 190px;
+  opacity: 0; transform: scale(0.7);
+  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  will-change: transform, opacity;
+}
+.vero-hub.visible { opacity: 1; transform: scale(1); }
+.vero-hub-card {
+  position: relative; background: #fff; border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+  border: 2px solid var(--violet-200);
+  padding: 16px; width: 150px; text-align: center;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+.vero-hub-card.active { border-color: var(--violet-400); box-shadow: 0 0 0 4px rgba(167,139,250,0.25), 0 25px 50px -12px rgba(0,0,0,.25); }
+.vero-hub-label { font-size: 14px; font-weight: 700; color: var(--gray-900); }
+.vero-hub-status { font-size: 10px; font-weight: 500; transition: color 0.3s; }
+
+.ping-ring {
+  position: absolute; border-radius: 16px; border: 2px solid rgba(167,139,250,0.3);
+  inset: -12px; display: none;
+  animation: ping-ring 2s cubic-bezier(0,0,0.2,1) infinite;
+}
+.ping-ring-outer {
+  position: absolute; border-radius: 24px; border: 1px solid rgba(167,139,250,0.15);
+  inset: -24px; display: none;
+  animation: ping-ring 3s cubic-bezier(0,0,0.2,1) infinite;
+}
+.vero-hub.pulsing .ping-ring,
+.vero-hub.pulsing .ping-ring-outer { display: block; }
+@keyframes ping-ring { 0% { transform: scale(1); opacity: 1; } 75%, 100% { transform: scale(1.15); opacity: 0; } }
+
+.vero-avatar {
+  border-radius: 50%; background: var(--gray-900);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; user-select: none; flex-shrink: 0;
+}
+.vero-avatar-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold; line-height: 1;
+  display: flex; justify-content: space-between;
+  width: 3ch; margin-top: 0.05em;
+  transition: color 0.3s ease;
+}
+.vero-avatar-text span { width: 1ch; text-align: center; display: inline-block; }
+
+.inv-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 8px; border-radius: 6px;
+  background: var(--gray-50); font-size: 9px;
+  transition: background 0.3s ease;
+}
+.inv-row.done { background: var(--emerald-50); }
+.inv-row-left { color: var(--gray-600); }
+.inv-row-right { display: flex; align-items: center; gap: 6px; }
+.inv-amt { font-size: 9px; font-weight: 700; color: var(--gray-900); }
+.inv-badge {
+  font-size: 8px; font-weight: 600; padding: 2px 4px; border-radius: 4px;
+  background: var(--gray-100); color: var(--gray-400);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.inv-badge.done { background: var(--emerald-200); color: var(--emerald-800); }
+.cleared-text { font-size: 8px; font-weight: 600; text-align: center; color: var(--emerald-600); opacity: 0; transition: opacity 0.3s; }
+.cleared-text.visible { opacity: 1; }
+
+/* Waveform \u2014 composited via transform: scaleY instead of height transition */
+.waveform { display: flex; align-items: flex-end; gap: 2px; height: 22px; }
+.waveform-bar {
+  width: 3px; border-radius: 9999px; background: var(--gray-200);
+  height: 22px; /* fixed max height */
+  transform: scaleY(0.14); transform-origin: bottom;
+  transition: transform 0.4s ease, background 0.4s ease;
+  will-change: transform;
+}
+.waveform-bar.active { background: var(--violet-400); }
+
+.sentiment-row { display: flex; align-items: center; justify-content: space-between; }
+.sentiment-left { display: flex; align-items: center; gap: 6px; }
+.sentiment-badge { font-size: 9px; font-weight: 600; padding: 2px 6px; border-radius: 9999px; background: var(--emerald-100); color: var(--emerald-700); }
+.sentiment-time { font-size: 9px; color: var(--gray-400); }
+.ptp-label { font-size: 9px; font-weight: 700; color: #6d28d9; }
+.call-detail { font-size: 8px; color: var(--gray-500); margin-top: 4px; opacity: 0; transition: opacity 0.3s; }
+.call-detail.visible { opacity: 1; }
+
+.evidence-row { display: flex; align-items: center; gap: 6px; font-size: 9px; color: var(--gray-600); }
+.evidence-dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; }
+.evidence-dash { flex: 1; border-bottom: 1px dashed var(--gray-200); }
+.evidence-check { transition: color 0.3s ease; }
+.evidence-check.done { color: var(--emerald-500); }
+.evidence-check.pending { color: var(--gray-200); }
+
+.verdict-row { display: flex; align-items: center; gap: 8px; font-size: 9px; }
+.verdict-track { flex: 1; height: 12px; background: var(--gray-100); border-radius: 9999px; overflow: hidden; }
+.verdict-fill { height: 100%; border-radius: 9999px; background: var(--gray-200); width: 0; transition: width 0.7s ease 0.5s, background 0.7s ease 0.5s; }
+.verdict-fill.done { background: var(--amber-400); width: 89%; }
+.verdict-valid { color: var(--amber-600); font-weight: 600; }
+.verdict-question { color: var(--gray-400); }
+
+.forecast-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 9px; }
+.forecast-q2-label { color: var(--gray-400); }
+.forecast-q2-val { font-weight: 700; color: var(--gray-900); }
+.forecast-uplift { display: flex; align-items: center; gap: 2px; font-weight: 600; opacity: 0; transition: opacity 0.5s ease, color 0.5s ease; color: var(--gray-300); }
+.forecast-uplift.visible { opacity: 1; color: var(--emerald-600); }
+.forecast-ptp-note { font-size: 8px; color: var(--indigo-500); font-weight: 400; margin-left: 4px; }
+
+.chat-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 30;
+  opacity: 0; pointer-events: none; transition: opacity 0.7s ease;
+  will-change: opacity;
+}
+.chat-overlay.visible { opacity: 1; pointer-events: auto; }
+.chat-wrap { width: 500px; max-width: 96%; }
+.chat-human {
+  display: flex; align-items: flex-end; justify-content: flex-end; gap: 10px; margin-bottom: 16px;
+  opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: transform, opacity;
+}
+.chat-human.visible { opacity: 1; transform: translateY(0); }
+.chat-human.faded { opacity: 0.6; transform: translateY(0); }
+.human-bubble {
+  background: var(--violet-600); color: #fff; border-radius: 16px 16px 4px 16px;
+  padding: 12px 20px; font-size: 14px; max-width: 82%; line-height: 1.5;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1);
+}
+.human-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 6px -1px rgba(0,0,0,.1); flex-shrink: 0; }
+
+.chat-vero-thinking {
+  display: flex; align-items: flex-start; gap: 10px;
+  opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: transform, opacity;
+}
+.chat-vero-thinking.visible { opacity: 1; transform: translateY(0); }
+.thinking-bubble {
+  background: #fff; border-radius: 16px 16px 16px 4px;
+  padding: 12px 20px; font-size: 14px; color: var(--gray-600);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); border: 1px solid var(--gray-100);
+}
+.thinking-dots { display: flex; align-items: center; gap: 6px; }
+.thinking-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--violet-400); animation: pulse-dot 1.5s ease infinite; }
+.thinking-dot:nth-child(2) { animation-delay: 0.2s; }
+.thinking-dot:nth-child(3) { animation-delay: 0.4s; }
+.thinking-label { color: var(--gray-400); margin-left: 4px; font-size: 12px; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.chat-vero-summary {
+  display: flex; align-items: flex-start; gap: 10px;
+  opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: transform, opacity;
+}
+.chat-vero-summary.visible { opacity: 1; transform: translateY(0); }
+.summary-bubble {
+  background: #fff; border-radius: 16px 16px 16px 4px;
+  padding: 12px 20px 14px; font-size: 14px; color: var(--gray-700); line-height: 1.5;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); border: 1px solid var(--gray-100);
+}
+.summary-title { font-weight: 600; color: var(--gray-900); margin-bottom: 8px; }
+.summary-items { display: flex; flex-direction: column; gap: 4px; }
+.summary-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gray-600); }
+.summary-check { width: 12px; height: 12px; flex-shrink: 0; }
+.summary-footer { font-size: 12px; color: var(--violet-600); font-weight: 500; padding-top: 8px; margin-top: 8px; border-top: 1px solid var(--gray-100); }
+
+.checklist-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 30;
+  opacity: 0; pointer-events: none; transition: opacity 0.7s ease;
+}
+.checklist-overlay.visible { opacity: 1; pointer-events: auto; }
+.checklist-card {
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+  border: 1px solid var(--gray-200); padding: 20px; width: 360px; max-width: 94%;
+}
+.checklist-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.checklist-title { font-size: 14px; font-weight: 700; color: var(--gray-900); }
+.checklist-sub { font-size: 10px; color: var(--gray-400); }
+.checklist-items { display: flex; flex-direction: column; gap: 10px; }
+.checklist-item { display: flex; align-items: flex-start; gap: 10px; }
+.check-box { width: 20px; height: 20px; border-radius: 6px; border: 2px solid var(--gray-200); margin-top: 2px; flex-shrink: 0; transition: background 0.3s ease, border-color 0.3s ease; }
+.check-box.checked { border: none; background: var(--emerald-500); display: flex; align-items: center; justify-content: center; }
+.check-label { font-size: 12px; font-weight: 500; color: var(--gray-900); transition: color 0.3s; }
+.check-label.checked { color: var(--gray-400); text-decoration: line-through; }
+.check-sub { font-size: 10px; color: var(--gray-400); transition: color 0.3s; }
+.check-sub.checked { color: var(--emerald-500); }
+.checklist-footer { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--gray-100); display: flex; justify-content: space-between; opacity: 0; transition: opacity 0.5s; }
+.checklist-footer.visible { opacity: 1; }
+.checklist-footer-left { font-size: 10px; color: var(--gray-400); }
+.checklist-footer-right { font-size: 10px; font-weight: 600; color: var(--emerald-600); }
+
+.tagline-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 30;
+  opacity: 0; pointer-events: none; transition: opacity 1s ease;
+}
+.tagline-overlay.visible { opacity: 1; }
+.tagline-main { font-size: 48px; font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: -0.02em; }
+.tagline-sub { font-size: 18px; color: var(--violet-300); font-weight: 500; }
+
+.progress-wrap { margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto; }
+.progress-track { height: 4px; background: rgba(255,255,255,0.1); border-radius: 9999px; overflow: hidden; margin-bottom: 8px; }
+.progress-fill { height: 100%; border-radius: 9999px; background: linear-gradient(90deg, #8b5cf6, #10b981); width: 0%; transition: width 0.7s ease-out; }
+.progress-steps { display: flex; justify-content: space-between; padding: 0 4px; }
+.progress-step { display: flex; align-items: center; gap: 4px; }
+.progress-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gray-600); transition: background 0.3s; }
+.progress-dot.active-v { background: var(--violet-400); }
+.progress-dot.active-e { background: var(--emerald-400); }
+.progress-dot.active-b { background: var(--blue-400); }
+.progress-label { font-size: 8px; font-weight: 500; color: var(--gray-600); transition: color 0.3s; }
+.progress-label.active { color: var(--gray-300); }
+
+.canvas-layer {
+  position: absolute; inset: 0;
+  opacity: 0; pointer-events: none; transition: opacity 0.7s ease;
+}
+.canvas-layer.visible { opacity: 1; pointer-events: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Narrow viewports: scale the fixed 920\xD7500 canvas proportionally.
+   The canvas uses absolute-positioned children with px coords, so we
+   can't flex-resize \u2014 but transform: scale is cheap and composited. */
+@media (max-width: 940px) {
+  .canvas-wrap {
+    transform: scale(calc((100vw - 40px) / 920));
+    transform-origin: top center;
+    margin-bottom: calc(500px * (((100vw - 40px) / 920) - 1));
+  }
+}
+`;var Q=[{main:"Your AR, on autopilot.",sub:"From chaos to clarity in seconds."},{main:"One agent. Every workflow.",sub:"Collections, payments, deductions, forecasts."},{main:"You ask. Vero delivers.",sub:"The AI finance agent that gets things done."}],be=["\u20AC890K cleared, 3 JEs posted","PTP \u20AC179K confirmed for 25 Apr","\u20AC3,780 valid trade promo, \u20AC450 to review","\u20AC14.2M projected, +6% from new PTP"],xe=["Ask","Ingest","Analyze","Execute","Complete","Review","Report"],ue=[3,7,5,9,4,8,6,10,3,7,5,8,4,6,9,5,7,3],Z=[{x1:195,y1:55,x2:370,y2:215},{x1:185,y1:170,x2:370,y2:235},{x1:190,y1:305,x2:370,y2:260},{x1:185,y1:420,x2:370,y2:280}],X=[{x1:530,y1:215,x2:660,y2:50},{x1:530,y1:235,x2:660,y2:165},{x1:530,y1:260,x2:660,y2:300},{x1:530,y1:280,x2:660,y2:405}],ee={x1:780,y1:225,x2:730,y2:400},fe=[{p:0,d:0},{p:1,d:2200},{p:2,d:4e3},{p:3,d:5800},{p:4,d:7800},{p:5,d:9800},{p:6,d:13e3},{p:7,d:16500},{p:-1,d:2e4}],me=`
+<div class="canvas-wrap" part="canvas">
+  <div id="chat-overlay" class="chat-overlay">
+    <div class="chat-wrap">
+      <div id="chat-human" class="chat-human">
+        <div class="human-bubble">Run the morning queue. Match yesterday's payments, chase overdue accounts, check deductions, and update the Q2 forecast.</div>
+        <img src="https://cdn.prod.website-files.com/69de2e314051c77c08e02468/69de2e314051c77c08e0248f_avatar-01.webp" alt="User" class="human-avatar" width="32" height="32" loading="lazy">
+      </div>
+      <div id="chat-thinking" class="chat-vero-thinking">
+        <div id="vero-avatar-chat-thinking" class="vero-avatar" style="width:32px;height:32px;">
+          <div class="vero-avatar-text" style="font-size:13.4px;color:#6EE7B7;"><span>0</span><span>1</span></div>
+        </div>
+        <div class="thinking-bubble">
+          <div class="thinking-dots">
+            <div class="thinking-dot"></div>
+            <div class="thinking-dot"></div>
+            <div class="thinking-dot"></div>
+            <span class="thinking-label">Picking up 4 tasks...</span>
+          </div>
+        </div>
+      </div>
+      <div id="chat-summary" class="chat-vero-summary">
+        <div id="vero-avatar-chat-summary" class="vero-avatar" style="width:32px;height:32px;">
+          <div class="vero-avatar-text" style="font-size:13.4px;color:#10B981;"><span>^</span><span>^</span></div>
+        </div>
+        <div class="summary-bubble">
+          <div class="summary-title">Morning queue complete:</div>
+          <div class="summary-items">
+            <div class="summary-item">
+              <svg class="summary-check" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              3 payments matched and cleared, &euro;890K total
+            </div>
+            <div class="summary-item">
+              <svg class="summary-check" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Called Lars Olsen at Northwind, PTP &euro;179K by 25 Apr
+            </div>
+            <div class="summary-item">
+              <svg class="summary-check" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Deduction &euro;3,780 valid (trade promo), &euro;450 needs your call
+            </div>
+            <div class="summary-item">
+              <svg class="summary-check" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Q2 forecast updated to &euro;14.2M, up 6% from the new PTP
+            </div>
+          </div>
+          <div class="summary-footer">3 resolved &middot; 1 needs your review &middot; forecast looking strong</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="canvas-layer" class="canvas-layer">
+    <svg class="svg-connections">
+      <path id="conn-in-0" fill="none" stroke="#d8b4fe" stroke-width="1.5" opacity="0.6" />
+      <path id="conn-in-1" fill="none" stroke="#c4b5fd" stroke-width="1.5" opacity="0.6" />
+      <path id="conn-in-2" fill="none" stroke="#d8b4fe" stroke-width="1.5" opacity="0.6" />
+      <path id="conn-in-3" fill="none" stroke="#c4b5fd" stroke-width="1.5" opacity="0.6" />
+      <path id="conn-out-0" fill="none" stroke="#86efac" stroke-width="1.5" opacity="0.6" />
+      <path id="conn-out-1" fill="none" stroke="#c4b5fd" stroke-width="1.5" opacity="0.6" />
+      <path id="conn-out-2" fill="none" stroke="#fcd34d" stroke-width="1.5" opacity="0.6" />
+      <path id="conn-out-3" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.6" />
+      <path id="conn-cross" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.6" />
+    </svg>
+
+    <div id="input-0" class="card card-pad" style="left:5px;top:12px;width:185px;">
+      <div class="card-head">
+        <div class="icon-box bg-emerald-100">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <div><div class="card-title">3 payments received</div><div class="card-sub">&euro;890K total &middot; overnight</div></div>
+      </div>
+      <div class="card-foot" style="color:var(--gray-500);">Deutsche Bank &middot; MT940 statement</div>
+    </div>
+    <div id="input-1" class="card card-pad" style="left:0px;top:130px;width:180px;transition-delay:0.12s;">
+      <div class="card-head">
+        <div class="icon-box bg-rose-100">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div><div class="card-title">INV-0019 overdue</div><div class="card-sub">90+ days &middot; &euro;179K</div></div>
+      </div>
+      <div class="card-foot" style="color:var(--rose-500);font-weight:500;">Lars Olsen &middot; no response 12d</div>
+    </div>
+    <div id="input-2" class="card card-pad" style="left:10px;top:265px;width:180px;transition-delay:0.24s;">
+      <div class="card-head">
+        <div class="icon-box bg-amber-100">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div><div class="card-title">Short-pay flagged</div><div class="card-sub">-&euro;4,230 &middot; Northwind</div></div>
+      </div>
+      <div class="card-foot" style="color:var(--amber-600);font-weight:500;">Suspected trade promo</div>
+    </div>
+    <div id="input-3" class="card card-pad" style="left:5px;top:385px;width:175px;transition-delay:0.36s;">
+      <div class="card-head">
+        <div class="icon-box bg-indigo-100">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div><div class="card-title">Forecast stale</div><div class="card-sub">Q2 outlook &middot; 3 days old</div></div>
+      </div>
+      <div class="card-foot" style="color:var(--indigo-500);font-weight:500;">New data available</div>
+    </div>
+
+    <div id="vero-hub" class="vero-hub">
+      <div class="ping-ring"></div>
+      <div class="ping-ring-outer"></div>
+      <div id="vero-hub-card" class="vero-hub-card">
+        <div style="display:flex;justify-content:center;margin-bottom:6px;">
+          <div id="vero-avatar-hub" class="vero-avatar" style="width:44px;height:44px;">
+            <div class="vero-avatar-text" style="font-size:18.5px;color:#10B981;"><span>0</span><span>0</span></div>
+          </div>
+        </div>
+        <div class="vero-hub-label">Vero</div>
+        <div id="vero-hub-status" class="vero-hub-status" style="color:var(--gray-400);">Analyzing...</div>
+      </div>
+    </div>
+
+    <div id="output-0" class="card card-pad" style="left:660px;top:5px;width:210px;">
+      <div class="card-head-between">
+        <div class="card-head-left">
+          <div class="icon-box-sm bg-emerald-100">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <div class="card-title">Matched + cleared</div>
+        </div>
+        <div id="check-0" class="anim-check">
+          <div class="anim-check-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path class="anim-check-path" d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:6px;">
+        <div id="inv-0" class="inv-row"><span class="inv-row-left">INV-0020</span><div class="inv-row-right"><span class="inv-amt">&euro;360K</span><span id="badge-0" class="inv-badge">99%</span></div></div>
+        <div id="inv-1" class="inv-row"><span class="inv-row-left">INV-0021</span><div class="inv-row-right"><span class="inv-amt">&euro;290K</span><span id="badge-1" class="inv-badge">97%</span></div></div>
+        <div id="inv-2" class="inv-row"><span class="inv-row-left">INV-0022</span><div class="inv-row-right"><span class="inv-amt">&euro;240K</span><span id="badge-2" class="inv-badge">95%</span></div></div>
+      </div>
+      <div id="cleared-text" class="cleared-text">&euro;890K cleared &middot; 3 JEs posted</div>
+    </div>
+
+    <div id="output-1" class="card card-pad" style="left:665px;top:135px;width:210px;transition-delay:0.12s;">
+      <div class="card-head-between">
+        <div class="card-head-left">
+          <div class="icon-box-sm bg-violet-100">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="card-title">AI Voice Call</div>
+        </div>
+        <div id="check-1" class="anim-check">
+          <div class="anim-check-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path class="anim-check-path" d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+      <div id="waveform" class="waveform" style="margin-bottom:8px;padding:0 4px;"></div>
+      <div class="sentiment-row">
+        <div class="sentiment-left">
+          <span class="sentiment-badge">Positive</span>
+          <span class="sentiment-time">3m 42s</span>
+        </div>
+        <span class="ptp-label">&euro;179K PTP</span>
+      </div>
+      <div id="call-detail" class="call-detail">Lars Olsen &middot; confirmed 25 Apr</div>
+    </div>
+
+    <div id="output-2" class="card card-pad" style="left:660px;top:272px;width:210px;transition-delay:0.24s;">
+      <div class="card-head-between">
+        <div class="card-head-left">
+          <div class="icon-box-sm bg-amber-100">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>
+          </div>
+          <div class="card-title">Investigated</div>
+        </div>
+        <div id="check-2" class="anim-check">
+          <div class="anim-check-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path class="anim-check-path" d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
+        <div class="evidence-row">
+          <div class="evidence-dot" style="background:var(--blue-400);"></div>
+          <span>Invoice #8842</span>
+          <div class="evidence-dash"></div>
+          <svg id="ev-check-0" class="evidence-check pending" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="evidence-row">
+          <div class="evidence-dot" style="background:var(--violet-400);"></div>
+          <span>Trade promo TP-041</span>
+          <div class="evidence-dash"></div>
+          <svg id="ev-check-1" class="evidence-check pending" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="evidence-row">
+          <div class="evidence-dot" style="background:var(--gray-400);"></div>
+          <span>POD signed</span>
+          <svg id="ev-check-2" class="evidence-check pending" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+      </div>
+      <div class="verdict-row">
+        <div class="verdict-track"><div id="verdict-fill" class="verdict-fill"></div></div>
+        <span class="verdict-valid">&euro;3,780</span>
+        <span class="verdict-question">&euro;450?</span>
+      </div>
+    </div>
+
+    <div id="output-3" class="card card-pad" style="left:660px;top:390px;width:210px;transition-delay:0.36s;">
+      <div class="card-head-between">
+        <div class="card-head-left">
+          <div class="icon-box-sm bg-indigo-100">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="card-title">Forecast updated</div>
+        </div>
+        <div id="check-3" class="anim-check">
+          <div class="anim-check-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path class="anim-check-path" d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+      <div style="margin-bottom:6px;">
+        <svg id="mini-chart" width="130" height="40" viewBox="0 0 130 40"></svg>
+      </div>
+      <div class="forecast-bottom">
+        <div><span class="forecast-q2-label">Q2 </span><span class="forecast-q2-val">&euro;14.2M</span></div>
+        <div id="forecast-uplift" class="forecast-uplift">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          +6%
+          <span class="forecast-ptp-note">PTP factored</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="checklist-overlay" class="checklist-overlay">
+    <div class="checklist-card">
+      <div class="checklist-header">
+        <div id="vero-avatar-checklist" class="vero-avatar" style="width:32px;height:32px;">
+          <div class="vero-avatar-text" style="font-size:13.4px;color:#6EE7B7;"><span>0</span><span>1</span></div>
+        </div>
+        <div>
+          <div class="checklist-title">Morning Queue</div>
+          <div class="checklist-sub">4 workflows running</div>
+        </div>
+      </div>
+      <div class="checklist-items">
+        <div class="checklist-item" id="todo-0"><div class="check-box" id="todo-box-0"></div><div style="flex:1;"><div class="check-label" id="todo-label-0">Match 3 payments to open invoices</div><div class="check-sub" id="todo-sub-0">Processing...</div></div></div>
+        <div class="checklist-item" id="todo-1"><div class="check-box" id="todo-box-1"></div><div style="flex:1;"><div class="check-label" id="todo-label-1">Call Lars Olsen re: INV-0019</div><div class="check-sub" id="todo-sub-1">Processing...</div></div></div>
+        <div class="checklist-item" id="todo-2"><div class="check-box" id="todo-box-2"></div><div style="flex:1;"><div class="check-label" id="todo-label-2">Investigate deduction -&euro;4,230</div><div class="check-sub" id="todo-sub-2">Processing...</div></div></div>
+        <div class="checklist-item" id="todo-3"><div class="check-box" id="todo-box-3"></div><div style="flex:1;"><div class="check-label" id="todo-label-3">Refresh Q2 cash forecast</div><div class="check-sub" id="todo-sub-3">Processing...</div></div></div>
+      </div>
+      <div id="checklist-footer" class="checklist-footer">
+        <span class="checklist-footer-left">Done in 14s</span>
+        <span class="checklist-footer-right">3 resolved &middot; 1 for review</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="tagline-overlay" class="tagline-overlay">
+    <div style="text-align:center;" id="tagline-content"></div>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+  <div class="progress-steps" id="progress-steps"></div>
+</div>
+`,F=class extends HTMLElement{constructor(){super(),this._phase=-1,this._cycle=0,this._timers=[],this._avatarTimers=[],this._started=!1,this._paused=!1,this._observer=null}connectedCallback(){if(this._shadow)return;this._shadow=this.attachShadow({mode:"open"}),this._shadow.innerHTML=`<style>${J}</style>${me}`,this._q=i=>this._shadow.querySelector(i),this._buildStaticBits();let e=()=>{this._started||(this._started=!0,this._runCycle())},a=()=>{"requestIdleCallback"in window?window.requestIdleCallback(e,{timeout:500}):setTimeout(e,200)};"IntersectionObserver"in window?(this._observer=new IntersectionObserver(i=>{i[0].isIntersecting?(this._paused=!1,this._started||a()):this._paused=!0},{threshold:.01}),this._observer.observe(this)):a()}disconnectedCallback(){this._timers.forEach(clearTimeout),this._timers=[],this._clearAvatarTimers(),this._observer?.disconnect()}_buildStaticBits(){let e=this._q("#waveform");ue.forEach((o,l)=>{let d=document.createElement("div");d.className="waveform-bar",d.setAttribute("data-h",o),d.style.transitionDelay=l*30+"ms",e.appendChild(d)});let a=this._q("#progress-steps");xe.forEach((o,l)=>{let d=document.createElement("div");d.className="progress-step",d.innerHTML=`<div class="progress-dot" data-step="${l}"></div><span class="progress-label" data-step="${l}">${o}</span>`,a.appendChild(d)});let i=o=>{let l=(o.x1+o.x2)/2,d=(o.x1+o.x2)/2;return`M${o.x1},${o.y1} C${l},${o.y1} ${d},${o.y2} ${o.x2},${o.y2}`},r=o=>Math.sqrt(Math.pow(o.x2-o.x1,2)+Math.pow(o.y2-o.y1,2))*1.5;this._allConns=[];for(let o=0;o<4;o++){let l=this._q(`#conn-in-${o}`),d=i(Z[o]),p=r(Z[o]);l.setAttribute("d",d),l.style.strokeDasharray=p,l.style.strokeDashoffset=p,l.style.transition=`stroke-dashoffset 0.8s cubic-bezier(0.22,1,0.36,1) ${o*.12}s`,this._allConns.push({el:l,len:p,phase:2})}for(let o=0;o<4;o++){let l=this._q(`#conn-out-${o}`),d=i(X[o]),p=r(X[o]);l.setAttribute("d",d),l.style.strokeDasharray=p,l.style.strokeDashoffset=p,l.style.transition=`stroke-dashoffset 0.8s cubic-bezier(0.22,1,0.36,1) ${o*.12}s`,this._allConns.push({el:l,len:p,phase:3})}{let o=this._q("#conn-cross"),l=i(ee),d=r(ee);o.setAttribute("d",l),o.style.strokeDasharray=d,o.style.strokeDashoffset=d,o.style.transition="stroke-dashoffset 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s",this._allConns.push({el:o,len:d,phase:4})}this._drawMiniChart(!1)}_drawMiniChart(e){let a=[6,5.5,6.2,5.8,6.5,7,e?7.8:7.2],i=130,r=40,o=4,l=8.5,d=4.5,p=u=>o+u/(a.length-1)*(i-2*o),v=u=>o+(l-u)/(l-d)*(r-2*o),x=a.map((u,b)=>(b===0?"M":"L")+p(b)+","+v(u)).join(" "),h=this._q("#mini-chart"),y=`<path d="${x}" fill="none" stroke="${e?"#6366f1":"#d1d5db"}" stroke-width="2" stroke-linecap="round" style="transition:all 0.8s ease"/>`;e&&(y+=`<path d="M${p(5)},${v(7)} L${p(6)},${v(7.8)} L${p(6)},${v(7.2)} L${p(5)},${v(7)} Z" fill="#818cf8" opacity="0.2"/>`,y+=`<circle cx="${p(6)}" cy="${v(7.8)}" r="3" fill="#6366f1"/>`,y+=`<line x1="${p(5)}" y1="${v(7.2)}" x2="${p(6)}" y2="${v(7.2)}" stroke="#d1d5db" stroke-width="1" stroke-dasharray="3 2"/>`),h.innerHTML=y}_clearAvatarTimers(){this._avatarTimers.forEach(e=>{clearTimeout(e),clearInterval(e)}),this._avatarTimers=[]}_animateVeroAvatar(e,a){if(!e)return;let i=e.querySelector(".vero-avatar-text");if(!i)return;let r=i.querySelectorAll("span");if(a==="idle"){i.style.color="#10B981",r[0].textContent="0",r[1].textContent="0";let o=()=>{r[0].textContent="-",this._avatarTimers.push(setTimeout(()=>{r[0].textContent="0"},150)),this._avatarTimers.push(setTimeout(o,700+Math.random()*2e3))};this._avatarTimers.push(setTimeout(o,700+Math.random()*1e3));let l=()=>{r[1].textContent="-",this._avatarTimers.push(setTimeout(()=>{r[1].textContent="0"},150)),this._avatarTimers.push(setTimeout(l,1e3+Math.random()*2500))};this._avatarTimers.push(setTimeout(l,1e3+Math.random()*1500))}else if(a==="thinking"){i.style.color="#6EE7B7";let o=setInterval(()=>{r[0].textContent=Math.random()>.5?"1":"0",r[1].textContent=Math.random()>.5?"1":"0"},80);this._avatarTimers.push(o)}else a==="done"&&(i.style.color="#10B981",r[0].textContent="^",r[1].textContent="^")}_setPhase(e){this._phase=e,this._clearAvatarTimers();let a=e===0||e===6,i=e>=1&&e<=4,r=e===5,o=e===7;this._q("#chat-overlay").classList.toggle("visible",a);let d=this._q("#chat-human");d.className="chat-human"+(e===0?" visible":e===6?" faded":""),d.style.transitionDelay=e===0?"0.3s":"0s";let p=this._q("#chat-thinking");p.className="chat-vero-thinking"+(e===0?" visible":""),p.style.transitionDelay=e===0?"1s":"0s";let v=this._q("#chat-summary");v.className="chat-vero-summary"+(e===6?" visible":""),v.style.transitionDelay=e===6?"0.5s":"0s",e===0&&this._animateVeroAvatar(this._q("#vero-avatar-chat-thinking"),"thinking"),e===6&&this._animateVeroAvatar(this._q("#vero-avatar-chat-summary"),"done"),this._q("#canvas-layer").classList.toggle("visible",i);for(let c=0;c<4;c++)this._q("#input-"+c).classList.toggle("visible",e>=1);this._allConns.forEach(c=>{c.el.style.strokeDashoffset=e>=c.phase?"0":c.len});let x=this._q("#vero-hub");x.classList.toggle("visible",e>=2),x.classList.toggle("pulsing",e>=2&&e<=4),this._q("#vero-hub-card").classList.toggle("active",e>=3);let h=this._q("#vero-hub-status");h.textContent=e<3?"Analyzing...":"Running 4 workflows",h.style.color=e>=3?"var(--violet-600)":"var(--gray-400)",e>=2&&this._animateVeroAvatar(this._q("#vero-avatar-hub"),e>=3?"thinking":"idle");for(let c=0;c<4;c++){let g=this._q("#output-"+c);g.classList.toggle("visible",e>=3),g.classList.toggle("done",e>=4),this._q("#check-"+c).classList.toggle("visible",e>=4)}for(let c=0;c<3;c++)this._q("#inv-"+c).classList.toggle("done",e>=4),this._q("#badge-"+c).classList.toggle("done",e>=4);this._q("#cleared-text").classList.toggle("visible",e>=4),this._q("#waveform").querySelectorAll(".waveform-bar").forEach(c=>{let g=e>=3;c.classList.toggle("active",g);let _=parseFloat(c.getAttribute("data-h")),I=g?Math.min(1,_*2.2/22):.14;c.style.transform=`scaleY(${I})`}),this._q("#call-detail").classList.toggle("visible",e>=4);for(let c=0;c<3;c++){let g=this._q("#ev-check-"+c);g.classList.toggle("done",e>=4),g.classList.toggle("pending",e<4),g.style.transitionDelay=c*150+400+"ms"}if(this._q("#verdict-fill").classList.toggle("done",e>=4),this._drawMiniChart(e>=4),this._q("#forecast-uplift").classList.toggle("visible",e>=4),this._q("#checklist-overlay").classList.toggle("visible",r),r){this._animateVeroAvatar(this._q("#vero-avatar-checklist"),"thinking"),this._resetTodos();for(let c=0;c<4;c++)(g=>{this._timers.push(setTimeout(()=>this._checkTodo(g),600+g*500))})(c)}if(this._q("#tagline-overlay").classList.toggle("visible",o),o){let c=Q[this._cycle%Q.length];this._q("#tagline-content").innerHTML=`<div class="tagline-main">${c.main}</div><div class="tagline-sub">${c.sub}</div>`}let b=Math.min(100,e/7*100);this._q("#progress-fill").style.width=b+"%",this._q("#progress-steps").querySelectorAll(".progress-dot").forEach(c=>{let g=parseInt(c.getAttribute("data-step"));c.className="progress-dot"+(e>=g?g<=1?" active-v":g<=4?" active-e":" active-b":"")}),this._q("#progress-steps").querySelectorAll(".progress-label").forEach(c=>{let g=parseInt(c.getAttribute("data-step"));c.classList.toggle("active",e>=g)})}_resetTodos(){for(let e=0;e<4;e++)this._q("#todo-box-"+e).className="check-box",this._q("#todo-box-"+e).innerHTML="",this._q("#todo-label-"+e).className="check-label",this._q("#todo-sub-"+e).className="check-sub",this._q("#todo-sub-"+e).textContent="Processing...";this._q("#checklist-footer").classList.remove("visible")}_checkTodo(e){let a=this._q("#todo-box-"+e);a.className="check-box checked",a.innerHTML='<svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>',this._q("#todo-label-"+e).classList.add("checked");let i=this._q("#todo-sub-"+e);i.classList.add("checked"),i.textContent=be[e],e===3&&this._q("#checklist-footer").classList.add("visible")}_runCycle(){this._timers.forEach(clearTimeout),this._timers=[],fe.forEach(e=>{this._timers.push(setTimeout(()=>{this._paused||(e.p===-1?(this._cycle++,this._runCycle()):this._setPhase(e.p))},e.d))})}};customElements.get("transformance-hero")||customElements.define("transformance-hero",F);})();
