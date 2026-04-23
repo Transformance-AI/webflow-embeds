@@ -267,10 +267,7 @@ const collections = {
           .scene-c-03-ptp .outcome-date { font-size: 11px; color: rgba(10,10,10,0.55); margin-top: 2px; }
         </style>
         <div class="head">
-          <div>
-            <h2>${CO.energy.name} · ${CO.energy.contact}</h2>
-            <div class="head-sub">${CO.energy.sector} · ${CO.energy.country} · 45 days overdue</div>
-          </div>
+          <h2>${CO.energy.name}</h2>
           <span class="pill green">Resolved · autonomous</span>
         </div>
         <div class="wrap">
@@ -346,10 +343,7 @@ const collections = {
           .scene-c-04-fallback .rule-chain { font-variant-numeric: tabular-nums; }
         </style>
         <div class="head">
-          <div>
-            <h2>${CO.logistics.name} · ${CO.logistics.contact}</h2>
-            <div class="head-sub">${CO.logistics.sector} · ${CO.logistics.country} · 18 days overdue</div>
-          </div>
+          <h2>${CO.logistics.name}</h2>
           <span class="pill blue">Reminder sent · autonomous</span>
         </div>
         <div class="wrap">

@@ -1,8 +1,8 @@
 {
   "version": "v1",
-  "generatedAt": "2026-04-23T14:29:57.104Z",
-  "bundleBytes": 233062,
-  "bundleGzBytes": 42157,
+  "generatedAt": "2026-04-23T15:10:54.575Z",
+  "bundleBytes": 232948,
+  "bundleGzBytes": 42149,
   "tours": [
     "cash-app",
     "collections",

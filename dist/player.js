@@ -116,7 +116,9 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--tour-ink-40);
+  transition: opacity 200ms ease;
 }
+.cover-tag.hidden { opacity: 0; pointer-events: none; }
 
 .cover.hidden { opacity: 0; pointer-events: none; }
 
@@ -478,12 +480,12 @@
           </div>
         </div>
       </div>
-    `,this._frame=this._shadow.querySelector(".frame"),this._stage=this._shadow.querySelector("[data-stage]"),this._cover=this._shadow.querySelector("[data-cover]"),this._fsClose=this._shadow.querySelector("[data-fs-close]"),this._cover.addEventListener("click",()=>this._start(),{once:!0}),this._fsClose.addEventListener("click",i=>{i.stopPropagation(),this._exitFullscreen()}),this._renderSceneContent(0))}_isMobile(){return typeof matchMedia=="function"&&matchMedia("(max-width: 767px)").matches}_enterFullscreen(){this._frame.classList.add("fs"),document.body.style.overflow="hidden"}_exitFullscreen(){if(this._frame.classList.remove("fs"),document.body.style.overflow="",this._shadow.querySelector(".spotlight")?.remove(),this._shadow.querySelector(".tooltip")?.remove(),this._shadow.querySelector(".toolbar")?.remove(),this._shadow.querySelector(".closing")?.remove(),!this._shadow.querySelector("[data-cover]")){let s=document.createElement("div");s.className="cover",s.setAttribute("data-cover",""),s.innerHTML=`
+    `,this._frame=this._shadow.querySelector(".frame"),this._stage=this._shadow.querySelector("[data-stage]"),this._cover=this._shadow.querySelector("[data-cover]"),this._fsClose=this._shadow.querySelector("[data-fs-close]"),this._cover.addEventListener("click",()=>this._start(),{once:!0}),this._fsClose.addEventListener("click",i=>{i.stopPropagation(),this._exitFullscreen()}),this._renderSceneContent(0))}_isMobile(){return typeof matchMedia=="function"&&matchMedia("(max-width: 767px)").matches}_enterFullscreen(){this._frame.classList.add("fs"),document.body.style.overflow="hidden"}_exitFullscreen(){if(this._frame.classList.remove("fs"),document.body.style.overflow="",this._shadow.querySelector(".spotlight")?.remove(),this._shadow.querySelector(".tooltip")?.remove(),this._shadow.querySelector(".toolbar")?.remove(),this._shadow.querySelector(".closing")?.remove(),this._shadow.querySelector(".cover-tag")?.classList.remove("hidden"),!this._shadow.querySelector("[data-cover]")){let s=document.createElement("div");s.className="cover",s.setAttribute("data-cover",""),s.innerHTML=`
         <div class="cover-pill">
           <span class="cover-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></span>
           ${this._tour.coverLabel||"Watch demo"}
         </div>
-      `,this._frame.appendChild(s),this._cover=s,s.addEventListener("click",()=>this._start(),{once:!0})}this._renderSceneContent(0),this._stepIndex=0}_start(){this._isMobile()&&this._enterFullscreen(),this._cover.classList.add("hidden"),setTimeout(()=>this._cover.remove(),320),this._activateScene(0),this._renderToolbar()}_renderToolbar(){let s=this._shadow.querySelector(".toolbar");s&&s.remove(),s=document.createElement("div"),s.className="toolbar",s.innerHTML=`
+      `,this._frame.appendChild(s),this._cover=s,s.addEventListener("click",()=>this._start(),{once:!0})}this._renderSceneContent(0),this._stepIndex=0}_start(){this._isMobile()&&this._enterFullscreen(),this._cover.classList.add("hidden"),this._shadow.querySelector(".cover-tag")?.classList.add("hidden"),setTimeout(()=>this._cover.remove(),320),this._activateScene(0),this._renderToolbar()}_renderToolbar(){let s=this._shadow.querySelector(".toolbar");s&&s.remove(),s=document.createElement("div"),s.className="toolbar",s.innerHTML=`
       <div class="dots">
         ${this._tour.scenes.map((t,i)=>`<span class="dot ${i===this._stepIndex?"active":i<this._stepIndex?"done":""}"></span>`).join("")}
       </div>
@@ -1070,10 +1072,7 @@
           .scene-c-03-ptp .outcome-date { font-size: 11px; color: rgba(10,10,10,0.55); margin-top: 2px; }
         </style>
         <div class="head">
-          <div>
-            <h2>${a.energy.name} \xB7 ${a.energy.contact}</h2>
-            <div class="head-sub">${a.energy.sector} \xB7 ${a.energy.country} \xB7 45 days overdue</div>
-          </div>
+          <h2>${a.energy.name}</h2>
           <span class="pill green">Resolved \xB7 autonomous</span>
         </div>
         <div class="wrap">
@@ -1139,10 +1138,7 @@
           .scene-c-04-fallback .rule-chain { font-variant-numeric: tabular-nums; }
         </style>
         <div class="head">
-          <div>
-            <h2>${a.logistics.name} \xB7 ${a.logistics.contact}</h2>
-            <div class="head-sub">${a.logistics.sector} \xB7 ${a.logistics.country} \xB7 18 days overdue</div>
-          </div>
+          <h2>${a.logistics.name}</h2>
           <span class="pill blue">Reminder sent \xB7 autonomous</span>
         </div>
         <div class="wrap">
@@ -1270,7 +1266,7 @@
             </div>
           </div>
         </div>
-      `}]};y(X);var G=[{co:a.retail,amount:"\u20AC4,230",reason:"Short-pay \xB7 possible trade promo",age:"2h",hero:!0},{co:a.pharma,amount:"\u20AC1,200",reason:"Price disagreement on PO 4421",age:"5h",hero:!1},{co:a.tech,amount:"\u20AC850",reason:"Subscription cadence mismatch",age:"1d",hero:!1},{co:a.fashion,amount:"\u20AC2,100",reason:"Quality claim \xB7 SKU 8842",age:"2d",hero:!1},{co:a.build,amount:"\u20AC300",reason:"Unexpected shipping fee",age:"3d",hero:!1}],B=`
+      `}]};y(X);var q=[{co:a.retail,amount:"\u20AC4,230",reason:"Short-pay \xB7 possible trade promo",age:"2h",hero:!0},{co:a.pharma,amount:"\u20AC1,200",reason:"Price disagreement on PO 4421",age:"5h",hero:!1},{co:a.tech,amount:"\u20AC850",reason:"Subscription cadence mismatch",age:"1d",hero:!1},{co:a.fashion,amount:"\u20AC2,100",reason:"Quality claim \xB7 SKU 8842",age:"2d",hero:!1},{co:a.build,amount:"\u20AC300",reason:"Unexpected shipping fee",age:"3d",hero:!1}],B=`
   <style>
     .scene[class*="scene-d-"] { position: absolute; inset: 0; padding: 22px 28px; font: 13px/1.45 Geist, system-ui, sans-serif; color: #0a0a0a; }
     .scene[class*="scene-d-"] h2 { font: 500 18px/1.2 Geist, system-ui, sans-serif; letter-spacing: -0.015em; margin: 0; }
@@ -1305,9 +1301,9 @@
         <div class="head">
           <div>
             <h2>Deduction queue</h2>
-            <div class="head-sub">${G.length} open \xB7 \u20AC8,680 disputed \xB7 auto-classification running</div>
+            <div class="head-sub">${q.length} open \xB7 \u20AC8,680 disputed \xB7 auto-classification running</div>
           </div>
-          <span class="pill amber">\u26A0 ${G.length} unresolved</span>
+          <span class="pill amber">\u26A0 ${q.length} unresolved</span>
         </div>
         <div class="card">
           <div class="card-head">
@@ -1317,7 +1313,7 @@
             </div>
             <span class="eyebrow">Action</span>
           </div>
-          ${G.map((e,s)=>`
+          ${q.map((e,s)=>`
             <div class="queue-row ${e.hero?"hero":"faded"}">
               ${c(e.co)}
               <div>
@@ -1576,32 +1572,32 @@
     .scene[class*="scene-p-"] .pill.indigo{ background: rgba(78,85,225,0.12); color: #3730a3; }
     .scene[class*="scene-p-"] .pill.gray  { background: rgba(10,10,10,0.06); color: rgba(10,10,10,0.6); }
   </style>
-`;function Y({weeks:e,highlight:s=-1,resolved:t=!1}){let p=d=>36+d/(e.length-1)*668,w=Math.max(...e)*1.1,m=Math.min(...e)*.85,g=d=>18+(1-(d-m)/(w-m))*174,h=3,T=e.slice(0,h).map((d,x)=>`${x===0?"M":"L"}${p(x).toFixed(1)},${g(d).toFixed(1)}`).join(" "),I=e.slice(h-1).map((d,x)=>`${x===0?"M":"L"}${p(x+h-1).toFixed(1)},${g(d).toFixed(1)}`).join(" "),K=e.slice(h-1).map((d,x)=>`${p(x+h-1).toFixed(1)},${g(d*1.1).toFixed(1)}`),N=e.slice(h-1).map((d,x)=>`${p(x+h-1).toFixed(1)},${g(d*.92).toFixed(1)}`).reverse(),_=`M${K.join(" L")} L${N.join(" L")} Z`,L=[0,3,6,9,12].map(d=>`<text x="${p(d)}" y="212" font-size="9" fill="rgba(10,10,10,0.45)" text-anchor="middle">W${d+1}</text>`).join(""),u=[0,.33,.66,1].map(d=>{let x=18+d*174;return`<line x1="36" y1="${x}" x2="704" y2="${x}" stroke="rgba(10,10,10,0.05)" stroke-width="1"/>`}).join(""),z=[w,w*.66+m*.34,w*.33+m*.67,m].map((d,x)=>`<text x="30" y="${18+x/3*174+3}" font-size="9" fill="rgba(10,10,10,0.4)" text-anchor="end">\u20AC${(d/1e3).toFixed(0)}K</text>`).join(""),P=s>=0?`
+`;function Y({weeks:e,highlight:s=-1,resolved:t=!1}){let p=d=>36+d/(e.length-1)*668,w=Math.max(...e)*1.1,m=Math.min(...e)*.85,g=d=>18+(1-(d-m)/(w-m))*174,h=3,T=e.slice(0,h).map((d,u)=>`${u===0?"M":"L"}${p(u).toFixed(1)},${g(d).toFixed(1)}`).join(" "),I=e.slice(h-1).map((d,u)=>`${u===0?"M":"L"}${p(u+h-1).toFixed(1)},${g(d).toFixed(1)}`).join(" "),K=e.slice(h-1).map((d,u)=>`${p(u+h-1).toFixed(1)},${g(d*1.1).toFixed(1)}`),N=e.slice(h-1).map((d,u)=>`${p(u+h-1).toFixed(1)},${g(d*.92).toFixed(1)}`).reverse(),L=`M${K.join(" L")} L${N.join(" L")} Z`,R=[0,3,6,9,12].map(d=>`<text x="${p(d)}" y="212" font-size="9" fill="rgba(10,10,10,0.45)" text-anchor="middle">W${d+1}</text>`).join(""),x=[0,.33,.66,1].map(d=>{let u=18+d*174;return`<line x1="36" y1="${u}" x2="704" y2="${u}" stroke="rgba(10,10,10,0.05)" stroke-width="1"/>`}).join(""),z=[w,w*.66+m*.34,w*.33+m*.67,m].map((d,u)=>`<text x="30" y="${18+u/3*174+3}" font-size="9" fill="rgba(10,10,10,0.4)" text-anchor="end">\u20AC${(d/1e3).toFixed(0)}K</text>`).join(""),P=s>=0?`
     <line x1="${p(s)}" y1="18" x2="${p(s)}" y2="192" stroke="${t?"#019273":"#ef4444"}" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/>
     <circle cx="${p(s)}" cy="${g(e[s])}" r="6" fill="${t?"#019273":"#ef4444"}"/>
     <circle cx="${p(s)}" cy="${g(e[s])}" r="11" fill="none" stroke="${t?"#019273":"#ef4444"}" stroke-width="1.5" opacity="0.4"/>
     <text x="${p(s)}" y="${g(e[s])-16}" font-size="10" font-weight="500" fill="${t?"#019273":"#ef4444"}" text-anchor="middle">\u20AC${(e[s]/1e3).toFixed(0)}K</text>
   `:"";return`
     <svg viewBox="0 0 720 220" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">
-      ${u}
+      ${x}
       ${z}
-      <path d="${_}" fill="rgba(78,85,225,0.10)"/>
+      <path d="${L}" fill="rgba(78,85,225,0.10)"/>
       <path d="${T}" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="${I}" fill="none" stroke="#4e55e1" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round"/>
       ${P}
-      ${L}
+      ${R}
     </svg>
-  `}var k=[820,850,870,890,910,880,740,820,900,940,980,1010,1040].map(e=>e*1e3),ae=[820,850,870,890,910,920,935,950,980,1e3,1030,1060,1090].map(e=>e*1e3),ne={fx:{id:"fx",label:"EUR +5% vs USD",icon:"globe",title:"EUR strengthens 5% vs USD",sub:"Affects US revenue conversion \xB7 Q ends in week 13",intensities:["+2%","+5%","+10%"],defaultIntensity:"+5%",driverCopy:"US receivables book: $1.2M \xB7 locked at \u20AC0.92 \xB7 adjustment applied from week 4",weeks:(e="+5%")=>{let s=e==="+2%"?.972:e==="+10%"?.88:.93;return k.map((t,i)=>i<3?t:Math.round(t*s))},risk:(e="+5%")=>({w13:e==="+2%"?"\u20AC1.01M":e==="+10%"?"\u20AC916K":"\u20AC970K",delta:e==="+2%"?"\u2212\u20AC30K":e==="+10%"?"\u2212\u20AC124K":"\u2212\u20AC70K",exposure:e==="+2%"?"\u20AC35K":e==="+10%"?"\u20AC184K":"\u20AC92K",exposureDesc:"USD receivables"})},costs:{id:"costs",label:"Input costs +8%",icon:"fuel",title:"Input costs rise 8%",sub:"Hits margin on AP payables \xB7 customers pass less-than-full through",intensities:["+4%","+8%","+15%"],defaultIntensity:"+8%",driverCopy:"Raw mat index +8% WoW \xB7 AP book \u20AC2.4M across 6 suppliers \xB7 60% pass-through",weeks:(e="+8%")=>{let s=e==="+4%"?.975:e==="+15%"?.91:.955;return k.map((t,i)=>i<3?t:Math.round(t*s))},risk:(e="+8%")=>({w13:e==="+4%"?"\u20AC1.01M":e==="+15%"?"\u20AC946K":"\u20AC993K",delta:e==="+4%"?"\u2212\u20AC30K":e==="+15%"?"\u2212\u20AC94K":"\u2212\u20AC47K",exposure:e==="+4%"?"\u20AC28K":e==="+15%"?"\u20AC95K":"\u20AC58K",exposureDesc:"margin compression"})},dso:{id:"dso",label:"DSO +5 days",icon:"trendingUp",title:"DSO slips +5 days",sub:"Receipts shift right \xB7 same cash, later week",intensities:["+3d","+5d","+10d"],defaultIntensity:"+5d",driverCopy:"Customer AP teams taking longer \xB7 4 accounts showing drift \xB7 early warning",weeks:(e="+5d")=>{let s=e==="+3d"?.4:e==="+10d"?1.4:.7;return k.map((t,i)=>{if(i<3)return t;let o=Math.max(0,Math.min(k.length-1,i-s)),r=Math.floor(o),l=Math.ceil(o),b=o-r;return Math.round(k[r]*(1-b)+k[l]*b)})},risk:(e="+5d")=>({w13:e==="+3d"?"\u20AC1.02M":e==="+10d"?"\u20AC950K":"\u20AC985K",delta:e==="+3d"?"\u2212\u20AC20K":e==="+10d"?"\u2212\u20AC90K":"\u2212\u20AC55K",exposure:e==="+3d"?"\u20AC52K":e==="+10d"?"\u20AC178K":"\u20AC108K",exposureDesc:"cash timing"})},delay:{id:"delay",label:"Top customer 30d delay",icon:"truck",title:`${a.energy.name} delays 30 days`,sub:"\u20AC179K PTP at risk \xB7 historical slippage pattern applies",intensities:["15d","30d","60d"],defaultIntensity:"30d",driverCopy:`${a.energy.name} \xB7 \u20AC179K invoice \xB7 88% slip risk \xB7 2 broken PTPs in 60d`,weeks:(e="30d")=>{let s=e==="15d"?110:179,t=e==="15d"?8:e==="60d"?12:10;return k.map((i,o)=>o===6?i-s*1e3:o===t&&e!=="60d"?i+Math.round(s*.8*1e3):i)},risk:(e="30d")=>({w13:e==="15d"?"\u20AC1.02M":e==="60d"?"\u20AC861K":"\u20AC931K",delta:e==="15d"?"\u2212\u20AC20K":e==="60d"?"\u2212\u20AC179K":"\u2212\u20AC109K",exposure:e==="15d"?"\u20AC110K":"\u20AC179K",exposureDesc:`${a.energy.name} PTP`})}};function te(e,s){let v=k.length,p=u=>36+u/(v-1)*668,w=[...k,...e],m=Math.max(...w)*1.05,g=Math.min(...w)*.9,h=u=>14+(1-(u-g)/(m-g))*150,T=u=>u.map((z,P)=>`${P===0?"M":"L"}${p(P).toFixed(1)},${h(z).toFixed(1)}`).join(" "),I=[0,.33,.66,1].map(u=>{let z=14+u*150;return`<line x1="36" y1="${z}" x2="704" y2="${z}" stroke="rgba(10,10,10,0.05)" stroke-width="1"/>`}).join(""),K=[0,3,6,9,12].map(u=>`<text x="${p(u)}" y="182" font-size="9" fill="rgba(10,10,10,0.45)" text-anchor="middle">W${u+1}</text>`).join(""),N=[m,(m+g)/2,g].map((u,z)=>`<text x="30" y="${14+z/2*150+3}" font-size="9" fill="rgba(10,10,10,0.4)" text-anchor="end">\u20AC${(u/1e3).toFixed(0)}K</text>`).join(""),_=p(v-1),L=h(e[v-1]);return`
+  `}var k=[820,850,870,890,910,880,740,820,900,940,980,1010,1040].map(e=>e*1e3),ae=[820,850,870,890,910,920,935,950,980,1e3,1030,1060,1090].map(e=>e*1e3),ne={fx:{id:"fx",label:"EUR +5% vs USD",icon:"globe",title:"EUR strengthens 5% vs USD",sub:"Affects US revenue conversion \xB7 Q ends in week 13",intensities:["+2%","+5%","+10%"],defaultIntensity:"+5%",driverCopy:"US receivables book: $1.2M \xB7 locked at \u20AC0.92 \xB7 adjustment applied from week 4",weeks:(e="+5%")=>{let s=e==="+2%"?.972:e==="+10%"?.88:.93;return k.map((t,i)=>i<3?t:Math.round(t*s))},risk:(e="+5%")=>({w13:e==="+2%"?"\u20AC1.01M":e==="+10%"?"\u20AC916K":"\u20AC970K",delta:e==="+2%"?"\u2212\u20AC30K":e==="+10%"?"\u2212\u20AC124K":"\u2212\u20AC70K",exposure:e==="+2%"?"\u20AC35K":e==="+10%"?"\u20AC184K":"\u20AC92K",exposureDesc:"USD receivables"})},costs:{id:"costs",label:"Input costs +8%",icon:"fuel",title:"Input costs rise 8%",sub:"Hits margin on AP payables \xB7 customers pass less-than-full through",intensities:["+4%","+8%","+15%"],defaultIntensity:"+8%",driverCopy:"Raw mat index +8% WoW \xB7 AP book \u20AC2.4M across 6 suppliers \xB7 60% pass-through",weeks:(e="+8%")=>{let s=e==="+4%"?.975:e==="+15%"?.91:.955;return k.map((t,i)=>i<3?t:Math.round(t*s))},risk:(e="+8%")=>({w13:e==="+4%"?"\u20AC1.01M":e==="+15%"?"\u20AC946K":"\u20AC993K",delta:e==="+4%"?"\u2212\u20AC30K":e==="+15%"?"\u2212\u20AC94K":"\u2212\u20AC47K",exposure:e==="+4%"?"\u20AC28K":e==="+15%"?"\u20AC95K":"\u20AC58K",exposureDesc:"margin compression"})},dso:{id:"dso",label:"DSO +5 days",icon:"trendingUp",title:"DSO slips +5 days",sub:"Receipts shift right \xB7 same cash, later week",intensities:["+3d","+5d","+10d"],defaultIntensity:"+5d",driverCopy:"Customer AP teams taking longer \xB7 4 accounts showing drift \xB7 early warning",weeks:(e="+5d")=>{let s=e==="+3d"?.4:e==="+10d"?1.4:.7;return k.map((t,i)=>{if(i<3)return t;let o=Math.max(0,Math.min(k.length-1,i-s)),r=Math.floor(o),l=Math.ceil(o),b=o-r;return Math.round(k[r]*(1-b)+k[l]*b)})},risk:(e="+5d")=>({w13:e==="+3d"?"\u20AC1.02M":e==="+10d"?"\u20AC950K":"\u20AC985K",delta:e==="+3d"?"\u2212\u20AC20K":e==="+10d"?"\u2212\u20AC90K":"\u2212\u20AC55K",exposure:e==="+3d"?"\u20AC52K":e==="+10d"?"\u20AC178K":"\u20AC108K",exposureDesc:"cash timing"})},delay:{id:"delay",label:"Top customer 30d delay",icon:"truck",title:`${a.energy.name} delays 30 days`,sub:"\u20AC179K PTP at risk \xB7 historical slippage pattern applies",intensities:["15d","30d","60d"],defaultIntensity:"30d",driverCopy:`${a.energy.name} \xB7 \u20AC179K invoice \xB7 88% slip risk \xB7 2 broken PTPs in 60d`,weeks:(e="30d")=>{let s=e==="15d"?110:179,t=e==="15d"?8:e==="60d"?12:10;return k.map((i,o)=>o===6?i-s*1e3:o===t&&e!=="60d"?i+Math.round(s*.8*1e3):i)},risk:(e="30d")=>({w13:e==="15d"?"\u20AC1.02M":e==="60d"?"\u20AC861K":"\u20AC931K",delta:e==="15d"?"\u2212\u20AC20K":e==="60d"?"\u2212\u20AC179K":"\u2212\u20AC109K",exposure:e==="15d"?"\u20AC110K":"\u20AC179K",exposureDesc:`${a.energy.name} PTP`})}};function te(e,s){let v=k.length,p=x=>36+x/(v-1)*668,w=[...k,...e],m=Math.max(...w)*1.05,g=Math.min(...w)*.9,h=x=>14+(1-(x-g)/(m-g))*150,T=x=>x.map((z,P)=>`${P===0?"M":"L"}${p(P).toFixed(1)},${h(z).toFixed(1)}`).join(" "),I=[0,.33,.66,1].map(x=>{let z=14+x*150;return`<line x1="36" y1="${z}" x2="704" y2="${z}" stroke="rgba(10,10,10,0.05)" stroke-width="1"/>`}).join(""),K=[0,3,6,9,12].map(x=>`<text x="${p(x)}" y="182" font-size="9" fill="rgba(10,10,10,0.45)" text-anchor="middle">W${x+1}</text>`).join(""),N=[m,(m+g)/2,g].map((x,z)=>`<text x="30" y="${14+z/2*150+3}" font-size="9" fill="rgba(10,10,10,0.4)" text-anchor="end">\u20AC${(x/1e3).toFixed(0)}K</text>`).join(""),L=p(v-1),R=h(e[v-1]);return`
     <svg viewBox="0 0 720 190" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">
       ${I}
       ${N}
       <path d="${T(k)}" fill="none" stroke="rgba(10,10,10,0.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="${T(e)}" fill="none" stroke="#4e55e1" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="${_}" cy="${L}" r="4" fill="#4e55e1"/>
-      <text x="${_-6}" y="${L-8}" font-size="10" font-weight="500" fill="#4e55e1" text-anchor="end">${s}</text>
+      <circle cx="${L}" cy="${R}" r="4" fill="#4e55e1"/>
+      <text x="${L-6}" y="${R-8}" font-size="10" font-weight="500" fill="#4e55e1" text-anchor="end">${s}</text>
       ${K}
     </svg>
-  `}function q(e,s){let t=ne[e],i=s||t.defaultIntensity,o=t.weeks(i),r=t.risk(i);return`
+  `}function G(e,s){let t=ne[e],i=s||t.defaultIntensity,o=t.weeks(i),r=t.risk(i);return`
     <div class="sc-head">
       <div>
         <div class="sc-title">${t.title} \xB7 <span class="sc-intensity-label">${i}</span></div>
@@ -1705,7 +1701,7 @@
           </div>
           <button class="btn" id="dip-investigate">Investigate \u2192</button>
         </div>
-      `},{id:"p-02-scenario",title:"Step 2 \xB7 Stress-test",body:'<span class="grad">Click any scenario</span>. The chart and numbers update live. Try switching and dialling intensities up.',tooltipSide:"top",spotlight:"#scenarios-frame",advanceOn:{click:"#scenario-drilldown"},onMount:e=>{let s=e.querySelector("#scenario-inner");s&&(e.querySelectorAll("[data-scenario-tab]").forEach(t=>{t.addEventListener("click",()=>{let i=t.getAttribute("data-scenario-tab");e.querySelectorAll("[data-scenario-tab]").forEach(o=>o.classList.toggle("active",o===t)),s.innerHTML=q(i)})}),e.addEventListener("click",t=>{let i=t.target.closest("[data-intensity]");if(!i)return;let o=i.getAttribute("data-scenario"),r=i.getAttribute("data-intensity");s.innerHTML=q(o,r)}))},html:`${V}
+      `},{id:"p-02-scenario",title:"Step 2 \xB7 Stress-test",body:'<span class="grad">Click any scenario</span>. The chart and numbers update live. Try switching and dialling intensities up.',tooltipSide:"top",spotlight:"#scenarios-frame",advanceOn:{click:"#scenario-drilldown"},onMount:e=>{let s=e.querySelector("#scenario-inner");s&&(e.querySelectorAll("[data-scenario-tab]").forEach(t=>{t.addEventListener("click",()=>{let i=t.getAttribute("data-scenario-tab");e.querySelectorAll("[data-scenario-tab]").forEach(o=>o.classList.toggle("active",o===t)),s.innerHTML=G(i)})}),e.addEventListener("click",t=>{let i=t.target.closest("[data-intensity]");if(!i)return;let o=i.getAttribute("data-scenario"),r=i.getAttribute("data-intensity");s.innerHTML=G(o,r)}))},html:`${V}
         <style>
           .scene-p-02-scenario #scenarios-frame { background: #fff; border: 1px solid rgba(10,10,10,0.08); border-radius: 10px; padding: 14px; }
           /* Tab strip for the four top-level scenarios */
@@ -1758,7 +1754,7 @@
             <button class="tab" data-scenario-tab="dso">${n.trendingUp} DSO drift</button>
             <button class="tab" data-scenario-tab="delay">${n.truck} Customer delay</button>
           </div>
-          <div id="scenario-inner">${q("fx")}</div>
+          <div id="scenario-inner">${G("fx")}</div>
           <div class="cta-bar">
             <div>
               <div class="cta-label">Pick a scenario and click through the intensities, then see the invoices at risk</div>
@@ -2309,7 +2305,7 @@
             </div>
           </div>
         </div>
-      `}]};y(re);var R=`
+      `}]};y(re);var _=`
   <style>
     .scene[class*="scene-vb-"] { position: absolute; inset: 0; padding: 20px 28px; font: 13px/1.45 Geist, system-ui, sans-serif; color: #0a0a0a; }
     .scene[class*="scene-vb-"] h2 { font: 500 17px/1.2 Geist, system-ui, sans-serif; letter-spacing: -0.015em; margin: 0; }
@@ -2349,7 +2345,7 @@
     .scene[class*="scene-vb-"] .num-amber  { color: #b75e00; font-weight: 500; font-variant-numeric: tabular-nums; }
     .scene[class*="scene-vb-"] .num-violet { color: #6d28d9; font-weight: 500; font-variant-numeric: tabular-nums; }
   </style>
-`,ce={id:"vero-chat-v2",tag:"VERO AGENT \xB7 INTERACTIVE DEMO",coverLabel:"Meet Vero, your AR team lead",closing:{headline:'Reviewed, approved, fired. <span class="grad">One agent</span> running your AR.',sub:"This is what your mornings could look like."},scenes:[{id:"vb-01-recap",title:"Step 1 \xB7 Overnight recap",body:`Vero already handled the obvious work. Below is what's left, <span class="grad">waiting on you</span>.`,tooltipSide:"top",spotlight:"#vb-start-review",advanceOn:{click:"#vb-start-review"},html:`${R}
+`,ce={id:"vero-chat-v2",tag:"VERO AGENT \xB7 INTERACTIVE DEMO",coverLabel:"Meet Vero, your AR team lead",closing:{headline:'Reviewed, approved, fired. <span class="grad">One agent</span> running your AR.',sub:"This is what your mornings could look like."},scenes:[{id:"vb-01-recap",title:"Step 1 \xB7 Overnight recap",body:`Vero already handled the obvious work. Below is what's left, <span class="grad">waiting on you</span>.`,tooltipSide:"top",spotlight:"#vb-start-review",advanceOn:{click:"#vb-start-review"},html:`${_}
         <style>
           .scene-vb-01-recap .work-ribbon { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; padding: 10px 12px; background: rgba(1,146,115,0.04); border: 1px solid rgba(1,146,115,0.18); border-radius: 8px; align-items: center; }
           .scene-vb-01-recap .work-label { font: 500 10px/1 Geist; letter-spacing: 0.08em; text-transform: uppercase; color: #019273; margin-right: 4px; }
@@ -2484,7 +2480,7 @@
             </div>
           </div>
         </div>
-      `},{id:"vb-02-jes",title:"Step 2 \xB7 Cash app \xB7 2 JEs",body:'Every ledger line is visible. No black box, <span class="grad">no surprises</span>.',tooltipSide:"top",spotlight:"#vb-approve-jes",advanceOn:{click:"#vb-approve-jes"},html:`${R}
+      `},{id:"vb-02-jes",title:"Step 2 \xB7 Cash app \xB7 2 JEs",body:'Every ledger line is visible. No black box, <span class="grad">no surprises</span>.',tooltipSide:"top",spotlight:"#vb-approve-jes",advanceOn:{click:"#vb-approve-jes"},html:`${_}
         <style>
           .scene-vb-02-jes .sub-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding: 10px 12px; background: rgba(1,146,115,0.04); border: 1px solid rgba(1,146,115,0.18); border-radius: 8px; }
           .scene-vb-02-jes .sub-head-icon { width: 26px; height: 26px; border-radius: 6px; background: #019273; color: #fff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -2609,7 +2605,7 @@
             </div>
           </div>
         </div>
-      `},{id:"vb-03-calls",title:"Step 3 \xB7 Collections \xB7 3 calls",body:'Per-customer script, language and time. Vero waits for your <span class="grad">green light</span>.',tooltipSide:"top",spotlight:"#vb-approve-calls",advanceOn:{click:"#vb-approve-calls"},html:`${R}
+      `},{id:"vb-03-calls",title:"Step 3 \xB7 Collections \xB7 3 calls",body:'Per-customer script, language and time. Vero waits for your <span class="grad">green light</span>.',tooltipSide:"top",spotlight:"#vb-approve-calls",advanceOn:{click:"#vb-approve-calls"},html:`${_}
         <style>
           .scene-vb-03-calls .sub-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding: 10px 12px; background: rgba(78,85,225,0.04); border: 1px solid rgba(78,85,225,0.22); border-radius: 8px; }
           .scene-vb-03-calls .sub-head-icon { width: 26px; height: 26px; border-radius: 6px; background: #4e55e1; color: #fff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -2723,7 +2719,7 @@
             </div>
           </div>
         </div>
-      `},{id:"vb-04-flag",title:"Step 4 \xB7 Deductions \xB7 1 flag",body:'Vero settled 5 itself. This one hit the <span class="grad">guardrail</span>, packaged for you.',tooltipSide:"top",spotlight:"#vb-send-to-queue",advanceOn:{click:"#vb-send-to-queue"},html:`${R}
+      `},{id:"vb-04-flag",title:"Step 4 \xB7 Deductions \xB7 1 flag",body:'Vero settled 5 itself. This one hit the <span class="grad">guardrail</span>, packaged for you.',tooltipSide:"top",spotlight:"#vb-send-to-queue",advanceOn:{click:"#vb-send-to-queue"},html:`${_}
         <style>
           .scene-vb-04-flag .sub-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding: 10px 12px; background: rgba(239,137,1,0.04); border: 1px solid rgba(239,137,1,0.22); border-radius: 8px; }
           .scene-vb-04-flag .sub-head-icon { width: 26px; height: 26px; border-radius: 6px; background: #b45309; color: #fff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -2832,7 +2828,7 @@
             </div>
           </div>
         </div>
-      `},{id:"vb-05-schedule",title:"Step 5 \xB7 Schedule as a task",body:'Six items in three clicks. Let Vero run this morning <span class="grad">every morning</span>.',tooltipSide:"top",spotlight:"#vb-schedule",advanceOn:{click:"#vb-schedule"},html:`${R}
+      `},{id:"vb-05-schedule",title:"Step 5 \xB7 Schedule as a task",body:'Six items in three clicks. Let Vero run this morning <span class="grad">every morning</span>.',tooltipSide:"top",spotlight:"#vb-schedule",advanceOn:{click:"#vb-schedule"},html:`${_}
         <style>
           .scene-vb-05-schedule .run-card { background: #fff; border: 1px solid rgba(1,146,115,0.25); border-radius: 12px; overflow: hidden; }
           .scene-vb-05-schedule .run-head { padding: 11px 14px; background: rgba(1,146,115,0.05); display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(1,146,115,0.15); }

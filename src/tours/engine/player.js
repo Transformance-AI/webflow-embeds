@@ -113,6 +113,7 @@ class TransformanceTour extends HTMLElement {
     this._shadow.querySelector('.tooltip')?.remove();
     this._shadow.querySelector('.toolbar')?.remove();
     this._shadow.querySelector('.closing')?.remove();
+    this._shadow.querySelector('.cover-tag')?.classList.remove('hidden');
     // Re-render the cover if it was removed
     if (!this._shadow.querySelector('[data-cover]')) {
       const cover = document.createElement('div');
@@ -135,6 +136,7 @@ class TransformanceTour extends HTMLElement {
   _start() {
     if (this._isMobile()) this._enterFullscreen();
     this._cover.classList.add('hidden');
+    this._shadow.querySelector('.cover-tag')?.classList.add('hidden');
     setTimeout(() => this._cover.remove(), 320);
     // Scene 0 content is already in the DOM from the cover preview — activate
     // the spotlight / tooltip / advance hooks for it now.
