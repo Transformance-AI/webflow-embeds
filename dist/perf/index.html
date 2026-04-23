@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tour perf test pages</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Geist, system-ui, sans-serif; color: #0a0a0a; background: #fff; padding: 60px 40px; max-width: 720px; margin: 0 auto; line-height: 1.5; }
+  h1 { font-size: 32px; letter-spacing: -0.02em; font-weight: 500; margin-bottom: 8px; }
+  .lede { color: rgba(0,0,0,0.6); margin-bottom: 32px; }
+  ul { list-style: none; }
+  li { padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.08); display: flex; justify-content: space-between; align-items: center; }
+  li a { color: #0a0a0a; font-weight: 500; text-decoration: none; }
+  li a:hover { text-decoration: underline; }
+  .hint { color: rgba(0,0,0,0.5); font-size: 13px; }
+  code { background: #f4f4f4; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Lighthouse test pages</h1>
+<p class="lede">One marketing-style host page per tour. Run Lighthouse on each to verify the embed does not regress LCP / CLS / TBT.</p>
+<ul>
+  <li><a href="cash-app.html">Cash application</a><span class="hint">cash-app</span></li>
+  <li><a href="collections.html">Collections</a><span class="hint">collections</span></li>
+  <li><a href="deductions.html">Deductions</a><span class="hint">deductions</span></li>
+  <li><a href="predictions.html">Cash flow forecasting</a><span class="hint">predictions</span></li>
+  <li><a href="vero-chat.html">Vero chat</a><span class="hint">vero-chat</span></li>
+  <li><a href="vero-chat-v2.html">Vero agent</a><span class="hint">vero-chat-v2</span></li>
+</ul>
+<p style="margin-top:32px;color:rgba(0,0,0,0.5);font-size:13px;">
+Each page loads <code>../player.js</code> async. Bundle is ~41 KB gz, no external fonts, no remote images.
+</p>
+</body>
+</html>

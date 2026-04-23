@@ -1,0 +1,108 @@
+# Transformance — Webflow Embeds
+
+Interactive product tours embedded in the [transformance.ai](https://transformance.ai) Webflow site.
+Ships as a single ~41 KB gz JS file that registers a `<transformance-tour>` custom element.
+
+---
+
+## How it's delivered
+
+```
+laptop  ──git push──▶  GitHub (this repo)  ──▶  jsDelivr CDN  ──▶  browser (via Webflow)
+```
+
+- Source + built bundle live in this repo.
+- [jsDelivr](https://www.jsdelivr.com/) serves any public GitHub repo automatically — no account, no config.
+- Webflow adds **one `<script>` tag** to the site head that points at the jsDelivr URL.
+
+---
+
+## Usage in Webflow
+
+### 1. Site-wide script (Project Settings → Custom Code → Footer Code)
+
+```html
+<script async src="https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@v1/dist/player.js"></script>
+```
+
+Use a **tagged version** (`@v1`, `@v1.0.0`, etc.) rather than `@main` — that guarantees a future push can't accidentally change what the live site loads.
+
+### 2. Per-page embed (Webflow Embed element)
+
+```html
+<transformance-tour data-tour="cash-app"></transformance-tour>
+```
+
+Available tour ids: `cash-app`, `collections`, `deductions`, `predictions`, `vero-chat`, `vero-chat-v2`.
+
+### 3. Optional CTA override
+
+The closing card defaults to a "Book a meeting" button pointing at `transformance.ai/meeting`.
+Override per embed:
+
+```html
+<transformance-tour
+  data-tour="collections"
+  data-cta-html='<a class=&quot;closing-default-cta&quot; href=&quot;/book-a-demo&quot;>Book a demo</a>'
+></transformance-tour>
+```
+
+---
+
+## Local development
+
+```bash
+npm install
+npm run build        # builds dist/player.js + dist/perf/*.html
+npm run serve        # serves /dist at http://localhost:4173
+```
+
+Open `http://localhost:4173/perf/` to pick a tour and run Lighthouse against it.
+
+## Release workflow
+
+1. Edit scenes under `src/tours/scenes/` or engine under `src/tours/engine/`.
+2. `npm run build` — verify bundle stays under 42 KB gz.
+3. Commit + push.
+4. **Tag a release** — this is the URL Webflow pins to:
+   ```bash
+   git tag v1.0.1
+   git push origin v1.0.1
+   ```
+5. Update the `@<tag>` in the Webflow Footer Code script tag.
+6. jsDelivr serves the new bundle worldwide within seconds (first request may take a few seconds to warm).
+
+---
+
+## What's inside
+
+| Path | Purpose |
+|---|---|
+| `src/tours/engine/`            | Player runtime (Web Component, Shadow DOM, spotlight, tooltips) |
+| `src/tours/scenes/<id>.js`     | One file per tour, defines its scenes |
+| `src/tours/shared/`            | Shared catalogs (companies, lucide icons) |
+| `scripts/build-tours.mjs`      | Bundles `src/tours/index.js` → `dist/player.js` |
+| `scripts/build-tour-perf-pages.mjs` | Generates `dist/perf/*.html` Lighthouse host pages |
+| `dist/player.js`               | The file jsDelivr serves. **Commit this.** |
+| `dist/manifest.json`           | Build metadata (size, tour ids, timestamp) |
+| `dist/perf/*.html`             | Marketing-style pages for Lighthouse testing |
+
+---
+
+## Why safe to drop on a Webflow page
+
+| Concern | Status |
+|---|---|
+| External fonts loaded? | No. Falls back from `Geist` to `system-ui`. Webflow already loads Geist globally. |
+| External images loaded? | No. Flags + industry icons are inline SVG baked into the bundle. |
+| Remote fetches / XHR? | No. Zero `fetch`/`XMLHttpRequest`. |
+| Touches host page CSS? | No. All styles live inside a Shadow DOM. |
+| Touches host page DOM? | One benign mutation — `document.body.style.overflow = 'hidden'` during mobile fullscreen, restored on exit. |
+| jQuery / framework deps? | None. Vanilla `customElements` + `requestAnimationFrame`. |
+| Bundle size | ~41 KB gz. Build fails above 42 KB gz to catch regressions. |
+
+---
+
+## License
+
+Proprietary — © Transformance AI.

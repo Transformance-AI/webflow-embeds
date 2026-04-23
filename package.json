@@ -1,0 +1,16 @@
+{
+  "name": "webflow-embeds",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive product tours for the transformance.ai Webflow site.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-tours.mjs && node scripts/build-tour-perf-pages.mjs",
+    "build:bundle": "node scripts/build-tours.mjs",
+    "build:perf": "node scripts/build-tour-perf-pages.mjs",
+    "serve": "npx http-server dist -p 4173 -c-1 -s"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0"
+  }
+}

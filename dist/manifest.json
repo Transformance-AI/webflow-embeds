@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "generatedAt": "2026-04-23T14:29:57.104Z",
+  "bundleBytes": 233062,
+  "bundleGzBytes": 42157,
+  "tours": [
+    "cash-app",
+    "collections",
+    "deductions",
+    "predictions",
+    "vero-chat",
+    "vero-chat-v2"
+  ]
+}

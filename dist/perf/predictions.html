@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cash flow forecasting — perf test</title>
+<meta name="description" content="Lighthouse test page for the Cash flow forecasting interactive tour.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Geist, system-ui, -apple-system, sans-serif; color: #0a0a0a; background: #fff; line-height: 1.5; }
+  header { padding: 24px 40px; border-bottom: 1px solid rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: space-between; }
+  .wm { font-weight: 600; letter-spacing: -0.02em; }
+  nav a { color: rgba(0,0,0,0.6); text-decoration: none; margin-left: 24px; font-size: 14px; }
+  main { max-width: 1180px; margin: 0 auto; padding: 60px 40px; }
+  h1 { font: 500 56px/1.05 Geist, sans-serif; letter-spacing: -0.03em; margin-bottom: 20px; }
+  h1 .g { background: linear-gradient(90deg, #ff8308, #ff5043 55%, #392bd5); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { font-size: 18px; color: rgba(0,0,0,0.6); max-width: 640px; margin-bottom: 40px; }
+  section.tour { margin: 60px 0; }
+  h2 { font: 500 28px/1.15 Geist, sans-serif; letter-spacing: -0.015em; margin-bottom: 12px; }
+  .sub { color: rgba(0,0,0,0.6); margin-bottom: 28px; max-width: 520px; }
+  footer { margin-top: 120px; padding: 40px; border-top: 1px solid rgba(0,0,0,0.08); color: rgba(0,0,0,0.5); font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wm">▲ Transformance</div>
+  <nav><a href="#">Product</a><a href="#">Customers</a><a href="#">Pricing</a></nav>
+</header>
+<main>
+  <h1>From invoice to cash,<br>on <span class="g">autopilot</span>.</h1>
+  <p class="lede">Typical Webflow hero copy above the embed, so Lighthouse measures a realistic LCP and CLS profile rather than a bare frame.</p>
+
+  <section class="tour">
+    <h2>Forecast cash, model scenarios live</h2>
+    <p class="sub">AR and AP rolled into one forecast. Pull a lever, see the impact.</p>
+    <transformance-tour data-tour="predictions"></transformance-tour>
+  </section>
+
+  <p style="color: rgba(0,0,0,0.6); max-width: 640px;">
+    More body copy below the fold to simulate a real marketing page. The tour embed is roughly halfway down the page.
+  </p>
+</main>
+<footer>© 2026 Transformance · Perf test page (predictions)</footer>
+
+<script async src="../player.js"></script>
+</body>
+</html>
