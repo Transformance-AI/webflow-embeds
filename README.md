@@ -1,7 +1,9 @@
 # Transformance — Webflow Embeds
 
-Interactive product tours embedded in the [transformance.ai](https://transformance.ai) Webflow site.
-Ships as a single ~41 KB gz JS file that registers a `<transformance-tour>` custom element.
+Interactive scripts embedded in the [transformance.ai](https://transformance.ai) Webflow site.
+
+- **Product tours** — ~41 KB gz bundle registering `<transformance-tour>` and `<transformance-hero>` custom elements. Served from `dist/player.js`.
+- **DSO calculator** — standalone ~3 KB script that wires up the DSO calculator on `/tools/dso-calculator` by element ID. Served from `dist/dso-calculator.js`.
 
 ---
 
@@ -35,7 +37,33 @@ Use a **tagged version** (`@v1`, `@v1.0.0`, etc.) rather than `@main` — that g
 
 Available tour ids: `cash-app`, `collections`, `deductions`, `predictions`, `vero-chat`, `vero-chat-v2`.
 
-### 3. Optional CTA override
+### 3. DSO calculator — per-page script
+
+Added to the DSO calculator page (`/tools/dso-calculator`) only. Just a `<script src>` reference — no inline JS to paste:
+
+```html
+<script async src="https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@v1/dist/dso-calculator.js"></script>
+```
+
+The script auto-initialises when the DOM is ready. It looks for:
+
+| Input ID | Purpose |
+|---|---|
+| `#dso-rev` | Annual revenue (comma-formatted input) |
+| `#dso-ar` | Total AR balance (comma-formatted input) |
+| `#dso-period` | Measurement period, days |
+| `#dso-ind` | Industry benchmark, days |
+
+| Output ID | Purpose |
+|---|---|
+| `#dso-out` | Big DSO number |
+| `#dso-bench` | Echoed benchmark |
+| `#dso-trapped` | Cash trapped amount (colored red if over benchmark, green if under) |
+| `#dso-exp` | Explanatory line below trapped |
+
+If the expected IDs aren't present on the page, the script silently no-ops — safe to load everywhere.
+
+### 4. Optional CTA override
 
 The closing card defaults to a "Book a meeting" button pointing at `transformance.ai/meeting`.
 Override per embed:
