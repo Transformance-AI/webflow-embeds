@@ -43,7 +43,42 @@
     try { el.setSelectionRange(pos, pos); } catch (e) { /* no-op */ }
   }
 
+  // Cross-origin download with forced filename — Webflow's CDN ignores the
+  // HTML download attribute cross-origin, so we fetch the Excel as a blob,
+  // create an object URL, and trigger a named download.
+  function wireDownloadButton() {
+    var btn = document.querySelector('.dso-gate-btn');
+    if (!btn || !btn.href) return;
+    btn.addEventListener('click', function (e) {
+      if (e.defaultPrevented) return;
+      var url = btn.href;
+      if (!/\.xlsx(\?|$)/i.test(url)) return; // only intercept xlsx links
+      e.preventDefault();
+      var filename = btn.getAttribute('download') || 'Transformance DSO Analysis.xlsx';
+      fetch(url)
+        .then(function (res) {
+          if (!res.ok) throw new Error('download failed');
+          return res.blob();
+        })
+        .then(function (blob) {
+          var objectUrl = URL.createObjectURL(blob);
+          var link = document.createElement('a');
+          link.href = objectUrl;
+          link.download = filename;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          setTimeout(function () { URL.revokeObjectURL(objectUrl); }, 1500);
+        })
+        .catch(function () {
+          // Network / CORS fallback: open in new tab with original filename
+          window.open(url, '_blank');
+        });
+    });
+  }
+
   function init() {
+    wireDownloadButton();
     var r = document.getElementById('dso-rev');
     var a = document.getElementById('dso-ar');
     var p = document.getElementById('dso-period');
