@@ -1,26 +1,37 @@
 /**
- * Transformance DSO Calculator — live wiring.
+ * Transformance DSO Calculator — live wiring + form-gated Excel download.
  *
  * Wires up the Days Sales Outstanding calculator on /tools/dso-calculator.
  * Finds elements by ID, attaches input listeners, computes:
- *   DSO             = (AR / Revenue) * Period
+ *   DSO              = (AR / Revenue) * Period
  *   Gap vs benchmark = DSO - industryBenchmark
- *   Cash trapped    = gap * Revenue / 365   (positive gap → red)
+ *   Cash trapped     = gap * Revenue / 365   (positive gap → red)
  *
- * Expected page markup (IDs) — all input[type=text]:
+ * Inputs:
  *   #dso-rev       Annual revenue (comma-formatted as user types)
  *   #dso-ar        Total AR balance (comma-formatted)
  *   #dso-period    Measurement period in days (e.g. 365)
- *   #dso-ind       Industry benchmark in days (e.g. 52)
+ *   #dso-ind       Industry benchmark dropdown (value = days)
  *
- * Expected result elements:
+ * Outputs:
  *   #dso-out       Big DSO number ("66 days")
  *   #dso-bench     Echoed benchmark ("52 days")
  *   #dso-trapped   Cash-trapped amount (€123k / 5 days) — color inline-set
  *   #dso-exp       Explanatory line below trapped
  *
+ * Excel gate (Webflow native form):
+ *   #dso-excel-form        the FormForm
+ *   #dso-name / #dso-email visible inputs
+ *   #dso-form-industry / #dso-form-benchmark / #dso-form-revenue /
+ *   #dso-form-ar / #dso-form-dso  hidden capture fields populated on submit
+ *   .dso-gate-btn          submit button (also acts as direct download anchor)
+ *
+ * On submit: name validation, populates hidden fields, lets Webflow's native
+ * AJAX submit run, then watches for .w-form-done becoming visible and triggers
+ * a blob download with a clean filename (CDN doesn't send Content-Disposition).
+ *
  * Loaded via:
- *   <script async src="https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@v1.1.0/dist/dso-calculator.js"></script>
+ *   <script async src="https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@v1.1.3/dist/dso-calculator.js"></script>
  */
 (function () {
   function fmt(n) {
@@ -43,8 +54,6 @@
     try { el.setSelectionRange(pos, pos); } catch (e) { /* no-op */ }
   }
 
-  // Show an inline error on a field: red border + message below, auto-clears
-  // on next input.
   function flashError(inputEl, msg) {
     if (!inputEl) return;
     inputEl.focus();
@@ -69,78 +78,106 @@
     inputEl.addEventListener('input', clearOnInput);
   }
 
-  // Gate the Excel download on name + valid email, stash lead data in
-  // localStorage (placeholder until real HubSpot / webhook capture is wired),
-  // then fetch the xlsx as a blob and trigger a named download so the filename
-  // drops the Webflow asset-id prefix.
-  function wireDownloadButton() {
-    var btn = document.querySelector('.dso-gate-btn');
-    if (!btn || !btn.href) return;
+  // Trigger a clean-named download via fetch+blob — Webflow CDN doesn't send
+  // Content-Disposition, so the download="..." attribute alone gets ignored.
+  function triggerDownload(url, filename) {
+    fetch(url)
+      .then(function (res) {
+        if (!res.ok) throw new Error('download failed');
+        return res.blob();
+      })
+      .then(function (blob) {
+        var objectUrl = URL.createObjectURL(blob);
+        var link = document.createElement('a');
+        link.href = objectUrl;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(function () { URL.revokeObjectURL(objectUrl); }, 1500);
+      })
+      .catch(function () {
+        window.open(url, '_blank');
+      });
+  }
+
+  // Read latest calc context so hidden form fields ship the user's inputs +
+  // computed DSO with the lead capture submission.
+  function snapshotContext() {
+    var indEl = document.getElementById('dso-ind');
+    var industryLabel = '';
+    if (indEl && indEl.options && indEl.selectedIndex >= 0) {
+      industryLabel = indEl.options[indEl.selectedIndex].text;
+    }
+    var revEl = document.getElementById('dso-rev');
+    var arEl = document.getElementById('dso-ar');
+    var outEl = document.getElementById('dso-out');
+    return {
+      industry: industryLabel,
+      benchmark: indEl ? indEl.value : '',
+      revenue: revEl ? revEl.value : '',
+      ar: arEl ? arEl.value : '',
+      dso: outEl ? outEl.textContent : ''
+    };
+  }
+
+  function setHidden(id, val) {
+    var el = document.getElementById(id);
+    if (el) el.value = val;
+  }
+
+  // Wire the Webflow native form: validate, fill hiddens, watch for the
+  // success state, then fire the blob download with a clean filename.
+  function wireForm() {
+    var form = document.getElementById('dso-excel-form');
+    if (!form) return;
+    var btn = form.querySelector('.dso-gate-btn');
     var nameEl = document.getElementById('dso-name');
     var emailEl = document.getElementById('dso-email');
 
-    btn.addEventListener('click', function (e) {
-      if (e.defaultPrevented) return;
-      var url = btn.href;
-      if (!/\.xlsx(\?|$)/i.test(url)) return;
-      e.preventDefault();
+    // Source-of-truth file URL: prefer the submit button's href if present
+    // (acts as a no-JS fallback link), else a hardcoded asset CDN URL.
+    var fileUrl = (btn && btn.getAttribute && btn.getAttribute('href')) ||
+      'https://cdn.prod.website-files.com/684931abb239b84984296d93/69ebc51285b892f7825a86be_transformance-dso-analysis.xlsx';
+    var filename = 'Transformance DSO Analysis.xlsx';
 
-      // --- Validation ---
+    form.addEventListener('submit', function () {
       var nameVal = nameEl ? nameEl.value.trim() : '';
-      var emailVal = emailEl ? emailEl.value.trim() : '';
-      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
-      if (!nameVal && nameEl) { flashError(nameEl, 'Please enter your first name'); return; }
-      if (!emailOk && emailEl) { flashError(emailEl, 'Please enter a valid business email'); return; }
+      if (!nameVal && nameEl) {
+        flashError(nameEl, 'Please enter your first name');
+        // Don't preventDefault; Webflow's own validation will also fire on
+        // the email field. We just need our friendlier name flash.
+      }
+      var ctx = snapshotContext();
+      setHidden('dso-form-industry', ctx.industry);
+      setHidden('dso-form-benchmark', ctx.benchmark);
+      setHidden('dso-form-revenue', ctx.revenue);
+      setHidden('dso-form-ar', ctx.ar);
+      setHidden('dso-form-dso', ctx.dso);
+    }, true);
 
-      // --- Capture lead data (localStorage placeholder; wire real capture later) ---
-      try {
-        var indEl = document.getElementById('dso-ind');
-        var revEl = document.getElementById('dso-rev');
-        var arEl = document.getElementById('dso-ar');
-        var outEl = document.getElementById('dso-out');
-        var industryLabel = '';
-        if (indEl && indEl.options && indEl.selectedIndex >= 0) {
-          industryLabel = indEl.options[indEl.selectedIndex].text;
-        }
-        var lead = {
-          firstname: nameVal,
-          email: emailVal,
-          industry: industryLabel,
-          industry_benchmark_days: indEl ? indEl.value : '',
-          revenue: revEl ? revEl.value : '',
-          ar_balance: arEl ? arEl.value : '',
-          computed_dso: outEl ? outEl.textContent : '',
-          source: 'dso-calculator',
-          captured_at: new Date().toISOString()
-        };
-        window.localStorage.setItem('dso_lead_' + Date.now(), JSON.stringify(lead));
-      } catch (e) { /* ignore storage errors */ }
-
-      // --- Trigger blob download with clean filename ---
-      var filename = btn.getAttribute('download') || 'Transformance DSO Analysis.xlsx';
-      fetch(url)
-        .then(function (res) {
-          if (!res.ok) throw new Error('download failed');
-          return res.blob();
-        })
-        .then(function (blob) {
-          var objectUrl = URL.createObjectURL(blob);
-          var link = document.createElement('a');
-          link.href = objectUrl;
-          link.download = filename;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          setTimeout(function () { URL.revokeObjectURL(objectUrl); }, 1500);
-        })
-        .catch(function () {
-          window.open(url, '_blank');
-        });
+    // Webflow renders .w-form-done (success) and .w-form-fail (error) as
+    // siblings of the <form> inside .w-form. Watch for the success element
+    // gaining display:block — that's our cue to trigger the download.
+    var wrap = form.closest('.w-form');
+    if (!wrap) return;
+    var done = wrap.querySelector('.w-form-done');
+    if (!done) return;
+    var fired = false;
+    var mo = new MutationObserver(function () {
+      if (fired) return;
+      var visible = done.style.display === 'block' ||
+        getComputedStyle(done).display !== 'none';
+      if (visible) {
+        fired = true;
+        triggerDownload(fileUrl, filename);
+      }
     });
+    mo.observe(done, { attributes: true, attributeFilter: ['style', 'class'] });
   }
 
   function init() {
-    wireDownloadButton();
+    wireForm();
     var r = document.getElementById('dso-rev');
     var a = document.getElementById('dso-ar');
     var p = document.getElementById('dso-period');
