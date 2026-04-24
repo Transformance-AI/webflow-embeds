@@ -43,17 +43,80 @@
     try { el.setSelectionRange(pos, pos); } catch (e) { /* no-op */ }
   }
 
-  // Cross-origin download with forced filename — Webflow's CDN ignores the
-  // HTML download attribute cross-origin, so we fetch the Excel as a blob,
-  // create an object URL, and trigger a named download.
+  // Show an inline error on a field: red border + message below, auto-clears
+  // on next input.
+  function flashError(inputEl, msg) {
+    if (!inputEl) return;
+    inputEl.focus();
+    var prev = inputEl.style.borderColor;
+    inputEl.style.borderColor = '#ef4444';
+    inputEl.setAttribute('aria-invalid', 'true');
+    var errId = inputEl.id + '-err';
+    var err = document.getElementById(errId);
+    if (!err) {
+      err = document.createElement('div');
+      err.id = errId;
+      err.style.cssText = 'color:#ef4444;font-size:12px;margin-top:-10px;margin-bottom:12px;font-family:Geist,sans-serif;';
+      inputEl.parentNode.insertBefore(err, inputEl.nextSibling);
+    }
+    err.textContent = msg;
+    var clearOnInput = function () {
+      err.textContent = '';
+      inputEl.style.borderColor = prev || '';
+      inputEl.removeAttribute('aria-invalid');
+      inputEl.removeEventListener('input', clearOnInput);
+    };
+    inputEl.addEventListener('input', clearOnInput);
+  }
+
+  // Gate the Excel download on name + valid email, stash lead data in
+  // localStorage (placeholder until real HubSpot / webhook capture is wired),
+  // then fetch the xlsx as a blob and trigger a named download so the filename
+  // drops the Webflow asset-id prefix.
   function wireDownloadButton() {
     var btn = document.querySelector('.dso-gate-btn');
     if (!btn || !btn.href) return;
+    var nameEl = document.getElementById('dso-name');
+    var emailEl = document.getElementById('dso-email');
+
     btn.addEventListener('click', function (e) {
       if (e.defaultPrevented) return;
       var url = btn.href;
-      if (!/\.xlsx(\?|$)/i.test(url)) return; // only intercept xlsx links
+      if (!/\.xlsx(\?|$)/i.test(url)) return;
       e.preventDefault();
+
+      // --- Validation ---
+      var nameVal = nameEl ? nameEl.value.trim() : '';
+      var emailVal = emailEl ? emailEl.value.trim() : '';
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+      if (!nameVal && nameEl) { flashError(nameEl, 'Please enter your first name'); return; }
+      if (!emailOk && emailEl) { flashError(emailEl, 'Please enter a valid business email'); return; }
+
+      // --- Capture lead data (localStorage placeholder; wire real capture later) ---
+      try {
+        var indEl = document.getElementById('dso-ind');
+        var revEl = document.getElementById('dso-rev');
+        var arEl = document.getElementById('dso-ar');
+        var outEl = document.getElementById('dso-out');
+        var industryLabel = '';
+        if (indEl && indEl.options && indEl.selectedIndex >= 0) {
+          industryLabel = indEl.options[indEl.selectedIndex].text;
+        }
+        var lead = {
+          firstname: nameVal,
+          email: emailVal,
+          industry: industryLabel,
+          industry_benchmark_days: indEl ? indEl.value : '',
+          revenue: revEl ? revEl.value : '',
+          ar_balance: arEl ? arEl.value : '',
+          computed_dso: outEl ? outEl.textContent : '',
+          source: 'dso-calculator',
+          captured_at: new Date().toISOString()
+        };
+        window.localStorage.setItem('dso_lead_' + Date.now(), JSON.stringify(lead));
+      } catch (e) { /* ignore storage errors */ }
+
+      // --- Trigger blob download with clean filename ---
       var filename = btn.getAttribute('download') || 'Transformance DSO Analysis.xlsx';
       fetch(url)
         .then(function (res) {
@@ -71,7 +134,6 @@
           setTimeout(function () { URL.revokeObjectURL(objectUrl); }, 1500);
         })
         .catch(function () {
-          // Network / CORS fallback: open in new tab with original filename
           window.open(url, '_blank');
         });
     });
