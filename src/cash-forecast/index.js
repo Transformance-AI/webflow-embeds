@@ -255,7 +255,7 @@
     var nameEl = $('cf-name');
 
     var fileUrl = (btn && btn.getAttribute && btn.getAttribute('href')) ||
-      'https://cdn.prod.website-files.com/684931abb239b84984296d93/cash-forecast-template.xlsx';
+      'https://cdn.prod.website-files.com/684931abb239b84984296d93/69edee1ed681ea772870b823_transformance-cash-flow-forecast.xlsx';
     var filename = 'Transformance Cash Flow Forecast.xlsx';
 
     form.addEventListener('submit', function () {
