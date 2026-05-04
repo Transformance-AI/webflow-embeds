@@ -3526,7 +3526,9 @@
 }
 .tfb__body{
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  /* Image column caps at 320px so the product mockup doesn't dominate at
+     blog content widths (~600-800px). Text/claims/CTA get the rest. */
+  grid-template-columns:minmax(0,320px) minmax(0,1fr);
   gap:32px;
   align-items:center;
 }
@@ -3535,7 +3537,7 @@
   grid-template-columns:1fr;
 }
 .tfb__shot{width:100%;border-radius:6px;overflow:hidden}
-.tfb__shot img{width:100%;height:auto;display:block;object-fit:contain}
+.tfb__shot img{width:100%;height:auto;max-height:260px;display:block;object-fit:contain}
 .tfb__right{display:flex;flex-direction:column;gap:24px;min-width:0}
 .tfb__claims{
   list-style:none;padding:0;margin:0;
