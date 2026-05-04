@@ -31,6 +31,9 @@ export const TOPICS = {
     ],
     ctaText: 'See ClearMatch',
     href: '/solutions/cash-application',
+    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69df9ed7814b30f551626c60_e57293d5e53a3981daeaa229a2ec9fad_card-cash-app.avif',
+    imageAlt: 'ClearMatch cash application dashboard',
+  
   },
   'collections': {
     eyebrow: 'PRODUCT · COLLECTPULSE',
@@ -43,6 +46,9 @@ export const TOPICS = {
     ],
     ctaText: 'See CollectPulse',
     href: '/solutions/collections',
+    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69df9effac59f55ed2162c5c_89904a67e2dbf13e9bdb59df36357cc2_card-collections.avif',
+    imageAlt: 'CollectPulse collections dashboard',
+  
   },
   'deductions': {
     eyebrow: 'PRODUCT · CLAIMIQ',
@@ -55,6 +61,9 @@ export const TOPICS = {
     ],
     ctaText: 'See ClaimIQ',
     href: '/solutions/deductions',
+    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69df9f1d00e7328a348be73d_641b78d95aecfce017fced10a3f3b5e4_card-ded-dash.avif',
+    imageAlt: 'ClaimIQ deductions dashboard',
+  
   },
   'cash-forecast': {
     eyebrow: 'PRODUCT · CASHPULSE',
@@ -67,6 +76,9 @@ export const TOPICS = {
     ],
     ctaText: 'See CashPulse',
     href: '/solutions/cash-flow-forecasting',
+    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69df9feacd0cbc06fa2894ef_1070a6ecf388ba7555d1f167ef194969_card-cashpulse.avif',
+    imageAlt: 'CashPulse cash flow forecast with 8-week prediction',
+  
   },
   'vero': {
     eyebrow: 'AGENT · VERO',
@@ -79,6 +91,9 @@ export const TOPICS = {
     ],
     ctaText: 'Meet Vero',
     href: '/solutions/vero-agent',
+    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69dfa29f0775fd254511fbd0_fbbe4ebdc1f2e22cbb6b2a6f0819e1cd_card-vero.avif',
+    imageAlt: 'Vero AI agent dashboard',
+  
   },
   /* ------------------- Lead-magnet (free tools) banners ------------------- */
   'dso-calc': {
@@ -93,6 +108,9 @@ export const TOPICS = {
     ],
     ctaText: 'Open the calculator',
     href: '/tools/dso-calculator',
+    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69eb8c31e3a4b8fa9eba9a77_dso-excel-preview-1.png',
+    imageAlt: 'DSO calculator preview',
+  
   },
   'cf-template': {
     eyebrow: 'FREE TOOL · 13-WEEK CALCULATOR',
@@ -106,6 +124,9 @@ export const TOPICS = {
     ],
     ctaText: 'Open the calculator',
     href: '/tools/cash-flow-forecasting-tool',
+    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69ed0d37c19ca8bf38192eee_cash-forecast-excel-preview-1.png',
+    imageAlt: '13-week cash flow forecast template preview',
+  
   },
   /* ------------------- Demo / meeting banners ------------------- */
   'demo': {
@@ -118,6 +139,9 @@ export const TOPICS = {
     ],
     ctaText: 'Book a Call',
     href: '/meeting',
+    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69d3b0701083034263a57a7e_685bc2f14cf8c5d87159c2fd_685bc2112a4dda2ba7ffa234_profile%20image%20paul%20hanke.avif',
+    imageAlt: 'Paul Hanke, Co-Founder of Transformance',
+  
   },
 };
 
