@@ -76,7 +76,30 @@ Per-embed overrides (all optional):
 
 Wrap a phrase in `<grad>...</grad>` inside `data-headline` to apply the brand orange→indigo gradient. When `data-image-url` is set, the banner uses a 2-column layout (image left, claims right). Without an image it's a clean single-column layout.
 
-Visual smoke test: `dist/banners-test.html` renders all 8 topics + an override example. Open locally with `npm run serve`.
+#### Webflow **Editor**-friendly: text marker (v2.1+)
+
+Webflow Editor (the simpler tool used by content editors) sanitizes custom HTML elements out of rich-text fields. So content editors cannot paste the `<transformance-banner>` element directly — it'd be stripped before render.
+
+Workaround: a content editor types this **plain text** on its own line (just a normal paragraph):
+
+```
+[tf-banner:cash-app]
+```
+
+A runtime scanner walks every `.w-richtext` body after page load, finds matching paragraphs, and replaces them with the banner. No HTML knowledge required. Works in both Editor and Designer.
+
+Marker syntax:
+
+| Marker | Effect |
+|---|---|
+| `[tf-banner:cash-app]` | Renders the cash-app solution banner |
+| `[tf-banner:demo]` | Renders the "Book a Call" demo banner |
+| `[tf-banner:dso-calc]` | Renders the DSO calculator lead-magnet banner |
+| any of the 8 topic ids | Renders that topic's banner |
+
+Marker must be on its **own line** (a paragraph by itself). Inline markers mid-sentence are intentionally not supported — banners are block-level.
+
+Visual smoke test: `dist/banners-test.html` renders all 8 topics + an override + the marker-text scanner. Open locally with `npm run serve`.
 
 ### 3. DSO calculator — per-page script
 
