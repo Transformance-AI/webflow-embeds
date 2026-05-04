@@ -2,8 +2,11 @@
 
 Interactive scripts embedded in the [transformance.ai](https://transformance.ai) Webflow site.
 
-- **Product tours** — ~41 KB gz bundle registering `<transformance-tour>` and `<transformance-hero>` custom elements. Served from `dist/player.js`.
+- **Product tours** — registers `<transformance-tour>` and `<transformance-hero>` custom elements. Served from `dist/player.js`.
+- **Banners (v2)** — registers `<transformance-banner>` for solution-page, lead-magnet, and demo CTAs. Bundled into `dist/player.js`. Replaces 200+ lines of inline tf-banner HTML per blog with a single line.
 - **DSO calculator** — standalone ~3 KB script that wires up the DSO calculator on `/tools/dso-calculator` by element ID. Served from `dist/dso-calculator.js`.
+
+**Bundle size:** `dist/player.js` ≈ 53 KB gz (tours + hero + banners combined). Budget cap 55 KB.
 
 ---
 
@@ -31,11 +34,49 @@ Use a **tagged version** (`@v1`, `@v1.0.0`, etc.) rather than `@main` — that g
 
 ### 2. Per-page embed (Webflow Embed element)
 
+#### Tours
+
 ```html
 <transformance-tour data-tour="cash-app"></transformance-tour>
 ```
 
 Available tour ids: `cash-app`, `collections`, `deductions`, `predictions`, `vero-chat`, `vero-chat-v2`.
+
+#### Banners (v2+)
+
+```html
+<transformance-banner data-topic="cash-app"></transformance-banner>
+```
+
+Available banner topics:
+
+| Topic id | Layout | Destination |
+|---|---|---|
+| `cash-app` | Solution page | `/solutions/cash-application` |
+| `collections` | Solution page | `/solutions/collections` |
+| `deductions` | Solution page | `/solutions/deductions` |
+| `cash-forecast` | Solution page | `/solutions/cash-flow-forecasting` |
+| `vero` | Solution page | `/solutions/vero-agent` |
+| `dso-calc` | Lead-magnet (free tool) | `/tools/dso-calculator` |
+| `cf-template` | Lead-magnet (free tool) | `/tools/cash-flow-forecasting-tool` |
+| `demo` | Demo / book a call | `/meeting` |
+
+Per-embed overrides (all optional):
+
+```html
+<transformance-banner
+  data-topic="cash-app"
+  data-headline="Custom <grad>headline phrase</grad> for this blog"
+  data-cta-text="Custom CTA"
+  data-href="/custom-page"
+  data-image-url="https://cdn.prod.website-files.com/.../shot.png"
+  data-image-alt="Product preview"
+></transformance-banner>
+```
+
+Wrap a phrase in `<grad>...</grad>` inside `data-headline` to apply the brand orange→indigo gradient. When `data-image-url` is set, the banner uses a 2-column layout (image left, claims right). Without an image it's a clean single-column layout.
+
+Visual smoke test: `dist/banners-test.html` renders all 8 topics + an override example. Open locally with `npm run serve`.
 
 ### 3. DSO calculator — per-page script
 

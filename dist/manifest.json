@@ -1,8 +1,8 @@
 {
-  "version": "v1",
-  "generatedAt": "2026-04-23T16:05:04.007Z",
-  "bundleBytes": 275428,
-  "bundleGzBytes": 51242,
+  "version": "v2",
+  "generatedAt": "2026-05-04T09:38:47.345Z",
+  "bundleBytes": 286186,
+  "bundleGzBytes": 54914,
   "tours": [
     "cash-app",
     "collections",
@@ -10,5 +10,15 @@
     "predictions",
     "vero-chat",
     "vero-chat-v2"
+  ],
+  "banners": [
+    "cash-app",
+    "collections",
+    "deductions",
+    "cash-forecast",
+    "vero",
+    "dso-calc",
+    "cf-template",
+    "demo"
   ]
 }

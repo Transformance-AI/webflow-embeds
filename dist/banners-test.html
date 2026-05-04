@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>transformance-banner smoke test</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Geist',-apple-system,system-ui,sans-serif;background:#fff;color:#0a0a0a;margin:0;padding:48px 24px}
+    h1{font-weight:500;letter-spacing:-0.02em;font-size:32px;margin:0 0 8px;max-width:1100px;margin-left:auto;margin-right:auto}
+    .label{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(0,0,0,.5);margin:48px auto 8px;max-width:1100px;display:block}
+  </style>
+</head>
+<body>
+  <h1>transformance-banner — visual smoke test</h1>
+
+  <span class="label">cash-app</span>
+  <transformance-banner data-topic="cash-app"></transformance-banner>
+
+  <span class="label">collections</span>
+  <transformance-banner data-topic="collections"></transformance-banner>
+
+  <span class="label">deductions</span>
+  <transformance-banner data-topic="deductions"></transformance-banner>
+
+  <span class="label">cash-forecast</span>
+  <transformance-banner data-topic="cash-forecast"></transformance-banner>
+
+  <span class="label">vero</span>
+  <transformance-banner data-topic="vero"></transformance-banner>
+
+  <span class="label">dso-calc</span>
+  <transformance-banner data-topic="dso-calc"></transformance-banner>
+
+  <span class="label">cf-template</span>
+  <transformance-banner data-topic="cf-template"></transformance-banner>
+
+  <span class="label">demo</span>
+  <transformance-banner data-topic="demo"></transformance-banner>
+
+  <span class="label">override example: custom headline + cta</span>
+  <transformance-banner
+    data-topic="cash-app"
+    data-headline="A custom <grad>per-blog headline</grad> overrides the default."
+    data-cta-text="Custom CTA"
+    data-href="/custom-page"
+  ></transformance-banner>
+
+  <script src="./player.js"></script>
+</body>
+</html>

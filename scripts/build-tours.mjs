@@ -44,11 +44,12 @@ const gzKb = (gz.length / 1024).toFixed(1);
 console.log(`✓ dist/player.js  ${rawKb} KB  →  ${gzKb} KB gzipped`);
 
 const manifest = {
-  version: 'v1',
+  version: 'v2',
   generatedAt: new Date().toISOString(),
   bundleBytes: raw.length,
   bundleGzBytes: gz.length,
   tours: ['cash-app', 'collections', 'deductions', 'predictions', 'vero-chat', 'vero-chat-v2'],
+  banners: ['cash-app', 'collections', 'deductions', 'cash-forecast', 'vero', 'dso-calc', 'cf-template', 'demo'],
 };
 writeFileSync(path.join(OUT_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
