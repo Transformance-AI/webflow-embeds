@@ -134,12 +134,12 @@ export const TOPICS = {
     headline: 'See Transformance on <grad>your O2C data,</grad> in 30 minutes.',
     claims: [
       { icon: 'sparkles', text: 'Live demo against your remittance + invoice samples' },
-      { icon: 'check-circle', text: 'No deck, no fluff — just the product on real data' },
+      { icon: 'check-circle', text: 'No deck, no fluff. Just the product on real data' },
       { icon: 'clock', text: '30 minutes including Q&A' },
     ],
     ctaText: 'Book a Call',
     href: '/meeting',
-    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69d3b0701083034263a57a7e_685bc2f14cf8c5d87159c2fd_685bc2112a4dda2ba7ffa234_profile%20image%20paul%20hanke.avif',
+    imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/68494720f0211b2372893faf_Profile%20Picture.avif',
     imageAlt: 'Paul Hanke, Co-Founder of Transformance',
   
   },
