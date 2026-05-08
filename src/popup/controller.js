@@ -56,6 +56,8 @@ const CATEGORY_ALIASES = {
   'order-to-cash-broad':  'o2c',
   'invoice-to-cash':      'o2c',
   'ar-automation':        'o2c',
+  'ai-in-finance':        'o2c',
+  'ai-finance':           'o2c',
   'vendor-comparison':    'vendor-comparison',
   'vendor-comparisons':   'vendor-comparison',
   'comparisons':          'vendor-comparison',
