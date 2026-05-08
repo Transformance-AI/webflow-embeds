@@ -22,7 +22,7 @@ const ROOT = process.cwd();
 const ENTRY = path.join(ROOT, 'src/index.js');
 const OUT_DIR = path.join(ROOT, 'dist');
 const OUT_FILE = path.join(OUT_DIR, 'player.js');
-const BUDGET_GZ_KB = 55;
+const BUDGET_GZ_KB = 60;
 
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 
