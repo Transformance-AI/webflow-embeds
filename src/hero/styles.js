@@ -270,8 +270,8 @@ export const HERO_STYLES = `
   opacity: 0; pointer-events: none; transition: opacity 1s ease;
 }
 .tagline-overlay.visible { opacity: 1; }
-.tagline-main { font-size: 48px; font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: -0.02em; }
-.tagline-sub { font-size: 18px; color: var(--violet-300); font-weight: 500; }
+.tagline-main { font-size: 48px; font-weight: 700; color: var(--tf-hero-tagline-ink, #fff); margin-bottom: 12px; letter-spacing: -0.02em; }
+.tagline-sub { font-size: 18px; color: var(--tf-hero-tagline-sub, var(--violet-300)); font-weight: 500; }
 
 .progress-wrap { margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto; }
 .progress-track { height: 4px; background: rgba(255,255,255,0.1); border-radius: 9999px; overflow: hidden; margin-bottom: 8px; }
