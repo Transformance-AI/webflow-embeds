@@ -131,22 +131,25 @@ export const STYLES = `
 }
 .cta-primary{
   display:block;
-  width:100%;
-  background:var(--tf-ink);
+  width:max-content;
+  min-width:62%;
+  margin-left:auto;
+  margin-right:auto;
+  background:linear-gradient(90deg,#FF8308 0%,#FF5043 55%,#392BD5 100%);
   color:#fff;
   text-decoration:none;
   text-align:center;
   font-size:14px;
   font-weight:500;
-  padding:11px 16px;
-  border-radius:8px;
+  padding:11px 22px;
+  border-radius:999px;
   margin-bottom:10px;
   border:0;
   cursor:pointer;
-  transition:background 120ms;
+  transition:filter 120ms;
   font-family:inherit;
 }
-.cta-primary:hover{background:var(--tf-ink-soft);}
+.cta-primary:hover{filter:brightness(1.08) saturate(1.05);}
 .cta-secondary{
   display:block;
   text-align:center;

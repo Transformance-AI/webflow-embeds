@@ -29,7 +29,7 @@ export const POPUP_VARIANTS = {
   },
   'cash-app': {
     headline: 'Match 95% of payments straight-through. No templates.',
-    body: 'Vision LLMs read any remittance format. 99.7% extraction accuracy. Live in 4 to 8 weeks.',
+    body: 'Vision LLMs read any remittance format. >95% extraction accuracy. Live in 4 to 8 weeks.',
     ctaPrimary: 'Book a 15-min call',
     ctaPrimaryUrl: '/meeting',
     ctaSecondary: 'Visit ClearMatch →',
@@ -37,7 +37,7 @@ export const POPUP_VARIANTS = {
   },
   'collections': {
     headline: 'Cut DSO by 8 to 15 days with autonomous AI collectors.',
-    body: '70+ languages. 15 to 20 calls per hour per agent versus 15 to 20 per day for a human.',
+    body: '30+ languages. 15 to 20 calls per hour per agent versus 15 to 20 per day for a human.',
     ctaPrimary: 'Book a 15-min call',
     ctaPrimaryUrl: '/meeting',
     ctaSecondary: 'Visit CollectPulse →',
@@ -61,7 +61,7 @@ export const POPUP_VARIANTS = {
   },
   'o2c': {
     headline: 'Run the full O2C cycle on one AI-native platform.',
-    body: 'ClearMatch, ClaimIQ, CollectPulse, CashPulse. Unified by Vero. Deploys in 4 to 8 weeks.',
+    body: 'Cash application, collections, deductions, and forecasting. Unified by Vero. Deploys in 4 to 8 weeks.',
     ctaPrimary: 'Book a 15-min call',
     ctaPrimaryUrl: '/meeting',
     ctaSecondary: 'See Solutions →',

@@ -89,16 +89,16 @@ export const STYLES = `
 }
 .tfb__cta{
   display:inline-flex;align-items:center;gap:8px;
-  padding:10px 18px;border-radius:6px;
-  background:#000;color:#fff;
+  padding:10px 20px;border-radius:999px;
+  background:linear-gradient(90deg,#FF8308 0%,#FF5043 55%,#392BD5 100%);color:#fff;
   font-family:var(--tf-font);
   font-size:13px;font-weight:500;
   letter-spacing:-0.005em;
   text-decoration:none;border:1px solid transparent;
   line-height:1;width:fit-content;
-  transition:opacity 0.15s ease;
+  transition:filter 0.15s ease;
 }
-.tfb__cta:hover{opacity:0.85}
+.tfb__cta:hover{filter:brightness(1.08) saturate(1.05)}
 .tfb__cta-arrow{display:inline-block}
 @media (max-width:760px){
   .tfb{padding:22px}
