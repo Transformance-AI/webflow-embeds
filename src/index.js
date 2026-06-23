@@ -11,3 +11,4 @@ import './tours/index.js';
 import './hero/hero.js';
 import './banners/index.js';
 import './popup/index.js';
+import './email-templates/index.js';
