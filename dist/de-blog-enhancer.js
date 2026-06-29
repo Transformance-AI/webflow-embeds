@@ -105,6 +105,7 @@
     side.setAttribute('aria-label', label);
     var h = document.createElement('h2');
     h.textContent = label;
+    if (lgv3BlogLocale() === 'de') h.style.textTransform = 'none'; // German nouns stay capitalized ("Artikel")
     side.appendChild(h);
     side.appendChild(tocList.cloneNode(true));
     contentM.appendChild(side);
