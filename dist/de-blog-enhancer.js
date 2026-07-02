@@ -111,6 +111,53 @@
     contentM.appendChild(side);
   }
 
+  /* Hero-H1 keyword gradient (Paul 2026-07-02: "gradient highlight überall auf dem wichtigsten
+   * keyword"). Picks the topic keyword from the German title via pattern heuristics and wraps it
+   * in the brand text-gradient (same stops as the comparison/review heros). Conservative: no
+   * pattern match -> NO gradient (never highlight a filler word or the year). */
+  function pickHeroKeyword(t) {
+    var m;
+    // hyphenated German keyword compound ("HighRadius-Alternativen", "Cashflow-Prognose-Software")
+    m = t.match(/(\S+-(?:Alternativen|Wettbewerber|Software|Tools|Plattformen|Lösungen|Automatisierung|Prognose|Management|Vergleich))\b/);
+    if (m) return m[1];
+    // definitional titles: "Was ist/sind X?" / "Was bedeutet X:"
+    m = t.match(/^Was (?:ist|sind|bedeutet) (?:eine? |die |der |das )?(.+?)(?:\?|:|,| und | im | in | für |$)/);
+    if (m && m[1].trim().split(/\s+/).length <= 4) return m[1].trim();
+    // keyword-first colon titles: "SAP Cash Application: Der vollständige Leitfaden …" (max 4 words)
+    m = t.match(/^([^:?!]{3,48}?):/);
+    if (m && m[1].trim().split(/\s+/).length <= 4) return m[1].trim();
+    // "Die N besten X …" without a hyphen compound
+    m = t.match(/^Die \d+ besten (\S+(?: \S+)?)/);
+    if (m) return m[1].replace(/[.,;:]$/, '');
+    // last resort: a known head term anywhere in the title
+    m = t.match(/\b(Zahlungszuordnung|Forderungsmanagement|Debitorenbuchhaltung|Mahnwesen|Cash Application|Order-to-Cash|Cashflow-Prognose|Working Capital|KI-Agenten?|DSO)\b/);
+    return m ? m[1] : '';
+  }
+
+  function gradientHeroKeyword() {
+    if (lgv3BlogLocale() !== 'de') return;
+    var h1 = document.querySelector('.blog-intro-section h1');
+    if (!h1 || h1.querySelector('.lgv3-kw-grad')) return;
+    var t = h1.textContent.trim();
+    var kw = pickHeroKeyword(t);
+    var idx = kw ? t.indexOf(kw) : -1;
+    if (idx < 0) return;
+    if (!document.getElementById('lgv3-kw-grad-css')) {
+      var st = document.createElement('style');
+      st.id = 'lgv3-kw-grad-css';
+      st.textContent = '.lgv3-kw-grad{background-image:linear-gradient(90deg,#FF8308 0%,#FF5043 55%,#392BD5 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}';
+      document.head.appendChild(st);
+    }
+    // DOM-safe rebuild (no innerHTML on title text — titles can contain & etc.)
+    h1.textContent = '';
+    h1.appendChild(document.createTextNode(t.slice(0, idx)));
+    var sp = document.createElement('span');
+    sp.className = 'lgv3-kw-grad';
+    sp.textContent = kw;
+    h1.appendChild(sp);
+    h1.appendChild(document.createTextNode(t.slice(idx + kw.length)));
+  }
+
   function injectBlogArticleSchema() {
     if (document.querySelector('script[type="application/ld+json"][data-lgv3-article]')) return;
     var h1 = document.querySelector('.blog-intro-section h1');
@@ -141,6 +188,7 @@
     try { rebuildBlogHero(); } catch (e) {}
     try { activateBlogGrid(); } catch (e) {}
     try { injectBlogBreadcrumb(); } catch (e) {}
+    try { gradientHeroKeyword(); } catch (e) {}
     try { addBlogReadingTime(); } catch (e) {}
     try { hoistBlogTOC(); } catch (e) {}
     try { injectBlogArticleSchema(); } catch (e) {}
