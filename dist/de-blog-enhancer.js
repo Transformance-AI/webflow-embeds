@@ -129,8 +129,10 @@
     // "Die N besten X …" without a hyphen compound
     m = t.match(/^Die \d+ besten (\S+(?: \S+)?)/);
     if (m) return m[1].replace(/[.,;:]$/, '');
-    // last resort: a known head term anywhere in the title
-    m = t.match(/\b(Zahlungszuordnung|Forderungsmanagement|Debitorenbuchhaltung|Mahnwesen|Cash Application|Order-to-Cash|Cashflow-Prognose|Working Capital|KI-Agenten?|DSO)\b/);
+    // last resort: a known head term anywhere in the title (2026-07-03: +Zahlungsabgleich,
+    // Abzugsmanagement, RPA, Forderungen, Liquiditätsplanung, plural -Prognosen — covers the
+    // question-form titles "Warum sind Cashflow-Prognosen so oft ungenau?" etc.)
+    m = t.match(/\b(Zahlungszuordnung|Zahlungsabgleich|Forderungsmanagement|Abzugsmanagement|Debitorenbuchhaltung|Liquiditätsplanung|Mahnwesen|Cash Application|Order-to-Cash|Cashflow-Prognosen?|Working Capital|KI-Agenten?|DSO|RPA|Forderungen)\b/);
     return m ? m[1] : '';
   }
 
