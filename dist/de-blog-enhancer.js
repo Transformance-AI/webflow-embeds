@@ -132,7 +132,7 @@
     // last resort: a known head term anywhere in the title (2026-07-03: +Zahlungsabgleich,
     // Abzugsmanagement, RPA, Forderungen, Liquiditätsplanung, plural -Prognosen — covers the
     // question-form titles "Warum sind Cashflow-Prognosen so oft ungenau?" etc.)
-    m = t.match(/\b(Zahlungszuordnung|Zahlungsabgleich|Forderungsmanagement|Abzugsmanagement|Debitorenbuchhaltung|Liquiditätsplanung|Mahnwesen|Cash Application|Order-to-Cash|Cashflow-Prognosen?|Working Capital|KI-Agenten?|DSO|RPA|Forderungen)\b/);
+    m = t.match(/\b(Zahlungszuordnung|Zahlungsabgleich|Forderungsmanagement|Abzugsmanagement|Debitorenbuchhaltung|Debitorenautomatisierung|Rechnungsverarbeitung|Liquiditätsplanung|Mahnwesen|Cash Application|Order-to-Cash|Cashflow-Prognosen?|Working Capital|KI-Agenten?|DSO|RPA|Forderungen)\b/);
     return m ? m[1] : '';
   }
 
