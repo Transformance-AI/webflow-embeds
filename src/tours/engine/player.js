@@ -15,6 +15,11 @@
  *     a "Next" button that advances the tour. Aligned with the user's "no
  *     auto-advance — only further on click" preference.
  *
+ * DE locale: on `/de/…` paths (isDE()), the engine picks additive German fields
+ * when present — tour.tagDe / coverLabelDe / closingDe, scene.titleDe / bodyDe —
+ * and applies each scene's optional `i18n` list ([en, de] pairs) to its html.
+ * The English fields/paths are never rewritten, so EN output stays identical.
+ *
  * Closing CTA: the host page can supply a `data-cta-html` attribute on the
  * <transformance-tour> element. Whatever HTML is in that attribute is rendered
  * verbatim in the closing card. That lets Webflow connect a native
@@ -22,6 +27,11 @@
  */
 
 import { STYLES as styles } from './styles.js';
+import { isDE } from '../../shared/locale.js';
+import { TOUR_DE } from '../scenes/tour-de.js';
+
+const DE = isDE();
+const L = (en, de) => (DE ? de : en);
 
 const tours = {};
 
@@ -47,12 +57,31 @@ class TransformanceTour extends HTMLElement {
     this._tryMount();
   }
 
+  _coverLabel() {
+    return this._deTour?.coverLabel || this._tour.coverLabel || L('Watch demo', 'Demo ansehen');
+  }
+
+  /** Localize a scene's html: apply its [en, de] i18n pairs on the DE locale. */
+  _sceneHtml(scene) {
+    let html = scene.html;
+    const pairs = this._deTour?.scenes?.[scene.id]?.i18n;
+    if (pairs) {
+      for (const [en, de] of pairs) html = html.split(en).join(de);
+    }
+    return html;
+  }
+
   _tryMount() {
     const id = this.dataset.tour;
     const tour = id && tours[id];
     if (!tour) return; // tour not registered yet — registerTour() will retry
     this._mounted = true;
     this._tour = tour;
+    // Central DE dictionary for this tour (null on EN locale). Keeps scene
+    // files 100% untouched — all German lives in scenes/tour-de.js.
+    this._deTour = DE ? (TOUR_DE[id] || null) : null;
+
+    const tag = this._deTour?.tag || tour.tag || L('Interactive demo', 'Interaktive Demo');
 
     this._shadow = this.attachShadow({ mode: 'open' });
     this._shadow.innerHTML = `
@@ -67,13 +96,13 @@ class TransformanceTour extends HTMLElement {
         </defs>
       </svg>
       <div class="frame" part="frame">
-        <div class="cover-tag">${tour.tag || 'Interactive demo'}</div>
-        <button class="fs-close" data-fs-close aria-label="Close demo">✕</button>
+        <div class="cover-tag">${tag}</div>
+        <button class="fs-close" data-fs-close aria-label="${L('Close demo', 'Demo schließen')}">✕</button>
         <div class="stage" data-stage></div>
         <div class="cover" data-cover>
           <div class="cover-pill">
             <span class="cover-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></span>
-            ${tour.coverLabel || 'Watch demo'}
+            ${this._coverLabel()}
           </div>
         </div>
       </div>
@@ -122,7 +151,7 @@ class TransformanceTour extends HTMLElement {
       cover.innerHTML = `
         <div class="cover-pill">
           <span class="cover-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></span>
-          ${this._tour.coverLabel || 'Watch demo'}
+          ${this._coverLabel()}
         </div>
       `;
       this._frame.appendChild(cover);
@@ -153,7 +182,7 @@ class TransformanceTour extends HTMLElement {
       <div class="dots">
         ${this._tour.scenes.map((_, i) => `<span class="dot ${i === this._stepIndex ? 'active' : i < this._stepIndex ? 'done' : ''}"></span>`).join('')}
       </div>
-      <button class="toolbar-btn" data-skip>Skip</button>
+      <button class="toolbar-btn" data-skip>${L('Skip', 'Überspringen')}</button>
     `;
     this._frame.appendChild(bar);
     bar.querySelector('[data-skip]').addEventListener('click', () => this._renderClosing());
@@ -161,7 +190,7 @@ class TransformanceTour extends HTMLElement {
 
   _renderSceneContent(idx) {
     const scene = this._tour.scenes[idx];
-    this._stage.innerHTML = `<div class="scene scene-${scene.id}">${scene.html}</div>`;
+    this._stage.innerHTML = `<div class="scene scene-${scene.id}">${this._sceneHtml(scene)}</div>`;
   }
 
   _activateScene(idx) {
@@ -261,19 +290,23 @@ class TransformanceTour extends HTMLElement {
 
   _renderTooltip(scene) {
     const isFinal = this._stepIndex === this._tour.scenes.length - 1;
-    const advanceLabel = scene.advanceOn?.click ? null : (isFinal ? 'Finish' : 'Next');
+    const advanceLabel = scene.advanceOn?.click ? null : (isFinal ? L('Finish', 'Fertig') : L('Next', 'Weiter'));
+
+    const sd = this._deTour?.scenes?.[scene.id];
+    const title = sd?.title || scene.title;
+    const body = sd?.body || scene.body;
 
     const tooltip = document.createElement('div');
     tooltip.className = 'tooltip';
     tooltip.dataset.side = scene.tooltipSide || 'right';
     tooltip.innerHTML = `
-      ${scene.title ? `<div class="tooltip-tag">${scene.title}</div>` : ''}
-      <div class="tooltip-body">${scene.body}</div>
+      ${title ? `<div class="tooltip-tag">${title}</div>` : ''}
+      <div class="tooltip-body">${body}</div>
       <div class="tooltip-controls">
         <span class="step-of">${this._stepIndex + 1} / ${this._tour.scenes.length}</span>
         ${advanceLabel
           ? `<button class="tooltip-next" data-next>${advanceLabel}<svg viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 8,5 2,9"/></svg></button>`
-          : `<span style="color: var(--tour-ink-40); font-size: 11px;">↓ Click highlighted</span>`}
+          : `<span style="color: var(--tour-ink-40); font-size: 11px;">${L('↓ Click highlighted', '↓ Markiertes anklicken')}</span>`}
       </div>
     `;
     this._frame.appendChild(tooltip);
@@ -351,24 +384,28 @@ class TransformanceTour extends HTMLElement {
     this._shadow.querySelector('.tooltip')?.remove();
     this._shadow.querySelector('.toolbar')?.remove();
 
+    const meetingHref = DE ? 'https://transformance.ai/de/meeting' : 'https://transformance.ai/meeting';
     const ctaHtml = this.dataset.ctaHtml || `
-      <a class="closing-default-cta" href="https://transformance.ai/meeting">
-        Book a meeting →
+      <a class="closing-default-cta" href="${meetingHref}">
+        ${L('Book a meeting →', 'Termin buchen →')}
       </a>
     `;
 
-    const closing = document.createElement('div');
-    closing.className = 'closing';
-    closing.innerHTML = `
-      <h3>${this._tour.closing?.headline || 'Want to see it on <span class="grad">your data</span>?'}</h3>
-      ${this._tour.closing?.sub ? `<p>${this._tour.closing.sub}</p>` : ''}
-      <div class="closing-cta-slot">${ctaHtml}</div>
-      <button class="closing-replay" data-replay>↻ Replay</button>
-    `;
-    this._frame.appendChild(closing);
+    const closing = this._deTour?.closing || this._tour.closing;
+    const headline = (closing && closing.headline) || L('Want to see it on <span class="grad">your data</span>?', 'Sehen Sie es auf <span class="grad">Ihren Daten</span>?');
 
-    closing.querySelector('[data-replay]').addEventListener('click', () => {
-      closing.remove();
+    const el = document.createElement('div');
+    el.className = 'closing';
+    el.innerHTML = `
+      <h3>${headline}</h3>
+      ${closing?.sub ? `<p>${closing.sub}</p>` : ''}
+      <div class="closing-cta-slot">${ctaHtml}</div>
+      <button class="closing-replay" data-replay>${L('↻ Replay', '↻ Wiederholen')}</button>
+    `;
+    this._frame.appendChild(el);
+
+    el.querySelector('[data-replay]').addEventListener('click', () => {
+      el.remove();
       this._renderScene(0);
     });
   }

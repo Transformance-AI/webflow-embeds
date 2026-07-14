@@ -22,7 +22,12 @@ const ROOT = process.cwd();
 const ENTRY = path.join(ROOT, 'src/index.js');
 const OUT_DIR = path.join(ROOT, 'dist');
 const OUT_FILE = path.join(OUT_DIR, 'player.js');
-const BUDGET_GZ_KB = 60;
+// Raised from 60 → 80 to accommodate the full DE locale (hero/banners/tours all
+// carry EN + DE copy, incl. per-scene in-scene labels). German runs longer than
+// English; the full DE layer adds ~20 KB gz over the 58 KB EN-only baseline
+// (→ ~78 KB). Website team is aware. Trim DE strings if you want to pull back
+// toward the original 42 KB target.
+const BUDGET_GZ_KB = 80;
 
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 

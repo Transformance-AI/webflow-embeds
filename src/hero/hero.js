@@ -14,32 +14,108 @@
  * Expected to sit INSIDE a Webflow hero section that already contains
  * the <h1>, subtitle, and dark-gradient background. This element
  * contributes the 920×500 animated scene + progress bar only.
+ *
+ * Localization: all visible copy comes from HERO_TEXT (en/de), chosen by
+ * isDE(). The English branch reproduces the original strings byte-for-byte.
+ * Amounts (€890K, €14.2M, €3,780 …) stay as-is per the DE brief.
+ *
+ * Cut-off fix: the input cards used to sit flush at the container's left edge
+ * (left:0/5/10) and got clipped mid-word on the live homepage. They (and their
+ * connector origins) are shifted right by INPUT_X so there is a left gutter.
  */
 
 import { HERO_STYLES } from './styles.js';
+import { isDE } from '../shared/locale.js';
 
-const TAGLINES = [
-  { main: 'Your AR, on autopilot.', sub: 'From chaos to clarity in seconds.' },
-  { main: 'One agent. Every workflow.', sub: 'Collections, payments, deductions, forecasts.' },
-  { main: 'You ask. Vero delivers.', sub: 'The AI finance agent that gets things done.' },
-];
+const DE = isDE();
 
-const TODO_SUBS = [
-  '€890K cleared, 3 JEs posted',
-  'PTP €179K confirmed for 25 Apr',
-  '€3,780 valid trade promo, €450 to review',
-  '€14.2M projected, +6% from new PTP',
-];
+const HERO_TEXT = {
+  en: {
+    humanMsg: "Run the morning queue. Match yesterday's payments, chase overdue accounts, check deductions, and update the Q2 forecast.",
+    thinkingLabel: 'Picking up 4 tasks...',
+    summaryTitle: 'Morning queue complete:',
+    sum0: '3 payments matched and cleared, &euro;890K total',
+    sum1: 'Called Lars Olsen at Northwind, PTP &euro;179K by 25 Apr',
+    sum2: 'Deduction &euro;3,780 valid (trade promo), &euro;450 needs your call',
+    sum3: 'Q2 forecast updated to &euro;14.2M, up 6% from the new PTP',
+    summaryFooter: '3 resolved &middot; 1 needs your review &middot; forecast looking strong',
+    in0Title: '3 payments received', in0Sub: '&euro;890K total &middot; overnight', in0Foot: 'Deutsche Bank &middot; MT940 statement',
+    in1Title: 'INV-0019 overdue', in1Sub: '90+ days &middot; &euro;179K', in1Foot: 'Lars Olsen &middot; no response 12d',
+    in2Title: 'Short-pay flagged', in2Sub: '-&euro;4,230 &middot; Northwind', in2Foot: 'Suspected trade promo',
+    in3Title: 'Forecast stale', in3Sub: 'Q2 outlook &middot; 3 days old', in3Foot: 'New data available',
+    statusAnalyzing: 'Analyzing...', statusRunning: 'Running 4 workflows',
+    out0Title: 'Matched + cleared', clearedText: '&euro;890K cleared &middot; 3 JEs posted',
+    out1Title: 'AI Voice Call', sentiment: 'Positive', callTime: '3m 42s', ptpLabel: '&euro;179K PTP', callDetail: 'Lars Olsen &middot; confirmed 25 Apr',
+    out2Title: 'Investigated', ev0: 'Invoice #8842', ev1: 'Trade promo TP-041', ev2: 'POD signed', verdictValid: '&euro;3,780', verdictQ: '&euro;450?',
+    out3Title: 'Forecast updated', q2Label: 'Q2 ', q2Val: '&euro;14.2M', uplift: '+6%', ptpNote: 'PTP factored',
+    checklistTitle: 'Morning Queue', checklistSub: '4 workflows running',
+    todo0: 'Match 3 payments to open invoices', todo1: 'Call Lars Olsen re: INV-0019', todo2: 'Investigate deduction -&euro;4,230', todo3: 'Refresh Q2 cash forecast',
+    todoProcessing: 'Processing...', footerLeft: 'Done in 14s', footerRight: '3 resolved &middot; 1 for review',
+    steps: ['Ask', 'Ingest', 'Analyze', 'Execute', 'Complete', 'Review', 'Report'],
+    taglines: [
+      { main: 'Your AR, on autopilot.', sub: 'From chaos to clarity in seconds.' },
+      { main: 'One agent. Every workflow.', sub: 'Collections, payments, deductions, forecasts.' },
+      { main: 'You ask. Vero delivers.', sub: 'The AI finance agent that gets things done.' },
+    ],
+    todoSubs: [
+      '€890K cleared, 3 JEs posted',
+      'PTP €179K confirmed for 25 Apr',
+      '€3,780 valid trade promo, €450 to review',
+      '€14.2M projected, +6% from new PTP',
+    ],
+  },
+  de: {
+    humanMsg: 'Starte die Morgen-Queue. Ordne die gestrigen Zahlungen zu, verfolge überfällige Konten, prüfe Abzüge und aktualisiere die Q2-Prognose.',
+    thinkingLabel: '4 Aufgaben werden übernommen...',
+    summaryTitle: 'Morgen-Queue abgeschlossen:',
+    sum0: '3 Zahlungen zugeordnet und ausgeglichen, &euro;890K gesamt',
+    sum1: 'Lars Olsen bei Northwind angerufen, Zahlungszusage &euro;179K bis 25. Apr',
+    sum2: 'Abzug &euro;3,780 berechtigt (Trade-Promo), &euro;450 braucht Ihre Entscheidung',
+    sum3: 'Q2-Prognose auf &euro;14.2M aktualisiert, +6 % durch die neue Zahlungszusage',
+    summaryFooter: '3 erledigt &middot; 1 zur Prüfung &middot; Prognose sieht stark aus',
+    in0Title: '3 Zahlungseingänge', in0Sub: '&euro;890K gesamt &middot; über Nacht', in0Foot: 'Deutsche Bank &middot; MT940-Auszug',
+    in1Title: 'INV-0019 überfällig', in1Sub: '90+ Tage &middot; &euro;179K', in1Foot: 'Lars Olsen &middot; 12 T ohne Antwort',
+    in2Title: 'Kürzung markiert', in2Sub: '-&euro;4,230 &middot; Northwind', in2Foot: 'Vermutlich Trade-Promo',
+    in3Title: 'Prognose veraltet', in3Sub: 'Q2-Ausblick &middot; 3 Tage alt', in3Foot: 'Neue Daten verfügbar',
+    statusAnalyzing: 'Analysiere...', statusRunning: '4 Workflows aktiv',
+    out0Title: 'Zugeordnet + gebucht', clearedText: '&euro;890K ausgeglichen &middot; 3 Buchungen',
+    out1Title: 'KI-Sprachanruf', sentiment: 'Positiv', callTime: '3:42 Min.', ptpLabel: '&euro;179K PTP', callDetail: 'Lars Olsen &middot; bestätigt 25. Apr',
+    out2Title: 'Untersucht', ev0: 'Rechnung #8842', ev1: 'Trade-Promo TP-041', ev2: 'Liefernachweis signiert', verdictValid: '&euro;3,780', verdictQ: '&euro;450?',
+    out3Title: 'Prognose aktualisiert', q2Label: 'Q2 ', q2Val: '&euro;14.2M', uplift: '+6%', ptpNote: 'PTP einbezogen',
+    checklistTitle: 'Morgen-Queue', checklistSub: '4 Workflows aktiv',
+    todo0: '3 Zahlungen offenen Rechnungen zuordnen', todo1: 'Lars Olsen anrufen zu INV-0019', todo2: 'Abzug -&euro;4,230 untersuchen', todo3: 'Q2-Cashflow-Prognose aktualisieren',
+    todoProcessing: 'Wird verarbeitet...', footerLeft: 'Fertig in 14 s', footerRight: '3 erledigt &middot; 1 zur Prüfung',
+    steps: ['Fragen', 'Erfassen', 'Analysieren', 'Ausführen', 'Fertig', 'Prüfen', 'Bericht'],
+    taglines: [
+      { main: 'Ihre Debitoren, auf Autopilot.', sub: 'Vom Chaos zur Klarheit in Sekunden.' },
+      { main: 'Ein Agent. Jeder Workflow.', sub: 'Collections, Zahlungen, Abzüge, Prognosen.' },
+      { main: 'Sie fragen. Vero liefert.', sub: 'Der KI-Finanzagent, der Dinge erledigt.' },
+    ],
+    todoSubs: [
+      '€890K ausgeglichen, 3 Buchungen',
+      'Zahlungszusage €179K bestätigt für 25. Apr',
+      '€3,780 berechtigter Trade-Promo, €450 zu prüfen',
+      '€14.2M prognostiziert, +6 % durch neue Zahlungszusage',
+    ],
+  },
+};
 
-const STEPS = ['Ask','Ingest','Analyze','Execute','Complete','Review','Report'];
+const T = DE ? HERO_TEXT.de : HERO_TEXT.en;
+
+const TAGLINES = T.taglines;
+const TODO_SUBS = T.todoSubs;
+const STEPS = T.steps;
 
 const WAVEFORM_HEIGHTS = [3,7,5,9,4,8,6,10,3,7,5,8,4,6,9,5,7,3];
 
+// Cut-off fix: shift the 4 input cards (and their connector origins) right by
+// INPUT_X so their left edge is not flush against the clipped container edge.
+const INPUT_X = 28;
 const CONN_IN = [
-  { x1:195, y1:55,  x2:370, y2:215 },
-  { x1:185, y1:170, x2:370, y2:235 },
-  { x1:190, y1:305, x2:370, y2:260 },
-  { x1:185, y1:420, x2:370, y2:280 },
+  { x1:195 + INPUT_X, y1:55,  x2:370, y2:215 },
+  { x1:185 + INPUT_X, y1:170, x2:370, y2:235 },
+  { x1:190 + INPUT_X, y1:305, x2:370, y2:260 },
+  { x1:185 + INPUT_X, y1:420, x2:370, y2:280 },
 ];
 const CONN_OUT = [
   { x1:530, y1:215, x2:660, y2:50  },
@@ -66,7 +142,7 @@ const HERO_HTML = `
   <div id="chat-overlay" class="chat-overlay">
     <div class="chat-wrap">
       <div id="chat-human" class="chat-human">
-        <div class="human-bubble">Run the morning queue. Match yesterday's payments, chase overdue accounts, check deductions, and update the Q2 forecast.</div>
+        <div class="human-bubble">${T.humanMsg}</div>
         <img src="https://cdn.prod.website-files.com/69de2e314051c77c08e02468/69de2e314051c77c08e0248f_avatar-01.webp" alt="User" class="human-avatar" width="32" height="32" loading="lazy">
       </div>
       <div id="chat-thinking" class="chat-vero-thinking">
@@ -78,7 +154,7 @@ const HERO_HTML = `
             <div class="thinking-dot"></div>
             <div class="thinking-dot"></div>
             <div class="thinking-dot"></div>
-            <span class="thinking-label">Picking up 4 tasks...</span>
+            <span class="thinking-label">${T.thinkingLabel}</span>
           </div>
         </div>
       </div>
@@ -87,26 +163,26 @@ const HERO_HTML = `
           <div class="vero-avatar-text" style="font-size:13.4px;color:#10B981;"><span>^</span><span>^</span></div>
         </div>
         <div class="summary-bubble">
-          <div class="summary-title">Morning queue complete:</div>
+          <div class="summary-title">${T.summaryTitle}</div>
           <div class="summary-items">
             <div class="summary-item">
               <svg class="summary-check" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              3 payments matched and cleared, &euro;890K total
+              ${T.sum0}
             </div>
             <div class="summary-item">
               <svg class="summary-check" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Called Lars Olsen at Northwind, PTP &euro;179K by 25 Apr
+              ${T.sum1}
             </div>
             <div class="summary-item">
               <svg class="summary-check" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Deduction &euro;3,780 valid (trade promo), &euro;450 needs your call
+              ${T.sum2}
             </div>
             <div class="summary-item">
               <svg class="summary-check" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Q2 forecast updated to &euro;14.2M, up 6% from the new PTP
+              ${T.sum3}
             </div>
           </div>
-          <div class="summary-footer">3 resolved &middot; 1 needs your review &middot; forecast looking strong</div>
+          <div class="summary-footer">${T.summaryFooter}</div>
         </div>
       </div>
     </div>
@@ -125,41 +201,41 @@ const HERO_HTML = `
       <path id="conn-cross" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.6" />
     </svg>
 
-    <div id="input-0" class="card card-pad" style="left:5px;top:12px;width:185px;">
+    <div id="input-0" class="card card-pad" style="left:${5 + INPUT_X}px;top:12px;width:185px;">
       <div class="card-head">
         <div class="icon-box bg-emerald-100">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg>
         </div>
-        <div><div class="card-title">3 payments received</div><div class="card-sub">&euro;890K total &middot; overnight</div></div>
+        <div><div class="card-title">${T.in0Title}</div><div class="card-sub">${T.in0Sub}</div></div>
       </div>
-      <div class="card-foot" style="color:var(--gray-500);">Deutsche Bank &middot; MT940 statement</div>
+      <div class="card-foot" style="color:var(--gray-500);">${T.in0Foot}</div>
     </div>
-    <div id="input-1" class="card card-pad" style="left:0px;top:130px;width:180px;transition-delay:0.12s;">
+    <div id="input-1" class="card card-pad" style="left:${0 + INPUT_X}px;top:130px;width:180px;transition-delay:0.12s;">
       <div class="card-head">
         <div class="icon-box bg-rose-100">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         </div>
-        <div><div class="card-title">INV-0019 overdue</div><div class="card-sub">90+ days &middot; &euro;179K</div></div>
+        <div><div class="card-title">${T.in1Title}</div><div class="card-sub">${T.in1Sub}</div></div>
       </div>
-      <div class="card-foot" style="color:var(--rose-500);font-weight:500;">Lars Olsen &middot; no response 12d</div>
+      <div class="card-foot" style="color:var(--rose-500);font-weight:500;">${T.in1Foot}</div>
     </div>
-    <div id="input-2" class="card card-pad" style="left:10px;top:265px;width:180px;transition-delay:0.24s;">
+    <div id="input-2" class="card card-pad" style="left:${10 + INPUT_X}px;top:265px;width:180px;transition-delay:0.24s;">
       <div class="card-head">
         <div class="icon-box bg-amber-100">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
         </div>
-        <div><div class="card-title">Short-pay flagged</div><div class="card-sub">-&euro;4,230 &middot; Northwind</div></div>
+        <div><div class="card-title">${T.in2Title}</div><div class="card-sub">${T.in2Sub}</div></div>
       </div>
-      <div class="card-foot" style="color:var(--amber-600);font-weight:500;">Suspected trade promo</div>
+      <div class="card-foot" style="color:var(--amber-600);font-weight:500;">${T.in2Foot}</div>
     </div>
-    <div id="input-3" class="card card-pad" style="left:5px;top:385px;width:175px;transition-delay:0.36s;">
+    <div id="input-3" class="card card-pad" style="left:${5 + INPUT_X}px;top:385px;width:175px;transition-delay:0.36s;">
       <div class="card-head">
         <div class="icon-box bg-indigo-100">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <div><div class="card-title">Forecast stale</div><div class="card-sub">Q2 outlook &middot; 3 days old</div></div>
+        <div><div class="card-title">${T.in3Title}</div><div class="card-sub">${T.in3Sub}</div></div>
       </div>
-      <div class="card-foot" style="color:var(--indigo-500);font-weight:500;">New data available</div>
+      <div class="card-foot" style="color:var(--indigo-500);font-weight:500;">${T.in3Foot}</div>
     </div>
 
     <div id="vero-hub" class="vero-hub">
@@ -172,7 +248,7 @@ const HERO_HTML = `
           </div>
         </div>
         <div class="vero-hub-label">Vero</div>
-        <div id="vero-hub-status" class="vero-hub-status" style="color:var(--gray-400);">Analyzing...</div>
+        <div id="vero-hub-status" class="vero-hub-status" style="color:var(--gray-400);">${T.statusAnalyzing}</div>
       </div>
     </div>
 
@@ -182,7 +258,7 @@ const HERO_HTML = `
           <div class="icon-box-sm bg-emerald-100">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg>
           </div>
-          <div class="card-title">Matched + cleared</div>
+          <div class="card-title">${T.out0Title}</div>
         </div>
         <div id="check-0" class="anim-check">
           <div class="anim-check-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path class="anim-check-path" d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -193,7 +269,7 @@ const HERO_HTML = `
         <div id="inv-1" class="inv-row"><span class="inv-row-left">INV-0021</span><div class="inv-row-right"><span class="inv-amt">&euro;290K</span><span id="badge-1" class="inv-badge">97%</span></div></div>
         <div id="inv-2" class="inv-row"><span class="inv-row-left">INV-0022</span><div class="inv-row-right"><span class="inv-amt">&euro;240K</span><span id="badge-2" class="inv-badge">95%</span></div></div>
       </div>
-      <div id="cleared-text" class="cleared-text">&euro;890K cleared &middot; 3 JEs posted</div>
+      <div id="cleared-text" class="cleared-text">${T.clearedText}</div>
     </div>
 
     <div id="output-1" class="card card-pad" style="left:665px;top:135px;width:210px;transition-delay:0.12s;">
@@ -202,7 +278,7 @@ const HERO_HTML = `
           <div class="icon-box-sm bg-violet-100">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <div class="card-title">AI Voice Call</div>
+          <div class="card-title">${T.out1Title}</div>
         </div>
         <div id="check-1" class="anim-check">
           <div class="anim-check-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path class="anim-check-path" d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -211,12 +287,12 @@ const HERO_HTML = `
       <div id="waveform" class="waveform" style="margin-bottom:8px;padding:0 4px;"></div>
       <div class="sentiment-row">
         <div class="sentiment-left">
-          <span class="sentiment-badge">Positive</span>
-          <span class="sentiment-time">3m 42s</span>
+          <span class="sentiment-badge">${T.sentiment}</span>
+          <span class="sentiment-time">${T.callTime}</span>
         </div>
-        <span class="ptp-label">&euro;179K PTP</span>
+        <span class="ptp-label">${T.ptpLabel}</span>
       </div>
-      <div id="call-detail" class="call-detail">Lars Olsen &middot; confirmed 25 Apr</div>
+      <div id="call-detail" class="call-detail">${T.callDetail}</div>
     </div>
 
     <div id="output-2" class="card card-pad" style="left:660px;top:272px;width:210px;transition-delay:0.24s;">
@@ -225,7 +301,7 @@ const HERO_HTML = `
           <div class="icon-box-sm bg-amber-100">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>
           </div>
-          <div class="card-title">Investigated</div>
+          <div class="card-title">${T.out2Title}</div>
         </div>
         <div id="check-2" class="anim-check">
           <div class="anim-check-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path class="anim-check-path" d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -234,26 +310,26 @@ const HERO_HTML = `
       <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;">
         <div class="evidence-row">
           <div class="evidence-dot" style="background:var(--blue-400);"></div>
-          <span>Invoice #8842</span>
+          <span>${T.ev0}</span>
           <div class="evidence-dash"></div>
           <svg id="ev-check-0" class="evidence-check pending" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
         <div class="evidence-row">
           <div class="evidence-dot" style="background:var(--violet-400);"></div>
-          <span>Trade promo TP-041</span>
+          <span>${T.ev1}</span>
           <div class="evidence-dash"></div>
           <svg id="ev-check-1" class="evidence-check pending" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
         <div class="evidence-row">
           <div class="evidence-dot" style="background:var(--gray-400);"></div>
-          <span>POD signed</span>
+          <span>${T.ev2}</span>
           <svg id="ev-check-2" class="evidence-check pending" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
       </div>
       <div class="verdict-row">
         <div class="verdict-track"><div id="verdict-fill" class="verdict-fill"></div></div>
-        <span class="verdict-valid">&euro;3,780</span>
-        <span class="verdict-question">&euro;450?</span>
+        <span class="verdict-valid">${T.verdictValid}</span>
+        <span class="verdict-question">${T.verdictQ}</span>
       </div>
     </div>
 
@@ -263,7 +339,7 @@ const HERO_HTML = `
           <div class="icon-box-sm bg-indigo-100">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
           </div>
-          <div class="card-title">Forecast updated</div>
+          <div class="card-title">${T.out3Title}</div>
         </div>
         <div id="check-3" class="anim-check">
           <div class="anim-check-circle"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path class="anim-check-path" d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -273,11 +349,11 @@ const HERO_HTML = `
         <svg id="mini-chart" width="130" height="40" viewBox="0 0 130 40"></svg>
       </div>
       <div class="forecast-bottom">
-        <div><span class="forecast-q2-label">Q2 </span><span class="forecast-q2-val">&euro;14.2M</span></div>
+        <div><span class="forecast-q2-label">${T.q2Label}</span><span class="forecast-q2-val">${T.q2Val}</span></div>
         <div id="forecast-uplift" class="forecast-uplift">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          +6%
-          <span class="forecast-ptp-note">PTP factored</span>
+          ${T.uplift}
+          <span class="forecast-ptp-note">${T.ptpNote}</span>
         </div>
       </div>
     </div>
@@ -290,19 +366,19 @@ const HERO_HTML = `
           <div class="vero-avatar-text" style="font-size:13.4px;color:#6EE7B7;"><span>0</span><span>1</span></div>
         </div>
         <div>
-          <div class="checklist-title">Morning Queue</div>
-          <div class="checklist-sub">4 workflows running</div>
+          <div class="checklist-title">${T.checklistTitle}</div>
+          <div class="checklist-sub">${T.checklistSub}</div>
         </div>
       </div>
       <div class="checklist-items">
-        <div class="checklist-item" id="todo-0"><div class="check-box" id="todo-box-0"></div><div style="flex:1;"><div class="check-label" id="todo-label-0">Match 3 payments to open invoices</div><div class="check-sub" id="todo-sub-0">Processing...</div></div></div>
-        <div class="checklist-item" id="todo-1"><div class="check-box" id="todo-box-1"></div><div style="flex:1;"><div class="check-label" id="todo-label-1">Call Lars Olsen re: INV-0019</div><div class="check-sub" id="todo-sub-1">Processing...</div></div></div>
-        <div class="checklist-item" id="todo-2"><div class="check-box" id="todo-box-2"></div><div style="flex:1;"><div class="check-label" id="todo-label-2">Investigate deduction -&euro;4,230</div><div class="check-sub" id="todo-sub-2">Processing...</div></div></div>
-        <div class="checklist-item" id="todo-3"><div class="check-box" id="todo-box-3"></div><div style="flex:1;"><div class="check-label" id="todo-label-3">Refresh Q2 cash forecast</div><div class="check-sub" id="todo-sub-3">Processing...</div></div></div>
+        <div class="checklist-item" id="todo-0"><div class="check-box" id="todo-box-0"></div><div style="flex:1;"><div class="check-label" id="todo-label-0">${T.todo0}</div><div class="check-sub" id="todo-sub-0">${T.todoProcessing}</div></div></div>
+        <div class="checklist-item" id="todo-1"><div class="check-box" id="todo-box-1"></div><div style="flex:1;"><div class="check-label" id="todo-label-1">${T.todo1}</div><div class="check-sub" id="todo-sub-1">${T.todoProcessing}</div></div></div>
+        <div class="checklist-item" id="todo-2"><div class="check-box" id="todo-box-2"></div><div style="flex:1;"><div class="check-label" id="todo-label-2">${T.todo2}</div><div class="check-sub" id="todo-sub-2">${T.todoProcessing}</div></div></div>
+        <div class="checklist-item" id="todo-3"><div class="check-box" id="todo-box-3"></div><div style="flex:1;"><div class="check-label" id="todo-label-3">${T.todo3}</div><div class="check-sub" id="todo-sub-3">${T.todoProcessing}</div></div></div>
       </div>
       <div id="checklist-footer" class="checklist-footer">
-        <span class="checklist-footer-left">Done in 14s</span>
-        <span class="checklist-footer-right">3 resolved &middot; 1 for review</span>
+        <span class="checklist-footer-left">${T.footerLeft}</span>
+        <span class="checklist-footer-right">${T.footerRight}</span>
       </div>
     </div>
   </div>
@@ -533,7 +609,7 @@ class TransformanceHero extends HTMLElement {
     hub.classList.toggle('pulsing', p >= 2 && p <= 4);
     this._q('#vero-hub-card').classList.toggle('active', p >= 3);
     const hubStatus = this._q('#vero-hub-status');
-    hubStatus.textContent = p < 3 ? 'Analyzing...' : 'Running 4 workflows';
+    hubStatus.textContent = p < 3 ? T.statusAnalyzing : T.statusRunning;
     hubStatus.style.color = p >= 3 ? 'var(--violet-600)' : 'var(--gray-400)';
     if (p >= 2) this._animateVeroAvatar(this._q('#vero-avatar-hub'), p >= 3 ? 'thinking' : 'idle');
 
@@ -606,7 +682,7 @@ class TransformanceHero extends HTMLElement {
       this._q('#todo-box-' + i).innerHTML = '';
       this._q('#todo-label-' + i).className = 'check-label';
       this._q('#todo-sub-' + i).className = 'check-sub';
-      this._q('#todo-sub-' + i).textContent = 'Processing...';
+      this._q('#todo-sub-' + i).textContent = T.todoProcessing;
     }
     this._q('#checklist-footer').classList.remove('visible');
   }
