@@ -41,7 +41,10 @@ export const HERO_STYLES = `
    width its container gives it (e.g. the narrower right column of the split
    hero) so nothing is clipped mid-card. Longer DE strings ride along untouched. */
 .canvas-fit {
-  position: relative; width: 100%; max-width: 920px; margin: 0 auto;
+  /* Explicit width so the grid/flex column reserves a balanced slot (the
+     absolute scene has no intrinsic width and the column would otherwise
+     collapse). Shrinks on small screens; _fit() scales the scene to match. */
+  position: relative; width: 560px; max-width: 100%;
   overflow: hidden;
 }
 /* Absolute so the fixed 920px scene never inflates the column's intrinsic
