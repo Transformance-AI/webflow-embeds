@@ -473,10 +473,12 @@ class TransformanceHero extends HTMLElement {
   _fit() {
     const els = this._fitEls;
     if (!els || !els.fit || !els.wrap) return;
-    const w = els.fit.clientWidth || 920;
-    const scale = Math.min(1, w / 920);
+    // canvas-wrap is absolute, so .canvas-fit now reports the real available
+    // column width (not the 920px content width). Scale the scene to fill it.
+    const avail = els.fit.clientWidth || 920;
+    const scale = Math.min(1, avail / 920);
+    els.fit.style.height = Math.round(500 * scale) + 'px';
     els.wrap.style.transform = `scale(${scale})`;
-    els.fit.style.height = (500 * scale) + 'px';
   }
 
   _buildStaticBits() {

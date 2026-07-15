@@ -44,8 +44,11 @@ export const HERO_STYLES = `
   position: relative; width: 100%; max-width: 920px; margin: 0 auto;
   overflow: hidden;
 }
+/* Absolute so the fixed 920px scene never inflates the column's intrinsic
+   width — the column then reports its true available width, which _fit()
+   reads to scale the scene down to fit (no clipping in narrow split heroes). */
 .canvas-wrap {
-  position: relative; width: 920px; height: 500px;
+  position: absolute; top: 0; left: 0; width: 920px; height: 500px;
   transform-origin: top left;
 }
 
