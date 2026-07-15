@@ -219,10 +219,10 @@
     0 1px 2px rgba(10,10,10,0.05),
     0 12px 32px -6px rgba(10,10,10,0.12),
     inset 0 1px 0 rgba(255,255,255,0.6);
-  padding: 16px 18px 14px;
-  width: 280px;
-  font-size: 13px;
-  line-height: 1.45;
+  padding: 13px 15px 11px;
+  width: 236px;
+  font-size: 12.5px;
+  line-height: 1.4;
   color: var(--tour-ink);
   transition: opacity 200ms ease, transform 200ms ease;
 }
@@ -270,10 +270,10 @@
   border: 1px solid var(--tour-ink-10);
   transform: rotate(45deg);
 }
-.tooltip[data-side="right"]::after { left: -7px; top: 24px; border-right: none; border-top: none; }
-.tooltip[data-side="left"]::after  { right: -7px; top: 24px; border-left: none; border-bottom: none; }
-.tooltip[data-side="top"]::after   { left: 24px; bottom: -7px; border-top: none; border-left: none; }
-.tooltip[data-side="bottom"]::after{ left: 24px; top: -7px; border-bottom: none; border-right: none; }
+.tooltip[data-side="right"]::after { left: -7px; top: var(--arrow-pos, 22px); border-right: none; border-top: none; }
+.tooltip[data-side="left"]::after  { right: -7px; top: var(--arrow-pos, 22px); border-left: none; border-bottom: none; }
+.tooltip[data-side="top"]::after   { left: var(--arrow-pos, 22px); bottom: -7px; border-top: none; border-left: none; }
+.tooltip[data-side="bottom"]::after{ left: var(--arrow-pos, 22px); top: -7px; border-bottom: none; border-right: none; }
 
 /* ───────── Toolbar (dots + skip + replay) ───────── */
 .toolbar {

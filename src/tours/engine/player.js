@@ -327,37 +327,41 @@ class TransformanceTour extends HTMLElement {
     }
 
     const frameRect = this._frame.getBoundingClientRect();
-    const tipW = 280;
-    const tipH = 140; // approx
+    // Measure the REAL tooltip box (longer DE strings make it taller than any
+    // fixed guess — a hardcoded height caused top-overlap and mis-clamping).
+    const tipW = tooltip.offsetWidth;
+    const tipH = tooltip.offsetHeight;
     const gap = 14;
+    const M = 12; // keep clear of the frame edges
+    const cx = r.x + r.w / 2; // target centre (frame-relative)
+    const cy = r.y + r.h / 2;
 
     let side = scene.tooltipSide || 'right';
     let left, top;
     switch (side) {
-      case 'right':
-        left = r.x + r.w + gap;
-        top = r.y;
-        break;
-      case 'left':
-        left = r.x - tipW - gap;
-        top = r.y;
-        break;
-      case 'top':
-        left = r.x;
-        top = r.y - tipH - gap;
-        break;
-      case 'bottom':
-        left = r.x;
-        top = r.y + r.h + gap;
-        break;
+      case 'right':  left = r.x + r.w + gap; top = cy - tipH / 2; break;
+      case 'left':   left = r.x - tipW - gap; top = cy - tipH / 2; break;
+      case 'top':    left = cx - tipW / 2; top = r.y - tipH - gap; break;
+      case 'bottom': left = cx - tipW / 2; top = r.y + r.h + gap; break;
     }
 
-    // Clamp inside frame
-    left = Math.max(12, Math.min(left, frameRect.width - tipW - 12));
-    top = Math.max(12, Math.min(top, frameRect.height - tipH - 12));
+    // Clamp inside frame using the real box size
+    left = Math.max(M, Math.min(left, frameRect.width - tipW - M));
+    top = Math.max(M, Math.min(top, frameRect.height - tipH - M));
 
     tooltip.style.left = `${left}px`;
     tooltip.style.top = `${top}px`;
+
+    // Aim the arrow at the target centre (offset by half the 12px tail),
+    // clamped so it stays on the tooltip edge even when the box is clamped.
+    const HALF = 6;
+    if (side === 'left' || side === 'right') {
+      const ay = Math.max(8, Math.min(cy - top - HALF, tipH - 20));
+      tooltip.style.setProperty('--arrow-pos', `${ay}px`);
+    } else {
+      const ax = Math.max(8, Math.min(cx - left - HALF, tipW - 20));
+      tooltip.style.setProperty('--arrow-pos', `${ax}px`);
+    }
   }
 
   _bindAdvance(scene) {
