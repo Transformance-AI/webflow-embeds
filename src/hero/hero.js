@@ -138,6 +138,7 @@ const TIMELINE = [
 ];
 
 const HERO_HTML = `
+<div class="canvas-fit" part="fit">
 <div class="canvas-wrap" part="canvas">
   <div id="chat-overlay" class="chat-overlay">
     <div class="chat-wrap">
@@ -387,6 +388,7 @@ const HERO_HTML = `
     <div style="text-align:center;" id="tagline-content"></div>
   </div>
 </div>
+</div>
 
 <div class="progress-wrap">
   <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
@@ -413,6 +415,18 @@ class TransformanceHero extends HTMLElement {
     this._q = (sel) => this._shadow.querySelector(sel);
 
     this._buildStaticBits();
+
+    // Scale the fixed 920x500 scene down to fit its container (e.g. the narrower
+    // right column of the split hero) so no card is clipped. Runs now + on resize.
+    this._fitEls = { fit: this._q('.canvas-fit'), wrap: this._q('.canvas-wrap') };
+    this._fit();
+    if ('ResizeObserver' in window) {
+      this._ro = new ResizeObserver(() => this._fit());
+      this._ro.observe(this);
+    } else {
+      this._onResize = () => this._fit();
+      window.addEventListener('resize', this._onResize);
+    }
 
     // Defer animation init until after the first paint. `requestIdleCallback`
     // gives the browser time to finish layout/paint of the static page before
@@ -452,6 +466,17 @@ class TransformanceHero extends HTMLElement {
     this._timers = [];
     this._clearAvatarTimers();
     this._observer?.disconnect();
+    this._ro?.disconnect();
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+  }
+
+  _fit() {
+    const els = this._fitEls;
+    if (!els || !els.fit || !els.wrap) return;
+    const w = els.fit.clientWidth || 920;
+    const scale = Math.min(1, w / 920);
+    els.wrap.style.transform = `scale(${scale})`;
+    els.fit.style.height = (500 * scale) + 'px';
   }
 
   _buildStaticBits() {

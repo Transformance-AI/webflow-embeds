@@ -5,14 +5,16 @@
  */
 
 :host {
-  --tour-canvas: #f6f4f1;
+  /* Liquid Glass v3 palette — matched to the site (cream base, ink #0a0a0a). */
+  --tour-canvas: #f6f1ea;
+  --tour-canvas-2: #efe6da;
   --tour-ink: #0a0a0a;
   --tour-ink-60: rgba(10, 10, 10, 0.6);
   --tour-ink-40: rgba(10, 10, 10, 0.4);
-  --tour-ink-10: rgba(10, 10, 10, 0.1);
+  --tour-ink-10: rgba(10, 10, 10, 0.08);
   --tour-grad: linear-gradient(90deg, #ff8308, #ff5043 55%, #392bd5);
-  --tour-radius: 10px;
-  --tour-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 28px rgba(0, 0, 0, 0.10);
+  --tour-radius: 16px;
+  --tour-shadow: 0 1px 2px rgba(10, 10, 10, 0.04), 0 16px 40px -8px rgba(10, 10, 10, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 
   display: block;
   font-family: Geist, system-ui, -apple-system, sans-serif;
@@ -28,12 +30,31 @@
   position: relative;
   width: 100%;
   max-width: 1024px;
+  /* Scenes were tuned 2026-06-08 to fit a 720px article column at 560px tall
+     (most scenes had whitespace below the content at 640px). At wider widths,
+     aspect-ratio 1024/640 gives a taller frame naturally. Tallest scene
+     (cash-app step 2 extraction) was shortened to 6 fields so this lower
+     bound works without cropping. */
+  min-width: 560px;
+  min-height: 560px;
   aspect-ratio: 1024 / 640;
   margin: 0 auto;
-  background: var(--tour-canvas);
+  background:
+    radial-gradient(ellipse 420px 280px at 8% 10%, rgba(255,131,8,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 460px 300px at 95% 95%, rgba(57,43,213,0.06) 0%, transparent 60%),
+    linear-gradient(160deg, var(--tour-canvas) 0%, var(--tour-canvas-2) 100%);
   border-radius: var(--tour-radius);
   overflow: hidden;
   border: 1px solid var(--tour-ink-10);
+  box-shadow: var(--tour-shadow);
+}
+/* When the host viewport itself is below the tour's minimum, fall back to
+   100% of the viewport rather than scrollbars-and-overflow. */
+@media (max-width: 600px) {
+  .frame {
+    min-width: 0;
+    min-height: 0;
+  }
 }
 
 /* Fullscreen mode — for mobile tap-to-expand. */
@@ -71,9 +92,12 @@
 .cover {
   position: absolute;
   inset: 0;
-  background: rgba(246, 244, 241, 0.55);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  background:
+    radial-gradient(ellipse 360px 240px at 18% 22%, rgba(255,131,8,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 400px 260px at 82% 78%, rgba(57,43,213,0.08) 0%, transparent 60%),
+    rgba(246, 241, 234, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -189,10 +213,13 @@
   position: absolute;
   z-index: 40;
   background: #fff;
-  border-radius: var(--tour-radius);
+  border-radius: 12px;
   border: 1px solid var(--tour-ink-10);
-  box-shadow: var(--tour-shadow);
-  padding: 14px 16px 12px;
+  box-shadow:
+    0 1px 2px rgba(10,10,10,0.05),
+    0 12px 32px -6px rgba(10,10,10,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 16px 18px 14px;
   width: 280px;
   font-size: 13px;
   line-height: 1.45;
@@ -219,14 +246,19 @@
 .tooltip-controls .step-of { font-variant-numeric: tabular-nums; }
 .tooltip-next {
   appearance: none; border: 0; cursor: pointer;
-  background: var(--tour-ink); color: #fff;
-  border-radius: 8px;
-  padding: 6px 12px;
+  background: var(--tour-grad);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
   font: 500 12px/1 Geist, system-ui, sans-serif;
   display: inline-flex; align-items: center; gap: 6px;
   white-space: nowrap;
+  box-shadow: 0 4px 12px -2px rgba(255,80,67,0.32);
+  transition: background-position 0.3s ease, transform 0.15s ease;
 }
-.tooltip-next:hover { opacity: 0.9; }
+.tooltip-next:hover { background-position: 100% 50%; transform: translateY(-1px); }
 .tooltip-next svg { width: 10px; height: 10px; }
 
 /* Tail / arrow (we draw a small triangle pointing toward the spotlight) */
@@ -303,11 +335,21 @@
 .closing-cta-slot { margin-top: 8px; }
 .closing-default-cta {
   appearance: none; border: 0;
-  background: var(--tour-ink); color: #fff;
-  padding: 10px 20px; border-radius: 8px;
-  font: 500 13px/1 Geist, system-ui, sans-serif;
+  background: var(--tour-grad);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  color: #fff;
+  padding: 12px 22px; border-radius: 999px;
+  font: 500 14px/1 Geist, system-ui, sans-serif;
   cursor: pointer; text-decoration: none;
   display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: 0 6px 16px -4px rgba(255,80,67,0.35), 0 1px 2px rgba(10,10,10,0.08);
+  transition: background-position 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.closing-default-cta:hover {
+  background-position: 100% 50%;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -4px rgba(255,80,67,0.45), 0 2px 4px rgba(10,10,10,0.1);
 }
 .closing-replay {
   appearance: none; border: 0; background: transparent;

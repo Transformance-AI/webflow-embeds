@@ -449,11 +449,26 @@ const predictions = {
           .scene-p-02-scenario .sc-legend .swatch.base { background: rgba(10,10,10,0.3); }
           .scene-p-02-scenario .sc-legend .swatch.new { background: #4e55e1; background-image: linear-gradient(90deg, #4e55e1 50%, transparent 50%); background-size: 4px 2px; }
 
-          .scene-p-02-scenario .intensity-row { display: flex; align-items: center; gap: 6px; margin: 10px 0 8px; padding: 6px 8px; background: rgba(10,10,10,0.025); border-radius: 8px; flex-wrap: wrap; }
+          /* Intensity row gets a brand-gradient halo so the user's eye finds the
+             clickable chips inside the spotlighted frame. Pulses gently to draw attention. */
+          .scene-p-02-scenario .intensity-row {
+            display: flex; align-items: center; gap: 6px; margin: 10px 0 8px;
+            padding: 6px 8px; background: rgba(10,10,10,0.025);
+            border-radius: 8px; flex-wrap: wrap;
+            position: relative;
+            box-shadow:
+              0 0 0 1.5px rgba(255, 80, 67, 0.7),
+              0 0 18px 2px rgba(255, 80, 67, 0.28);
+            animation: scene-p02-hilite 2.4s ease-in-out infinite;
+          }
+          @keyframes scene-p02-hilite {
+            0%, 100% { box-shadow: 0 0 0 1.5px rgba(255, 80, 67, 0.7), 0 0 18px 2px rgba(255, 80, 67, 0.28); }
+            50%      { box-shadow: 0 0 0 1.5px rgba(57, 43, 213, 0.7),  0 0 22px 4px rgba(57, 43, 213, 0.32); }
+          }
           .scene-p-02-scenario .int-label { font: 500 10px/1 Geist; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(10,10,10,0.5); margin-right: 2px; }
           .scene-p-02-scenario .int-chip { appearance: none; border: 1px solid rgba(10,10,10,0.1); background: #fff; padding: 4px 10px; border-radius: 6px; font: 500 11px/1 Geist, system-ui, sans-serif; font-variant-numeric: tabular-nums; cursor: pointer; color: rgba(10,10,10,0.7); transition: all 150ms ease; }
-          .scene-p-02-scenario .int-chip:hover { border-color: rgba(78,85,225,0.35); color: #3730a3; }
-          .scene-p-02-scenario .int-chip.active { background: #4e55e1; color: #fff; border-color: #4e55e1; }
+          .scene-p-02-scenario .int-chip:hover { border-color: rgba(78,85,225,0.5); color: #3730a3; transform: translateY(-1px); }
+          .scene-p-02-scenario .int-chip.active { background: linear-gradient(90deg, #ff8308, #ff5043 55%, #392bd5); color: #fff; border-color: transparent; box-shadow: 0 2px 8px -2px rgba(255,80,67,0.35); }
           .scene-p-02-scenario .int-driver { margin-left: auto; font-size: 10px; color: rgba(10,10,10,0.55); font-style: italic; }
 
           .scene-p-02-scenario .impact-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 10px; }
@@ -466,7 +481,19 @@ const predictions = {
           .scene-p-02-scenario .cta-bar { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding: 10px 12px; background: linear-gradient(180deg, rgba(10,10,10,0.03), rgba(10,10,10,0.05)); border-radius: 10px; }
           .scene-p-02-scenario .cta-label { font-size: 12px; font-weight: 500; }
           .scene-p-02-scenario .cta-sub { font-size: 11px; color: rgba(10,10,10,0.55); margin-top: 2px; }
-          .scene-p-02-scenario #scenario-drilldown { padding: 9px 14px; font-size: 13px; }
+          .scene-p-02-scenario #scenario-drilldown {
+            padding: 11px 18px; font-size: 13px;
+            background: linear-gradient(90deg, #ff8308, #ff5043 55%, #392bd5);
+            background-size: 200% 100%; background-position: 0% 50%;
+            color: #fff; border: 0; border-radius: 999px;
+            box-shadow: 0 6px 16px -4px rgba(255,80,67,0.35), 0 1px 2px rgba(10,10,10,0.08);
+            transition: background-position 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease;
+          }
+          .scene-p-02-scenario #scenario-drilldown:hover {
+            background-position: 100% 50%;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px -4px rgba(255,80,67,0.45), 0 2px 4px rgba(10,10,10,0.1);
+          }
         </style>
         <div class="head">
           <div>

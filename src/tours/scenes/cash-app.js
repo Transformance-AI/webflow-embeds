@@ -24,7 +24,8 @@ const SHARED_STYLES = `
     .scene .pill.amber { background: rgba(239,137,1,0.12); color: #b75e00; }
     .scene .pill.violet { background: rgba(130,89,247,0.12); color: #6d28d9; }
     .scene .pill.gray { background: rgba(10,10,10,0.06); color: rgba(10,10,10,0.6); }
-    .scene .btn { appearance: none; border: 0; cursor: pointer; background: #0a0a0a; color: #fff; font: 500 12px/1 Geist, system-ui, sans-serif; padding: 8px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px; }
+    .scene .btn { appearance: none; border: 0; cursor: pointer; background: linear-gradient(90deg, #ff8308, #ff5043 55%, #392bd5); background-size: 200% 100%; background-position: 0% 50%; color: #fff; font: 500 12px/1 Geist, system-ui, sans-serif; padding: 10px 18px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px -2px rgba(255,80,67,0.32), 0 1px 2px rgba(10,10,10,0.06); transition: background-position 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease; }
+    .scene .btn:hover { background-position: 100% 50%; transform: translateY(-1px); box-shadow: 0 8px 20px -3px rgba(255,80,67,0.45), 0 2px 4px rgba(10,10,10,0.08); }
     .scene .btn-light { background: #fff; color: #0a0a0a; border: 1px solid rgba(10,10,10,0.1); }
     .scene .mono { font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
     .scene .eyebrow { font: 500 10px/1 Geist, system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(10,10,10,0.5); }
@@ -150,15 +151,13 @@ const cashApp = {
             </div>
           </div>
           <div id="extraction-table">
-            <div class="table-head">Extracted fields <span class="pill green">8 / 8 captured</span></div>
+            <div class="table-head">Extracted fields <span class="pill green">6 / 6 captured</span></div>
             <div class="field"><span class="field-key">Vendor</span><span class="field-val">Acme Industries</span><span class="field-conf"><span class="pill green">99%</span></span></div>
             <div class="field"><span class="field-key">Amount</span><span class="field-val mono">€530,000.00</span><span class="field-conf"><span class="pill green">99%</span></span></div>
             <div class="field"><span class="field-key">Currency</span><span class="field-val">EUR</span><span class="field-conf"><span class="pill green">99%</span></span></div>
             <div class="field"><span class="field-key">Bank ref</span><span class="field-val mono">DB-WT-2024-04-22-8842</span><span class="field-conf"><span class="pill green">97%</span></span></div>
             <div class="field"><span class="field-key">Invoices</span><span class="field-val mono">INV-0019, INV-0020, INV-0021</span><span class="field-conf"><span class="pill green">99%</span></span></div>
             <div class="field"><span class="field-key">Value date</span><span class="field-val mono">2024-04-22</span><span class="field-conf"><span class="pill green">98%</span></span></div>
-            <div class="field"><span class="field-key">Discount</span><span class="field-val">None</span><span class="field-conf"><span class="pill green">95%</span></span></div>
-            <div class="field"><span class="field-key">FX rate</span><span class="field-val">N/A (same ccy)</span><span class="field-conf"><span class="pill green">99%</span></span></div>
           </div>
         </div>
       `,
@@ -246,7 +245,21 @@ const cashApp = {
           .scene-04-edge #edge-card .actions { display: flex; align-items: center; justify-content: space-between; }
           .scene-04-edge #edge-card .vero-note { font-size: 11px; color: rgba(10,10,10,0.55); display: flex; align-items: center; gap: 6px; }
           .scene-04-edge #edge-card .vero-dot { width: 6px; height: 6px; border-radius: 50%; background: #8259f7; }
-          .scene-04-edge #edge-confirm { background: #ef8901; }
+          /* Keep gradient .btn styling from base. Add pulsing halo around the button
+             specifically so users in step 4 can see exactly what to click - the card
+             spotlight alone made the button blend with the orange-bordered card. */
+          .scene-04-edge #edge-confirm {
+            position: relative;
+            box-shadow:
+              0 4px 12px -2px rgba(255,80,67,0.4),
+              0 0 0 2px rgba(255,80,67,0.7),
+              0 0 18px 3px rgba(255,80,67,0.32);
+            animation: scene-04-pulse 2.4s ease-in-out infinite;
+          }
+          @keyframes scene-04-pulse {
+            0%, 100% { box-shadow: 0 4px 12px -2px rgba(255,80,67,0.4), 0 0 0 2px rgba(255,80,67,0.7), 0 0 18px 3px rgba(255,80,67,0.32); }
+            50%      { box-shadow: 0 4px 12px -2px rgba(57,43,213,0.4),  0 0 0 2px rgba(57,43,213,0.7),  0 0 22px 4px rgba(57,43,213,0.36); }
+          }
         </style>
         <div class="head row" style="justify-content: space-between;">
           <h2>Acme Industries · €530K</h2>
@@ -407,7 +420,9 @@ const cashApp = {
       id: '07-schedule',
       title: 'Step 7 · Schedule',
       body: 'Vero proposes the rules. <span class="grad">You stay in control</span> of every threshold.',
-      tooltipSide: 'left',
+      /* tooltipSide: 'top' so the tooltip sits above the modal instead of
+         overlapping the form fields at narrow widths (e.g. 720px blog column). */
+      tooltipSide: 'top',
       spotlight: '#approve-btn',
       advanceOn: { click: '#approve-btn' },
       html: `${SHARED_STYLES}

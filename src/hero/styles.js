@@ -37,9 +37,16 @@ export const HERO_STYLES = `
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Scale-to-fit wrapper: the 920x500 scene scales down uniformly to whatever
+   width its container gives it (e.g. the narrower right column of the split
+   hero) so nothing is clipped mid-card. Longer DE strings ride along untouched. */
+.canvas-fit {
+  position: relative; width: 100%; max-width: 920px; margin: 0 auto;
+  overflow: hidden;
+}
 .canvas-wrap {
-  position: relative; width: 920px; height: 500px; margin: 0 auto;
-  max-width: 100%;
+  position: relative; width: 920px; height: 500px;
+  transform-origin: top left;
 }
 
 .card {

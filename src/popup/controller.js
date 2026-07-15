@@ -46,6 +46,7 @@ const CATEGORY_ALIASES = {
   'cash-app':             'cash-app',
   'collections':          'collections',
   'collection':           'collections',
+  'ar-collections':       'collections',
   'deductions':           'deductions',
   'deduction':            'deductions',
   'claims':               'deductions',
@@ -54,6 +55,7 @@ const CATEGORY_ALIASES = {
   'o2c':                  'o2c',
   'order-to-cash':        'o2c',
   'order-to-cash-broad':  'o2c',
+  'general-o2c':          'o2c',
   'invoice-to-cash':      'o2c',
   'ar-automation':        'o2c',
   'ai-in-finance':        'o2c',
@@ -102,6 +104,14 @@ function resolveContext() {
     const slug = path.split('/').pop() || '';
     const variant = fromMeta || variantFromBlogSlug(slug);
     return { variant, kind: 'blog', slug };
+  }
+
+  // Glossary terms: cluster meta tag → default fallback
+  if (path.startsWith('/glossary/') && path !== '/glossary') {
+    const meta = document.querySelector('meta[name="tf-glossary-cluster"]');
+    const fromMeta = normalizeCategory(meta && meta.getAttribute('content'));
+    const slug = path.split('/').pop() || '';
+    return { variant: fromMeta || 'default', kind: 'glossary', slug };
   }
 
   return null;

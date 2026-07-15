@@ -1,1 +1,501 @@
-export const STYLES = "/*\n * Tour player base styles — injected into Shadow DOM so they cannot\n * collide with Webflow's CSS. Targets system-stack font (inherits the\n * host page's Geist if present).\n */\n\n:host {\n  --tour-canvas: #f6f4f1;\n  --tour-ink: #0a0a0a;\n  --tour-ink-60: rgba(10, 10, 10, 0.6);\n  --tour-ink-40: rgba(10, 10, 10, 0.4);\n  --tour-ink-10: rgba(10, 10, 10, 0.1);\n  --tour-grad: linear-gradient(90deg, #ff8308, #ff5043 55%, #392bd5);\n  --tour-radius: 10px;\n  --tour-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 28px rgba(0, 0, 0, 0.10);\n\n  display: block;\n  font-family: Geist, system-ui, -apple-system, sans-serif;\n  color: var(--tour-ink);\n  -webkit-font-smoothing: antialiased;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.frame {\n  position: relative;\n  width: 100%;\n  max-width: 1024px;\n  aspect-ratio: 1024 / 640;\n  margin: 0 auto;\n  background: var(--tour-canvas);\n  border-radius: var(--tour-radius);\n  overflow: hidden;\n  border: 1px solid var(--tour-ink-10);\n}\n\n/* Fullscreen mode — for mobile tap-to-expand. */\n.frame.fs {\n  position: fixed;\n  inset: 0;\n  max-width: none;\n  width: 100vw;\n  height: 100vh;\n  aspect-ratio: auto;\n  border-radius: 0;\n  z-index: 99999;\n}\n\n.fs-close {\n  position: absolute;\n  top: 12px; right: 12px;\n  z-index: 100;\n  appearance: none;\n  border: 0;\n  background: rgba(10, 10, 10, 0.85);\n  color: #fff;\n  width: 36px; height: 36px;\n  border-radius: 50%;\n  cursor: pointer;\n  display: none;\n  align-items: center;\n  justify-content: center;\n  font-size: 18px;\n  line-height: 1;\n}\n.frame.fs .fs-close { display: inline-flex; }\n\n/* ───────── Cover (pre-start) ───────── */\n.cover {\n  position: absolute;\n  inset: 0;\n  background: rgba(246, 244, 241, 0.55);\n  backdrop-filter: blur(3px);\n  -webkit-backdrop-filter: blur(3px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 50;\n  cursor: pointer;\n  transition: opacity 280ms ease, backdrop-filter 280ms ease;\n}\n.cover-pill {\n  display: inline-flex;\n  align-items: center;\n  gap: 12px;\n  padding: 14px 24px 14px 18px;\n  background: var(--tour-grad);\n  color: #fff;\n  border-radius: 999px;\n  font-size: 14px;\n  font-weight: 500;\n  letter-spacing: -0.01em;\n  box-shadow: 0 6px 22px rgba(255, 80, 67, 0.28), 0 2px 6px rgba(0, 0, 0, 0.08);\n  transition: transform 200ms ease, box-shadow 200ms ease;\n  position: relative;\n}\n.cover:hover .cover-pill {\n  transform: scale(1.05);\n  box-shadow: 0 10px 30px rgba(255, 80, 67, 0.38), 0 3px 8px rgba(0, 0, 0, 0.10);\n}\n.cover-play {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 22px; height: 22px;\n  border-radius: 50%;\n  background: rgba(255, 255, 255, 0.22);\n}\n.cover-play svg { width: 9px; height: 9px; fill: #fff; margin-left: 1px; }\n.cover-tag {\n  position: absolute;\n  top: 16px; left: 16px;\n  font: 500 10px/1 Geist, system-ui, sans-serif;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  color: var(--tour-ink-40);\n  transition: opacity 200ms ease;\n}\n.cover-tag.hidden { opacity: 0; pointer-events: none; }\n\n.cover.hidden { opacity: 0; pointer-events: none; }\n\n/* ───────── Stage ───────── */\n.stage {\n  position: absolute;\n  inset: 0;\n  padding: 0;\n}\n\n/* ───────── Spotlight ───────── */\n.spotlight {\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  z-index: 30;\n}\n.spotlight svg { display: block; width: 100%; height: 100%; }\n.spotlight-mask rect.outer { fill: white; }\n.spotlight-mask rect.inner { fill: black; }\n.spotlight-dim {\n  fill: rgba(10, 10, 10, 0.42);\n  transition: opacity 200ms ease;\n}\n\n/* Gradient halo applied directly to the CTA element.\n   The element stays crisply opaque — gradient only lives OUTSIDE:\n     ::before = thin gradient border line, right at the element's edge\n     box-shadow = soft glow that bleeds a few pixels out, pulsing ember↔indigo\n   Because box-shadow is drawn strictly outside the border-box, it can never\n   tint the element itself. Scales with the element at any viewport size. */\n.tour-hilite {\n  position: relative;\n  z-index: 31;\n  box-shadow:\n    0 0 0 1.5px rgba(255, 80, 67, 0.85),\n    0 0 22px 2px rgba(255, 80, 67, 0.35);\n  animation: tour-hilite-glow 2.4s ease-in-out infinite;\n  transition: box-shadow 300ms ease;\n}\n.tour-hilite::before {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  padding: 1.5px;\n  background: var(--tour-grad);\n  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);\n          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);\n  -webkit-mask-composite: xor;\n          mask-composite: exclude;\n  pointer-events: none;\n  z-index: 1;\n}\n@keyframes tour-hilite-glow {\n  0%, 100% {\n    box-shadow:\n      0 0 0 1.5px rgba(255, 80, 67, 0.85),\n      0 0 22px 2px rgba(255, 80, 67, 0.35);\n  }\n  50% {\n    box-shadow:\n      0 0 0 1.5px rgba(57, 43, 213, 0.85),\n      0 0 28px 4px rgba(57, 43, 213, 0.4);\n  }\n}\n\n/* ───────── Tooltip ───────── */\n.tooltip {\n  position: absolute;\n  z-index: 40;\n  background: #fff;\n  border-radius: var(--tour-radius);\n  border: 1px solid var(--tour-ink-10);\n  box-shadow: var(--tour-shadow);\n  padding: 14px 16px 12px;\n  width: 280px;\n  font-size: 13px;\n  line-height: 1.45;\n  color: var(--tour-ink);\n  transition: opacity 200ms ease, transform 200ms ease;\n}\n.tooltip-tag {\n  font: 500 10px/1 Geist, system-ui, sans-serif;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  color: var(--tour-ink-40);\n  margin-bottom: 6px;\n}\n.tooltip-body { color: var(--tour-ink); margin-bottom: 10px; }\n.tooltip-body .grad {\n  background: var(--tour-grad);\n  -webkit-background-clip: text; background-clip: text;\n  color: transparent;\n}\n.tooltip-controls {\n  display: flex; align-items: center; justify-content: space-between;\n  font-size: 11px; color: var(--tour-ink-40);\n}\n.tooltip-controls .step-of { font-variant-numeric: tabular-nums; }\n.tooltip-next {\n  appearance: none; border: 0; cursor: pointer;\n  background: var(--tour-ink); color: #fff;\n  border-radius: 8px;\n  padding: 6px 12px;\n  font: 500 12px/1 Geist, system-ui, sans-serif;\n  display: inline-flex; align-items: center; gap: 6px;\n  white-space: nowrap;\n}\n.tooltip-next:hover { opacity: 0.9; }\n.tooltip-next svg { width: 10px; height: 10px; }\n\n/* Tail / arrow (we draw a small triangle pointing toward the spotlight) */\n.tooltip::after {\n  content: \"\";\n  position: absolute;\n  width: 12px; height: 12px;\n  background: #fff;\n  border: 1px solid var(--tour-ink-10);\n  transform: rotate(45deg);\n}\n.tooltip[data-side=\"right\"]::after { left: -7px; top: 24px; border-right: none; border-top: none; }\n.tooltip[data-side=\"left\"]::after  { right: -7px; top: 24px; border-left: none; border-bottom: none; }\n.tooltip[data-side=\"top\"]::after   { left: 24px; bottom: -7px; border-top: none; border-left: none; }\n.tooltip[data-side=\"bottom\"]::after{ left: 24px; top: -7px; border-bottom: none; border-right: none; }\n\n/* ───────── Toolbar (dots + skip + replay) ───────── */\n.toolbar {\n  position: absolute;\n  bottom: 14px; left: 50%;\n  transform: translateX(-50%);\n  display: flex; align-items: center; gap: 14px;\n  z-index: 35;\n  background: rgba(255, 255, 255, 0.92);\n  border-radius: 999px;\n  padding: 6px 12px;\n  border: 1px solid var(--tour-ink-10);\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);\n}\n.dots { display: flex; gap: 6px; }\n.dot {\n  width: 6px; height: 6px; border-radius: 50%;\n  background: var(--tour-ink-10);\n  transition: background 200ms ease, transform 200ms ease;\n}\n.dot.active { background: var(--tour-ink); transform: scale(1.2); }\n.dot.done { background: var(--tour-ink-60); }\n.toolbar-btn {\n  appearance: none; border: 0; background: transparent;\n  cursor: pointer;\n  font: 500 11px/1 Geist, system-ui, sans-serif;\n  color: var(--tour-ink-60);\n  padding: 4px 6px;\n}\n.toolbar-btn:hover { color: var(--tour-ink); }\n\n/* ───────── Closing card ───────── */\n.closing {\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(180deg, rgba(246, 244, 241, 0.85), rgba(246, 244, 241, 0.96));\n  backdrop-filter: blur(8px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 60;\n  text-align: center;\n  padding: 40px;\n  gap: 18px;\n}\n.closing h3 {\n  font: 500 28px/1.15 Geist, system-ui, sans-serif;\n  letter-spacing: -0.02em;\n  margin: 0;\n  max-width: 600px;\n}\n.closing h3 .grad {\n  background: var(--tour-grad);\n  -webkit-background-clip: text; background-clip: text;\n  color: transparent;\n}\n.closing p { color: var(--tour-ink-60); font-size: 14px; max-width: 480px; margin: 0; }\n.closing-cta-slot { margin-top: 8px; }\n.closing-default-cta {\n  appearance: none; border: 0;\n  background: var(--tour-ink); color: #fff;\n  padding: 10px 20px; border-radius: 8px;\n  font: 500 13px/1 Geist, system-ui, sans-serif;\n  cursor: pointer; text-decoration: none;\n  display: inline-flex; align-items: center; gap: 8px;\n}\n.closing-replay {\n  appearance: none; border: 0; background: transparent;\n  color: var(--tour-ink-60); font: 500 12px/1 Geist, system-ui, sans-serif;\n  cursor: pointer;\n  text-decoration: underline;\n  margin-top: 8px;\n}\n\n/* ───────── Mobile ───────── */\n\n/* Phone-sized containers: the desktop frame is too dense to play\n   inline, so we collapse to a compact preview tile. Tapping it sends\n   the frame fullscreen (.fs class, set by the engine on start). */\n@media (max-width: 767px) {\n  .frame:not(.fs) {\n    max-width: 360px;\n    aspect-ratio: 16 / 10;\n  }\n  /* Hide everything except the cover while collapsed */\n  .frame:not(.fs) .stage,\n  .frame:not(.fs) .toolbar,\n  .frame:not(.fs) .tooltip,\n  .frame:not(.fs) .spotlight,\n  .frame:not(.fs) .closing { display: none; }\n\n  /* Tooltip becomes a bottom sheet once we're fullscreen */\n  .frame.fs .tooltip {\n    position: absolute !important;\n    left: 12px !important; right: 12px !important; top: auto !important;\n    bottom: 70px !important;\n    width: auto !important;\n  }\n  .frame.fs .tooltip::after { display: none; }\n  .frame.fs .closing h3 { font-size: 22px; }\n}\n\n/* Keep the bottom-sheet behavior on cramped tablets too */\n@media (min-width: 768px) and (max-width: 900px) {\n  .tooltip {\n    position: absolute !important;\n    left: 12px !important; right: 12px !important; top: auto !important;\n    bottom: 70px !important;\n    width: auto !important;\n  }\n  .tooltip::after { display: none; }\n}\n\n/* ───────── Shared scene primitives (Vero avatar, company logos) ───────── */\n\n/* Vero agent avatar — CSS-only port of the finance-agent/VeroAvatar component */\n.vero-av {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background: #111827;\n  border-radius: 50%;\n  overflow: hidden;\n  user-select: none;\n  flex-shrink: 0;\n  width: 30px; height: 30px;\n}\n.vero-av.sz-sm { width: 24px; height: 24px; }\n.vero-av.sz-md { width: 36px; height: 36px; }\n.vero-av.sz-lg { width: 44px; height: 44px; }\n.vero-av-eyes {\n  font-family: \"Courier New\", Courier, monospace;\n  color: #10B981;\n  font-weight: bold;\n  line-height: 1;\n  display: inline-flex;\n  gap: 3px;\n  font-size: 0.42em;\n}\n.vero-av.sz-sm .vero-av-eyes { font-size: 10px; }\n.vero-av .vero-av-eyes { font-size: 12px; }\n.vero-av.sz-md .vero-av-eyes { font-size: 15px; }\n.vero-av.sz-lg .vero-av-eyes { font-size: 18px; }\n.vero-av-eye {\n  display: inline-block;\n  transform-origin: center;\n  animation: vero-blink 4s ease-in-out infinite;\n}\n.vero-av-eye-r { animation-delay: 1.1s; }\n@keyframes vero-blink {\n  0%, 92%, 100% { transform: scaleY(1); }\n  95% { transform: scaleY(0.08); }\n}\n/* Thinking state: eyes flip binary */\n.vero-av.thinking .vero-av-eye {\n  animation: vero-binary 0.5s steps(1) infinite;\n}\n@keyframes vero-binary {\n  0% { opacity: 1; }\n  50% { opacity: 0.4; }\n  100% { opacity: 1; }\n}\n.vero-av.thinking { background: #1f2937; }\n.vero-av.thinking .vero-av-eyes { color: #6EE7B7; }\n\n/* Company avatars — colored circle with industry icon (lucide SVGs).\n   Stable naming: .co-industries (factory), .co-energy (wind), .co-logistics (truck),\n   .co-pharma (pill), .co-retail (shopping-bag). Add more as needed. */\n.co-av {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px; height: 32px;\n  border-radius: 50%;\n  color: #fff;\n  flex-shrink: 0;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);\n}\n.co-av svg { width: 16px; height: 16px; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }\n.co-av.sz-sm { width: 24px; height: 24px; }\n.co-av.sz-sm svg { width: 13px; height: 13px; }\n.co-av.sz-md { width: 38px; height: 38px; }\n.co-av.sz-md svg { width: 19px; height: 19px; }\n\n.co-av.co-industries { background: linear-gradient(135deg, #1e3a8a, #1e40af); } /* navy */\n.co-av.co-energy     { background: linear-gradient(135deg, #0d9488, #0f766e); } /* teal */\n.co-av.co-logistics  { background: linear-gradient(135deg, #ea580c, #c2410c); } /* orange */\n.co-av.co-pharma     { background: linear-gradient(135deg, #db2777, #be185d); } /* magenta */\n.co-av.co-retail     { background: linear-gradient(135deg, #7c3aed, #5b21b6); } /* violet */\n.co-av.co-tech       { background: linear-gradient(135deg, #0ea5e9, #0369a1); } /* sky */\n.co-av.co-food       { background: linear-gradient(135deg, #f59e0b, #b45309); } /* amber */\n.co-av.co-motors     { background: linear-gradient(135deg, #475569, #1e293b); } /* slate */\n.co-av.co-build      { background: linear-gradient(135deg, #d97706, #92400e); } /* warm amber */\n.co-av.co-fashion    { background: linear-gradient(135deg, #f43f5e, #be123c); } /* rose */\n.co-av.co-media      { background: linear-gradient(135deg, #d946ef, #a21caf); } /* fuchsia */\n.co-av.co-finance    { background: linear-gradient(135deg, #059669, #047857); } /* emerald */\n\n/* Inline SVG flags. Identical rendering on every OS (no OS-specific emoji\n   fallback behavior). ~150–400 bytes each baked into the bundle. */\n.flag-svg {\n  display: inline-block;\n  width: 22px;\n  height: 16px;\n  border-radius: 2px;\n  vertical-align: -3px;\n  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n}\n\n/* ───────── Reduced motion ───────── */\n@media (prefers-reduced-motion: reduce) {\n  * { transition: none !important; animation: none !important; }\n}\n";
+export const STYLES = `/*
+ * Tour player base styles — injected into Shadow DOM so they cannot
+ * collide with Webflow's CSS. Targets system-stack font (inherits the
+ * host page's Geist if present).
+ */
+
+:host {
+  /* Liquid Glass v3 palette — matched to the site (cream base, ink #0a0a0a). */
+  --tour-canvas: #f6f1ea;
+  --tour-canvas-2: #efe6da;
+  --tour-ink: #0a0a0a;
+  --tour-ink-60: rgba(10, 10, 10, 0.6);
+  --tour-ink-40: rgba(10, 10, 10, 0.4);
+  --tour-ink-10: rgba(10, 10, 10, 0.08);
+  --tour-grad: linear-gradient(90deg, #ff8308, #ff5043 55%, #392bd5);
+  --tour-radius: 16px;
+  --tour-shadow: 0 1px 2px rgba(10, 10, 10, 0.04), 0 16px 40px -8px rgba(10, 10, 10, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  display: block;
+  font-family: Geist, system-ui, -apple-system, sans-serif;
+  color: var(--tour-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  max-width: 1024px;
+  /* Scenes were tuned 2026-06-08 to fit a 720px article column at 560px tall
+     (most scenes had whitespace below the content at 640px). At wider widths,
+     aspect-ratio 1024/640 gives a taller frame naturally. Tallest scene
+     (cash-app step 2 extraction) was shortened to 6 fields so this lower
+     bound works without cropping. */
+  min-width: 560px;
+  min-height: 560px;
+  aspect-ratio: 1024 / 640;
+  margin: 0 auto;
+  background:
+    radial-gradient(ellipse 420px 280px at 8% 10%, rgba(255,131,8,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 460px 300px at 95% 95%, rgba(57,43,213,0.06) 0%, transparent 60%),
+    linear-gradient(160deg, var(--tour-canvas) 0%, var(--tour-canvas-2) 100%);
+  border-radius: var(--tour-radius);
+  overflow: hidden;
+  border: 1px solid var(--tour-ink-10);
+  box-shadow: var(--tour-shadow);
+}
+/* When the host viewport itself is below the tour's minimum, fall back to
+   100% of the viewport rather than scrollbars-and-overflow. */
+@media (max-width: 600px) {
+  .frame {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+
+/* Fullscreen mode — for mobile tap-to-expand. */
+.frame.fs {
+  position: fixed;
+  inset: 0;
+  max-width: none;
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: auto;
+  border-radius: 0;
+  z-index: 99999;
+}
+
+.fs-close {
+  position: absolute;
+  top: 12px; right: 12px;
+  z-index: 100;
+  appearance: none;
+  border: 0;
+  background: rgba(10, 10, 10, 0.85);
+  color: #fff;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+}
+.frame.fs .fs-close { display: inline-flex; }
+
+/* ───────── Cover (pre-start) ───────── */
+.cover {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 360px 240px at 18% 22%, rgba(255,131,8,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 400px 260px at 82% 78%, rgba(57,43,213,0.08) 0%, transparent 60%),
+    rgba(246, 241, 234, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  cursor: pointer;
+  transition: opacity 280ms ease, backdrop-filter 280ms ease;
+}
+.cover-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px 14px 18px;
+  background: var(--tour-grad);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  box-shadow: 0 6px 22px rgba(255, 80, 67, 0.28), 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  position: relative;
+}
+.cover:hover .cover-pill {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 80, 67, 0.38), 0 3px 8px rgba(0, 0, 0, 0.10);
+}
+.cover-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+}
+.cover-play svg { width: 9px; height: 9px; fill: #fff; margin-left: 1px; }
+.cover-tag {
+  position: absolute;
+  top: 16px; left: 16px;
+  font: 500 10px/1 Geist, system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tour-ink-40);
+}
+
+.cover.hidden { opacity: 0; pointer-events: none; }
+
+/* ───────── Stage ───────── */
+.stage {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+}
+
+/* ───────── Spotlight ───────── */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+}
+.spotlight svg { display: block; width: 100%; height: 100%; }
+.spotlight-mask rect.outer { fill: white; }
+.spotlight-mask rect.inner { fill: black; }
+.spotlight-dim {
+  fill: rgba(10, 10, 10, 0.42);
+  transition: opacity 200ms ease;
+}
+
+/* Gradient halo applied directly to the CTA element.
+   The element stays crisply opaque — gradient only lives OUTSIDE:
+     ::before = thin gradient border line, right at the element's edge
+     box-shadow = soft glow that bleeds a few pixels out, pulsing ember↔indigo
+   Because box-shadow is drawn strictly outside the border-box, it can never
+   tint the element itself. Scales with the element at any viewport size. */
+.tour-hilite {
+  position: relative;
+  z-index: 31;
+  box-shadow:
+    0 0 0 1.5px rgba(255, 80, 67, 0.85),
+    0 0 22px 2px rgba(255, 80, 67, 0.35);
+  animation: tour-hilite-glow 2.4s ease-in-out infinite;
+  transition: box-shadow 300ms ease;
+}
+.tour-hilite::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: var(--tour-grad);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes tour-hilite-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1.5px rgba(255, 80, 67, 0.85),
+      0 0 22px 2px rgba(255, 80, 67, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1.5px rgba(57, 43, 213, 0.85),
+      0 0 28px 4px rgba(57, 43, 213, 0.4);
+  }
+}
+
+/* ───────── Tooltip ───────── */
+.tooltip {
+  position: absolute;
+  z-index: 40;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--tour-ink-10);
+  box-shadow:
+    0 1px 2px rgba(10,10,10,0.05),
+    0 12px 32px -6px rgba(10,10,10,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 16px 18px 14px;
+  width: 280px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--tour-ink);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.tooltip-tag {
+  font: 500 10px/1 Geist, system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tour-ink-40);
+  margin-bottom: 6px;
+}
+.tooltip-body { color: var(--tour-ink); margin-bottom: 10px; }
+.tooltip-body .grad {
+  background: var(--tour-grad);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+.tooltip-controls {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 11px; color: var(--tour-ink-40);
+}
+.tooltip-controls .step-of { font-variant-numeric: tabular-nums; }
+.tooltip-next {
+  appearance: none; border: 0; cursor: pointer;
+  background: var(--tour-grad);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: 500 12px/1 Geist, system-ui, sans-serif;
+  display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px -2px rgba(255,80,67,0.32);
+  transition: background-position 0.3s ease, transform 0.15s ease;
+}
+.tooltip-next:hover { background-position: 100% 50%; transform: translateY(-1px); }
+.tooltip-next svg { width: 10px; height: 10px; }
+
+/* Tail / arrow (we draw a small triangle pointing toward the spotlight) */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  width: 12px; height: 12px;
+  background: #fff;
+  border: 1px solid var(--tour-ink-10);
+  transform: rotate(45deg);
+}
+.tooltip[data-side="right"]::after { left: -7px; top: 24px; border-right: none; border-top: none; }
+.tooltip[data-side="left"]::after  { right: -7px; top: 24px; border-left: none; border-bottom: none; }
+.tooltip[data-side="top"]::after   { left: 24px; bottom: -7px; border-top: none; border-left: none; }
+.tooltip[data-side="bottom"]::after{ left: 24px; top: -7px; border-bottom: none; border-right: none; }
+
+/* ───────── Toolbar (dots + skip + replay) ───────── */
+.toolbar {
+  position: absolute;
+  bottom: 14px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; align-items: center; gap: 14px;
+  z-index: 35;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  padding: 6px 12px;
+  border: 1px solid var(--tour-ink-10);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+.dots { display: flex; gap: 6px; }
+.dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--tour-ink-10);
+  transition: background 200ms ease, transform 200ms ease;
+}
+.dot.active { background: var(--tour-ink); transform: scale(1.2); }
+.dot.done { background: var(--tour-ink-60); }
+.toolbar-btn {
+  appearance: none; border: 0; background: transparent;
+  cursor: pointer;
+  font: 500 11px/1 Geist, system-ui, sans-serif;
+  color: var(--tour-ink-60);
+  padding: 4px 6px;
+}
+.toolbar-btn:hover { color: var(--tour-ink); }
+
+/* ───────── Closing card ───────── */
+.closing {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(246, 244, 241, 0.85), rgba(246, 244, 241, 0.96));
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  text-align: center;
+  padding: 40px;
+  gap: 18px;
+}
+.closing h3 {
+  font: 500 28px/1.15 Geist, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0;
+  max-width: 600px;
+}
+.closing h3 .grad {
+  background: var(--tour-grad);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+.closing p { color: var(--tour-ink-60); font-size: 14px; max-width: 480px; margin: 0; }
+.closing-cta-slot { margin-top: 8px; }
+.closing-default-cta {
+  appearance: none; border: 0;
+  background: var(--tour-grad);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  color: #fff;
+  padding: 12px 22px; border-radius: 999px;
+  font: 500 14px/1 Geist, system-ui, sans-serif;
+  cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: 0 6px 16px -4px rgba(255,80,67,0.35), 0 1px 2px rgba(10,10,10,0.08);
+  transition: background-position 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.closing-default-cta:hover {
+  background-position: 100% 50%;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -4px rgba(255,80,67,0.45), 0 2px 4px rgba(10,10,10,0.1);
+}
+.closing-replay {
+  appearance: none; border: 0; background: transparent;
+  color: var(--tour-ink-60); font: 500 12px/1 Geist, system-ui, sans-serif;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 8px;
+}
+
+/* ───────── Mobile ───────── */
+
+/* Phone-sized containers: the desktop frame is too dense to play
+   inline, so we collapse to a compact preview tile. Tapping it sends
+   the frame fullscreen (.fs class, set by the engine on start). */
+@media (max-width: 767px) {
+  .frame:not(.fs) {
+    max-width: 360px;
+    aspect-ratio: 16 / 10;
+  }
+  /* Hide everything except the cover while collapsed */
+  .frame:not(.fs) .stage,
+  .frame:not(.fs) .toolbar,
+  .frame:not(.fs) .tooltip,
+  .frame:not(.fs) .spotlight,
+  .frame:not(.fs) .closing { display: none; }
+
+  /* Tooltip becomes a bottom sheet once we're fullscreen */
+  .frame.fs .tooltip {
+    position: absolute !important;
+    left: 12px !important; right: 12px !important; top: auto !important;
+    bottom: 70px !important;
+    width: auto !important;
+  }
+  .frame.fs .tooltip::after { display: none; }
+  .frame.fs .closing h3 { font-size: 22px; }
+}
+
+/* Keep the bottom-sheet behavior on cramped tablets too */
+@media (min-width: 768px) and (max-width: 900px) {
+  .tooltip {
+    position: absolute !important;
+    left: 12px !important; right: 12px !important; top: auto !important;
+    bottom: 70px !important;
+    width: auto !important;
+  }
+  .tooltip::after { display: none; }
+}
+
+/* ───────── Shared scene primitives (Vero avatar, company logos) ───────── */
+
+/* Vero agent avatar — CSS-only port of the finance-agent/VeroAvatar component */
+.vero-av {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #111827;
+  border-radius: 50%;
+  overflow: hidden;
+  user-select: none;
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+}
+.vero-av.sz-sm { width: 24px; height: 24px; }
+.vero-av.sz-md { width: 36px; height: 36px; }
+.vero-av.sz-lg { width: 44px; height: 44px; }
+.vero-av-eyes {
+  font-family: "Courier New", Courier, monospace;
+  color: #10B981;
+  font-weight: bold;
+  line-height: 1;
+  display: inline-flex;
+  gap: 3px;
+  font-size: 0.42em;
+}
+.vero-av.sz-sm .vero-av-eyes { font-size: 10px; }
+.vero-av .vero-av-eyes { font-size: 12px; }
+.vero-av.sz-md .vero-av-eyes { font-size: 15px; }
+.vero-av.sz-lg .vero-av-eyes { font-size: 18px; }
+.vero-av-eye {
+  display: inline-block;
+  transform-origin: center;
+  animation: vero-blink 4s ease-in-out infinite;
+}
+.vero-av-eye-r { animation-delay: 1.1s; }
+@keyframes vero-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.08); }
+}
+/* Thinking state: eyes flip binary */
+.vero-av.thinking .vero-av-eye {
+  animation: vero-binary 0.5s steps(1) infinite;
+}
+@keyframes vero-binary {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+.vero-av.thinking { background: #1f2937; }
+.vero-av.thinking .vero-av-eyes { color: #6EE7B7; }
+
+/* Company avatars — colored circle with industry icon (lucide SVGs).
+   Stable naming: .co-industries (factory), .co-energy (wind), .co-logistics (truck),
+   .co-pharma (pill), .co-retail (shopping-bag). Add more as needed. */
+.co-av {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.co-av svg { width: 16px; height: 16px; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.co-av.sz-sm { width: 24px; height: 24px; }
+.co-av.sz-sm svg { width: 13px; height: 13px; }
+.co-av.sz-md { width: 38px; height: 38px; }
+.co-av.sz-md svg { width: 19px; height: 19px; }
+
+.co-av.co-industries { background: linear-gradient(135deg, #1e3a8a, #1e40af); } /* navy */
+.co-av.co-energy     { background: linear-gradient(135deg, #0d9488, #0f766e); } /* teal */
+.co-av.co-logistics  { background: linear-gradient(135deg, #ea580c, #c2410c); } /* orange */
+.co-av.co-pharma     { background: linear-gradient(135deg, #db2777, #be185d); } /* magenta */
+.co-av.co-retail     { background: linear-gradient(135deg, #7c3aed, #5b21b6); } /* violet */
+.co-av.co-tech       { background: linear-gradient(135deg, #0ea5e9, #0369a1); } /* sky */
+.co-av.co-food       { background: linear-gradient(135deg, #f59e0b, #b45309); } /* amber */
+.co-av.co-motors     { background: linear-gradient(135deg, #475569, #1e293b); } /* slate */
+.co-av.co-build      { background: linear-gradient(135deg, #d97706, #92400e); } /* warm amber */
+.co-av.co-fashion    { background: linear-gradient(135deg, #f43f5e, #be123c); } /* rose */
+.co-av.co-media      { background: linear-gradient(135deg, #d946ef, #a21caf); } /* fuchsia */
+.co-av.co-finance    { background: linear-gradient(135deg, #059669, #047857); } /* emerald */
+
+/* Inline SVG flags. Identical rendering on every OS (no OS-specific emoji
+   fallback behavior). ~150–400 bytes each baked into the bundle. */
+.flag-svg {
+  display: inline-block;
+  width: 22px;
+  height: 16px;
+  border-radius: 2px;
+  vertical-align: -3px;
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+/* ───────── Reduced motion ───────── */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+`;

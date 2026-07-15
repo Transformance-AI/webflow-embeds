@@ -33,7 +33,8 @@ const SHARED = `
     .scene[class*="scene-vb-"] .pill.indigo{ background: rgba(78,85,225,0.14); color: #3730a3; }
     .scene[class*="scene-vb-"] .pill.blue  { background: rgba(14,165,233,0.14); color: #0369a1; }
     .scene[class*="scene-vb-"] .pill.gray  { background: rgba(10,10,10,0.06); color: rgba(10,10,10,0.6); }
-    .scene[class*="scene-vb-"] .btn { appearance: none; border: 0; cursor: pointer; background: #0a0a0a; color: #fff; font: 500 12px/1 Geist, system-ui, sans-serif; padding: 9px 16px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .scene[class*="scene-vb-"] .btn { appearance: none; border: 0; cursor: pointer; background: linear-gradient(90deg, #ff8308, #ff5043 55%, #392bd5); background-size: 200% 100%; background-position: 0% 50%; color: #fff; font: 500 12px/1 Geist, system-ui, sans-serif; padding: 10px 18px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; box-shadow: 0 4px 12px -2px rgba(255,80,67,0.32), 0 1px 2px rgba(10,10,10,0.06); transition: background-position 0.3s ease, transform 0.15s ease, box-shadow 0.2s ease; }
+    .scene[class*="scene-vb-"] .btn:hover { background-position: 100% 50%; transform: translateY(-1px); box-shadow: 0 8px 20px -3px rgba(255,80,67,0.45), 0 2px 4px rgba(10,10,10,0.08); }
     .scene[class*="scene-vb-"] .btn svg { width: 13px; height: 13px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
     .scene[class*="scene-vb-"] .btn-light { background: #fff; color: #0a0a0a; border: 1px solid rgba(10,10,10,0.1); }
 

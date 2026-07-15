@@ -155,7 +155,7 @@ const CDN = 'https://cdn.prod.website-files.com/684931abb239b84984296d93/';
 export const TOPICS_DE = {
   'cash-app': {
     eyebrow: 'PRODUKT · CLEARMATCH',
-    headline: 'Cash Application, die Zahlungen den Rechnungen zuordnet, <grad>ganz ohne Vorlagen.</grad>',
+    headline: 'Cash Application, die Zahlungen den Rechnungen zuordnet, <grad>ganz ohne manuelle Nacharbeit.</grad>',
     claims: [
       { icon: 'sparkles', text: '>95 % Extraktionsgenauigkeit, standardmäßig' },
       { icon: 'chart-up', text: '>90 % Dunkelverarbeitung (STP)' },
@@ -163,7 +163,7 @@ export const TOPICS_DE = {
     ],
     ctaText: 'ClearMatch ansehen',
     href: '/de/solutions/cash-application',
-    imageUrl: CDN + '6a5670d8b9d2234318af1880_platform-cash-application-de.avif',
+    imageUrl: CDN + '6a575eee8943ea0f7c4b6925_platform-cash-application-de.avif',
     imageAlt: 'ClearMatch Cash-Application-Dashboard',
   },
   'collections': {
@@ -176,20 +176,20 @@ export const TOPICS_DE = {
     ],
     ctaText: 'CollectPulse ansehen',
     href: '/de/solutions/collections',
-    imageUrl: CDN + '6a5670dab9d2234318af1adc_collections-dashboard-de.avif',
+    imageUrl: CDN + '6a575ef0afd1f079e1d378a9_collections-dashboard-de.avif',
     imageAlt: 'CollectPulse Forderungsmanagement-Dashboard',
   },
   'deductions': {
     eyebrow: 'PRODUKT · CLAIMIQ',
-    headline: 'Abzugsklärung von der <grad>Untersuchung bis zur Rückholung.</grad>',
+    headline: 'Abzüge klären, von der <grad>Untersuchung bis zur Rückforderung.</grad>',
     claims: [
       { icon: 'sparkles', text: 'KI treibt Untersuchungen voran, wo Regeln an Grenzen stoßen' },
-      { icon: 'chart-up', text: 'Rückholquoten über 85 %, vollautomatisch' },
+      { icon: 'chart-up', text: 'Rückforderungsquoten über 85 %, vollautomatisch' },
       { icon: 'receipt', text: 'Trade-Promo, Rückbelastungen, Streitfälle in einer Queue' },
     ],
     ctaText: 'ClaimIQ ansehen',
     href: '/de/solutions/deductions',
-    imageUrl: CDN + '6a5670de5bf56ea3751f882e_deductions-dashboard-de.avif',
+    imageUrl: CDN + '6a575ef3022891107fc48753_deductions-dashboard-de.avif',
     imageAlt: 'ClaimIQ Abzugsmanagement-Dashboard',
   },
   'cash-forecast': {
@@ -250,7 +250,7 @@ export const TOPICS_DE = {
   },
   'demo': {
     eyebrow: 'TERMIN BUCHEN',
-    headline: '30 Minuten, um zu sehen, ob <grad>Transformance zu Ihrem O2C passt.</grad>',
+    headline: '30 Minuten, um zu sehen, ob <grad>Transformance zu Ihrem Debitorenmanagement (O2C) passt.</grad>',
     claims: [
       { icon: 'clock', text: '30 Minuten mit einem Finance-Ops-Spezialisten' },
       { icon: 'sparkles', text: 'Offenes Gespräch über Ihre O2C-Herausforderungen und Engpässe' },
