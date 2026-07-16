@@ -414,15 +414,25 @@ class TransformanceHero extends HTMLElement {
     this._shadow.innerHTML = `<style>${HERO_STYLES}</style>${HERO_HTML}`;
     this._q = (sel) => this._shadow.querySelector(sel);
 
-    this._buildStaticBits();
+    // Neutralize legacy site-CSS rules that pre-date this element's own
+    // scale-to-fit system (liquid-glass-v3 ships `.variant-split
+    // transformance-hero { transform:scale(.62); margin:-90px -175px }` for
+    // the old 920px inline hero). Combined with _fit() they double-scale and
+    // shove the scene out of view. Inline styles win without !important.
+    this.style.transform = 'none';
+    this.style.margin = '0';
 
     // Scale the fixed 920x500 scene down to fit its container (e.g. the narrower
     // right column of the split hero) so no card is clipped. Runs now + on resize.
+    this._buildStaticBits();
+
     this._fitEls = { fit: this._q('.canvas-fit'), wrap: this._q('.canvas-wrap') };
     this._fit();
     if ('ResizeObserver' in window) {
       this._ro = new ResizeObserver(() => this._fit());
-      this._ro.observe(this);
+      // Observe the PARENT: the host shrink-wraps to .canvas-fit (whose width
+      // _fit() sets in px), so the host itself never fires on column resizes.
+      this._ro.observe(this.parentElement || this);
     } else {
       this._onResize = () => this._fit();
       window.addEventListener('resize', this._onResize);
@@ -473,9 +483,13 @@ class TransformanceHero extends HTMLElement {
   _fit() {
     const els = this._fitEls;
     if (!els || !els.fit || !els.wrap) return;
-    // canvas-wrap is absolute, so .canvas-fit now reports the real available
-    // column width (not the 920px content width). Scale the scene to fill it.
-    const avail = els.fit.clientWidth || 920;
+    // Measure the real column width from the host's PARENT: the host itself
+    // shrink-wraps to .canvas-fit, so measuring inside would be circular
+    // (that circularity is what froze the old fixed-560px slot). Cap at the
+    // scene's native 920px so wide columns render it unscaled.
+    const parentW = this.parentElement ? this.parentElement.clientWidth : 0;
+    const avail = Math.min(920, parentW || els.fit.clientWidth || 560);
+    els.fit.style.width = avail + 'px';
     const scale = Math.min(1, avail / 920);
     els.fit.style.height = Math.round(500 * scale) + 'px';
     els.wrap.style.transform = `scale(${scale})`;
