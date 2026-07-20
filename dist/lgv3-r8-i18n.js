@@ -1,3 +1,4 @@
+function _lgv3isDE(){return /^\/de(?=\/|$)/.test(location.pathname);}
 function _lgv3P(){var p=location.pathname||"/";return p.replace(/^\/de(?=\/|$)/,"")||"/";}
 (function () {
 function lgv3NeutralizeBrokenEmbeds() {
@@ -191,7 +192,7 @@ var SOLUTION_IMAGE_MAPS = {
 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69df9f1d00e7328a348be73f_card-ded-case.avif'
 ],
 };
-function syncSolutionsImages() {
+function syncSolutionsImages() { if(_lgv3isDE())return;
 var m = _lgv3P().match(/^\/solutions\/([a-z-]+?)(?:---wip)?\/?$/);
 if (!m) return;
 var key = m[1];
@@ -932,7 +933,7 @@ if (/^\/(home(---wip)?)?\/?$/.test(p)) document.body.classList.add('lgv3-home-pa
 if (/^\/solutions(---wip)?\/?$/.test(p)) document.body.classList.add('lgv3-solutions-page');
 if (/^\/solutions\/cash-flow-forecasting(---wip)?\/?$/.test(p)) document.body.classList.add('lgv3-cfsol-page');
 }
-function lgv3InjectSolutionsHeroImg() {
+function lgv3InjectSolutionsHeroImg() { if(_lgv3isDE())return;
 if (!/^\/solutions(---wip)?\/?$/.test(_lgv3P())) return;
 if (document.body.dataset.lgv3SolHeroImg === '1') return;
 var hg = document.querySelector('.hero-glass');
@@ -951,7 +952,7 @@ img.decoding = 'async';
 hg.appendChild(img);
 document.body.dataset.lgv3SolHeroImg = '1';
 }
-function lgv3FixSolutionMockups() {
+function lgv3FixSolutionMockups() { if(_lgv3isDE())return;
 var p = _lgv3P();
 if (document.body.dataset.lgv3SolMockups === '1') return;
 var BASE = 'https://cdn.prod.website-files.com/684931abb239b84984296d93/';
