@@ -2188,9 +2188,9 @@ return sign + sym + a.toFixed(0);
 function project(p) {
 const weeks = 13;
 const cashFlows = []; // ending cash per week (0..13 incl now)
-let cash = p.cash;
+let cash = p.cash + (p.dso > 0 ? (p.ar / p.dso) * p.faster : 0);
 cashFlows.push(cash);
-const dsoEff = Math.max(1, p.dso - p.faster);
+const dsoEff = Math.max(1, p.dso);
 const arWeeks = Math.max(1, Math.ceil(dsoEff / 7));
 const arPerWeek = p.ar / arWeeks;
 const freq = p.freq; // weeks per payroll
@@ -2302,7 +2302,7 @@ out.wiResult.innerHTML = _lgv3isDE() ? `Schieben Sie den Regler, um zu sehen, wa
 } else {
 out.wiResult.innerHTML = _lgv3isDE() ? (
 `Ihre knappste Woche steigt von <strong>${jumpFrom}</strong> auf <strong>${jumpTo}</strong>. ` +
-`Das deckt rund <strong>${outflowCover.toFixed(1)}</strong> Wochen an Auszahlungen. ` +
+`Das deckt rund <strong>${outflowCover.toFixed(1).replace('.', ',')}</strong> Wochen an Auszahlungen. ` +
 `<strong>${fmtCompact(cashEarlier, sym)}</strong> fließen früher als Zahlungseingang zu.`) : (
 `Your tightest week jumps from <strong>${jumpFrom}</strong> to <strong>${jumpTo}</strong>. ` +
 `That covers about <strong>${outflowCover.toFixed(1)}</strong> weeks of outflow. ` +
