@@ -1802,7 +1802,7 @@ wrap.innerHTML =
 '<input type="hidden" name="payroll_freq" id="lgv3-cf-payrollfreq" value="">' +
 '<input type="hidden" name="computed_runway" id="lgv3-cf-runway" value="">' +
 '<input type="hidden" name="computed_lowest" id="lgv3-cf-lowest" value="">' +
-'<button type="submit" class="w-button" style="display:inline-block;padding:14px 28px;background:#0a0a0a;color:#fff;border:none;border-radius:10px;font:500 14px/1.2 Geist,sans-serif;cursor:pointer;letter-spacing:0.02em;width:100%;">Download my Excel</button>' +
+'<button type="submit" class="w-button" style="display:inline-block;padding:14px 28px;background:#0a0a0a;color:#fff;border:none;border-radius:10px;font:500 14px/1.2 Geist,sans-serif;cursor:pointer;letter-spacing:0.02em;width:100%;">' + (_lgv3isDE() ? "Meine Excel herunterladen" : "Download my Excel") + '</button>' +
 '<p style="margin:14px 0 0 0;font:400 12px/1.4 Geist,sans-serif;color:#888;">By downloading you agree to receive insights and product updates from Transformance.</p>' +
 '</form>' +
 '<div class="w-form-done" tabindex="-1" role="region" aria-label="Email Form success" style="display:none;padding:20px;background:rgba(255,255,255,0.7);border-radius:12px;margin-top:16px;">' +
@@ -1856,10 +1856,10 @@ row.className = 'lgv3-cf-actions';
 row.style.cssText = 'display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;';
 row.innerHTML =
 '<button type="button" class="lgv3-cf-save-img" style="flex:1 1 0;min-width:160px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;background:#fff;color:#0a0a0a;border:1px solid rgba(10,10,10,0.15);border-radius:12px;font:500 14px/1.2 Geist,sans-serif;cursor:pointer;">' +
-'<span aria-hidden="true">&darr;</span> Save as image' +
+'<span aria-hidden="true">&darr;</span> ' + (_lgv3isDE() ? "Als Bild speichern" : "Save as image") + '' +
 '</button>' +
 '<button type="button" class="lgv3-cf-get-excel" style="flex:1 1 0;min-width:160px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;background:#0a0a0a;color:#fff;border:none;border-radius:12px;font:500 14px/1.2 Geist,sans-serif;cursor:pointer;">' +
-'<span aria-hidden="true">&darr;</span> Get the Excel for full detail' +
+'<span aria-hidden="true">&darr;</span> ' + (_lgv3isDE() ? "Vollständige Excel-Datei laden" : "Get the Excel for full detail") + '' +
 '</button>';
 explain.parentNode.insertBefore(row, explain.nextSibling);
 var getBtn = row.querySelector('.lgv3-cf-get-excel');
