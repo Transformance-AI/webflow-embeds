@@ -1627,6 +1627,7 @@ if (fixed > 0) document.body.dataset.lgv3CtasFixed = '1';
 }
 function lgv3InjectDsoExcelForm() {
 if (!/^\/tools\/dso-calculator(---wip)?\/?$/.test(_lgv3P())) return;
+if (_lgv3isDE()) return;
 if (document.body.dataset.lgv3DsoExcelForm === '1') return;
 if (!document.getElementById('revenue') || !document.getElementById('industry')) return;
 var insertHost = null;
@@ -1975,7 +1976,7 @@ if (!document.getElementById('revenue') || !document.getElementById('m-dso')) re
 window.__lgv3DsoCalc = 1;
 try {
 (function () {
-const INDUSTRIES = [
+const INDUSTRIES_EN = [
 { key: "all",          label: "All industries",                        median: 46 },
 { key: "saas_smb",     label: "SaaS, SMB card-paid",                   median: 10 },
 { key: "saas_mm",      label: "SaaS, mid-market B2B",                  median: 38 },
@@ -1994,6 +1995,25 @@ const INDUSTRIES = [
 { key: "energy",       label: "Energy and utilities",                  median: 82 },
 { key: "media",        label: "Media and telecom, ad-buy",             median: 75 }
 ];
+const INDUSTRIES = (_lgv3isDE() ? [
+{ key: "all",          label: "Alle Branchen",                         median: 46 },
+{ key: "saas_smb",     label: "SaaS, KMU mit Kartenzahlung",           median: 10 },
+{ key: "saas_mm",      label: "SaaS, B2B-Mittelstand",                 median: 38 },
+{ key: "mfg_ind",      label: "Fertigung, Industrie",                  median: 52 },
+{ key: "retail_b2c",   label: "Einzelhandel, B2C-Direktvertrieb",      median: 2  },
+{ key: "retail_b2b",   label: "Handel, B2B-Großhandel",                median: 38 },
+{ key: "mfg_auto",     label: "Fertigung, Automotive",                 median: 75 },
+{ key: "mfg_food",     label: "Fertigung, Lebensmittel und Getränke",  median: 35 },
+{ key: "ps_staff",     label: "Professional Services, Personaldienstleistung", median: 32 },
+{ key: "ps_consult",   label: "Professional Services, Beratung",       median: 52 },
+{ key: "ps_legal",     label: "Professional Services, Rechtsberatung", median: 80 },
+{ key: "health_hosp",  label: "Gesundheitswesen, Krankenhaus",         median: 47 },
+{ key: "chem",         label: "Chemie",                                median: 46 },
+{ key: "construction", label: "Baugewerbe",                            median: 90 },
+{ key: "wholesale",    label: "Großhandel",                            median: 40 },
+{ key: "energy",       label: "Energie- und Versorgungswirtschaft",    median: 82 },
+{ key: "media",        label: "Medien und Telekommunikation, Werbeeinkauf", median: 75 }
+] : INDUSTRIES_EN);
 const inputs = {
 cur:      document.getElementById('cur'),
 revenue:  document.getElementById('revenue'),
@@ -2021,9 +2041,9 @@ const prefixSpans = ['px-rev', 'px-ar'].map(id => document.getElementById(id));
 function fmtCompact(n, sym) {
 const sign = n < 0 ? '-' : '';
 const a = Math.abs(n);
-if (a >= 1e9) return sign + sym + (a / 1e9).toFixed(1) + 'B';
-if (a >= 1e6) return sign + sym + (a / 1e6).toFixed(1) + 'M';
-if (a >= 1e3) return sign + sym + (a / 1e3).toFixed(0) + 'k';
+if (a >= 1e9) return sign + sym + (_lgv3isDE() ? (a / 1e9).toFixed(1).replace('.',',')+' Mrd' : (a / 1e9).toFixed(1)+'B');
+if (a >= 1e6) return sign + sym + (_lgv3isDE() ? (a / 1e6).toFixed(1).replace('.',',')+' Mio' : (a / 1e6).toFixed(1)+'M');
+if (a >= 1e3) return sign + sym + (_lgv3isDE() ? (a / 1e3).toFixed(0)+' Tsd' : (a / 1e3).toFixed(0)+'k');
 return sign + sym + a.toFixed(0);
 }
 function getIndustry(key) {
@@ -2038,7 +2058,7 @@ const gapStr = gap === 0 ? '0d' : (gap > 0 ? '+' + gap.toFixed(0) + 'd' : gap.to
 const gapCls = ind.key === activeKey ? (gap > 0 ? 'warn' : (gap < 0 ? 'good' : '')) : '';
 return '<tr class="' + (ind.key === activeKey ? 'active' : '') + '">' +
 '<td>' + ind.label + '</td>' +
-'<td class="num">' + ind.median + ' days</td>' +
+'<td class="num">' + ind.median + (_lgv3isDE()?' Tage':' days') + '</td>' +
 '<td class="num">' + (ind.key === activeKey ? '<span class="delta ' + gapCls + '">' + gapStr + '</span>' : '<span class="delta">' + gapStr + '</span>') + '</td>' +
 '</tr>';
 }).join('');
@@ -2046,7 +2066,7 @@ out.tbody.innerHTML = rows;
 }
 function compute() {
 const sym = inputs.cur.value;
-prefixSpans.forEach(s => { if (s) s.textContent = sym.trim() || '$'; });
+prefixSpans.forEach(s => { if (s) s.textContent = sym.trim() || (_lgv3isDE() ? '€' : '$'); });
 const MAX_VAL = 1e12;
 const rawRevenue = +inputs.revenue.value || 0;
 const rawAr      = +inputs.ar.value || 0;
@@ -2066,7 +2086,7 @@ warn.className = 'lgv3-clamp-warn';
 warn.setAttribute('data-for', input.id);
 warn.setAttribute('role', 'alert');
 warn.style.cssText = 'margin-top:0.35rem;font:500 12px/1.3 system-ui,sans-serif;color:#b91c1c;';
-warn.textContent = 'Value too large. Capped at 1 trillion.';
+warn.textContent = _lgv3isDE() ? 'Wert zu groß. Auf 1 Billion begrenzt.' : 'Value too large. Capped at 1 trillion.';
 host.parentElement.insertBefore(warn, host.nextSibling);
 }
 } else if (warn && warn.parentNode) {
@@ -2083,15 +2103,15 @@ out.segment.textContent = ind.label;
 const gap = dso - ind.median;
 const absGap = Math.abs(gap);
 if (gap > 0.5) {
-out.verdict.textContent = absGap.toFixed(0) + ' days above benchmark';
+out.verdict.textContent = absGap.toFixed(0) + (_lgv3isDE()?' Tage über Benchmark':' days above benchmark');
 out.resultBig.classList.remove('good', 'par');
 out.resultBig.classList.add('warn');
 } else if (gap < -0.5) {
-out.verdict.textContent = absGap.toFixed(0) + ' days below benchmark. Strong.';
+out.verdict.textContent = absGap.toFixed(0) + (_lgv3isDE()?' Tage unter Benchmark. Stark.':' days below benchmark. Strong.');
 out.resultBig.classList.remove('warn', 'par');
 out.resultBig.classList.add('good');
 } else {
-out.verdict.textContent = 'On benchmark';
+out.verdict.textContent = _lgv3isDE() ? 'Auf Benchmark-Niveau' : 'On benchmark';
 out.resultBig.classList.remove('warn', 'good');
 out.resultBig.classList.add('par');
 }
@@ -2099,8 +2119,8 @@ const perDay = revenue / 365;
 const trapped = Math.max(0, gap) * perDay;
 out.trapped.textContent = trapped > 0 ? fmtCompact(trapped, sym) : fmtCompact(0, sym);
 out.trappedSub.textContent = gap > 0
-? 'About ' + gap.toFixed(0) + ' days x ' + fmtCompact(perDay, sym) + ' per day'
-: 'You are at or below the segment median';
+? (_lgv3isDE()?'Rund ':'About ') + gap.toFixed(0) + (_lgv3isDE()?' Tage x ':' days x ') + fmtCompact(perDay, sym) + (_lgv3isDE()?' pro Tag':' per day')
+: (_lgv3isDE()?'Sie liegen auf oder unter dem Segment-Median':'You are at or below the segment median');
 out.perday.textContent = fmtCompact(perDay, sym);
 const SCALE_MAX = 120;
 const clamp = (v) => Math.max(0, Math.min(100, (v / SCALE_MAX) * 100));
@@ -2108,11 +2128,11 @@ out.bbMedian.style.left = clamp(ind.median) + '%';
 out.bbYou.style.left = clamp(dso) + '%';
 out.bbYouVal.textContent = dsoRounded + 'd';
 if (revenue <= 0 || ar <= 0) {
-out.explain.innerHTML = '<strong>Add your numbers above</strong> to see your DSO, your benchmark gap, and how much cash is trapped.';
+out.explain.innerHTML = _lgv3isDE() ? '<strong>Tragen Sie oben Ihre Zahlen ein</strong>, um Ihren DSO, den Abstand zum Benchmark und die gebundene Liquidität zu sehen.' : '<strong>Add your numbers above</strong> to see your DSO, your benchmark gap, and how much cash is trapped.';
 } else if (gap > 0) {
-out.explain.innerHTML = '<strong>Reading this:</strong> Your DSO is ' + dsoRounded + ' days, ' + gap.toFixed(0) + ' days above the ' + ind.label + ' median of ' + ind.median + ' days. That gap is worth ' + fmtCompact(trapped, sym) + ' in working capital. Cut DSO by ' + Math.min(10, Math.ceil(gap)) + ' days and you free ' + fmtCompact(Math.min(10, Math.ceil(gap)) * perDay, sym) + '.';
+out.explain.innerHTML = _lgv3isDE() ? ('<strong>So lesen Sie das:</strong> Ihr DSO liegt bei ' + dsoRounded + ' Tagen, ' + gap.toFixed(0) + ' Tage über dem Median (' + ind.label + ') von ' + ind.median + ' Tagen. Diese Lücke entspricht ' + fmtCompact(trapped, sym) + ' Working Capital. Senken Sie den DSO um ' + Math.min(10, Math.ceil(gap)) + ' Tage und Sie setzen ' + fmtCompact(Math.min(10, Math.ceil(gap)) * perDay, sym) + ' frei.') : ('<strong>Reading this:</strong> Your DSO is ' + dsoRounded + ' days, ' + gap.toFixed(0) + ' days above the ' + ind.label + ' median of ' + ind.median + ' days. That gap is worth ' + fmtCompact(trapped, sym) + ' in working capital. Cut DSO by ' + Math.min(10, Math.ceil(gap)) + ' days and you free ' + fmtCompact(Math.min(10, Math.ceil(gap)) * perDay, sym) + '.');
 } else {
-out.explain.innerHTML = '<strong>Reading this:</strong> Your DSO of ' + dsoRounded + ' days is at or below the ' + ind.label + ' median of ' + ind.median + ' days. Keep it there. Sustained DSO discipline is what separates top-quartile AR teams from the median.';
+out.explain.innerHTML = _lgv3isDE() ? ('<strong>So lesen Sie das:</strong> Ihr DSO von ' + dsoRounded + ' Tagen liegt auf oder unter dem Median (' + ind.label + ') von ' + ind.median + ' Tagen. Halten Sie das. Anhaltende DSO-Disziplin unterscheidet die besten Debitorenteams vom Durchschnitt.') : ('<strong>Reading this:</strong> Your DSO of ' + dsoRounded + ' days is at or below the ' + ind.label + ' median of ' + ind.median + ' days. Keep it there. Sustained DSO discipline is what separates top-quartile AR teams from the median.');
 }
 buildTable(dso);
 }
@@ -2164,9 +2184,9 @@ const prefixSpans = ['px-cash','px-ar','px-in','px-out','px-pay','px-floor'].map
 function fmtCompact(n, sym) {
 const sign = n < 0 ? '-' : '';
 const a = Math.abs(n);
-if (a >= 1e9) return sign + sym + (a/1e9).toFixed(1) + 'B';
-if (a >= 1e6) return sign + sym + (a/1e6).toFixed(1) + 'M';
-if (a >= 1e3) return sign + sym + (a/1e3).toFixed(0) + 'k';
+if (a >= 1e9) return sign + sym + (_lgv3isDE() ? (a/1e9).toFixed(1).replace('.',',')+' Mrd' : (a/1e9).toFixed(1)+'B');
+if (a >= 1e6) return sign + sym + (_lgv3isDE() ? (a/1e6).toFixed(1).replace('.',',')+' Mio' : (a/1e6).toFixed(1)+'M');
+if (a >= 1e3) return sign + sym + (_lgv3isDE() ? (a/1e3).toFixed(0)+' Tsd' : (a/1e3).toFixed(0)+'k');
 return sign + sym + a.toFixed(0);
 }
 function project(p) {
@@ -2212,7 +2232,7 @@ for (let i = 0; i < n; i++) areaPath += (i === 0 ? 'M' : 'L') + xAt(i).toFixed(1
 areaPath += 'L' + xAt(n - 1).toFixed(1) + ',' + (padT + plotH).toFixed(1) + ' ';
 areaPath += 'L' + xAt(0).toFixed(1) + ',' + (padT + plotH).toFixed(1) + ' Z';
 const ticks = [0, 4, 7, 10, 13];
-const tickLabels = ['Now', '+4 wk', '+7 wk', '+10 wk', '+13 wk'];
+const tickLabels = _lgv3isDE() ? ['Jetzt', '+4 Wo', '+7 Wo', '+10 Wo', '+13 Wo'] : ['Now', '+4 wk', '+7 wk', '+10 wk', '+13 wk'];
 svg.innerHTML = `
 <defs>
 <linearGradient id="cashGrad" x1="0" x2="0" y1="0" y2="1">
@@ -2225,7 +2245,7 @@ svg.innerHTML = `
 <rect x="${padL}" y="${floorY}" width="${plotW}" height="${(padT + plotH) - floorY}" fill="rgba(185,28,28,0.08)"/>
 <!-- floor line -->
 <line x1="${padL}" y1="${floorY.toFixed(1)}" x2="${(padL + plotW).toFixed(1)}" y2="${floorY.toFixed(1)}" stroke="rgba(185,28,28,0.55)" stroke-width="1" stroke-dasharray="4 4"/>
-<text x="${(padL + plotW - 4).toFixed(1)}" y="${(floorY - 6).toFixed(1)}" text-anchor="end" font-family="Geist Mono, monospace" font-size="10" fill="#b91c1c" letter-spacing="0.04em">FLOOR ${fmtCompact(floor, sym)}</text>
+<text x="${(padL + plotW - 4).toFixed(1)}" y="${(floorY - 6).toFixed(1)}" text-anchor="end" font-family="Geist Mono, monospace" font-size="10" fill="#b91c1c" letter-spacing="0.04em">${_lgv3isDE()?'MINIMUM':'FLOOR'} ${fmtCompact(floor, sym)}</text>
 <!-- area -->
 <path d="${areaPath}" fill="url(#cashGrad)"/>
 <!-- line -->
@@ -2251,7 +2271,7 @@ faster:  +inputs.faster.value || 0
 }
 function compute() {
 const sym = inputs.cur.value;
-prefixSpans.forEach(s => { if (s) s.textContent = sym.trim() || '$'; });
+prefixSpans.forEach(s => { if (s) s.textContent = sym.trim() || (_lgv3isDE() ? '€' : '$'); });
 const p = read();
 const baseline = project({ ...p, faster: 0 });
 const series = project(p);
@@ -2263,17 +2283,17 @@ if (series[i] < tightVal) { tightVal = series[i]; tightIdx = i; }
 out.tight.textContent = fmtCompact(tightVal, sym);
 const belowFloor = p.floor - tightVal;
 if (belowFloor > 0) {
-out.tightSub.textContent = `Week ${tightIdx}, ${fmtCompact(belowFloor, sym)} below your floor`;
+out.tightSub.textContent = _lgv3isDE() ? `Woche ${tightIdx}, ${fmtCompact(belowFloor, sym)} unter Ihrer Mindestgrenze` : `Week ${tightIdx}, ${fmtCompact(belowFloor, sym)} below your floor`;
 out.tightCell.classList.add('warn');
 } else {
-out.tightSub.textContent = `Week ${tightIdx}, ${fmtCompact(-belowFloor, sym)} above your floor`;
+out.tightSub.textContent = _lgv3isDE() ? `Woche ${tightIdx}, ${fmtCompact(-belowFloor, sym)} über Ihrer Mindestgrenze` : `Week ${tightIdx}, ${fmtCompact(-belowFloor, sym)} above your floor`;
 out.tightCell.classList.remove('warn');
 }
 let runwayWeeks = 13;
 for (let i = 1; i < series.length; i++) {
 if (series[i] <= 0) { runwayWeeks = i; break; }
 }
-out.runway.textContent = runwayWeeks >= 13 ? '13+ weeks' : runwayWeeks + ' weeks';
+out.runway.textContent = _lgv3isDE() ? (runwayWeeks >= 13 ? '13+ Wochen' : runwayWeeks + ' Wochen') : (runwayWeeks >= 13 ? '13+ weeks' : runwayWeeks + ' weeks');
 out.fasterDays.textContent = p.faster;
 let baseTight = Infinity;
 for (let i = 1; i < baseline.length; i++) baseTight = Math.min(baseTight, baseline[i]);
@@ -2282,12 +2302,15 @@ const jumpTo = fmtCompact(tightVal, sym);
 const cashEarlier = tightVal - baseTight;
 const outflowCover = p.outflow > 0 ? (cashEarlier / p.outflow) : 0;
 if (p.faster === 0) {
-out.wiResult.innerHTML = `Slide to see what happens when customers pay sooner.`;
+out.wiResult.innerHTML = _lgv3isDE() ? `Schieben Sie den Regler, um zu sehen, was schnellere Kundenzahlungen bewirken.` : `Slide to see what happens when customers pay sooner.`;
 } else {
-out.wiResult.innerHTML =
+out.wiResult.innerHTML = _lgv3isDE() ? (
+`Ihre knappste Woche steigt von <strong>${jumpFrom}</strong> auf <strong>${jumpTo}</strong>. ` +
+`Das deckt rund <strong>${outflowCover.toFixed(1)}</strong> Wochen an Auszahlungen. ` +
+`<strong>${fmtCompact(cashEarlier, sym)}</strong> fließen früher als Zahlungseingang zu.`) : (
 `Your tightest week jumps from <strong>${jumpFrom}</strong> to <strong>${jumpTo}</strong>. ` +
 `That covers about <strong>${outflowCover.toFixed(1)}</strong> weeks of outflow. ` +
-`<strong>${fmtCompact(cashEarlier, sym)}</strong> of cash flows in earlier.`;
+`<strong>${fmtCompact(cashEarlier, sym)}</strong> of cash flows in earlier.`);
 }
 }
 Object.values(inputs).forEach(el => {
