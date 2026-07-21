@@ -1627,7 +1627,6 @@ if (fixed > 0) document.body.dataset.lgv3CtasFixed = '1';
 }
 function lgv3InjectDsoExcelForm() {
 if (!/^\/tools\/dso-calculator(---wip)?\/?$/.test(_lgv3P())) return;
-if (_lgv3isDE()) return;
 if (document.body.dataset.lgv3DsoExcelForm === '1') return;
 if (!document.getElementById('revenue') || !document.getElementById('industry')) return;
 var insertHost = null;
@@ -1668,7 +1667,8 @@ var FAN = [
 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69eb8c40bc21ba1c62798bea_dso-excel-preview-4.png',
 'https://cdn.prod.website-files.com/684931abb239b84984296d93/69eb8c4314049ad78a52b9ba_dso-excel-preview-5.png'
 ];
-var ALTS = ['Your DSO tab preview', 'Industry benchmarks preview', 'Aging breakdown preview', 'Cash freed scenarios preview', '90-day action playbook preview'];
+var _de = _lgv3isDE();
+var ALTS = _de ? ['Vorschau Tab DSO', 'Vorschau Branchen-Benchmarks', 'Vorschau Altersstruktur', 'Vorschau Szenarien', 'Vorschau 90-Tage-Aktionsplan'] : ['Your DSO tab preview', 'Industry benchmarks preview', 'Aging breakdown preview', 'Cash freed scenarios preview', '90-day action playbook preview'];
 var fanHtml = '<div class="lgv3-fan" aria-label="DSO Excel preview, 5 tabs">';
 for (var i = 0; i < FAN.length; i++) {
 fanHtml += '<div class="lgv3-fan-card lgv3-fan-card-' + (i + 1) + '"><img src="' + FAN[i] + '" alt="' + ALTS[i] + '" loading="lazy"></div>';
@@ -1676,20 +1676,16 @@ fanHtml += '<div class="lgv3-fan-card lgv3-fan-card-' + (i + 1) + '"><img src="'
 fanHtml += '</div>';
 wrap.innerHTML =
 '<header style="text-align:center;max-width:780px;margin:0 auto 28px;">' +
-'<h2 class="lgv3-fan-heading" style="margin:0 0 12px 0;font:600 clamp(1.75rem, 3vw, 2.25rem)/1.15 Geist,sans-serif;color:#0a0a0a;letter-spacing:-0.01em;">A 5-tab DSO Excel with benchmarks, formulas, and a 90-day playbook</h2>' +
-'<p style="margin:0;font:400 16px/1.5 Geist,sans-serif;color:#5e5e5e;">Charts, benchmarks, aging breakdown, and a 90-day playbook — editable, share-ready, no pitch.</p>' +
+'<h2 class="lgv3-fan-heading" style="margin:0 0 12px 0;font:600 clamp(1.75rem, 3vw, 2.25rem)/1.15 Geist,sans-serif;color:#0a0a0a;letter-spacing:-0.01em;">' + (_de ? "Ein DSO-Excel mit 5 Tabs: Benchmarks, Formeln und 90-Tage-Aktionsplan" : "A 5-tab DSO Excel with benchmarks, formulas, and a 90-day playbook") + '</h2>' +
+'<p style="margin:0;font:400 16px/1.5 Geist,sans-serif;color:#5e5e5e;">' + (_de ? "Diagramme, Benchmarks, Altersstruktur und ein 90-Tage-Aktionsplan. Bearbeitbar, teilbar, ohne Verkaufsgeschwätz." : "Charts, benchmarks, aging breakdown, and a 90-day playbook — editable, share-ready, no pitch.") + '</p>' +
 '</header>' +
 fanHtml +
 '<div class="lgv3-excel-card" style="margin-top:48px;background:#0a0a0a;color:#fff;border-radius:20px;padding:clamp(28px, 4vw, 44px);display:grid;grid-template-columns:minmax(0, 1.05fr) minmax(0, 1fr);gap:clamp(28px, 4vw, 56px);align-items:start;">' +
 '<div>' +
-'<h3 style="margin:0 0 10px 0;font:600 26px/1.2 Geist,sans-serif;color:#fff;">Get your full DSO breakdown as an Excel</h3>' +
-'<p style="margin:0 0 22px 0;font:400 15px/1.55 Geist,sans-serif;color:rgba(255,255,255,0.7);">Editable formulas, industry benchmarks, and a 90-day action playbook — branded to share with your CFO.</p>' +
+'<h3 style="margin:0 0 10px 0;font:600 26px/1.2 Geist,sans-serif;color:#fff;">' + (_de ? "Ihre vollständige DSO-Auswertung als Excel" : "Get your full DSO breakdown as an Excel") + '</h3>' +
+'<p style="margin:0 0 22px 0;font:400 15px/1.55 Geist,sans-serif;color:rgba(255,255,255,0.7);">' + (_de ? "Bearbeitbare Formeln, Branchen-Benchmarks und ein 90-Tage-Aktionsplan, im Branding zum Teilen mit Ihrem CFO." : "Editable formulas, industry benchmarks, and a 90-day action playbook — branded to share with your CFO.") + '</p>' +
 '<ul class="lgv3-excel-bullets" style="list-style:none;padding:0;margin:0;display:grid;gap:10px;">' +
-'<li>Editable formulas — plug in your numbers</li>' +
-'<li>Benchmark table across 18 industry segments</li>' +
-'<li>Aging-bucket template with weighted DSO</li>' +
-'<li>Cash-freed scenarios with chart</li>' +
-'<li>90-day DSO reduction action playbook</li>' +
+(_de ? ('<li>Bearbeitbare Formeln, tragen Sie Ihre Zahlen ein</li>' + '<li>Benchmark-Tabelle über 18 Branchensegmente</li>' + '<li>Altersstruktur-Vorlage mit gewichtetem DSO</li>' + '<li>Freigesetzte-Liquidität-Szenarien mit Diagramm</li>' + '<li>90-Tage-Aktionsplan zur DSO-Senkung</li>') : ('<li>Editable formulas — plug in your numbers</li>' + '<li>Benchmark table across 18 industry segments</li>' + '<li>Aging-bucket template with weighted DSO</li>' + '<li>Cash-freed scenarios with chart</li>' + '<li>90-day DSO reduction action playbook</li>')) +
 '</ul>' +
 '</div>' +
 '<form id="wf-form-DSO-Excel" name="wf-form-DSO-Excel" data-name="DSO Excel WIP" method="get" action="" class="lgv3-excel-form" aria-label="DSO Excel WIP" data-wf-element-id="lgv3-dso-excel-001" data-turnstile-sitekey="0x4AAAAAAAQTptj2So4dx43e" style="display:flex;flex-direction:column;gap:14px;">' +
@@ -1700,8 +1696,8 @@ fanHtml +
 '<input type="hidden" name="revenue" id="lgv3-dso-revenue" value="">' +
 '<input type="hidden" name="ar_balance" id="lgv3-dso-ar" value="">' +
 '<input type="hidden" name="computed_dso" id="lgv3-dso-computed" value="">' +
-'<button type="submit" class="w-button lgv3-grad-btn" style="display:inline-block;padding:16px 24px;background:linear-gradient(90deg, #FF8308 0%, #FF5043 50%, #392BD5 100%);color:#fff;border:none;border-radius:999px;font:600 16px/1.2 Geist,sans-serif;cursor:pointer;letter-spacing:0.01em;width:100%;">Free Download &rarr;</button>' +
-'<p style="margin:0;font:400 12px/1.4 Geist,sans-serif;color:rgba(255,255,255,0.55);">By downloading you agree to receive insights and product updates from Transformance.</p>' +
+'<button type="submit" class="w-button lgv3-grad-btn" style="display:inline-block;padding:16px 24px;background:linear-gradient(90deg, #FF8308 0%, #FF5043 50%, #392BD5 100%);color:#fff;border:none;border-radius:999px;font:600 16px/1.2 Geist,sans-serif;cursor:pointer;letter-spacing:0.01em;width:100%;">' + (_de ? "Kostenlos herunterladen" : "Free Download") + ' &rarr;</button>' +
+'<p style="margin:0;font:400 12px/1.4 Geist,sans-serif;color:rgba(255,255,255,0.55);">' + (_de ? "Mit dem Download erklären Sie sich einverstanden, Insights und Produkt-Updates von Transformance zu erhalten." : "By downloading you agree to receive insights and product updates from Transformance.") + '</p>' +
 '</form>' +
 '</div>' +
 '<div class="w-form-done" tabindex="-1" role="region" aria-label="Email Form success" style="display:none;padding:24px;background:#fff;color:#0a0a0a;border-radius:16px;margin-top:20px;text-align:center;">' +
