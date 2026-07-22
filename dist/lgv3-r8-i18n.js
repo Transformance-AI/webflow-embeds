@@ -366,7 +366,7 @@ blogGrid.insertBefore(spinner, blogGrid.firstChild);
 function lgv3RemoveBlogSpinner() {
 if (spinner && spinner.parentNode) spinner.parentNode.removeChild(spinner);
 }
-fetch('/blog-old-2026', { credentials: 'same-origin' })
+fetch(_lgv3isDE() ? '/de/blog-old-2026' : '/blog-old-2026', { credentials: 'same-origin' })
 .then(function (r) { return r.text(); })
 .then(function (html) {
 lgv3RemoveBlogSpinner();
@@ -382,7 +382,7 @@ var titleAnchor = item.querySelectorAll('a[href*="/blog-posts/"]')[1]
 var catLink = item.querySelector('a[href*="/blog-categories/"]');
 var date = item.querySelector('.small-text:not(.bold-text)');
 return {
-url: link ? link.getAttribute('href') : null,
+url: link ? (function(h){return (_lgv3isDE()&&h&&h.charAt(0)==='/'&&h.indexOf('/de/')!==0)?'/de'+h:h;})(link.getAttribute('href')) : null,
 img: img ? img.src : null,
 imgAlt: img ? img.alt : '',
 title: titleAnchor ? titleAnchor.textContent.trim() : '',
