@@ -436,7 +436,6 @@ return (s || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$
 function lgv3FillMissingGlossaryTerms() {
 if (!/^\/glossary(---wip)?\/?$/.test(_lgv3P())) return;
 if (document.body.dataset.lgv3GlossaryFilled === '1') return;
-if (_lgv3isDE()) { document.body.dataset.lgv3GlossaryFilled = '1'; return; }
 var firstGrid = document.querySelector('.entry-grid');
 if (!firstGrid) return;
 function gridForLetter(letter) {
@@ -473,10 +472,17 @@ card.style.display = 'none';
 card.setAttribute('data-lgv3-stale', '1');
 } else {
 existing[n] = true;
+var _t = cmsTerms[n];
+if (_t && _t.url) {
+var _a = card.querySelector('a[href*="glossary"]') || card.querySelector('a');
+if (_a) _a.setAttribute('href', _t.url);
+var _ov = card.querySelector('.lgv3-card-link-overlay');
+if (_ov) _ov.setAttribute('href', _t.url);
+}
 }
 });
 var added = 0;
-if (!_lgv3isDE()) Object.keys(cmsTerms).forEach(function (nn) {
+Object.keys(cmsTerms).forEach(function (nn) {
 if (existing[nn]) return;
 var term = cmsTerms[nn];
 var url = term.url;
