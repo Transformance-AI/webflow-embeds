@@ -436,6 +436,7 @@ return (s || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$
 function lgv3FillMissingGlossaryTerms() {
 if (!/^\/glossary(---wip)?\/?$/.test(_lgv3P())) return;
 if (document.body.dataset.lgv3GlossaryFilled === '1') return;
+if (_lgv3isDE()) { document.body.dataset.lgv3GlossaryFilled = '1'; return; }
 var firstGrid = document.querySelector('.entry-grid');
 if (!firstGrid) return;
 function gridForLetter(letter) {
