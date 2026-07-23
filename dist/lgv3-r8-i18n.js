@@ -448,7 +448,7 @@ if (g) return g;
 return firstGrid;
 }
 function normName(s) { return (s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
-fetch('/glossary-old-2026', {credentials: 'same-origin'})
+fetch(_lgv3isDE() ? '/de/glossary-old-2026' : '/glossary-old-2026', {credentials: 'same-origin'})
 .then(function (r) { return r.text(); })
 .then(function (html) {
 var dom = new DOMParser().parseFromString(html, 'text/html');
@@ -484,11 +484,12 @@ var card = document.createElement('article');
 card.className = 'entry-card lgv3-glossary-added';
 card.setAttribute('data-cms-category', 'general');
 card.style.cssText = 'position:relative;cursor:pointer;';
+var _gde = _lgv3isDE();
 card.innerHTML =
-'<span class="entry-eyebrow" data-cms-field="category">REFERENCE</span>' +
+'<span class="entry-eyebrow" data-cms-field="category">' + (_gde ? 'REFERENZ' : 'REFERENCE') + '</span>' +
 '<h3><a href="' + url + '" data-cms-field="term">' + name + '</a></h3>' +
-'<p data-cms-field="definition-short">Tap to read the full definition.</p>' +
-'<span class="entry-link">Read definition &rarr;</span>' +
+'<p data-cms-field="definition-short">' + (_gde ? 'Für die vollständige Definition tippen.' : 'Tap to read the full definition.') + '</p>' +
+'<span class="entry-link">' + (_gde ? 'Definition lesen' : 'Read definition') + ' &rarr;</span>' +
 '<a class="lgv3-card-link-overlay" href="' + url + '" aria-label="' + name + '" style="position:absolute;inset:0;z-index:5;text-decoration:none;"></a>';
 var targetGrid = gridForLetter(name.charAt(0));
 targetGrid.appendChild(card);
