@@ -539,7 +539,7 @@ var titleLink = card.querySelector('a[href*="glossary"]');
 var nameEl = card.querySelector('h3, .entry-name, .entry-title');
 var name = nameEl ? nameEl.textContent.trim() : (titleLink ? titleLink.textContent.trim() : '');
 if (!name) return;
-var url = '/glossary/' + slugify(name);
+var url = (_lgv3isDE() && titleLink && titleLink.getAttribute('href')) ? titleLink.getAttribute('href') : '/glossary/' + slugify(name);
 if (titleLink) titleLink.href = url;
 card.style.position = card.style.position || 'relative';
 card.style.cursor = 'pointer';
