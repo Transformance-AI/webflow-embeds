@@ -475,7 +475,7 @@ existing[n] = true;
 }
 });
 var added = 0;
-Object.keys(cmsTerms).forEach(function (nn) {
+if (!_lgv3isDE()) Object.keys(cmsTerms).forEach(function (nn) {
 if (existing[nn]) return;
 var term = cmsTerms[nn];
 var url = term.url;
