@@ -941,7 +941,7 @@ if (/^\/(home(---wip)?)?\/?$/.test(p)) document.body.classList.add('lgv3-home-pa
 if (/^\/solutions(---wip)?\/?$/.test(p)) document.body.classList.add('lgv3-solutions-page');
 if (/^\/solutions\/cash-flow-forecasting(---wip)?\/?$/.test(p)) document.body.classList.add('lgv3-cfsol-page');
 }
-function lgv3InjectSolutionsHeroImg() { if(_lgv3isDE())return;
+function lgv3InjectSolutionsHeroImg() {
 if (!/^\/solutions(---wip)?\/?$/.test(_lgv3P())) return;
 if (document.body.dataset.lgv3SolHeroImg === '1') return;
 var hg = document.querySelector('.hero-glass');
