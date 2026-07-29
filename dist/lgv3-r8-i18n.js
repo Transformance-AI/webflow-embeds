@@ -433,6 +433,63 @@ document.documentElement.classList.remove('lgv3-blog-loading');
 function slugify(s) {
 return (s || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
+// German dictionary bucket (DIN 5007-1): ä->A, ö->O, ü->U, ß->S; ignore leading articles/quotes.
+function lgv3DeBucket(name) {
+var s = (name || '').replace(/^[\s"'»„‘“]+/, '').replace(/^(der|die|das)\s+/i, '');
+var c = s.charAt(0).toLowerCase();
+var F = {'ä':'a','ö':'o','ü':'u','ß':'s','à':'a','á':'a','â':'a','é':'e','è':'e','ê':'e','ç':'c','ñ':'n'};
+c = (F[c] || c).toUpperCase();
+return /[A-Z]/.test(c) ? c : '#';
+}
+// DE-only: re-bucket + sort the (English-alphabetized) cards Webflow rendered so
+// /de/lexikon groups + orders by the GERMAN term. EN /glossary never enters here.
+function lgv3RegroupGlossaryDE() {
+if (!_lgv3isDE()) return;
+var blocks = Array.prototype.slice.call(document.querySelectorAll('.letter-block'));
+if (!blocks.length) return;
+var container = blocks[0].parentNode;
+var byLetter = {};
+blocks.forEach(function (b) { var id = (b.id || '').replace(/^letter-/, '').toUpperCase(); if (id) byLetter[id] = b; });
+function headSetLetter(block, letter) {
+var head = block.querySelector('.letter-head'); if (!head) return;
+var w = document.createTreeWalker(head, NodeFilter.SHOW_TEXT, null, false), n;
+while ((n = w.nextNode())) { if (/[A-Z0-9#]/i.test(n.nodeValue)) { n.nodeValue = n.nodeValue.replace(/[A-Z0-9#]/i, letter); break; } }
+}
+function ensureBlock(letter) {
+if (byLetter[letter]) return byLetter[letter];
+var tpl = blocks[0].cloneNode(true);
+tpl.id = 'letter-' + letter.toLowerCase();
+headSetLetter(tpl, letter);
+var g = tpl.querySelector('.entry-grid'); if (g) g.innerHTML = '';
+container.appendChild(tpl); byLetter[letter] = tpl; return tpl;
+}
+function nm(c) { var e = c.querySelector('h3, .entry-name, .entry-title'); return (e ? e.textContent : c.textContent || '').trim(); }
+// 1) move every non-stale card into its German bucket
+Array.prototype.forEach.call(document.querySelectorAll('.entry-card'), function (card) {
+if (card.getAttribute('data-lgv3-stale') === '1') return;
+var name = nm(card); if (!name) return;
+var grid = ensureBlock(lgv3DeBucket(name)).querySelector('.entry-grid');
+if (grid && card.parentNode !== grid) grid.appendChild(card);
+});
+// 2) sort within each block, German collation
+var coll = (window.Intl && Intl.Collator) ? new Intl.Collator('de', {sensitivity: 'base'}) : null;
+Object.keys(byLetter).forEach(function (L) {
+var grid = byLetter[L].querySelector('.entry-grid'); if (!grid) return;
+Array.prototype.slice.call(grid.querySelectorAll('.entry-card')).sort(function (a, b) {
+var na = nm(a), nb = nm(b); return coll ? coll.compare(na, nb) : (na < nb ? -1 : na > nb ? 1 : 0);
+}).forEach(function (c) { grid.appendChild(c); });
+});
+// 3) recount + hide empties (block A-Z order is inherited from EN and already correct)
+Object.keys(byLetter).forEach(function (L) {
+var block = byLetter[L], grid = block.querySelector('.entry-grid');
+var vis = grid ? Array.prototype.filter.call(grid.querySelectorAll('.entry-card'), function (c) { return c.style.display !== 'none'; }).length : 0;
+block.style.display = vis > 0 ? '' : 'none';
+var head = block.querySelector('.letter-head'); if (!head) return;
+var cs = head.querySelector('.letter-count, [class*="terms-count"], [class*="count"]');
+if (cs && /\d+\s*terms?/i.test(cs.textContent || '')) { cs.textContent = vis + ' terms'; }
+else { var w = document.createTreeWalker(head, NodeFilter.SHOW_TEXT, null, false), n; while ((n = w.nextNode())) { if (/\d+\s*TERMS?/i.test(n.nodeValue)) { n.nodeValue = n.nodeValue.replace(/\d+\s*TERMS?/i, vis + ' TERMS'); break; } } }
+});
+}
 function lgv3FillMissingGlossaryTerms() {
 if (!/^\/glossary(---wip)?\/?$/.test(_lgv3P())) return;
 if (document.body.dataset.lgv3GlossaryFilled === '1') return;
@@ -529,6 +586,7 @@ break;
 }
 block.style.display = visibleCount > 0 ? '' : 'none';
 });
+try { lgv3RegroupGlossaryDE(); } catch (e) { console.warn('DE glossary regroup failed:', e); }
 document.body.dataset.lgv3GlossaryFilled = '1';
 if (added > 0) {
 }
