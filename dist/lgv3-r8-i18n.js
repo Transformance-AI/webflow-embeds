@@ -479,11 +479,12 @@ Array.prototype.slice.call(grid.querySelectorAll('.entry-card')).sort(function (
 var na = nm(a), nb = nm(b); return coll ? coll.compare(na, nb) : (na < nb ? -1 : na > nb ? 1 : 0);
 }).forEach(function (c) { grid.appendChild(c); });
 });
-// 3) recount + hide empties (block A-Z order is inherited from EN and already correct)
-Object.keys(byLetter).forEach(function (L) {
+// 3) reorder blocks A-Z (# last) since German adds buckets EN lacked (K, U, ...), recount, hide empties
+Object.keys(byLetter).sort(function (a, b) { return a === '#' ? 1 : b === '#' ? -1 : (a < b ? -1 : a > b ? 1 : 0); }).forEach(function (L) {
 var block = byLetter[L], grid = block.querySelector('.entry-grid');
 var vis = grid ? Array.prototype.filter.call(grid.querySelectorAll('.entry-card'), function (c) { return c.style.display !== 'none'; }).length : 0;
 block.style.display = vis > 0 ? '' : 'none';
+container.appendChild(block);
 var head = block.querySelector('.letter-head'); if (!head) return;
 var cs = head.querySelector('.letter-count, [class*="terms-count"], [class*="count"]');
 if (cs && /\d+\s*terms?/i.test(cs.textContent || '')) { cs.textContent = vis + ' terms'; }
