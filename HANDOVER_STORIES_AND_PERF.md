@@ -411,3 +411,114 @@ application on `transformanceai.webflow.io` still points at `stories-3`
 (the version without German popup copy). This is a version bump on the
 SAME script id (`transformanceembedsloader`), not a new registration —
 see `docs/WEBFLOW_MAIN_EVENT_2026-09-03.md`.
+
+---
+
+## 10. Published: tag `stories-5` (2026-09-03) — the real bug: STORIES shipped, not CARDS
+
+**The Collections page rendered ~2.4x too tall on staging (1432px vs the
+intended ~596px) the moment real content was placed on it.** Root cause,
+found by measuring the live element directly rather than trusting a
+plausible-sounding "scroll timing" theory: `scripts/build-stories.mjs` has
+imported `STORIES`/`STORIES_DE` (the full headline+body+card variant) since
+`stories-1` — never `CARDS`/`CARDS_DE` (the card-only slice the whole port
+was designed around; see `export-stories.mjs`'s own comment on `cardOnly()`).
+Every single one of the 33 stories, on all 6 pages, in both locales, shipped
+with a duplicate `<h2>`/`<p>` baked into its shadow DOM. Invisible for the
+same reason as the German popup bug: nothing had actually been placed on a
+real page before, and every prior verification pass (this session's own
+extensive sweeps included) deliberately tested the STORIES variant.
+
+**How it was actually diagnosed** (not "pausing scroll causes it" — that
+theory was tested and ruled out): froze the live element's animations across
+two full 10s cycles plus repeated `tf-off` pause/resume toggles. Height was
+**identical (1432px) at every single sample** — a constant defect, not a
+timing race. Reading the shadow DOM directly then showed the duplicate
+narration block.
+
+**The fix has three parts:**
+1. `Webflow Embeds/scripts/build-stories.mjs` now imports `CARDS`/`CARDS_DE`.
+2. `platform-mockups/scripts/de-strings.mjs`'s `apply` step now also produces
+   `CARDS_DE`, sliced with `cardOnly()` from the ALREADY-TRANSLATED
+   `STORIES_DE` — not re-walked with the worksheet's string indices, which
+   would have been silently wrong (those indices are positions in
+   `STORIES`'s walk order, starting at the headline; `CARDS` starts partway
+   through, at the card div, so the same index number points at a different
+   string in the two). `cardOnly()` itself is duplicated into `de-strings.mjs`
+   rather than imported from `export-stories.mjs`, which runs a full render
+   pipeline as a side effect of being imported at all.
+3. **Every `data-h`/`data-h-sm` value across all 33 stories changes** — the
+   old numbers were measured against the wrong variant. See the corrected
+   table below.
+
+**Verified:** `node --check` on the rebuilt bundle; 14 QA runs (6 pages x 2
+widths, plus DE vero at both) via `platform-mockups/scripts/verify-stories.mjs`
+against the FIXED bundle - zero overflow findings, and directly confirmed
+`hasH2: false` / `hasP: false` on every story, not inferred from a clean QA
+pass alone.
+
+All 12 published files fetched back from jsDelivr and confirmed
+byte-identical to the committed source.
+
+Base: `https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-5/dist/`
+(`popup.js`, `tours.js`, `hero.js`, `banners.js` unchanged since `stories-4`
+/ `stories-1`; only the 7 story bundles + `loader.js` changed.)
+
+| File | integrity |
+|---|---|
+| loader.js | `sha256-m3wU0dQjiFNTEKx+M6FnFQGadGXVx59SOwPGVTW6a0A=` |
+
+(Story bundle hashes: see git history / `dist/parts.manifest.json` — omitted
+here since they are internal to `loader.js` and nothing pastes them into
+Webflow directly; only `loader.js`'s own hash is registered there.)
+
+### Corrected `data-h` / `data-h-sm`, all 33 stories
+
+| id | data-h | data-h-sm |
+|---|---|---|
+| collections-loop | 436 | 456 |
+| collections-score | 376 | 396 |
+| collections-sequence | 560 | 560 |
+| collections-inbox | 548 | 568 |
+| collections-call | 560 | 560 |
+| collections-escalation | 424 | 444 |
+| clearmatch-loop | 390 | 410 |
+| clearmatch-extract | 470 | 490 |
+| clearmatch-match | 450 | 470 |
+| clearmatch-post | 428 | 448 |
+| clearmatch-unapplied | 368 | 388 |
+| claimiq-loop | 438 | 458 |
+| claimiq-resolve | 469 | 489 |
+| claimiq-evidence | 448 | 468 |
+| claimiq-claim | 346 | 366 |
+| claimiq-writeoff | 458 | 478 |
+| cashpulse-loop | 470 | 490 |
+| cashpulse-paydate | 420 | 440 |
+| cashpulse-group | 462 | 482 |
+| cashpulse-scenario | 430 | 450 |
+| cashpulse-accuracy | 402 | 422 |
+| vero-loop | 412 | 432 |
+| vero-rank | 466 | 486 |
+| vero-memory | 494 | 514 |
+| vero-tools | 402 | 422 |
+| vero-guardrails | 457 | 477 |
+| vero-handoff | 453 | 473 |
+| home-loop | 478 | 498 |
+| home-attribution | 468 | 488 |
+| home-predict | 388 | 408 |
+| home-coverage | 446 | 466 |
+| home-stack | 390 | 410 |
+| home-golive | 376 | 396 |
+
+**Note:** vero's DE numbers differ very slightly from EN (German runs longer)
+— `vero-handoff` DE is 473/493 vs EN 453/473. Use the EN table above for EN
+pages; re-run `verify-stories.mjs vero <width> --de` if placing the German
+vero page and want the exact DE-specific numbers.
+
+### Not yet done
+
+A second Webflow session applied this (version bump + the six Collections
+attribute updates + removing a dead inline "watchdog" script block that
+never executed — Webflow renders custom code via innerHTML, so inline
+`<script>` tags in an embed are inert). Confirm it reported back before
+trusting staging matches this section.
