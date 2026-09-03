@@ -522,3 +522,41 @@ attribute updates + removing a dead inline "watchdog" script block that
 never executed — Webflow renders custom code via innerHTML, so inline
 `<script>` tags in an embed are inert). Confirm it reported back before
 trusting staging matches this section.
+
+---
+
+## 11. Decision: hero images become each page's opening card (Paul, 2026-09-03)
+
+Every solution page's static hero image is replaced by that page's own
+`-loop` story (currently the first body-section card on each). Confirmed
+this needs no new build: every solution page's hero uses the identical
+two-column pattern the body sections already use -
+`<h1 class="hero-title">`/`<p class="hero-sub">`/CTA beside a `.hero-mockup`
+div holding a static `<img>` - same swap technique already proven six times
+tonight, just a different container.
+
+**Collections** already has 6 body sections placed - `collections-loop`
+moves from its current (net-new) body slot into the hero, leaving 5 body
+sections. **ClearMatch/ClaimIQ/CashPulse/Vero have no body placements yet**
+(separate, larger future work) - those four just get the hero swap, nothing
+to remove.
+
+data-h/data-h-sm for each are the card's own already-measured intrinsic
+size (§10 table) - unaffected by which slot it sits in:
+
+| page | story | data-h | data-h-sm |
+|---|---|---|---|
+| Collections | collections-loop | 436 | 456 |
+| ClearMatch | clearmatch-loop | 390 | 410 |
+| ClaimIQ | claimiq-loop | 438 | 458 |
+| CashPulse | cashpulse-loop | 470 | 490 |
+| Vero | vero-loop | 412 | 432 |
+
+Not yet verified: how the card's `#f7f5f2` warm-paper background reads
+against the hero's `.hero-glass` glassmorphic treatment. Same house
+palette, should be fine, but nobody has looked at it rendered together yet.
+
+Handed to the session with live Webflow access - not done as of this
+writing. Loader already auto-detects per-page markup, so no new script
+setup is needed on the four pages that have never had a story placed
+before; only the `<transformance-story>` tag itself needs adding.
