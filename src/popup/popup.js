@@ -10,7 +10,8 @@
  *   data-state     "hidden" | "visible". Drives the slide-in transition.
  */
 import { STYLES } from './styles.js';
-import { getVariant, POPUP_AUTHOR } from './configs.js';
+import { getVariant, getAuthor } from './configs.js';
+import { deHref } from '../shared/locale.js';
 
 class TransformancePopup extends HTMLElement {
   constructor() {
@@ -49,6 +50,7 @@ class TransformancePopup extends HTMLElement {
   _render() {
     const variantId = this.getAttribute('data-variant') || 'default';
     const v = getVariant(variantId);
+    const author = getAuthor();
     const suppressSecondary = this.getAttribute('data-suppress-secondary') === 'true';
 
     const html = `
@@ -57,19 +59,19 @@ class TransformancePopup extends HTMLElement {
         <button class="x" aria-label="Dismiss" data-action="dismiss">×</button>
         <div class="author">
           <div class="avatar">${
-            POPUP_AUTHOR.imageUrl
-              ? `<img src="${esc(POPUP_AUTHOR.imageUrl)}" alt="${esc(POPUP_AUTHOR.imageAlt || '')}">`
+            author.imageUrl
+              ? `<img src="${esc(author.imageUrl)}" alt="${esc(author.imageAlt || '')}">`
               : `<span>PH</span>`
           }</div>
           <div class="author-meta">
-            <span class="author-name">${esc(POPUP_AUTHOR.name)}</span>
-            <span class="author-role">${esc(POPUP_AUTHOR.role)}</span>
+            <span class="author-name">${esc(author.name)}</span>
+            <span class="author-role">${esc(author.role)}</span>
           </div>
         </div>
         <h4 class="headline">${esc(v.headline)}</h4>
         <p class="body">${esc(v.body)}</p>
-        <a class="cta-primary" href="${esc(v.ctaPrimaryUrl || '/meeting')}" data-action="cta-primary">${esc(v.ctaPrimary)}</a>
-        <a class="cta-secondary" href="${esc(v.ctaSecondaryUrl || '/solutions')}" data-action="cta-secondary"${suppressSecondary ? ' hidden' : ''}>${esc(v.ctaSecondary)}</a>
+        <a class="cta-primary" href="${esc(deHref(v.ctaPrimaryUrl || '/meeting'))}" data-action="cta-primary">${esc(v.ctaPrimary)}</a>
+        <a class="cta-secondary" href="${esc(deHref(v.ctaSecondaryUrl || '/solutions'))}" data-action="cta-secondary"${suppressSecondary ? ' hidden' : ''}>${esc(v.ctaSecondary)}</a>
       </div>
     `;
 
@@ -82,13 +84,15 @@ class TransformancePopup extends HTMLElement {
     this.shadowRoot.querySelector('[data-action="cta-primary"]').addEventListener('click', () => {
       this.dispatchEvent(new CustomEvent('tf-popup-cta', {
         bubbles: true, composed: true,
-        detail: { kind: 'primary', href: v.ctaPrimaryUrl },
+        /* Tracked href must match what the visitor actually lands on -
+           deHref() applied here too, or DE clicks would report EN paths. */
+        detail: { kind: 'primary', href: deHref(v.ctaPrimaryUrl || '/meeting') },
       }));
     });
     this.shadowRoot.querySelector('[data-action="cta-secondary"]').addEventListener('click', () => {
       this.dispatchEvent(new CustomEvent('tf-popup-cta', {
         bubbles: true, composed: true,
-        detail: { kind: 'secondary', href: v.ctaSecondaryUrl },
+        detail: { kind: 'secondary', href: deHref(v.ctaSecondaryUrl || '/solutions') },
       }));
     });
   }

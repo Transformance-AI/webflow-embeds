@@ -199,9 +199,13 @@ export function installPopup() {
   }
 
   // If we're already on the page that the secondary CTA links to, suppress it.
+  // ctaSecondaryUrl is always stored EN-rooted (deHref() is applied only at
+  // render time, in popup.js) - so the comparison needs the CURRENT path
+  // stripped of its /de prefix too, or this never matches on a German page
+  // and the "you're already here" link never suppresses itself there.
   const variant = POPUP_VARIANTS[ctx.variant] || POPUP_VARIANTS['default'];
   const onOwnSolutionPage = variant && variant.ctaSecondaryUrl &&
-    window.location.pathname.replace(/\/+$/, '') === variant.ctaSecondaryUrl.replace(/\/+$/, '');
+    stripLocale(window.location.pathname.replace(/\/+$/, '')) === variant.ctaSecondaryUrl.replace(/\/+$/, '');
 
   // Build the popup element but don't show it yet
   const el = document.createElement('transformance-popup');

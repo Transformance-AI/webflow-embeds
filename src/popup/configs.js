@@ -18,6 +18,8 @@
  * page it would link to (e.g. on /solutions/cash-flow-forecasting the
  * "Visit CashPulse" link is suppressed).
  */
+import { isDE } from '../shared/locale.js';
+
 export const POPUP_VARIANTS = {
   'cash-forecast': {
     headline: 'Forecast cash 90 days out at 95% accuracy. Across AR and AP.',
@@ -90,12 +92,111 @@ export const POPUP_VARIANTS = {
  * Image URL is the same Webflow CDN asset used elsewhere on the site.
  */
 export const POPUP_AUTHOR = {
-  name: 'Paul, founder',
+  name: 'Paul Hanke, founder',
   role: 'Transformance',
   imageUrl: 'https://cdn.prod.website-files.com/684931abb239b84984296d93/68494720f0211b2372893faf_Profile%20Picture.avif',
   imageAlt: 'Paul Hanke, Co-Founder of Transformance',
 };
 
+/**
+ * German copy, added 2026-09-03. Not a translation done in isolation - it
+ * went through a native-German Lektorat pass after Paul flagged
+ * "Dauerhaftes Gedächtnis" as reading like a psychology term rather than a
+ * software capability. 7 of the 16 headline/body lines below carry an
+ * explicit fix from that pass; the rest were checked and kept as originally
+ * drafted. Product-area nouns match what is ALREADY LIVE elsewhere on the
+ * site (the DE URL-remapper and the DE footer-link fix), not invented here:
+ * Zahlungsabgleich = cash application, Abzugsmanagement = deductions,
+ * Forderungsmanagement = collections, Liquiditätsplanung = cash-flow
+ * forecasting. "Termin buchen" is the site's own canonical slug for the
+ * meeting page, not a fresh translation of "Book a call".
+ *
+ * ctaPrimaryUrl / ctaSecondaryUrl stay EN-rooted here too (see EN block
+ * above) - deHref() localizes them once, at render time, in popup.js.
+ * Duplicating /de/ into every URL in both language tables would be exactly
+ * the kind of drift this whole subsystem's bugs came from.
+ */
+export const POPUP_VARIANTS_DE = {
+  'cash-forecast': {
+    headline: 'Cashflow 90 Tage im Voraus mit 95 % Genauigkeit prognostizieren. Für Debitoren und Kreditoren.',
+    body: 'Modelle für mehrere Zeithorizonte. Konfidenzintervalle statt Punktschätzungen. Währungsrisiken berücksichtigt.',
+    ctaPrimary: 'Termin buchen',
+    ctaPrimaryUrl: '/meeting',
+    ctaSecondary: 'Mehr zu CashPulse →',
+    ctaSecondaryUrl: '/solutions/cash-flow-forecasting',
+  },
+  'cash-app': {
+    headline: '95 % der Zahlungen automatisch zuordnen. Ganz ohne Vorlagen.',
+    body: 'Vision-LLMs lesen jedes Avis-Format. 99,7 % Erkennungsgenauigkeit. Live in 4 bis 8 Wochen.',
+    ctaPrimary: 'Termin buchen',
+    ctaPrimaryUrl: '/meeting',
+    ctaSecondary: 'Mehr zu ClearMatch →',
+    ctaSecondaryUrl: '/solutions/cash-application',
+  },
+  'collections': {
+    headline: 'DSO mit autonomen KI-Agenten um 8 bis 15 Tage senken.',
+    body: 'Über 70 Sprachen. 15 bis 20 Anrufe pro Stunde und Agent, gegenüber 15 bis 20 pro Tag für einen Mitarbeiter.',
+    ctaPrimary: 'Termin buchen',
+    ctaPrimaryUrl: '/meeting',
+    ctaSecondary: 'Mehr zu CollectPulse →',
+    ctaSecondaryUrl: '/solutions/collections',
+  },
+  'deductions': {
+    headline: 'Abzüge 6× schneller klären, bei 97 % Genauigkeit.',
+    body: 'Automatische Klassifizierung in sechs Kategorien. Graphbasierte Ursachenanalyse. Audit-Trail inklusive.',
+    ctaPrimary: 'Termin buchen',
+    ctaPrimaryUrl: '/meeting',
+    ctaSecondary: 'Mehr zu ClaimIQ →',
+    ctaSecondaryUrl: '/solutions/deductions',
+  },
+  'vero': {
+    headline: 'Ein KI-Agent für Zahlungsabgleich, Abzugsmanagement, Forderungsmanagement und Liquiditätsplanung.',
+    body: 'Dauerhafter Kontext. Lernt Ihre Abläufe mit der Zeit. Läuft in Ihrer eigenen Cloud.',
+    ctaPrimary: 'Termin buchen',
+    ctaPrimaryUrl: '/meeting',
+    ctaSecondary: 'Vero kennenlernen →',
+    ctaSecondaryUrl: '/solutions/vero-agent',
+  },
+  'o2c': {
+    headline: 'Den gesamten Order-to-Cash-Zyklus auf einer KI-nativen Plattform abbilden.',
+    body: 'ClearMatch, ClaimIQ, CollectPulse, CashPulse. Orchestriert von Vero. Live in 4 bis 8 Wochen.',
+    ctaPrimary: 'Termin buchen',
+    ctaPrimaryUrl: '/meeting',
+    ctaSecondary: 'Lösungen ansehen →',
+    ctaSecondaryUrl: '/solutions',
+  },
+  'vendor-comparison': {
+    headline: 'Eine KI-native Alternative für Umsetzung, nicht nur für Reporting.',
+    body: 'Die meisten Debitorenmanagement-Lösungen zeigen Erkenntnisse. Transformance handelt danach. Live in 4 bis 8 Wochen.',
+    ctaPrimary: 'Termin buchen',
+    ctaPrimaryUrl: '/meeting',
+    ctaSecondary: 'Lösungen ansehen →',
+    ctaSecondaryUrl: '/solutions',
+  },
+  'default': {
+    headline: 'Ihre Debitorendaten in Ordnung bringen. Die Prognose stimmt dann von selbst.',
+    body: 'KI-native O2C-Automatisierung. Zahlungsabgleich, Abzugsmanagement, Forderungsmanagement, Liquiditätsplanung. Ein Agent, vier Produkte.',
+    ctaPrimary: 'Termin buchen',
+    ctaPrimaryUrl: '/meeting',
+    ctaSecondary: 'Lösungen ansehen →',
+    ctaSecondaryUrl: '/solutions',
+  },
+};
+
+export const POPUP_AUTHOR_DE = {
+  ...POPUP_AUTHOR,
+  name: 'Paul Hanke, Gründer',
+};
+
 export function getVariant(id) {
+  /* Fallback stays WITHIN the current locale. An unknown id falling through
+     to the EN table on a German page would be the exact bug this whole
+     rebuild exists to fix, just relocated to one unmapped id instead of
+     every id. */
+  if (isDE()) return POPUP_VARIANTS_DE[id] || POPUP_VARIANTS_DE['default'];
   return POPUP_VARIANTS[id] || POPUP_VARIANTS['default'];
+}
+
+export function getAuthor() {
+  return isDE() ? POPUP_AUTHOR_DE : POPUP_AUTHOR;
 }

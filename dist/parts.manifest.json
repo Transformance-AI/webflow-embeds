@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T13:51:45.394Z",
+  "generatedAt": "2026-09-03T16:08:34.442Z",
   "note": "Additive split of player.js. player.js is unchanged and still published.",
   "parts": [
     {
@@ -26,9 +26,9 @@
     {
       "name": "popup",
       "file": "dist/popup.js",
-      "rawBytes": 13211,
-      "gzBytes": 4712,
-      "sri": "sha256-EDhSMoC3bEOv0xgzY2aLq6j6ax4qn1RDSgtHefOIslk="
+      "rawBytes": 16290,
+      "gzBytes": 5607,
+      "sri": "sha256-Uv864uY5XNyhx5SktenLH4ugjdgPwmj7xSyeAsqFxgw="
     }
   ]
 }
