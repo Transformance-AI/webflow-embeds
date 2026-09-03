@@ -2,3 +2,7 @@
 export const STORIES_DE = {
 
 };
+
+export const CARDS_DE = {
+
+};

@@ -77,11 +77,20 @@ async function emit(page, locale, dataFile, exportName) {
 }
 
 for (const page of pages) {
-  await emit(page, 'en', `${page}.js`, 'STORIES');
+  /* CARDS, not STORIES. This was the actual bug found 2026-09-03: this line
+     shipped STORIES (headline + body + card, ~1432px) since stories-1, on
+     every one of 33 sections across all 6 pages, in both locales - the
+     card-only design (see export-stories.mjs's own comment on cardOnly())
+     was built and verified extensively but never actually wired into what
+     gets deployed. Invisible until real placement on a real Webflow page,
+     because every prior verification pass rendered the STORIES variant on
+     purpose (verify-stories.mjs), which is a legitimate thing to test but
+     is not what a Webflow page is supposed to receive. */
+  await emit(page, 'en', `${page}.js`, 'CARDS');
 
   const deFile = path.join(DATA, `${page}.de.js`);
   const hasDE = existsSync(deFile) && readFileSync(deFile, 'utf8').includes('`');
-  if (hasDE) await emit(page, 'de', `${page}.de.js`, 'STORIES_DE');
+  if (hasDE) await emit(page, 'de', `${page}.de.js`, 'CARDS_DE');
   else console.log(`  dist/story-${page}.de.js`.padEnd(34), 'skipped - no complete German stories');
 }
 
