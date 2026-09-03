@@ -374,3 +374,40 @@ defect — loader.js carries no SRI of its own (nothing loads it via
 `integrity=`) — but a reason to never hand-verify this one file's bytes
 without normalizing line endings first, or better, just trust the
 already-established rule: fetch the CDN copy back and diff against that.
+
+---
+
+## 9. Published: tag `stories-4` (2026-09-03) — popup.js changed again
+
+German popup copy (Lektorat-reviewed) + two more locale bugs fixed in the
+same pass — CTA hrefs weren't locale-prefixed (`/meeting` instead of
+`/de/meeting`), and the "hide this link if you're already on the page it
+points to" check couldn't match on `/de/` pages. Full detail in commit
+`3f5e776`. `popup.js` grew 13211 → 16290 bytes with the German copy; every
+story bundle is byte-identical to `stories-3`.
+
+All 12 files verified byte-for-byte against the CDN (CRLF-normalized for
+`loader.js`, per the §8 gotcha).
+
+Base: `https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-4/dist/`
+
+| File | Bytes | integrity |
+|---|---|---|
+| loader.js | 8201 (LF) | `sha256-vKsKe5q5xZkcS/I0ZCf9T2eiM2MND3phEV8s+fyvY6U=` |
+| popup.js | 16290 | `sha256-Uv864uY5XNyhx5SktenLH4ugjdgPwmj7xSyeAsqFxgw=` |
+| story-collections.js | 146318 | `sha256-6F1B+psTLUF2xolcoAMTN/ltsd+r+0VKghO9wZOeNfg=` |
+| story-clearmatch.js | 102520 | `sha256-Kub3Zyoa6yOd8Kzft5R75dQ084dleTUXAub3oRd2TwQ=` |
+| story-claimiq.js | 99200 | `sha256-GQXJT972C0F0W5N4eyh3bgsEJsANqvVxW15xKGGuaSY=` |
+| story-cashpulse.js | 93404 | `sha256-cLiZDg4wLC3PmAiivBE1ByjqF0p5Qb3Hz0CCZf+36iQ=` |
+| story-vero.js | 110018 | `sha256-s2J2ir7q9EYAeWyDk3/f+fWuqwVkfXKl6rek1o5YwR8=` |
+| story-vero.de.js | 110353 | `sha256-o97FecIj0i8kzZwnO6upB+lWo8iLXrS8e+hmuvW0ZUw=` |
+| story-home.js | 123249 | `sha256-WqHg2SHdXHak7aZUyFIXOTVwDEVMfHgjNUxOyLhWG8w=` |
+
+`tours.js`, `hero.js`, `banners.js` unchanged since `stories-1`; hashes hold.
+
+**Staging currently has `stories-4`'s LOADER not yet applied** — it's
+registered content-ready and CDN-verified, but the site-level script
+application on `transformanceai.webflow.io` still points at `stories-3`
+(the version without German popup copy). This is a version bump on the
+SAME script id (`transformanceembedsloader`), not a new registration —
+see `docs/WEBFLOW_MAIN_EVENT_2026-09-03.md`.
