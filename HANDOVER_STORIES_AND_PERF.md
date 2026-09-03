@@ -193,3 +193,172 @@ Webflow; stale values are visible as a layout jump on mount.
 | Bundle build | `Webflow Embeds/scripts/build-stories.mjs` |
 | Subsystem size measurement | `Webflow Embeds/scripts/measure-split.mjs` |
 | The design rules for the animations | `platform-mockups/docs/SOLUTION-PAGE-PLAYBOOK.md` |
+
+---
+
+## 6. Published: tag `stories-2` (2026-09-03) - USE THIS ONE
+
+**`stories-2` supersedes `stories-1`.** Both are published and immutable;
+`stories-1` reserved one height for both widths, which is wrong at one of them
+(see the commit). Nothing was ever placed against `stories-1`, so it can simply
+be ignored - do not re-point it.
+
+All files were fetched back from the CDN and compared byte-for-byte against the
+committed bytes before these hashes were taken.
+
+**Each element takes TWO heights:** `data-h` (desktop) and `data-h-sm` (below
+1024, where the copy stacks above the card and every section is 150-350px
+taller). The verifier prints whichever attribute the width it ran at feeds.
+
+**Read this before copying a hash.** On the first attempt jsDelivr answered
+`HTTP 200` with an EMPTY BODY while it was still warming, and the hash of zero
+bytes (`sha384-OLBgp1Gslj...`) looks exactly like a real hash. Publishing it
+would have silently blocked every script in the browser. So: fetch to a file,
+check the byte count against `dist/`, and hash the file - never hash a stream
+you have not measured.
+
+Base: `https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-2/dist/`
+
+| File | Bytes | integrity |
+|---|---|---|
+| popup.js | 13151 | `sha384-5Pale/ZT8ntPwrYM9la2mevHnLr664HTutRS6Bc7A3+7L4CYmHiYKOp9MOVKeEtg` |
+| story-collections.js | 146318 | `sha384-55CzK9g3igwE4UKw7T1c1Yt7kPJ1MCdrWeCcfGewR16HsoPybj5mDttr6YvCSAsh` |
+| story-clearmatch.js | 102520 | `sha384-OWY8nWo0I6mlsLNei5BedUwF7T7q7J1ImNS+PkJEYHpWxBe8F3UdJlq2lud3X/y9` |
+| story-claimiq.js | 99200 | `sha384-FBbrg4tAiLsgbDBPkoO7q2EOZ/RY9TkhobXmlIcUwLfx5oh/jJuxIJSoMpdGA/bz` |
+| story-cashpulse.js | 93404 | `sha384-btm48VtxOYXVO1amx1h4NApWybeUMb4Sw5xl/a2esSZNbJ13Du54SMAACR81UuoC` |
+| story-vero.js | 110018 | `sha384-PmuFpIv39b+zS/EeJnRvYKbR+2TFFWdxBmitiA236qvveQAYc68uCiScQsB0jYSa` |
+| story-vero.de.js | 110353 | `sha384-96MpHUZbmFP2UA1zj8KLbcJ9thbGxbFd2b/VQn6BAjldulCg5Lk2gGIVnMT8J3mM` |
+| story-home.js | 123249 | `sha384-R1BC/6r6PHT2wTmdLJj629X6Viwb30sUtZTMLSil+CGybGuHj+SDNZtWqn9MpV8B` |
+
+`tours.js`, `hero.js` and `banners.js` are unchanged since `stories-1`; their
+hashes in git history still hold, and no solution page needs them anyway.
+
+A solution page that moves over loads `popup.js` + its one story bundle, and
+drops `player.js`: **79.2 KB gz -> about 20 KB gz, while gaining six
+animations.** `player.js` is untouched and still serves every page that has
+not moved.
+
+Tags are immutable. The next rebuild is `stories-3`, with new hashes and an
+update to every page pointing at the old one - never re-point a published tag.
+
+## 7. Collections page mapping - ANSWERED (Paul, 2026-09-03)
+
+Six sections. `collections-score` replaces *Customer Detail*, and
+`collections-loop` and `collections-inbox` become two NEW sections. Both new
+sections need copy written, not just a card dropped in - the rollout unit is a
+section, card and copy together.
+
+---
+
+## 8. Site-level loader — replaces `player.js` (2026-09-03)
+
+Written after a script audit (`C:\tmp\webflow-script-audit.md`, MCP read-only)
+showed `player.js` is applied SITE-WIDE — every page, every locale — and
+established the real mechanism: an application is **version-pinned**, not
+"latest". Registering a new script version changes nothing until it is
+re-applied. That is why the localizer sat on **7 different versions
+simultaneously** across the site's pages before this. **Conclusion: the
+loader must be ONE site-level application, not many page-level ones** — one
+version pin to maintain, not one per page that can silently drift.
+
+### What it does
+
+`src/loader/loader.js` → built by `scripts/build-loader.mjs` → `dist/loader.js`.
+One rule: **pages declare what they contain; the loader decides what to
+load.** No page list, no slug list, no URL pattern — only markup:
+
+| Part | Loads when | Detection |
+|---|---|---|
+| popup (4.6 KB) | always | injected unconditionally — it owns its own page-qualifying logic (`src/popup/controller.js` `resolveContext()`), and duplicating that logic in the loader is exactly the kind of second "am I on X page" check that caused the bug below |
+| tours (58.6 KB) | page has `<transformance-tour data-tour="...">` | real markup, present before any script runs |
+| hero (11.2 KB) | page has `<transformance-hero>` | real markup |
+| banners (6.6 KB) | page has a `[tf-banner:<topic>]` text marker | **not** real markup yet — Editor sanitizes custom elements out of rich text, so this is a text-marker check, matching `banners/scanner.js`'s own regex exactly |
+| stories (per page) | page has `<transformance-story data-story="...">` | page name = segment before the first hyphen in `data-story`; DE variant loads only if `STORY_DE_PAGES` (built from what actually exists in `dist/`) lists that page |
+
+Every detector is independently wrapped — one throwing can't block the others.
+`window.__tf = { loaded, skipped }` records what happened and why, readable
+from any page's console, so a subsystem that silently didn't fire is a
+one-line check, not a guess.
+
+### The German popup bug, fixed at the root
+
+Audit-confirmed: `resolveContext()`'s checks (`SOLUTION_VARIANTS` exact match,
+`/blog-posts/` and `/glossary/` prefixes) are all written against the EN path
+shape and none of them stripped a `/de` prefix — so the function returned
+`null` on every German page and **the popup never fired anywhere on the
+German site.** Root-caused, not patched per-branch: added
+`stripLocale()` to `src/shared/locale.js` (strips a leading `/de`, mirrors the
+existing `isDE()`), and call it once at the top of `resolveContext()`.
+Everything downstream is now written once, against the EN shape, and works on
+both locales without knowing locales exist.
+
+Also worth remembering while it's fresh: **three other scripts each hand-roll
+their own `/de` pathname check** (the DE link-remapper, `ctabuttonfix`,
+`cookiebannerdelegal` — see the script audit). Four independent
+reimplementations of the same one-line check, one of which was simply wrong.
+Not fixed in this pass — flagged as a follow-up, not blocking this one.
+
+### A real bug this caught before it shipped
+
+Fixed `controller.js`, then ran the loader verification — and it failed on
+every German page, popup still not firing. **Rebuilt `dist/popup.js` from the
+now-fixed source and it was byte-identical to before** (`grep -c stripLocale`
+came back `0`): the fix was in `src/`, but `dist/popup.js` — what the loader
+actually references — still had the old bug baked in, because
+`scripts/build-parts.mjs` was never re-run after the edit. The bundle only
+proved fixed once it was rebuilt, hashed fresh, and re-tested. Exactly the
+kind of gap `verify-loader.mjs` (below) exists to catch.
+
+### Local proof, before anything touches staging
+
+`scripts/verify-loader.mjs` — two kinds of proof:
+
+1. **11 real pages, fetched live from production**, spanning every page type
+   in the audit and both locales: home + `/de`, about, 2 solution pages, a
+   blog post (EN + DE), a glossary term (EN + DE), a review, a comparison
+   (DE). Loaded via real navigation (not `setContent`, which never navigates
+   and left `location.pathname` wrong — the first version of this test had
+   that bug and every popup assertion silently read `false`). Asserts
+   `__tf.loaded` for tours/hero/banners against the page's own real markup,
+   and — since popup is unconditional by design — asserts the **actual DOM
+   effect**: `installPopup()` appends `<transformance-popup data-state="hidden">`
+   the instant it qualifies, well before any scroll/timer trigger, so this
+   doesn't need a 25-second wait to check.
+2. **4 synthetic fixtures** for the one thing nothing live has yet: the
+   `<transformance-story>` port and the DE dual-bundle case. Necessarily
+   synthetic.
+
+Two of my own assumptions were wrong and the test caught both: I'd assumed
+glossary pages don't fire the popup (they do — `resolveContext()`'s glossary
+branch always returns a context, falling back to `variant: 'default'`), and
+I'd assumed a "no DE bundle" story lookup would log a skip message (it
+shouldn't and doesn't — the loader never attempts a fetch for a page not
+listed in `STORY_DE_PAGES`, so there's nothing to skip).
+
+**`node scripts/build-loader.mjs --local`** builds `dist/loader.js`'s parts
+pointing at root-relative paths instead of a CDN URL, so `verify-loader.mjs`
+can serve everything straight out of local `dist/` with no network dependency
+and no need for anything to be pushed first. **This output
+(`dist/loader.local.js`) must never be committed, tagged, or pasted into
+Webflow** — gitignored; publishing always uses `--tag`.
+
+**All 15 cases pass** against the locally rebuilt bundles.
+
+### Not yet done
+
+- **Nothing has been pushed, tagged, or applied to Webflow.** This session
+  has no Webflow write access (three separate checks this session, after the
+  user activated the MCP connector — it attaches at session start, so a
+  mid-session activation needs a fresh session to take effect). The read-only
+  script audit was run by a different, freshly-started session.
+- **`popup.js` changed size** (13151 → 13211 bytes) with the fix, so it is
+  **not** the same file that's live under `stories-2` — this needs a new tag.
+  The build above is against `stories-3` (not yet pushed).
+- **The build sheet artifact** (Collections page instructions, shared earlier
+  today) has `popup.js`'s OLD hash baked into its Step 0 — already marked
+  "wrong, don't build yet" for an unrelated reason (site-level discovery), but
+  needs its numbers refreshed to `stories-3` before anyone acts on it.
+- **The other 44 of 55 pages** were not individually verified — 11 were
+  chosen to cover every page TYPE and both locales, which is what the loader's
+  logic actually keys off; it doesn't need per-page coverage to be correct,
+  but a wider sample after applying to staging is still worth doing.

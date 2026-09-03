@@ -14,6 +14,7 @@
  *   5. Pushes telemetry events to window.dataLayer if present (GA4-compatible).
  */
 import { POPUP_VARIANTS } from './configs.js';
+import { stripLocale } from '../shared/locale.js';
 
 const STORAGE_PREFIX = 'tf_popup_dismissed_';
 const TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
@@ -90,7 +91,14 @@ function variantFromBlogSlug(slug) {
 }
 
 function resolveContext() {
-  const path = window.location.pathname.replace(/\/+$/, '');
+  /* Every check below is written against the EN path shape. Without this,
+     a /de/... page matches nothing here - not "matches the wrong thing",
+     matches NOTHING, because SOLUTION_VARIANTS keys are all EN-rooted and
+     no branch below strips /de first. That is the exact bug this had:
+     resolveContext() returned null on every German page, so the popup
+     never fired anywhere on the German site. Strip the locale prefix once,
+     here, so nothing downstream needs to know locales exist. */
+  const path = stripLocale(window.location.pathname.replace(/\/+$/, ''));
 
   // Solution pages: exact match
   for (const [solPath, variant] of Object.entries(SOLUTION_VARIANTS)) {

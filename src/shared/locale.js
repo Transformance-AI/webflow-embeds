@@ -27,3 +27,25 @@ export const deHref = (path) => {
   if (path === '/de' || path.startsWith('/de/')) return path;
   return '/de' + path;
 };
+
+/**
+ * Strip a leading `/de` (or `/de/...`) from a pathname, so downstream code
+ * can be written once, against the EN shape, and work on both locales.
+ *
+ * Why this exists: as of the 2026-09-03 script audit, FOUR separate places
+ * on this site each hand-roll their own "am I on a German page" check
+ * (this popup controller, the DE link-remapper, ctabuttonfix, and
+ * cookiebannerdelegal) — and the popup's version was simply missing,
+ * which meant resolveContext() matched nothing on any /de/ page and the
+ * popup never fired there. One correct implementation, reused, is cheaper
+ * than four independent ones staying in sync by coincidence.
+ *
+ *   stripLocale('/de/solutions/collections') → '/solutions/collections'
+ *   stripLocale('/de')                       → '/'
+ *   stripLocale('/solutions/collections')    → '/solutions/collections'
+ */
+export const stripLocale = (pathname) => {
+  if (pathname === '/de') return '/';
+  if (pathname.startsWith('/de/')) return pathname.slice(3);
+  return pathname;
+};

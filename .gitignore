@@ -18,3 +18,5 @@ dist/stories-test-*.html
 dist/de/stories-test-*.html
 # subsystem size measurements, not a build input
 .measure/
+# local-only loader test build - never publish this one
+dist/loader.local.js
