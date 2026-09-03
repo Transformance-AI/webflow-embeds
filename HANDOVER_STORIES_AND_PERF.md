@@ -560,3 +560,17 @@ Handed to the session with live Webflow access - not done as of this
 writing. Loader already auto-detects per-page markup, so no new script
 setup is needed on the four pages that have never had a story placed
 before; only the `<transformance-story>` tag itself needs adding.
+
+**ClearMatch hero — done, confirmed good (2026-09-03).** `.hero-mockup`'s
+leftover `max-width:500px` (sized for the old static image) removed; card
+renders at its true 620px, zero clipping across 3 observed animation beats.
+H1 wraps to 5 lines at the resulting ~283px text column but reflows cleanly
+— checked, not just measured.
+
+**New fact worth keeping for the other 3 hero swaps:** these cards do NOT
+degrade gracefully at intermediate widths. Tested 580px (94% of design
+width) — still ~19 elements clipped by up to 40px. The internal layout
+(fixed pixel offsets throughout) is binary: exactly full design width = zero
+overflow, anything less = real clipping. "Give it 90% and let it reflow" is
+not an available middle ground for this component shape — plan hero column
+splits around each card's FULL w-[NNNpx] design width, not a percentage.
