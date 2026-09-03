@@ -1,0 +1,1317 @@
+(()=>{var o=`/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-100: oklch(96.2% 0.059 95.617);
+    --color-amber-200: oklch(92.4% 0.12 95.746);
+    --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-amber-600: oklch(66.6% 0.179 58.318);
+    --color-amber-700: oklch(55.5% 0.163 48.998);
+    --color-amber-900: oklch(41.4% 0.112 45.904);
+    --color-emerald-50: oklch(97.9% 0.021 166.113);
+    --color-emerald-100: oklch(95% 0.052 163.051);
+    --color-emerald-200: oklch(90.5% 0.093 164.15);
+    --color-emerald-300: oklch(84.5% 0.143 164.978);
+    --color-emerald-500: oklch(69.6% 0.17 162.48);
+    --color-emerald-600: oklch(59.6% 0.145 163.225);
+    --color-emerald-700: oklch(50.8% 0.118 165.612);
+    --color-emerald-800: oklch(43.2% 0.095 166.913);
+    --color-emerald-900: oklch(37.8% 0.077 168.94);
+    --color-gray-50: oklch(98.5% 0.002 247.839);
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
+    --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-gray-900: oklch(21% 0.034 264.665);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-md: 28rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --tracking-wider: 0.05em;
+    --leading-tight: 1.25;
+    --leading-relaxed: 1.625;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+@layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .static {
+    position: static;
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .right-2\\.5 {
+    right: calc(var(--spacing) * 2.5);
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
+  .left-2\\.5 {
+    left: calc(var(--spacing) * 2.5);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
+  .mb-0\\.5 {
+    margin-bottom: calc(var(--spacing) * 0.5);
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .ml-auto {
+    margin-left: auto;
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline {
+    display: inline;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+  .h-2\\.5 {
+    height: calc(var(--spacing) * 2.5);
+  }
+  .h-3\\.5 {
+    height: calc(var(--spacing) * 3.5);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .h-7 {
+    height: calc(var(--spacing) * 7);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+  .h-9 {
+    height: calc(var(--spacing) * 9);
+  }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-\\[18px\\] {
+    height: 18px;
+  }
+  .h-\\[24px\\] {
+    height: 24px;
+  }
+  .h-\\[26px\\] {
+    height: 26px;
+  }
+  .h-\\[36px\\] {
+    height: 36px;
+  }
+  .h-\\[38px\\] {
+    height: 38px;
+  }
+  .h-\\[40px\\] {
+    height: 40px;
+  }
+  .h-\\[42px\\] {
+    height: 42px;
+  }
+  .h-\\[60px\\] {
+    height: 60px;
+  }
+  .h-\\[70px\\] {
+    height: 70px;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-3\\.5 {
+    width: calc(var(--spacing) * 3.5);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .w-7 {
+    width: calc(var(--spacing) * 7);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
+  .w-9 {
+    width: calc(var(--spacing) * 9);
+  }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
+  .w-\\[2px\\] {
+    width: 2px;
+  }
+  .w-\\[60px\\] {
+    width: 60px;
+  }
+  .w-\\[70px\\] {
+    width: 70px;
+  }
+  .w-\\[72px\\] {
+    width: 72px;
+  }
+  .w-\\[92px\\] {
+    width: 92px;
+  }
+  .w-\\[104px\\] {
+    width: 104px;
+  }
+  .w-\\[148px\\] {
+    width: 148px;
+  }
+  .w-\\[150px\\] {
+    width: 150px;
+  }
+  .w-\\[178px\\] {
+    width: 178px;
+  }
+  .w-\\[280px\\] {
+    width: 280px;
+  }
+  .w-\\[300px\\] {
+    width: 300px;
+  }
+  .w-\\[600px\\] {
+    width: 600px;
+  }
+  .w-\\[620px\\] {
+    width: 620px;
+  }
+  .max-w-\\[1300px\\] {
+    max-width: 1300px;
+  }
+  .max-w-md {
+    max-width: var(--container-md);
+  }
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-end {
+    align-items: flex-end;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+  .gap-1\\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-2\\.5 {
+    gap: calc(var(--spacing) * 2.5);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-16 {
+    gap: calc(var(--spacing) * 16);
+  }
+  .gap-20 {
+    gap: calc(var(--spacing) * 20);
+  }
+  .space-y-2\\.5 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 2.5) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 2.5) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-amber-200 {
+    border-color: var(--color-amber-200);
+  }
+  .border-amber-300 {
+    border-color: var(--color-amber-300);
+  }
+  .border-emerald-200 {
+    border-color: var(--color-emerald-200);
+  }
+  .border-emerald-300 {
+    border-color: var(--color-emerald-300);
+  }
+  .border-gray-100 {
+    border-color: var(--color-gray-100);
+  }
+  .border-gray-100\\/80 {
+    border-color: color-mix(in srgb, oklch(96.7% 0.003 264.542) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-gray-100) 80%, transparent);
+    }
+  }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
+  .border-gray-200\\/70 {
+    border-color: color-mix(in srgb, oklch(92.8% 0.006 264.531) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-gray-200) 70%, transparent);
+    }
+  }
+  .border-white {
+    border-color: var(--color-white);
+  }
+  .bg-amber-50 {
+    background-color: var(--color-amber-50);
+  }
+  .bg-amber-50\\/50 {
+    background-color: color-mix(in srgb, oklch(98.7% 0.022 95.277) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-50) 50%, transparent);
+    }
+  }
+  .bg-amber-100 {
+    background-color: var(--color-amber-100);
+  }
+  .bg-amber-500 {
+    background-color: var(--color-amber-500);
+  }
+  .bg-amber-600 {
+    background-color: var(--color-amber-600);
+  }
+  .bg-emerald-50 {
+    background-color: var(--color-emerald-50);
+  }
+  .bg-emerald-100 {
+    background-color: var(--color-emerald-100);
+  }
+  .bg-emerald-500 {
+    background-color: var(--color-emerald-500);
+  }
+  .bg-emerald-600 {
+    background-color: var(--color-emerald-600);
+  }
+  .bg-gray-50 {
+    background-color: var(--color-gray-50);
+  }
+  .bg-gray-50\\/50 {
+    background-color: color-mix(in srgb, oklch(98.5% 0.002 247.839) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-gray-50) 50%, transparent);
+    }
+  }
+  .bg-gray-50\\/60 {
+    background-color: color-mix(in srgb, oklch(98.5% 0.002 247.839) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-gray-50) 60%, transparent);
+    }
+  }
+  .bg-gray-50\\/70 {
+    background-color: color-mix(in srgb, oklch(98.5% 0.002 247.839) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-gray-50) 70%, transparent);
+    }
+  }
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
+  }
+  .bg-gray-200 {
+    background-color: var(--color-gray-200);
+  }
+  .bg-gray-300 {
+    background-color: var(--color-gray-300);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-2\\.5 {
+    padding-inline: calc(var(--spacing) * 2.5);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-3\\.5 {
+    padding-inline: calc(var(--spacing) * 3.5);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-16 {
+    padding-inline: calc(var(--spacing) * 16);
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+  .py-1\\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .py-20 {
+    padding-block: calc(var(--spacing) * 20);
+  }
+  .pt-5 {
+    padding-top: calc(var(--spacing) * 5);
+  }
+  .pb-3\\.5 {
+    padding-bottom: calc(var(--spacing) * 3.5);
+  }
+  .text-right {
+    text-align: right;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\\[10px\\] {
+    font-size: 10px;
+  }
+  .leading-\\[18px\\] {
+    --tw-leading: 18px;
+    line-height: 18px;
+  }
+  .leading-\\[24px\\] {
+    --tw-leading: 24px;
+    line-height: 24px;
+  }
+  .leading-\\[26px\\] {
+    --tw-leading: 26px;
+    line-height: 26px;
+  }
+  .leading-\\[36px\\] {
+    --tw-leading: 36px;
+    line-height: 36px;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .leading-tight {
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+  .text-amber-600 {
+    color: var(--color-amber-600);
+  }
+  .text-amber-700 {
+    color: var(--color-amber-700);
+  }
+  .text-amber-700\\/80 {
+    color: color-mix(in srgb, oklch(55.5% 0.163 48.998) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-amber-700) 80%, transparent);
+    }
+  }
+  .text-amber-900 {
+    color: var(--color-amber-900);
+  }
+  .text-emerald-700 {
+    color: var(--color-emerald-700);
+  }
+  .text-emerald-700\\/80 {
+    color: color-mix(in srgb, oklch(50.8% 0.118 165.612) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-emerald-700) 80%, transparent);
+    }
+  }
+  .text-emerald-800 {
+    color: var(--color-emerald-800);
+  }
+  .text-emerald-900 {
+    color: var(--color-emerald-900);
+  }
+  .text-gray-400 {
+    color: var(--color-gray-400);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-gray-800 {
+    color: var(--color-gray-800);
+  }
+  .text-gray-900 {
+    color: var(--color-gray-900);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .tabular-nums {
+    --tw-numeric-spacing: tabular-nums;
+    font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
+  }
+  .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xl {
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-1 {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-amber-200 {
+    --tw-ring-color: var(--color-amber-200);
+  }
+  .ring-emerald-200 {
+    --tw-ring-color: var(--color-emerald-200);
+  }
+  .ring-gray-200 {
+    --tw-ring-color: var(--color-gray-200);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
+  }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-ordinal: initial;
+      --tw-slashed-zero: initial;
+      --tw-numeric-figure: initial;
+      --tw-numeric-spacing: initial;
+      --tw-numeric-fraction: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-ease: initial;
+    }
+  }
+}
+@layer base {
+  *,*::before,*::after{box-sizing:border-box;border:0 solid;margin:0;padding:0}
+  svg{display:block}
+  img{max-width:100%;height:auto}
+}
+:host{all:initial;display:block;contain:layout style;
+  font-family:var(--font-sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;color:var(--color-gray-900);text-align:left}
+
+/* Below the two-column breakpoint the copy stacks above the card, and the card
+   keeps its intrinsic width inside a swipeable rail. It is drawn at fixed pixel
+   geometry, so scaling it to a phone would put 14px body text at 8px. A rail
+   keeps it legible and is the same pattern any wide table uses. */
+@media (max-width: 1023px) {
+  .tf-wrap{padding-left:1.25rem;padding-right:1.25rem;padding-top:3rem;padding-bottom:3rem}
+  .tf-row{flex-direction:column;align-items:stretch;gap:2rem}
+  .tf-row > div:first-child{max-width:none}
+  .tf-row > div:first-child h2{font-size:2rem;line-height:1.15}
+  .tf-row > div:first-child p{font-size:1.0625rem}
+  .tf-card{overflow-x:auto;overflow-y:hidden;max-width:100%;width:auto;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding-bottom:1.25rem}
+  .tf-card::-webkit-scrollbar{display:none}
+  .tf-card > *{width:var(--card-w,640px);flex:none}
+  /* Do NOT re-width the card here. Its internals are absolutely positioned
+     against a fixed inner width, so squeezing it to a round number silently
+     truncates every lane inside. The rail scrolls; the card keeps its size. */
+}
+`,l={"claimiq-loop":`<div class="relative overflow-hidden"><style>
+        @keyframes clqRing  { 0%{transform:scale(.9);opacity:.5;} 70%{transform:scale(1.5);opacity:0;} 100%{transform:scale(1.5);opacity:0;} }
+        @keyframes clqPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+        
+        @keyframes clqSig0 {
+          0%,3%       { opacity:0; transform: translateX(-10px); }
+          9%,100% { opacity:1; transform: translateX(0); }
+        }
+        @keyframes clqLead0 {
+          0%,5%    { stroke-dashoffset:100; opacity:0; }
+          7%       { opacity:1; }
+          14%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes clqSig1 {
+          0%,7%       { opacity:0; transform: translateX(-10px); }
+          13%,100% { opacity:1; transform: translateX(0); }
+        }
+        @keyframes clqLead1 {
+          0%,9%    { stroke-dashoffset:100; opacity:0; }
+          11%       { opacity:1; }
+          18%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes clqSig2 {
+          0%,11%       { opacity:0; transform: translateX(-10px); }
+          17%,100% { opacity:1; transform: translateX(0); }
+        }
+        @keyframes clqLead2 {
+          0%,13%    { stroke-dashoffset:100; opacity:0; }
+          15%       { opacity:1; }
+          22%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes clqSig3 {
+          0%,15%       { opacity:0; transform: translateX(-10px); }
+          21%,100% { opacity:1; transform: translateX(0); }
+        }
+        @keyframes clqLead3 {
+          0%,17%    { stroke-dashoffset:100; opacity:0; }
+          19%       { opacity:1; }
+          26%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+
+        
+        @keyframes clqRow0 {
+          0%,26%        { opacity:0; transform: translateX(12px); }
+          32%,100%  { opacity:1; transform:none; }
+        }
+        @keyframes clqAmt0 {
+          0%,29%    { opacity:0; transform:scale(.7); }
+          34%,100%  { opacity:1; transform:scale(1); }
+        }
+        @keyframes clqRow1 {
+          0%,34%        { opacity:0; transform: translateX(12px); }
+          40%,100%  { opacity:1; transform:none; }
+        }
+        @keyframes clqAmt1 {
+          0%,37%    { opacity:0; transform:scale(.7); }
+          42%,100%  { opacity:1; transform:scale(1); }
+        }
+        @keyframes clqRow2 {
+          0%,42%        { opacity:0; transform: translateX(12px); }
+          48%,100%  { opacity:1; transform:none; }
+        }
+        @keyframes clqAmt2 {
+          0%,45%    { opacity:0; transform:scale(.7); }
+          50%,100%  { opacity:1; transform:scale(1); }
+        }
+        @keyframes clqRow3 {
+          0%,50%        { opacity:0; transform: translateX(12px); }
+          56%,100%  { opacity:1; transform:none; }
+        }
+        @keyframes clqAmt3 {
+          0%,53%    { opacity:0; transform:scale(.7); }
+          58%,100%  { opacity:1; transform:scale(1); }
+        }
+        @keyframes clqHead { 0%,20%{opacity:0;} 26%,100%{opacity:1;} }
+        @keyframes clqTotal { 0%,56%{opacity:0;transform:translateY(6px);} 64%,100%{opacity:1;transform:none;} }
+
+        @keyframes clqBtn {
+          0%,62%   { transform:scale(1); box-shadow:0 0 0 0 rgba(217,119,6,0); }
+          70%      { transform:scale(1); box-shadow:0 0 0 0 rgba(217,119,6,.35); }
+          78%      { transform:scale(1); box-shadow:0 0 0 8px rgba(217,119,6,0); }
+          82%      { transform:scale(.96); }
+          86%,100% { transform:scale(1); box-shadow:0 0 0 0 rgba(217,119,6,0); }
+        }
+        @keyframes clqCursor {
+          0%,66%   { transform: translate(-46px,26px) scale(1); opacity:0; }
+          70%      { transform: translate(-46px,26px) scale(1); opacity:1; }
+          79%      { transform: translate(-6px,4px) scale(1); opacity:1; }
+          82%      { transform: translate(-6px,4px) scale(.82); opacity:1; }
+          85%      { transform: translate(-6px,4px) scale(1); opacity:1; }
+          92%      { transform: translate(-6px,4px) scale(1); opacity:0; }
+          100%     { transform: translate(-46px,26px) scale(1); opacity:0; }
+        }
+        @keyframes clqBtnA { 0%,83%{opacity:1;} 85%,100%{opacity:0;} }
+        @keyframes clqBtnB { 0%,83%{opacity:0;} 85%,100%{opacity:1;} }
+        @keyframes clqSt1 { 0%,14%{opacity:1;} 18%,100%{opacity:0;} }
+        @keyframes clqSt2 { 0%,14%{opacity:0;} 18%,56%{opacity:1;} 60%,100%{opacity:0;} }
+        @keyframes clqSt3 { 0%,56%{opacity:0;} 60%,82%{opacity:1;} 86%,100%{opacity:0;} }
+        @keyframes clqSt4 { 0%,82%{opacity:0;} 86%,100%{opacity:1;} }
+
+        .clq-ring  { animation: clqRing 2.6s ease-out infinite; }
+        .clq-ring2 { animation: clqRing 2.6s ease-out infinite; animation-delay:1.3s; }
+        .clq-pulse { animation: clqPulse 1.4s ease-in-out infinite; }
+        
+        .clq-sig0  { animation: clqSig0 10s ease-out infinite; opacity:0; }
+        .clq-lead0 { animation: clqLead0 10s ease-out infinite; opacity:0; }
+        .clq-sig1  { animation: clqSig1 10s ease-out infinite; opacity:0; }
+        .clq-lead1 { animation: clqLead1 10s ease-out infinite; opacity:0; }
+        .clq-sig2  { animation: clqSig2 10s ease-out infinite; opacity:0; }
+        .clq-lead2 { animation: clqLead2 10s ease-out infinite; opacity:0; }
+        .clq-sig3  { animation: clqSig3 10s ease-out infinite; opacity:0; }
+        .clq-lead3 { animation: clqLead3 10s ease-out infinite; opacity:0; }
+        
+        .clq-row0 { animation: clqRow0 10s ease-out infinite; opacity:0; }
+        .clq-amt0 { animation: clqAmt0 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .clq-row1 { animation: clqRow1 10s ease-out infinite; opacity:0; }
+        .clq-amt1 { animation: clqAmt1 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .clq-row2 { animation: clqRow2 10s ease-out infinite; opacity:0; }
+        .clq-amt2 { animation: clqAmt2 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .clq-row3 { animation: clqRow3 10s ease-out infinite; opacity:0; }
+        .clq-amt3 { animation: clqAmt3 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .clq-head  { animation: clqHead 10s ease-out infinite; opacity:0; }
+        .clq-total { animation: clqTotal 10s ease-out infinite; opacity:0; }
+        .clq-btn   { animation: clqBtn 10s ease-out infinite; }
+        .clq-cursor{ animation: clqCursor 10s cubic-bezier(.4,0,.2,1) infinite; opacity:0; }
+        .clq-a { animation: clqBtnA 10s linear infinite; }
+        .clq-b { animation: clqBtnB 10s linear infinite; opacity:0; }
+        .clq-s1 { animation: clqSt1 10s linear infinite; }
+        .clq-s2 { animation: clqSt2 10s linear infinite; opacity:0; }
+        .clq-s3 { animation: clqSt3 10s linear infinite; opacity:0; }
+        .clq-s4 { animation: clqSt4 10s linear infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-16"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Investigate every<br/>short pay.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">Vero sorts the whole pile by what it actually is, works out how much of it you could get back, and starts the disputes on your say-so.</p></div><div class="tf-card relative w-[620px] shrink-0" style="--card-w:620px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-3 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="relative block h-[24px] w-[280px] min-w-0"><span class="clq-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Reading this week\u2019s short pays</span><span class="clq-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Sorting them by reason</span><span class="clq-s3 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Ready to dispute</span><span class="clq-s4 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">178 disputes opened</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-amber-700"><span class="clq-pulse w-2 h-2 rounded-full bg-amber-500"></span> Live</span></div><div class="relative" style="height:256px"><svg class="absolute inset-0 pointer-events-none" width="236" height="256" fill="none" aria-hidden="true"><path class="clq-lead0" d="M132,47 C146.4,47 141.6,128 154,128" stroke="#d97706" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="clq-lead1" d="M132,97 C146.4,97 141.6,128 154,128" stroke="#d97706" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="clq-lead2" d="M132,147 C146.4,147 141.6,128 154,128" stroke="#d97706" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="clq-lead3" d="M132,203 C146.4,203 141.6,128 154,128" stroke="#d97706" stroke-opacity="0.8" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></svg><div class="clq-sig0 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:27px;width:132px;height:40px"><span class="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-x h-4 w-4"><path d="m13.5 8.5-5 5"></path><path d="m8.5 8.5 5 5"></path><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">214 short pays</span></div><div class="clq-sig1 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:77px;width:132px;height:40px"><span class="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tags h-4 w-4"><path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"></path><path d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="6.5" cy="9.5" r=".5" fill="currentColor"></circle></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Your reason codes</span></div><div class="clq-sig2 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:127px;width:132px;height:40px"><span class="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-search h-4 w-4"><path d="M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1"></path><path d="m21 21-1.9-1.9"></path><circle cx="17" cy="17" r="3"></circle></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Contracts &amp; PODs</span></div><div class="clq-sig3 absolute left-0 flex items-center gap-2 rounded-xl border-2 border-amber-300 bg-white px-2 shadow-sm" style="top:177px;width:132px;height:52px"><span class="w-8 h-8 rounded-lg bg-amber-600 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain h-4 w-4"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-[10px] font-bold uppercase tracking-wider text-amber-600">Model</span><span class="block text-xs font-bold text-gray-900 truncate">Validity</span><span class="block text-[10px] text-gray-400 truncate">what stands up</span></span></div><div class="absolute" style="left:186px;top:128px;transform:translate(-50%,-50%);z-index:20"><div class="relative flex items-center justify-center"><span class="clq-ring absolute w-[70px] h-[70px] rounded-full" style="box-shadow:0 0 0 2px rgba(217,119,6,.45)"></span><span class="clq-ring2 absolute w-[70px] h-[70px] rounded-full" style="box-shadow:0 0 0 2px rgba(217,119,6,.45)"></span><div class="relative w-[60px] h-[60px] rounded-full bg-white border-2 border-amber-200 shadow-lg flex items-center justify-center"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:32px;height:32px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:13.44px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div></div></div></div><div class="clq-head absolute top-0 flex items-center justify-between px-1" style="left:236px;right:0"><span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Sorted by reason</span><span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Recoverable</span></div><div class="clq-row0 absolute flex items-center gap-2.5 rounded-xl border px-3 border-amber-200 bg-amber-50/50" style="left:236px;right:0;top:24px;height:52px"><span class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-x h-5 w-5"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path><path d="m7.5 4.27 9 5.15"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" x2="12" y1="22" y2="12"></line><path d="m17 13 5 5m-5 0 5-5"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Shortage</span><span class="block text-sm text-gray-500">84 claims</span></span><span class="clq-amt0 ml-auto shrink-0 text-sm font-bold tabular-nums text-amber-700">\u20AC62k</span></div><div class="clq-row1 absolute flex items-center gap-2.5 rounded-xl border px-3 border-amber-200 bg-amber-50/50" style="left:236px;right:0;top:84px;height:52px"><span class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-percent h-5 w-5"><line x1="19" x2="5" y1="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Pricing</span><span class="block text-sm text-gray-500">51 claims</span></span><span class="clq-amt1 ml-auto shrink-0 text-sm font-bold tabular-nums text-amber-700">\u20AC48k</span></div><div class="clq-row2 absolute flex items-center gap-2.5 rounded-xl border px-3 border-amber-200 bg-amber-50/50" style="left:236px;right:0;top:144px;height:52px"><span class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-badge-percent h-5 w-5"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path><path d="m15 9-6 6"></path><path d="M9 9h.01"></path><path d="M15 15h.01"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Promotion</span><span class="block text-sm text-gray-500">43 claims</span></span><span class="clq-amt2 ml-auto shrink-0 text-sm font-bold tabular-nums text-amber-700">\u20AC51k</span></div><div class="clq-row3 absolute flex items-center gap-2.5 rounded-xl border px-3 border-gray-200 bg-gray-50/70" style="left:236px;right:0;top:204px;height:52px"><span class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-gray-200 text-gray-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check h-5 w-5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Damage</span><span class="block text-sm text-gray-500">36 claims</span></span><span class="clq-amt3 ml-auto shrink-0 text-sm font-bold tabular-nums text-gray-400">Valid</span></div></div><div class="clq-total mt-4 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4" style="height:62px"><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-amber-700/80">Recoverable this week</span><span class="block text-2xl font-bold text-amber-900 tabular-nums">\u20AC161k</span></span><span class="relative ml-auto shrink-0"><span class="clq-btn relative block h-[40px] w-[150px] rounded-xl"><span class="clq-a absolute inset-0 inline-flex items-center justify-center gap-1.5 rounded-xl bg-amber-600 text-sm font-bold text-white">Start disputes</span><span class="clq-b absolute inset-0 inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-50 text-sm font-bold text-emerald-700 ring-1 ring-emerald-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg> Started</span></span><svg class="clq-cursor absolute pointer-events-none" style="right:8px;bottom:-2px;width:20px;height:20px;z-index:40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3l14 8.5-6.2 1.2L10 19 5 3z" fill="#111827" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></span></div></div></div></div></div></div>`,"claimiq-resolve":`<div class="relative overflow-hidden"><style>
+        @keyframes cvPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+        
+        @keyframes cvEv0 {
+          0%,4%        { opacity:0; transform: translateY(10px); }
+          12%,100%  { opacity:1; transform:none; }
+        }
+        @keyframes cvDot0 {
+          0%,6%    { opacity:0; transform:scale(.3); }
+          11%       { opacity:1; transform:scale(1.25); }
+          16%,100% { opacity:1; transform:scale(1); }
+        }
+        @keyframes cvEv1 {
+          0%,22%        { opacity:0; transform: translateY(10px); }
+          30%,100%  { opacity:1; transform:none; }
+        }
+        @keyframes cvDot1 {
+          0%,24%    { opacity:0; transform:scale(.3); }
+          29%       { opacity:1; transform:scale(1.25); }
+          34%,100% { opacity:1; transform:scale(1); }
+        }
+        @keyframes cvEv2 {
+          0%,40%        { opacity:0; transform: translateY(10px); }
+          48%,100%  { opacity:1; transform:none; }
+        }
+        @keyframes cvDot2 {
+          0%,42%    { opacity:0; transform:scale(.3); }
+          47%       { opacity:1; transform:scale(1.25); }
+          52%,100% { opacity:1; transform:scale(1); }
+        }
+        @keyframes cvEv3 {
+          0%,58%        { opacity:0; transform: translateY(10px); }
+          66%,100%  { opacity:1; transform:none; }
+        }
+        @keyframes cvDot3 {
+          0%,60%    { opacity:0; transform:scale(.3); }
+          65%       { opacity:1; transform:scale(1.25); }
+          70%,100% { opacity:1; transform:scale(1); }
+        }
+
+        /* the rail draws down as the events land */
+        @keyframes cvRail {
+          0%,4%    { height:0%; }
+          66%,100% { height:100%; }
+        }
+        @keyframes cvClk0{0%{opacity:1;}21%{opacity:1;}22.5%{opacity:0;}100%{opacity:0;}}@keyframes cvClk1{0%{opacity:0;}21.5%{opacity:0;}23%{opacity:1;}39%{opacity:1;}40.5%{opacity:0;}100%{opacity:0;}}@keyframes cvClk2{0%{opacity:0;}39.5%{opacity:0;}41%{opacity:1;}57%{opacity:1;}58.5%{opacity:0;}100%{opacity:0;}}@keyframes cvClk3{0%{opacity:0;}57.5%{opacity:0;}59%{opacity:1;}100%{opacity:1;}}
+        @keyframes cvDone {
+          0%,64%   { opacity:0; transform: translateY(8px); }
+          72%,100% { opacity:1; transform:none; }
+        }
+        @keyframes cvGlow {
+          0%,66%   { box-shadow:0 0 0 0 rgba(22,163,74,0); }
+          76%      { box-shadow:0 0 0 7px rgba(22,163,74,.14); }
+          86%,100% { box-shadow:0 0 0 0 rgba(22,163,74,0); }
+        }
+
+        .cv-pulse { animation: cvPulse 1.4s ease-in-out infinite; }
+        .cv-rail  { animation: cvRail 8s cubic-bezier(.4,0,.3,1) infinite; }
+        
+        .cv-ev0  { animation: cvEv0 8s ease-out infinite; opacity:0; }
+        .cv-dot0 { animation: cvDot0 8s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .cv-ev1  { animation: cvEv1 8s ease-out infinite; opacity:0; }
+        .cv-dot1 { animation: cvDot1 8s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .cv-ev2  { animation: cvEv2 8s ease-out infinite; opacity:0; }
+        .cv-dot2 { animation: cvDot2 8s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .cv-ev3  { animation: cvEv3 8s ease-out infinite; opacity:0; }
+        .cv-dot3 { animation: cvDot3 8s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .cv-clk0{animation:cvClk0 8s linear infinite;}.cv-clk1{animation:cvClk1 8s linear infinite;opacity:0;}.cv-clk2{animation:cvClk2 8s linear infinite;opacity:0;}.cv-clk3{animation:cvClk3 8s linear infinite;opacity:0;}
+        .cv-done { animation: cvDone 8s ease-out infinite, cvGlow 8s ease-out infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-20"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Resolve deductions<br/>in minutes.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">The deduction posts, the paperwork is already on file, the verdict is reasoned and the claim goes out. All of it before anyone has opened a spreadsheet.</p></div><div class="tf-card relative w-[600px] shrink-0" style="--card-w:600px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">1</span></div></div><span class="min-w-0 leading-tight"><span class="block text-base font-bold text-gray-900">Northwind Retail \xB7 SHT-02</span><span class="block text-sm text-gray-500">Deduction of \u20AC4,820</span></span><span class="ml-auto text-right leading-tight shrink-0"><span class="block text-xs font-semibold uppercase tracking-wider text-gray-400">Elapsed</span><span class="relative block h-[26px] w-[72px]"><span class="cv-clk0 absolute inset-0 text-right text-xl font-bold text-gray-900 tabular-nums leading-[26px]">00:00</span><span class="cv-clk1 absolute inset-0 text-right text-xl font-bold text-gray-900 tabular-nums leading-[26px]">00:34</span><span class="cv-clk2 absolute inset-0 text-right text-xl font-bold text-gray-900 tabular-nums leading-[26px]">02:06</span><span class="cv-clk3 absolute inset-0 text-right text-xl font-bold text-gray-900 tabular-nums leading-[26px]">03:12</span></span></span></div><div class="relative" style="height:278px"><div class="absolute w-[2px] rounded-full bg-gray-100" style="left:26px;top:12px;bottom:12px"></div><div class="cv-rail absolute w-[2px] rounded-full" style="left:26px;top:12px;background:linear-gradient(180deg,#fbbf24,#16a34a)"></div><div class="absolute left-0 right-0" style="top:0;height:62px"><span class="cv-dot0 absolute w-3.5 h-3.5 rounded-full border-2 border-white" style="left:20px;top:24px;background:#d97706;z-index:10"></span><div class="cv-ev0 absolute flex items-center gap-3 rounded-xl border bg-white px-3 border-amber-200" style="left:48px;right:0;height:62px"><span class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-warning h-5 w-5"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Deduction posted</span><span class="block text-sm text-gray-500 truncate">Northwind Retail \xB7 \u20AC4,820 \xB7 SHT-02</span></span><span class="ml-auto shrink-0 text-sm font-semibold text-gray-400 tabular-nums">09:14</span></div></div><div class="absolute left-0 right-0" style="top:72px;height:62px"><span class="cv-dot1 absolute w-3.5 h-3.5 rounded-full border-2 border-white" style="left:20px;top:24px;background:#d97706;z-index:10"></span><div class="cv-ev1 absolute flex items-center gap-3 rounded-xl border bg-white px-3 border-amber-200" style="left:48px;right:0;height:62px"><span class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-check h-5 w-5"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path><path d="m9 13 2 2 4-4"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Evidence already on file</span><span class="block text-sm text-gray-500 truncate">Delivery note, packing list, invoice</span></span><span class="ml-auto shrink-0 text-sm font-semibold text-gray-400 tabular-nums">09:14</span></div></div><div class="absolute left-0 right-0" style="top:144px;height:62px"><span class="cv-dot2 absolute w-3.5 h-3.5 rounded-full border-2 border-white" style="left:20px;top:24px;background:#d97706;z-index:10"></span><div class="cv-ev2 absolute flex items-center gap-3 rounded-xl border bg-white px-3 border-amber-200" style="left:48px;right:0;height:62px"><span class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale h-5 w-5"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Invalid, except the damage</span><span class="block text-sm text-gray-500 truncate">\u20AC310 credited \xB7 \u20AC4,510 to recover</span></span><span class="ml-auto shrink-0 text-sm font-semibold text-gray-400 tabular-nums">09:16</span></div></div><div class="absolute left-0 right-0" style="top:216px;height:62px"><span class="cv-dot3 absolute w-3.5 h-3.5 rounded-full border-2 border-white" style="left:20px;top:24px;background:#16a34a;z-index:10"></span><div class="cv-ev3 absolute flex items-center gap-3 rounded-xl border bg-white px-3 border-emerald-300" style="left:48px;right:0;height:62px"><span class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-emerald-600 text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send h-5 w-5"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Claim sent to the customer</span><span class="block text-sm text-gray-500 truncate">With all three documents attached</span></span><span class="ml-auto shrink-0 text-sm font-semibold text-gray-400 tabular-nums">09:17</span></div></div></div><div class="cv-done mt-3 flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4" style="height:60px"><span class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span><span class="leading-tight"><span class="block text-base font-bold text-emerald-900">Disputed in three minutes</span><span class="block text-sm font-semibold text-emerald-700/80">\u20AC4,510 claimed back \xB7 \u20AC310 credited</span></span></div></div></div></div></div></div>`,"claimiq-evidence":`<div class="relative overflow-hidden"><style>
+        
+        /* the copy that flies into the pack */
+        @keyframes clePkt0 {
+          0%,6%        { transform: translate(0,0) scale(1); opacity:0; }
+          8%       { transform: translate(0,0) scale(1); opacity:1; }
+          17%      { transform: translate(234px,50px) scale(.82); opacity:1; }
+          19%,100% { transform: translate(234px,50px) scale(.82); opacity:0; }
+        }
+        /* the source lights while it is being pulled */
+        @keyframes cleSrc0 {
+          0%,6%        { border-color:#e5e7eb; box-shadow:0 0 0 0 rgba(217,119,6,0); }
+          9%,17% { border-color:#fcd34d; box-shadow:0 0 0 3px rgba(217,119,6,.12); }
+          22%,100% { border-color:#e5e7eb; box-shadow:0 0 0 0 rgba(217,119,6,0); }
+        }
+        /* the pack gains a row */
+        @keyframes cleRow0 {
+          0%,16%   { opacity:0; transform: translateX(10px); }
+          22%,100% { opacity:1; transform: translateX(0); }
+        }
+        /* the copy that flies into the pack */
+        @keyframes clePkt1 {
+          0%,21%        { transform: translate(0,0) scale(1); opacity:0; }
+          23%       { transform: translate(0,0) scale(1); opacity:1; }
+          32%      { transform: translate(234px,34px) scale(.82); opacity:1; }
+          34%,100% { transform: translate(234px,34px) scale(.82); opacity:0; }
+        }
+        /* the source lights while it is being pulled */
+        @keyframes cleSrc1 {
+          0%,21%        { border-color:#e5e7eb; box-shadow:0 0 0 0 rgba(217,119,6,0); }
+          24%,32% { border-color:#fcd34d; box-shadow:0 0 0 3px rgba(217,119,6,.12); }
+          37%,100% { border-color:#e5e7eb; box-shadow:0 0 0 0 rgba(217,119,6,0); }
+        }
+        /* the pack gains a row */
+        @keyframes cleRow1 {
+          0%,31%   { opacity:0; transform: translateX(10px); }
+          37%,100% { opacity:1; transform: translateX(0); }
+        }
+        /* the copy that flies into the pack */
+        @keyframes clePkt2 {
+          0%,36%        { transform: translate(0,0) scale(1); opacity:0; }
+          38%       { transform: translate(0,0) scale(1); opacity:1; }
+          47%      { transform: translate(234px,18px) scale(.82); opacity:1; }
+          49%,100% { transform: translate(234px,18px) scale(.82); opacity:0; }
+        }
+        /* the source lights while it is being pulled */
+        @keyframes cleSrc2 {
+          0%,36%        { border-color:#e5e7eb; box-shadow:0 0 0 0 rgba(217,119,6,0); }
+          39%,47% { border-color:#fcd34d; box-shadow:0 0 0 3px rgba(217,119,6,.12); }
+          52%,100% { border-color:#e5e7eb; box-shadow:0 0 0 0 rgba(217,119,6,0); }
+        }
+        /* the pack gains a row */
+        @keyframes cleRow2 {
+          0%,46%   { opacity:0; transform: translateX(10px); }
+          52%,100% { opacity:1; transform: translateX(0); }
+        }
+
+        /* the pack itself fills up */
+        @keyframes clePack {
+          0%,8%    { border-color:#e5e7eb; }
+          20%,62%  { border-color:#fcd34d; }
+          70%,100% { border-color:#86efac; }
+        }
+        @keyframes cleReady {
+          0%,62%   { opacity:0; transform: translateY(8px); }
+          70%,100% { opacity:1; transform:none; }
+        }
+        @keyframes cleGlow {
+          0%,64%   { box-shadow:0 0 0 0 rgba(22,163,74,0); }
+          73%      { box-shadow:0 0 0 7px rgba(22,163,74,.14); }
+          82%,100% { box-shadow:0 0 0 0 rgba(22,163,74,0); }
+        }
+        @keyframes cleCount1 { 0%,24%{opacity:1;} 26%,100%{opacity:0;} }
+        @keyframes cleCount2 { 0%,24%{opacity:0;} 26%,42%{opacity:1;} 44%,100%{opacity:0;} }
+        @keyframes cleCount3 { 0%,42%{opacity:0;} 44%,60%{opacity:1;} 62%,100%{opacity:0;} }
+        @keyframes cleCount4 { 0%,60%{opacity:0;} 62%,100%{opacity:1;} }
+
+        
+        .cle-pkt0 { animation: clePkt0 6s cubic-bezier(.4,0,.2,1) infinite; opacity:0; }
+        .cle-src0 { animation: cleSrc0 6s ease-out infinite; }
+        .cle-row0 { animation: cleRow0 6s ease-out infinite; opacity:0; }
+        .cle-pkt1 { animation: clePkt1 6s cubic-bezier(.4,0,.2,1) infinite; opacity:0; }
+        .cle-src1 { animation: cleSrc1 6s ease-out infinite; }
+        .cle-row1 { animation: cleRow1 6s ease-out infinite; opacity:0; }
+        .cle-pkt2 { animation: clePkt2 6s cubic-bezier(.4,0,.2,1) infinite; opacity:0; }
+        .cle-src2 { animation: cleSrc2 6s ease-out infinite; }
+        .cle-row2 { animation: cleRow2 6s ease-out infinite; opacity:0; }
+        .cle-pack  { animation: clePack 6s ease-out infinite; }
+        .cle-ready { animation: cleReady 6s ease-out infinite, cleGlow 6s ease-out infinite; }
+        .cle-c1 { animation: cleCount1 6s linear infinite; }
+        .cle-c2 { animation: cleCount2 6s linear infinite; opacity:0; }
+        .cle-c3 { animation: cleCount3 6s linear infinite; opacity:0; }
+        .cle-c4 { animation: cleCount4 6s linear infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-20"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Find the evidence<br/>automatically.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">The delivery note sits with the carrier, the packing list with the warehouse, the invoice in your ERP. Vero collects all three into one pack, ready to send.</p></div><div class="tf-card relative w-[620px] shrink-0" style="--card-w:620px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-2.5 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:28px;height:28px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:11.76px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">1</span></div></div><span class="text-base font-bold text-gray-900">Shortage claim \xB7 \u20AC4,820</span><span class="ml-auto shrink-0 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-700 ring-1 ring-amber-200">Disputed</span></div><div class="relative" style="height:240px"><div class="absolute left-0 top-0 text-xs font-semibold uppercase tracking-wider text-gray-400" style="width:176px"></div><div><div class="cle-src0 absolute left-0 flex flex-col justify-center gap-1 rounded-xl border bg-white px-3" style="top:0;width:176px;height:72px"><span class="flex items-center gap-2"><span class="w-9 h-9 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck h-5 w-5"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Delivery note</span><span class="block text-xs text-gray-400 truncate">Carrier portal</span></span></span></div><div class="cle-pkt0 absolute left-0 flex items-center gap-2 rounded-lg border border-amber-300 bg-white px-2 shadow-lg" style="top:16px;width:160px;height:40px;z-index:30"><span class="w-7 h-7 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck h-4 w-4"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg></span><span class="text-sm font-bold text-gray-800 truncate">Delivery note</span></div></div><div><div class="cle-src1 absolute left-0 flex flex-col justify-center gap-1 rounded-xl border bg-white px-3" style="top:84px;width:176px;height:72px"><span class="flex items-center gap-2"><span class="w-9 h-9 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list h-5 w-5"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Packing list</span><span class="block text-xs text-gray-400 truncate">Warehouse</span></span></span></div><div class="cle-pkt1 absolute left-0 flex items-center gap-2 rounded-lg border border-amber-300 bg-white px-2 shadow-lg" style="top:100px;width:160px;height:40px;z-index:30"><span class="w-7 h-7 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list h-4 w-4"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg></span><span class="text-sm font-bold text-gray-800 truncate">Packing list</span></div></div><div><div class="cle-src2 absolute left-0 flex flex-col justify-center gap-1 rounded-xl border bg-white px-3" style="top:168px;width:176px;height:72px"><span class="flex items-center gap-2"><span class="w-9 h-9 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-receipt h-5 w-5"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 17.5v-11"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Invoice</span><span class="block text-xs text-gray-400 truncate">Your ERP</span></span></span></div><div class="cle-pkt2 absolute left-0 flex items-center gap-2 rounded-lg border border-amber-300 bg-white px-2 shadow-lg" style="top:184px;width:160px;height:40px;z-index:30"><span class="w-7 h-7 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-receipt h-4 w-4"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 17.5v-11"></path></svg></span><span class="text-sm font-bold text-gray-800 truncate">Invoice</span></div></div><div class="cle-pack absolute top-0 rounded-xl border-2 bg-gray-50/50" style="left:226px;right:0;height:240px"><div class="flex items-center gap-2 px-3 border-b border-gray-200/70" style="height:44px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-check h-5 w-5 text-amber-600 shrink-0"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path><path d="m9 13 2 2 4-4"></path></svg><span class="text-sm font-bold text-gray-800">Dispute pack</span><span class="ml-auto relative block h-[18px] w-[92px] shrink-0"><span class="cle-c1 absolute inset-0 text-right text-sm font-semibold text-gray-400 leading-[18px]">0 documents</span><span class="cle-c2 absolute inset-0 text-right text-sm font-semibold text-gray-500 leading-[18px]">1 document</span><span class="cle-c3 absolute inset-0 text-right text-sm font-semibold text-gray-500 leading-[18px]">2 documents</span><span class="cle-c4 absolute inset-0 text-right text-sm font-bold text-emerald-700 leading-[18px]">3 documents</span></span></div><div class="cle-row0 absolute left-2.5 right-2.5 flex items-center gap-2.5 rounded-lg bg-white px-2.5 ring-1 ring-gray-200" style="top:44px;height:60px"><span class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Delivery note</span><span class="block text-sm text-gray-500 truncate">Delivered in full, 12 Aug</span></span></div><div class="cle-row1 absolute left-2.5 right-2.5 flex items-center gap-2.5 rounded-lg bg-white px-2.5 ring-1 ring-gray-200" style="top:112px;height:60px"><span class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Packing list</span><span class="block text-sm text-gray-500 truncate">48 cases shipped</span></span></div><div class="cle-row2 absolute left-2.5 right-2.5 flex items-center gap-2.5 rounded-lg bg-white px-2.5 ring-1 ring-gray-200" style="top:180px;height:60px"><span class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Invoice</span><span class="block text-sm text-gray-500 truncate">Priced as agreed</span></span></div></div></div><div class="mt-5 pt-5 border-t border-gray-100"><div class="cle-ready flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4" style="height:62px"><span class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-check h-5 w-5"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path><path d="m9 13 2 2 4-4"></path></svg></span><span class="leading-tight"><span class="block text-base font-bold text-emerald-800">Pack ready to send</span><span class="block text-sm font-semibold text-emerald-700/80">Assembled in 40 seconds</span></span><span class="ml-auto shrink-0"><div title="Vero \u2014 done" class="flex-shrink-0 " style="width:26px;height:26px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#10B981;display:flex;font-size:10.92px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">^</span><span style="width:1ch;text-align:center;display:inline-block">^</span></div></div></span></div></div></div></div></div></div></div>`,"claimiq-claim":`<div class="relative overflow-hidden"><style>
+        /* the claim writes itself */
+        
+        @keyframes cpkLine0 { 0%,6%{opacity:0;transform:translateX(-6px);} 13%,100%{opacity:1;transform:none;} }
+        @keyframes cpkLine1 { 0%,11%{opacity:0;transform:translateX(-6px);} 18%,100%{opacity:1;transform:none;} }
+        @keyframes cpkLine2 { 0%,16%{opacity:0;transform:translateX(-6px);} 23%,100%{opacity:1;transform:none;} }
+        /* the evidence snaps on */
+        
+        @keyframes cpkAtt0 { 0%,24%{opacity:0;transform:scale(.7);} 30%,100%{opacity:1;transform:scale(1);} }
+        @keyframes cpkAtt1 { 0%,30%{opacity:0;transform:scale(.7);} 36%,100%{opacity:1;transform:scale(1);} }
+        @keyframes cpkAtt2 { 0%,36%{opacity:0;transform:scale(.7);} 42%,100%{opacity:1;transform:scale(1);} }
+
+        /* the gate: over the limit, so it waits */
+        @keyframes cpkGate {
+          0%,46%   { opacity:0; transform: translateY(8px); }
+          53%,100% { opacity:1; transform:none; }
+        }
+        @keyframes cpkHold {
+          0%,53%   { background:#fffbeb; border-color:#fcd34d; }
+          58%,72%  { background:#fffbeb; border-color:#f59e0b; box-shadow:0 0 0 3px rgba(217,119,6,.12); }
+          78%,100% { background:#ecfdf5; border-color:#86efac; box-shadow:0 0 0 0 rgba(22,163,74,0); }
+        }
+        /* a person approves it */
+        @keyframes cpkCursor {
+          0%,62%   { transform: translate(-44px,24px) scale(1); opacity:0; }
+          66%      { transform: translate(-44px,24px) scale(1); opacity:1; }
+          73%      { transform: translate(-4px,2px) scale(1); opacity:1; }
+          76%      { transform: translate(-4px,2px) scale(.82); opacity:1; }
+          79%      { transform: translate(-4px,2px) scale(1); opacity:1; }
+          86%      { transform: translate(-4px,2px) scale(1); opacity:0; }
+          100%     { transform: translate(-44px,24px) scale(1); opacity:0; }
+        }
+        @keyframes cpkBtnA { 0%,76%{opacity:1;} 78%,100%{opacity:0;} }
+        @keyframes cpkBtnB { 0%,76%{opacity:0;} 78%,100%{opacity:1;} }
+        @keyframes cpkWaitA { 0%,76%{opacity:1;} 78%,100%{opacity:0;} }
+        @keyframes cpkWaitB { 0%,76%{opacity:0;} 78%,100%{opacity:1;} }
+
+        .cpk-l0{animation:cpkLine0 10s ease-out infinite;opacity:0;}.cpk-l1{animation:cpkLine1 10s ease-out infinite;opacity:0;}.cpk-l2{animation:cpkLine2 10s ease-out infinite;opacity:0;}
+        .cpk-a0{animation:cpkAtt0 10s cubic-bezier(.3,1.4,.5,1) infinite;opacity:0;}.cpk-a1{animation:cpkAtt1 10s cubic-bezier(.3,1.4,.5,1) infinite;opacity:0;}.cpk-a2{animation:cpkAtt2 10s cubic-bezier(.3,1.4,.5,1) infinite;opacity:0;}
+        .cpk-gate  { animation: cpkGate 10s ease-out infinite; opacity:0; }
+        .cpk-hold  { animation: cpkHold 10s ease-out infinite; }
+        .cpk-cursor{ animation: cpkCursor 10s cubic-bezier(.4,0,.2,1) infinite; opacity:0; }
+        .cpk-btna  { animation: cpkBtnA 10s linear infinite; }
+        .cpk-btnb  { animation: cpkBtnB 10s linear infinite; opacity:0; }
+        .cpk-wa    { animation: cpkWaitA 10s linear infinite; }
+        .cpk-wb    { animation: cpkWaitB 10s linear infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-20"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Respond in hours,<br/>not weeks.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">The claim is drafted with the evidence already attached. Above your approval limit a person signs it off. Below it, it just goes.</p></div><div class="tf-card relative w-[600px] shrink-0" style="--card-w:600px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-2.5 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:28px;height:28px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:11.76px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">1</span></div></div><span class="text-base font-bold text-gray-900">Claim to Northwind Retail</span><span class="ml-auto shrink-0 text-base font-bold text-gray-900 tabular-nums">\u20AC4,510</span></div><div class="rounded-xl border border-gray-200 bg-gray-50/60 p-4 mb-3"><div class="flex items-center gap-2 mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-5 w-5 text-amber-600 shrink-0"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg><span class="text-sm font-bold text-gray-800">Dispute of deduction SHT-02</span></div><div class="space-y-2.5 mb-4"><span class="cpk-l0 block h-2.5 rounded-full bg-gray-200" style="width:92%"></span><span class="cpk-l1 block h-2.5 rounded-full bg-gray-200" style="width:86%"></span><span class="cpk-l2 block h-2.5 rounded-full bg-gray-200" style="width:74%"></span></div><div class="flex items-center gap-2"><span class="cpk-a0 inline-flex items-center gap-1.5 rounded-lg bg-white px-2 py-1.5 ring-1 ring-amber-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck h-4 w-4 text-amber-600 shrink-0"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg><span class="text-sm font-semibold text-gray-700 whitespace-nowrap">Delivery note</span></span><span class="cpk-a1 inline-flex items-center gap-1.5 rounded-lg bg-white px-2 py-1.5 ring-1 ring-amber-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list h-4 w-4 text-amber-600 shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg><span class="text-sm font-semibold text-gray-700 whitespace-nowrap">Packing list</span></span><span class="cpk-a2 inline-flex items-center gap-1.5 rounded-lg bg-white px-2 py-1.5 ring-1 ring-amber-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-receipt h-4 w-4 text-amber-600 shrink-0"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 17.5v-11"></path></svg><span class="text-sm font-semibold text-gray-700 whitespace-nowrap">Invoice</span></span></div></div><div class="cpk-gate"><div class="cpk-hold relative flex items-center gap-3 rounded-xl border-2 px-4" style="height:66px"><span class="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check h-5 w-5 text-amber-600"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span class="relative block h-[42px] flex-1 min-w-0"><span class="cpk-wa absolute inset-0 flex flex-col justify-center leading-tight"><span class="block text-base font-bold text-amber-900">Waiting for your approval</span><span class="block text-sm font-semibold text-amber-700/80">\u20AC4,510 \xB7 above your limit</span></span><span class="cpk-wb absolute inset-0 flex flex-col justify-center leading-tight"><span class="block text-base font-bold text-emerald-800">Sent to the customer</span><span class="block text-sm font-semibold text-emerald-700/80">With 3 documents attached</span></span></span><span class="relative ml-auto shrink-0"><span class="relative block h-[38px] w-[148px]"><span class="cpk-btna absolute inset-0 inline-flex items-center justify-center gap-1.5 rounded-xl bg-amber-600 text-sm font-bold text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send h-4 w-4"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg> Approve &amp; send</span><span class="cpk-btnb absolute inset-0 inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-50 text-sm font-bold text-emerald-700 ring-1 ring-emerald-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg> Sent</span></span><svg class="cpk-cursor absolute pointer-events-none" style="right:8px;bottom:-2px;width:20px;height:20px;z-index:40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3l14 8.5-6.2 1.2L10 19 5 3z" fill="#111827" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></span></div></div></div></div></div></div></div>`,"claimiq-writeoff":`<div class="relative overflow-hidden"><style>
+        @keyframes cwP0{0%{opacity:1;}21%{opacity:1;}22.5%{opacity:0;}100%{opacity:0;}}@keyframes cwP1{0%{opacity:0;}21.5%{opacity:0;}23%{opacity:1;}45%{opacity:1;}46.5%{opacity:0;}100%{opacity:0;}}@keyframes cwP2{0%{opacity:0;}45.5%{opacity:0;}47%{opacity:1;}69%{opacity:1;}70.5%{opacity:0;}100%{opacity:0;}}@keyframes cwP3{0%{opacity:0;}69.5%{opacity:0;}71%{opacity:1;}100%{opacity:1;}}
+
+        
+        @keyframes cwRow0 {
+          0%,10%       { background:#ffffff; border-color:#e5e7eb; }
+          15%,100% { background:#ecfdf5; border-color:#86efac; }
+        }
+        @keyframes cwPend0 { 0%,10%{opacity:1;} 13%,100%{opacity:0;} }
+        @keyframes cwDone0 { 0%,12%{opacity:0;} 16%,100%{opacity:1;} }
+        @keyframes cwPop0  {
+          0%,10%       { transform:scale(1); }
+          13%      { transform:scale(1.12); }
+          18%,100% { transform:scale(1); }
+        }
+        @keyframes cwRow1 {
+          0%,34%       { background:#ffffff; border-color:#e5e7eb; }
+          39%,100% { background:#ecfdf5; border-color:#86efac; }
+        }
+        @keyframes cwPend1 { 0%,34%{opacity:1;} 37%,100%{opacity:0;} }
+        @keyframes cwDone1 { 0%,36%{opacity:0;} 40%,100%{opacity:1;} }
+        @keyframes cwPop1  {
+          0%,34%       { transform:scale(1); }
+          37%      { transform:scale(1.12); }
+          42%,100% { transform:scale(1); }
+        }
+        @keyframes cwRow2 {
+          0%,58%       { background:#ffffff; border-color:#e5e7eb; }
+          63%,100% { background:#f9fafb; border-color:#e5e7eb; }
+        }
+        @keyframes cwPend2 { 0%,58%{opacity:1;} 61%,100%{opacity:0;} }
+        @keyframes cwDone2 { 0%,60%{opacity:0;} 64%,100%{opacity:1;} }
+        @keyframes cwPop2  {
+          0%,58%       { transform:scale(1); }
+          61%      { transform:scale(1.12); }
+          66%,100% { transform:scale(1); }
+        }
+
+        /* Vero reacts to each decision */
+        @keyframes cwVero {
+          0%,6%   { transform:scale(1); }
+          10%     { transform:scale(1.14); }
+          16%,24% { transform:scale(1); }
+          28%     { transform:scale(1.14); }
+          34%,42% { transform:scale(1); }
+          46%     { transform:scale(1.14); }
+          52%,60% { transform:scale(1); }
+          64%     { transform:scale(1.14); }
+          70%,100%{ transform:scale(1); }
+        }
+        @keyframes cwPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+        @keyframes cwF0 { 0%,22%{opacity:1;} 26%,100%{opacity:0;} }
+        @keyframes cwF1 { 0%,26%{opacity:0;} 30%,46%{opacity:1;} 50%,100%{opacity:0;} }
+        @keyframes cwF2 { 0%,50%{opacity:0;} 54%,70%{opacity:1;} 74%,100%{opacity:0;} }
+        @keyframes cwF3 { 0%,74%{opacity:0;} 78%,100%{opacity:1;} }
+
+        /* the two trays fill at different moments */
+        @keyframes cwRecA { 0%,12%{opacity:1;} 14%,100%{opacity:0;} }
+        @keyframes cwRecB { 0%,12%{opacity:0;} 14%,30%{opacity:1;} 32%,100%{opacity:0;} }
+        @keyframes cwRecC { 0%,30%{opacity:0;} 32%,66%{opacity:1;} 68%,100%{opacity:0;} }
+        @keyframes cwRecD { 0%,66%{opacity:0;} 68%,100%{opacity:1;} }
+        @keyframes cwValA { 0%,48%{opacity:1;} 50%,100%{opacity:0;} }
+        @keyframes cwValB { 0%,48%{opacity:0;} 50%,100%{opacity:1;} }
+        @keyframes cwGlow {
+          0%,68%   { box-shadow:0 0 0 0 rgba(22,163,74,0); }
+          78%      { box-shadow:0 0 0 7px rgba(22,163,74,.14); }
+          88%,100% { box-shadow:0 0 0 0 rgba(22,163,74,0); }
+        }
+
+        .cw-p0{animation:cwP0 10s linear infinite;}.cw-p1{animation:cwP1 10s linear infinite;opacity:0;}.cw-p2{animation:cwP2 10s linear infinite;opacity:0;}.cw-p3{animation:cwP3 10s linear infinite;opacity:0;}
+        
+        .cw-row0  { animation: cwRow0 10s ease-out infinite; }
+        .cw-pend0 { animation: cwPend0 10s linear infinite; }
+        .cw-done0 { animation: cwDone0 10s ease-out infinite; opacity:0; }
+        .cw-pop0  { animation: cwPop0 10s ease-out infinite; }
+        .cw-row1  { animation: cwRow1 10s ease-out infinite; }
+        .cw-pend1 { animation: cwPend1 10s linear infinite; }
+        .cw-done1 { animation: cwDone1 10s ease-out infinite; opacity:0; }
+        .cw-pop1  { animation: cwPop1 10s ease-out infinite; }
+        .cw-row2  { animation: cwRow2 10s ease-out infinite; }
+        .cw-pend2 { animation: cwPend2 10s linear infinite; }
+        .cw-done2 { animation: cwDone2 10s ease-out infinite; opacity:0; }
+        .cw-pop2  { animation: cwPop2 10s ease-out infinite; }
+        .cw-vero  { animation: cwVero 10s ease-out infinite; }
+        .cw-pulse { animation: cwPulse 1.2s ease-in-out infinite; }
+        .cw-f0 { animation: cwF0 10s linear infinite; }
+        .cw-f1 { animation: cwF1 10s linear infinite; opacity:0; }
+        .cw-f2 { animation: cwF2 10s linear infinite; opacity:0; }
+        .cw-f3 { animation: cwF3 10s linear infinite; opacity:0; }
+        .cw-ra{animation:cwRecA 10s linear infinite;} .cw-rb{animation:cwRecB 10s linear infinite;opacity:0;}
+        .cw-rc{animation:cwRecC 10s linear infinite;opacity:0;} .cw-rd{animation:cwRecD 10s linear infinite;opacity:0;}
+        .cw-va{animation:cwValA 10s linear infinite;} .cw-vb{animation:cwValB 10s linear infinite;opacity:0;}
+        .cw-glow{animation:cwGlow 10s ease-out infinite;}
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-20"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Reduce your<br/>write-offs.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">Every deduction is checked before it hits the pile. What was never owed comes back as cash; what is genuinely theirs gets closed and left alone.</p></div><div class="tf-card relative w-[600px] shrink-0" style="--card-w:600px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 mb-4"><span class="cw-vero flex items-center justify-center shrink-0"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:34px;height:34px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:14.28px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">1</span></div></div></span><span class="relative block h-[24px] w-[300px] min-w-0"><span class="cw-f0 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Checking Northwind Retail</span><span class="cw-f1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Checking Oceanic Energy</span><span class="cw-f2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Checking Halvex Group</span><span class="cw-f3 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">Queue cleared</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-emerald-700"><span class="cw-pulse w-2 h-2 rounded-full bg-emerald-500"></span> Live</span></div><div class="flex items-end justify-between rounded-xl border border-gray-100 bg-gray-50/70 px-4 py-3 mb-4"><div><div class="text-sm font-semibold text-gray-500 mb-0.5">Heading for write-off</div><div class="relative h-[36px] w-[150px]"><span class="cw-p0 absolute inset-0 text-3xl font-bold text-gray-900 tabular-nums leading-[36px]">\u20AC7,930</span><span class="cw-p1 absolute inset-0 text-3xl font-bold text-gray-900 tabular-nums leading-[36px]">\u20AC3,420</span><span class="cw-p2 absolute inset-0 text-3xl font-bold text-gray-900 tabular-nums leading-[36px]">\u20AC1,240</span><span class="cw-p3 absolute inset-0 text-3xl font-bold text-gray-900 tabular-nums leading-[36px]">\u20AC0</span></div></div></div><div class="relative" style="height:184px"><div class="cw-row0 absolute left-0 right-0 flex items-center gap-3 rounded-xl border px-3" style="top:0;height:56px"><span class="cw-pop0 w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-emerald-100 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store h-5 w-5"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path><path d="M2 7h20"></path><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Northwind Retail</span><span class="block text-sm text-gray-500">SHT-02 \xB7 \u20AC4,510</span></span><span class="relative ml-auto block h-[24px] w-[178px] shrink-0"><span class="cw-pend0 absolute inset-0 flex items-center justify-end text-sm font-semibold text-gray-400">for write-off</span><span class="cw-done0 absolute inset-0 flex items-center justify-end gap-1.5 text-sm font-bold text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg> Recovered \u20AC4,510</span></span></div><div class="cw-row1 absolute left-0 right-0 flex items-center gap-3 rounded-xl border px-3" style="top:64px;height:56px"><span class="cw-pop1 w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-emerald-100 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-5 w-5"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Oceanic Energy</span><span class="block text-sm text-gray-500">PRC-11 \xB7 \u20AC2,180</span></span><span class="relative ml-auto block h-[24px] w-[178px] shrink-0"><span class="cw-pend1 absolute inset-0 flex items-center justify-end text-sm font-semibold text-gray-400">for write-off</span><span class="cw-done1 absolute inset-0 flex items-center justify-end gap-1.5 text-sm font-bold text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg> Recovered \u20AC2,180</span></span></div><div class="cw-row2 absolute left-0 right-0 flex items-center gap-3 rounded-xl border px-3" style="top:128px;height:56px"><span class="cw-pop2 w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-gray-200 text-gray-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-factory h-5 w-5"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M17 18h1"></path><path d="M12 18h1"></path><path d="M7 18h1"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Halvex Group</span><span class="block text-sm text-gray-500">DMG-04 \xB7 \u20AC1,240</span></span><span class="relative ml-auto block h-[24px] w-[178px] shrink-0"><span class="cw-pend2 absolute inset-0 flex items-center justify-end text-sm font-semibold text-gray-400">for write-off</span><span class="cw-done2 absolute inset-0 flex items-center justify-end gap-1.5 text-sm font-bold text-gray-500"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-handshake h-4 w-4 shrink-0"><path d="m11 17 2 2a1 1 0 1 0 3-3"></path><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path><path d="m21 3 1 11h-2"></path><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path><path d="M3 4h8"></path></svg> Valid \xB7 closed</span></span></div></div><div class="mt-4 flex items-center gap-3"><div class="cw-glow flex-1 flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-3.5" style="height:62px"><span class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-emerald-700/80">Recovered</span><span class="relative block h-[26px] w-[104px]"><span class="cw-ra absolute inset-0 text-2xl font-bold text-emerald-800 tabular-nums leading-[26px]">\u20AC0</span><span class="cw-rb absolute inset-0 text-2xl font-bold text-emerald-800 tabular-nums leading-[26px]">\u20AC4,510</span><span class="cw-rc absolute inset-0 text-2xl font-bold text-emerald-800 tabular-nums leading-[26px]">\u20AC6,690</span><span class="cw-rd absolute inset-0 text-2xl font-bold text-emerald-800 tabular-nums leading-[26px]">\u20AC6,690</span></span></span></div><div class="flex-1 flex items-center gap-3 rounded-xl border border-gray-200 bg-gray-50 px-3.5" style="height:62px"><span class="w-10 h-10 rounded-xl bg-gray-300 text-gray-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-gray-500">Valid, closed</span><span class="relative block h-[26px] w-[104px]"><span class="cw-va absolute inset-0 text-2xl font-bold text-gray-700 tabular-nums leading-[26px]">\u20AC0</span><span class="cw-vb absolute inset-0 text-2xl font-bold text-gray-700 tabular-nums leading-[26px]">\u20AC1,240</span></span></span></div></div></div></div></div></div></div>`};var c=()=>location.pathname.startsWith("/de/")||location.pathname==="/de";var t={css:"",stories:{},locale:"en"};function p({css:r,stories:e,locale:a}){t.css=r,t.stories=e,t.locale=a||"en",customElements.get("transformance-story")||customElements.define("transformance-story",n)}var h=":host(.tf-off) *{animation-play-state:paused!important}",n=class extends HTMLElement{connectedCallback(){if(this._wired)return;this._wired=!0;let e=this.getAttribute("data-story")||"";if(t.locale==="en"&&c()){this.style.display="none";return}if(!t.stories[e]){console.warn("[transformance-story] unknown story:",e,"(locale "+t.locale+")");return}if(this._html=t.stories[e],this.style.display="block",this.style.minHeight=(this.getAttribute("data-h")||560)+"px",!("IntersectionObserver"in window)){this._mount();return}let a=new IntersectionObserver(i=>{if(!i.some(d=>d.isIntersecting))return;a.disconnect();let s=()=>this._mount();"requestIdleCallback"in window?requestIdleCallback(s,{timeout:600}):requestAnimationFrame(()=>setTimeout(s,0))},{rootMargin:"400px 0px"});a.observe(this)}disconnectedCallback(){this._vis&&(this._vis.disconnect(),this._vis=null)}_mount(){if(this._mounted)return;this._mounted=!0;let e=this.attachShadow({mode:"open"}),a=document.createElement("style");a.textContent=t.css+h,e.appendChild(a),e.appendChild(document.createRange().createContextualFragment(this._html)),this.style.minHeight="",this._vis=new IntersectionObserver(i=>{i.forEach(s=>this.classList.toggle("tf-off",!s.isIntersecting))},{rootMargin:"100px 0px"}),this._vis.observe(this)}};p({css:o,stories:l,locale:"en"});})();

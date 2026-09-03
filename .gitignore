@@ -6,3 +6,15 @@ Thumbs.db
 .env.local
 .vscode/
 .idea/
+
+# story port build artefacts.
+# NB: gitignore has no trailing comments - a `pattern  # why` line makes the
+# comment part of the pattern and the rule silently matches nothing.
+
+# esbuild entry stubs, regenerated every build
+src/stories/.entries/
+# verifier harness pages, regenerated every run
+dist/stories-test-*.html
+dist/de/stories-test-*.html
+# subsystem size measurements, not a build input
+.measure/

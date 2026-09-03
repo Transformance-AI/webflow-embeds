@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-09-03T10:00:21.741Z",
+  "note": "Additive split of player.js. player.js is unchanged and still published.",
+  "parts": [
+    {
+      "name": "tours",
+      "file": "dist/tours.js",
+      "rawBytes": 285193,
+      "gzBytes": 60000,
+      "sri": "sha256-VfF1RD3+J1Qy6gFfWywEbKyRz6zJDIFzvhjVFiz9L3c="
+    },
+    {
+      "name": "hero",
+      "file": "dist/hero.js",
+      "rawBytes": 48060,
+      "gzBytes": 11504,
+      "sri": "sha256-wzBpzs3haW7JuAlx83eYvMJe3GPXx45NzhA+VC4aHYA="
+    },
+    {
+      "name": "banners",
+      "file": "dist/banners.js",
+      "rawBytes": 18156,
+      "gzBytes": 6713,
+      "sri": "sha256-fbevA+UWL7Gh+gP5mngrKirv6Lm2X+X7mIw84SBQAgw="
+    },
+    {
+      "name": "popup",
+      "file": "dist/popup.js",
+      "rawBytes": 13151,
+      "gzBytes": 4676,
+      "sri": "sha256-20H/b/AvMN5URVEMfRxKLIMpwjmqytR48RLT5H4pJ40="
+    }
+  ]
+}

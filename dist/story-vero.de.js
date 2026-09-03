@@ -1,0 +1,1415 @@
+(()=>{var r=`/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-100: oklch(96.2% 0.059 95.617);
+    --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-amber-600: oklch(66.6% 0.179 58.318);
+    --color-amber-700: oklch(55.5% 0.163 48.998);
+    --color-amber-800: oklch(47.3% 0.137 46.201);
+    --color-emerald-50: oklch(97.9% 0.021 166.113);
+    --color-emerald-100: oklch(95% 0.052 163.051);
+    --color-emerald-200: oklch(90.5% 0.093 164.15);
+    --color-emerald-600: oklch(59.6% 0.145 163.225);
+    --color-emerald-700: oklch(50.8% 0.118 165.612);
+    --color-emerald-800: oklch(43.2% 0.095 166.913);
+    --color-emerald-900: oklch(37.8% 0.077 168.94);
+    --color-indigo-100: oklch(93% 0.034 272.788);
+    --color-indigo-700: oklch(45.7% 0.24 277.023);
+    --color-violet-100: oklch(94.3% 0.029 294.588);
+    --color-violet-700: oklch(49.1% 0.27 292.581);
+    --color-rose-50: oklch(96.9% 0.015 12.422);
+    --color-rose-100: oklch(94.1% 0.03 12.58);
+    --color-rose-200: oklch(89.2% 0.058 10.001);
+    --color-rose-600: oklch(58.6% 0.253 17.585);
+    --color-rose-700: oklch(51.4% 0.222 16.935);
+    --color-slate-50: oklch(98.4% 0.003 247.858);
+    --color-slate-100: oklch(96.8% 0.007 247.896);
+    --color-slate-200: oklch(92.9% 0.013 255.508);
+    --color-slate-300: oklch(86.9% 0.022 252.894);
+    --color-slate-500: oklch(55.4% 0.046 257.417);
+    --color-slate-700: oklch(37.2% 0.044 257.287);
+    --color-slate-800: oklch(27.9% 0.041 260.031);
+    --color-slate-900: oklch(20.8% 0.042 265.755);
+    --color-gray-50: oklch(98.5% 0.002 247.839);
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
+    --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-900: oklch(21% 0.034 264.665);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-md: 28rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --tracking-wider: 0.05em;
+    --leading-tight: 1.25;
+    --leading-relaxed: 1.625;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+@layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .visible {
+    visibility: visible;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .static {
+    position: static;
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .top-\\[10px\\] {
+    top: 10px;
+  }
+  .top-\\[76px\\] {
+    top: 76px;
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
+  .left-1\\/2 {
+    left: calc(1/2 * 100%);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .ml-auto {
+    margin-left: auto;
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline {
+    display: inline;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .h-1\\.5 {
+    height: calc(var(--spacing) * 1.5);
+  }
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .h-6 {
+    height: calc(var(--spacing) * 6);
+  }
+  .h-7 {
+    height: calc(var(--spacing) * 7);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+  .h-9 {
+    height: calc(var(--spacing) * 9);
+  }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-\\[20px\\] {
+    height: 20px;
+  }
+  .h-\\[22px\\] {
+    height: 22px;
+  }
+  .h-\\[24px\\] {
+    height: 24px;
+  }
+  .h-\\[26px\\] {
+    height: 26px;
+  }
+  .h-\\[32px\\] {
+    height: 32px;
+  }
+  .h-\\[40px\\] {
+    height: 40px;
+  }
+  .h-\\[64px\\] {
+    height: 64px;
+  }
+  .h-\\[72px\\] {
+    height: 72px;
+  }
+  .h-\\[76px\\] {
+    height: 76px;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
+  .w-7 {
+    width: calc(var(--spacing) * 7);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
+  .w-9 {
+    width: calc(var(--spacing) * 9);
+  }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
+  .w-14 {
+    width: calc(var(--spacing) * 14);
+  }
+  .w-\\[2px\\] {
+    width: 2px;
+  }
+  .w-\\[22px\\] {
+    width: 22px;
+  }
+  .w-\\[64px\\] {
+    width: 64px;
+  }
+  .w-\\[72px\\] {
+    width: 72px;
+  }
+  .w-\\[76px\\] {
+    width: 76px;
+  }
+  .w-\\[92px\\] {
+    width: 92px;
+  }
+  .w-\\[104px\\] {
+    width: 104px;
+  }
+  .w-\\[110px\\] {
+    width: 110px;
+  }
+  .w-\\[150px\\] {
+    width: 150px;
+  }
+  .w-\\[280px\\] {
+    width: 280px;
+  }
+  .w-\\[300px\\] {
+    width: 300px;
+  }
+  .w-\\[330px\\] {
+    width: 330px;
+  }
+  .w-\\[640px\\] {
+    width: 640px;
+  }
+  .max-w-\\[1300px\\] {
+    max-width: 1300px;
+  }
+  .max-w-md {
+    max-width: var(--container-md);
+  }
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .-translate-x-1\\/2 {
+    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .items-baseline {
+    align-items: baseline;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+  .gap-1\\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-2\\.5 {
+    gap: calc(var(--spacing) * 2.5);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-12 {
+    gap: calc(var(--spacing) * 12);
+  }
+  .gap-16 {
+    gap: calc(var(--spacing) * 16);
+  }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
+  }
+  .border-amber-300 {
+    border-color: var(--color-amber-300);
+  }
+  .border-emerald-200 {
+    border-color: var(--color-emerald-200);
+  }
+  .border-gray-100 {
+    border-color: var(--color-gray-100);
+  }
+  .border-gray-100\\/80 {
+    border-color: color-mix(in srgb, oklch(96.7% 0.003 264.542) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-gray-100) 80%, transparent);
+    }
+  }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
+  .border-gray-300 {
+    border-color: var(--color-gray-300);
+  }
+  .border-rose-200 {
+    border-color: var(--color-rose-200);
+  }
+  .border-slate-200 {
+    border-color: var(--color-slate-200);
+  }
+  .border-slate-300 {
+    border-color: var(--color-slate-300);
+  }
+  .border-slate-900 {
+    border-color: var(--color-slate-900);
+  }
+  .border-white {
+    border-color: var(--color-white);
+  }
+  .bg-amber-50\\/70 {
+    background-color: color-mix(in srgb, oklch(98.7% 0.022 95.277) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-50) 70%, transparent);
+    }
+  }
+  .bg-amber-100 {
+    background-color: var(--color-amber-100);
+  }
+  .bg-amber-500 {
+    background-color: var(--color-amber-500);
+  }
+  .bg-amber-600 {
+    background-color: var(--color-amber-600);
+  }
+  .bg-emerald-50 {
+    background-color: var(--color-emerald-50);
+  }
+  .bg-emerald-50\\/60 {
+    background-color: color-mix(in srgb, oklch(97.9% 0.021 166.113) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-50) 60%, transparent);
+    }
+  }
+  .bg-emerald-100 {
+    background-color: var(--color-emerald-100);
+  }
+  .bg-emerald-600 {
+    background-color: var(--color-emerald-600);
+  }
+  .bg-gray-50\\/70 {
+    background-color: color-mix(in srgb, oklch(98.5% 0.002 247.839) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-gray-50) 70%, transparent);
+    }
+  }
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
+  }
+  .bg-gray-200 {
+    background-color: var(--color-gray-200);
+  }
+  .bg-indigo-100 {
+    background-color: var(--color-indigo-100);
+  }
+  .bg-rose-50 {
+    background-color: var(--color-rose-50);
+  }
+  .bg-rose-100 {
+    background-color: var(--color-rose-100);
+  }
+  .bg-slate-50 {
+    background-color: var(--color-slate-50);
+  }
+  .bg-slate-100 {
+    background-color: var(--color-slate-100);
+  }
+  .bg-slate-300 {
+    background-color: var(--color-slate-300);
+  }
+  .bg-slate-800 {
+    background-color: var(--color-slate-800);
+  }
+  .bg-slate-900 {
+    background-color: var(--color-slate-900);
+  }
+  .bg-violet-100 {
+    background-color: var(--color-violet-100);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-white\\/10 {
+    background-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .p-3\\.5 {
+    padding: calc(var(--spacing) * 3.5);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-2\\.5 {
+    padding-inline: calc(var(--spacing) * 2.5);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-3\\.5 {
+    padding-inline: calc(var(--spacing) * 3.5);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-16 {
+    padding-inline: calc(var(--spacing) * 16);
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+  .py-1\\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
+  .py-20 {
+    padding-block: calc(var(--spacing) * 20);
+  }
+  .pb-3\\.5 {
+    padding-bottom: calc(var(--spacing) * 3.5);
+  }
+  .text-right {
+    text-align: right;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\\[10px\\] {
+    font-size: 10px;
+  }
+  .leading-\\[20px\\] {
+    --tw-leading: 20px;
+    line-height: 20px;
+  }
+  .leading-\\[24px\\] {
+    --tw-leading: 24px;
+    line-height: 24px;
+  }
+  .leading-\\[32px\\] {
+    --tw-leading: 32px;
+    line-height: 32px;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .leading-tight {
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+  .text-amber-700 {
+    color: var(--color-amber-700);
+  }
+  .text-amber-800 {
+    color: var(--color-amber-800);
+  }
+  .text-emerald-600 {
+    color: var(--color-emerald-600);
+  }
+  .text-emerald-700 {
+    color: var(--color-emerald-700);
+  }
+  .text-emerald-700\\/80 {
+    color: color-mix(in srgb, oklch(50.8% 0.118 165.612) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-emerald-700) 80%, transparent);
+    }
+  }
+  .text-emerald-800 {
+    color: var(--color-emerald-800);
+  }
+  .text-emerald-900 {
+    color: var(--color-emerald-900);
+  }
+  .text-gray-300 {
+    color: var(--color-gray-300);
+  }
+  .text-gray-400 {
+    color: var(--color-gray-400);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-gray-900 {
+    color: var(--color-gray-900);
+  }
+  .text-indigo-700 {
+    color: var(--color-indigo-700);
+  }
+  .text-rose-600 {
+    color: var(--color-rose-600);
+  }
+  .text-rose-700 {
+    color: var(--color-rose-700);
+  }
+  .text-rose-700\\/80 {
+    color: color-mix(in srgb, oklch(51.4% 0.222 16.935) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-rose-700) 80%, transparent);
+    }
+  }
+  .text-slate-300 {
+    color: var(--color-slate-300);
+  }
+  .text-slate-500 {
+    color: var(--color-slate-500);
+  }
+  .text-slate-700 {
+    color: var(--color-slate-700);
+  }
+  .text-slate-800 {
+    color: var(--color-slate-800);
+  }
+  .text-slate-900 {
+    color: var(--color-slate-900);
+  }
+  .text-violet-700 {
+    color: var(--color-violet-700);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .tabular-nums {
+    --tw-numeric-spacing: tabular-nums;
+    font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
+  }
+  .shadow {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xl {
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-1 {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-emerald-200 {
+    --tw-ring-color: var(--color-emerald-200);
+  }
+  .ring-gray-200 {
+    --tw-ring-color: var(--color-gray-200);
+  }
+  .ring-slate-200 {
+    --tw-ring-color: var(--color-slate-200);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
+  }
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-ordinal: initial;
+      --tw-slashed-zero: initial;
+      --tw-numeric-figure: initial;
+      --tw-numeric-spacing: initial;
+      --tw-numeric-fraction: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-ease: initial;
+    }
+  }
+}
+@layer base {
+  *,*::before,*::after{box-sizing:border-box;border:0 solid;margin:0;padding:0}
+  svg{display:block}
+  img{max-width:100%;height:auto}
+}
+:host{all:initial;display:block;contain:layout style;
+  font-family:var(--font-sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;color:var(--color-gray-900);text-align:left}
+
+/* Below the two-column breakpoint the copy stacks above the card, and the card
+   keeps its intrinsic width inside a swipeable rail. It is drawn at fixed pixel
+   geometry, so scaling it to a phone would put 14px body text at 8px. A rail
+   keeps it legible and is the same pattern any wide table uses. */
+@media (max-width: 1023px) {
+  .tf-wrap{padding-left:1.25rem;padding-right:1.25rem;padding-top:3rem;padding-bottom:3rem}
+  .tf-row{flex-direction:column;align-items:stretch;gap:2rem}
+  .tf-row > div:first-child{max-width:none}
+  .tf-row > div:first-child h2{font-size:2rem;line-height:1.15}
+  .tf-row > div:first-child p{font-size:1.0625rem}
+  .tf-card{overflow-x:auto;overflow-y:hidden;max-width:100%;width:auto;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding-bottom:1.25rem}
+  .tf-card::-webkit-scrollbar{display:none}
+  .tf-card > *{width:var(--card-w,640px);flex:none}
+  /* Do NOT re-width the card here. Its internals are absolutely positioned
+     against a fixed inner width, so squeezing it to a round number silently
+     truncates every lane inside. The rail scrolls; the card keeps its size. */
+}
+`;var l={"vero-loop":`<div class="relative overflow-hidden"><style>
+        @keyframes vlRing  { 0%{transform:scale(.9);opacity:.5;} 70%{transform:scale(1.55);opacity:0;} 100%{transform:scale(1.55);opacity:0;} }
+        @keyframes vlPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+        
+        @keyframes vlSig0 {
+          0%,3%       { opacity:0; transform: translateX(-10px); }
+          9%,100% { opacity:1; transform: translateX(0); }
+        }
+        @keyframes vlLead0 {
+          0%,5%    { stroke-dashoffset:100; opacity:0; }
+          7%       { opacity:1; }
+          14%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes vlSig1 {
+          0%,8%       { opacity:0; transform: translateX(-10px); }
+          14%,100% { opacity:1; transform: translateX(0); }
+        }
+        @keyframes vlLead1 {
+          0%,10%    { stroke-dashoffset:100; opacity:0; }
+          12%       { opacity:1; }
+          19%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes vlSig2 {
+          0%,13%       { opacity:0; transform: translateX(-10px); }
+          19%,100% { opacity:1; transform: translateX(0); }
+        }
+        @keyframes vlLead2 {
+          0%,15%    { stroke-dashoffset:100; opacity:0; }
+          17%       { opacity:1; }
+          24%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes vlSig3 {
+          0%,18%       { opacity:0; transform: translateX(-10px); }
+          24%,100% { opacity:1; transform: translateX(0); }
+        }
+        @keyframes vlLead3 {
+          0%,20%    { stroke-dashoffset:100; opacity:0; }
+          22%       { opacity:1; }
+          29%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+
+        
+        @keyframes vlRow0 {
+          0%,26%       { opacity:0; transform: translateX(12px); }
+          32%,100% { opacity:1; transform: none; }
+        }
+        @keyframes vlRow1 {
+          0%,32%       { opacity:0; transform: translateX(12px); }
+          38%,100% { opacity:1; transform: none; }
+        }
+        @keyframes vlRow2 {
+          0%,38%       { opacity:0; transform: translateX(12px); }
+          44%,100% { opacity:1; transform: none; }
+        }
+        @keyframes vlRow3 {
+          0%,44%       { opacity:0; transform: translateX(12px); }
+          50%,100% { opacity:1; transform: none; }
+        }
+        @keyframes vlHead  { 0%,20%{opacity:0;} 26%,100%{opacity:1;} }
+        @keyframes vlTotal { 0%,50%{opacity:0;transform:translateY(6px);} 58%,100%{opacity:1;transform:none;} }
+
+        @keyframes vlBtn {
+          0%,56%   { transform:scale(1); box-shadow:0 0 0 0 rgba(15,23,42,0); }
+          62%      { transform:scale(1); box-shadow:0 0 0 0 rgba(15,23,42,.3); }
+          67%      { transform:scale(1); box-shadow:0 0 0 8px rgba(15,23,42,0); }
+          68%      { transform:scale(.96); }
+          72%,100% { transform:scale(1); box-shadow:0 0 0 0 rgba(15,23,42,0); }
+        }
+        @keyframes vlCursor {
+          0%,54%   { transform: translate(-46px,26px); opacity:0; }
+          58%      { transform: translate(-46px,26px); opacity:1; }
+          66%      { transform: translate(-6px,4px); opacity:1; }
+          68%      { transform: translate(-6px,4px) scale(.82); opacity:1; }
+          71%      { transform: translate(-6px,4px); opacity:1; }
+          80%      { transform: translate(-6px,4px); opacity:0; }
+          100%     { transform: translate(-46px,26px); opacity:0; }
+        }
+        @keyframes vlBtnA { 0%,68.5%{opacity:1;} 69%,100%{opacity:0;} }
+        @keyframes vlBtnB { 0%,68.5%{opacity:0;} 69%,100%{opacity:1;} }
+
+        @keyframes vlSt1 { 0%,16%{opacity:1;} 20%,100%{opacity:0;} }
+        @keyframes vlSt2 { 0%,16%{opacity:0;} 20%,48%{opacity:1;} 52%,100%{opacity:0;} }
+        @keyframes vlSt3 { 0%,48%{opacity:0;} 52%,68%{opacity:1;} 71%,100%{opacity:0;} }
+        @keyframes vlSt4 { 0%,68%{opacity:0;} 71%,100%{opacity:1;} }
+
+        .vl-ring  { animation: vlRing 2.6s ease-out infinite; }
+        .vl-ring2 { animation: vlRing 2.6s ease-out infinite; animation-delay:1.3s; }
+        .vl-pulse { animation: vlPulse 1.4s ease-in-out infinite; }
+        
+        .vl-sig0  { animation: vlSig0 10s ease-out infinite; opacity:0; }
+        .vl-lead0 { animation: vlLead0 10s ease-out infinite; opacity:0; }
+        .vl-sig1  { animation: vlSig1 10s ease-out infinite; opacity:0; }
+        .vl-lead1 { animation: vlLead1 10s ease-out infinite; opacity:0; }
+        .vl-sig2  { animation: vlSig2 10s ease-out infinite; opacity:0; }
+        .vl-lead2 { animation: vlLead2 10s ease-out infinite; opacity:0; }
+        .vl-sig3  { animation: vlSig3 10s ease-out infinite; opacity:0; }
+        .vl-lead3 { animation: vlLead3 10s ease-out infinite; opacity:0; }
+        
+        .vl-row0 { animation: vlRow0 10s ease-out infinite; opacity:0; }
+        .vl-row1 { animation: vlRow1 10s ease-out infinite; opacity:0; }
+        .vl-row2 { animation: vlRow2 10s ease-out infinite; opacity:0; }
+        .vl-row3 { animation: vlRow3 10s ease-out infinite; opacity:0; }
+        .vl-head  { animation: vlHead 10s ease-out infinite; opacity:0; }
+        .vl-total { animation: vlTotal 10s ease-out infinite; opacity:0; }
+        .vl-btn   { animation: vlBtn 10s ease-out infinite; }
+        .vl-cursor{ animation: vlCursor 10s cubic-bezier(.4,0,.2,1) infinite; opacity:0; }
+        .vl-a { animation: vlBtnA 10s linear infinite; }
+        .vl-b { animation: vlBtnB 10s linear infinite; opacity:0; }
+        .vl-s1 { animation: vlSt1 10s linear infinite; }
+        .vl-s2 { animation: vlSt2 10s linear infinite; opacity:0; }
+        .vl-s3 { animation: vlSt3 10s linear infinite; opacity:0; }
+        .vl-s4 { animation: vlSt4 10s linear infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-16"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Ein Agent,<br/>der vorausdenkt.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">Forderungsmanagement, Zahlungsabgleich, Abz\xFCge und Liquidit\xE4tsplanung laufen als ein Prozess. Jeder offene Posten tr\xE4gt ein prognostiziertes Zahlungsdatum, lange bevor er f\xE4llig wird. Die Arbeit liegt morgens priorisiert und erledigt vor Ihnen, mit einer einzigen Entscheidung.</p></div><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-3 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="relative block h-[24px] w-[300px] min-w-0"><span class="vl-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Liest den gesamten Bestand</span><span class="vl-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Prognostiziert Eing\xE4nge und Termine</span><span class="vl-s3 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Bereit f\xFCr Sie</span><span class="vl-s4 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">312 Aktionen freigegeben</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-slate-800"><span class="vl-pulse w-2 h-2 rounded-full bg-slate-800"></span> Live</span></div><div class="relative" style="height:230px"><svg class="absolute inset-0 pointer-events-none" width="245" height="230" fill="none" aria-hidden="true"><path class="vl-lead0" d="M140,24 C159.8,24 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vl-lead1" d="M140,74 C159.8,74 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vl-lead2" d="M140,124 C159.8,124 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vl-lead3" d="M140,180 C159.8,180 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.7" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></svg><div class="vl-sig0 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:4px;width:140px;height:40px"><span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database h-4 w-4"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Ihr ERP</span></div><div class="vl-sig1 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:54px;width:140px;height:40px"><span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-landmark h-4 w-4"><line x1="3" x2="21" y1="22" y2="22"></line><line x1="6" x2="6" y1="18" y2="11"></line><line x1="10" x2="10" y1="18" y2="11"></line><line x1="14" x2="14" y1="18" y2="11"></line><line x1="18" x2="18" y1="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Ihre Banken</span></div><div class="vl-sig2 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:104px;width:140px;height:40px"><span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-4 w-4"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Ihr Postfach</span></div><div class="vl-sig3 absolute left-0 flex items-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-2 shadow-sm" style="top:154px;width:140px;height:52px"><span class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain h-4 w-4"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500">Modell</span><span class="block text-xs font-bold text-gray-900 truncate">Zahltermine</span><span class="block text-[10px] text-gray-400 truncate">t\xE4glich neu</span></span></div><div class="absolute" style="left:205px;top:105px;transform:translate(-50%,-50%);z-index:20"><div class="relative flex items-center justify-center"><span class="vl-ring absolute w-[76px] h-[76px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><span class="vl-ring2 absolute w-[76px] h-[76px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><div class="relative w-[64px] h-[64px] rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:34px;height:34px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:14.28px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div></div></div></div><div class="vl-head absolute top-0 px-1" style="left:245px;right:0"><span class="text-xs font-semibold uppercase tracking-wider text-gray-400">\xDCber Nacht vorbereitet</span></div><div class="vl-row0 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:22px;height:46px;border-color:#7c3aed33"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-violet-100 text-violet-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call h-4 w-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.05 2a9 9 0 0 1 8 7.94"></path><path d="M14.05 6A5 5 0 0 1 18 10"></path></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">41 Konten zu mahnen</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#7c3aed">CollectPulse</span></div><div class="vl-row1 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:76px;height:46px;border-color:#16a34a33"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-emerald-100 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-banknote h-4 w-4"><rect width="20" height="12" x="2" y="6" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">\u20AC2,4M zuzuordnen</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#16a34a">ClearMatch</span></div><div class="vl-row2 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:130px;height:46px;border-color:#d9770633"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale h-4 w-4"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">18 Abz\xFCge zu kl\xE4ren</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#d97706">ClaimIQ</span></div><div class="vl-row3 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:184px;height:46px;border-color:#4f46e533"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-indigo-100 text-indigo-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up h-4 w-4"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">L\xFCcke in Woche 6 schlie\xDFen</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#4f46e5">CashPulse</span></div></div><div class="vl-total mt-4 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4" style="height:62px"><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-gray-500">Wartet um 8 Uhr auf Sie</span><span class="block text-2xl font-bold text-gray-900 tabular-nums">312 Aktionen</span></span><span class="relative ml-auto shrink-0"><span class="vl-btn relative block h-[40px] w-[150px] rounded-xl"><span class="vl-a absolute inset-0 inline-flex items-center justify-center rounded-xl bg-slate-900 text-sm font-bold text-white">Alle freigeben</span><span class="vl-b absolute inset-0 inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-50 text-sm font-bold text-emerald-700 ring-1 ring-emerald-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg> Freigegeben</span></span><svg class="vl-cursor absolute pointer-events-none" style="right:8px;bottom:-2px;width:20px;height:20px;z-index:40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3l14 8.5-6.2 1.2L10 19 5 3z" fill="#111827" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></span></div></div></div></div></div></div>`,"vero-rank":`<div class="relative overflow-hidden"><style>
+        @keyframes vrPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+        @keyframes vrGap   { 0%,4%{opacity:0;transform:translateY(8px);} 12%,100%{opacity:1;transform:none;} }
+        @keyframes vrTrace { 0%,12%{opacity:0;} 20%,100%{opacity:1;} }
+
+        /* ONE keyframe per row: entry and end state together. Two animations both
+           writing opacity means the later one wins from frame 0 - which is exactly
+           how row three used to be on screen before rows one and two. */
+        
+        @keyframes vrRow_cash {
+          0%,22%   { opacity:0; transform:translateX(14px); border-color:#e5e7eb; background:#ffffff; }
+          29%,50% { opacity:1; transform:none; border-color:#e5e7eb; background:#ffffff; }
+          58%           { opacity:1; transform:none; border-color:#16a34a; background:#f0fdf4; }
+          66%,100%      { opacity:1; transform:none; border-color:#bbf7d0; background:#f0fdf4; }
+        }
+        @keyframes vrRow_run {
+          0%,30%   { opacity:0; transform:translateX(14px); border-color:#e5e7eb; background:#ffffff; }
+          37%,50% { opacity:1; transform:none; border-color:#e5e7eb; background:#ffffff; }
+          58%           { opacity:1; transform:none; border-color:#16a34a; background:#f0fdf4; }
+          66%,100%      { opacity:1; transform:none; border-color:#bbf7d0; background:#f0fdf4; }
+        }
+        @keyframes vrRow_chase {
+          0%,38%   { opacity:0; transform:translateX(14px); }
+          45%,56% { opacity:1; transform:none; }
+          64%,100%      { opacity:.4; transform:none; }
+        }
+
+        @keyframes vrTick  { 0%,54%{opacity:0;transform:scale(.5);} 62%,100%{opacity:1;transform:scale(1);} }
+        @keyframes vrSpare { 0%,60%{opacity:0;} 68%,100%{opacity:1;} }
+        @keyframes vrFoot  { 0%,62%{opacity:0;transform:translateY(6px);} 70%,100%{opacity:1;transform:none;} }
+
+        @keyframes vrSt1 { 0%,18%{opacity:1;} 22%,100%{opacity:0;} }
+        @keyframes vrSt2 { 0%,18%{opacity:0;} 22%,52%{opacity:1;} 56%,100%{opacity:0;} }
+        @keyframes vrSt3 { 0%,52%{opacity:0;} 56%,100%{opacity:1;} }
+
+        .vr-pulse { animation: vrPulse 1.4s ease-in-out infinite; }
+        .vr-gap   { animation: vrGap 10s ease-out infinite; opacity:0; }
+        .vr-trace { animation: vrTrace 10s ease-out infinite; opacity:0; }
+        
+        .vr-row-cash { animation: vrRow_cash 10s ease-out infinite; opacity:0; }
+        .vr-row-run { animation: vrRow_run 10s ease-out infinite; opacity:0; }
+        .vr-row-chase { animation: vrRow_chase 10s ease-out infinite; opacity:0; }
+        .vr-tick  { animation: vrTick 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .vr-spare { animation: vrSpare 10s ease-out infinite; opacity:0; }
+        .vr-foot  { animation: vrFoot 10s ease-out infinite; opacity:0; }
+        .vr-s1 { animation: vrSt1 10s linear infinite; }
+        .vr-s2 { animation: vrSt2 10s linear infinite; opacity:0; }
+        .vr-s3 { animation: vrSt3 10s linear infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-16"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Aus einer L\xFCcke<br/>wird ein Fahrplan.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">Eine Prognose nennt Ihnen die Zahl. Sie sagt Ihnen nicht, welche der zw\xF6lf m\xF6glichen Ma\xDFnahmen zuerst an der Reihe ist. Jede Option kommt beziffert und terminiert, und die Ma\xDFnahmen aus eigener Kraft stehen vor denen, die eine Kundenbeziehung kosten.</p></div><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="relative block h-[24px] w-[330px] min-w-0"><span class="vr-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Bewertet Ihre Optionen</span><span class="vr-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Eigene Mittel zuerst</span><span class="vr-s3 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">Gedeckt, ohne Kundenkontakt</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-slate-800"><span class="vr-pulse w-2 h-2 rounded-full bg-slate-800"></span> Live</span></div><div class="vr-gap flex items-center gap-3 rounded-xl border border-rose-200 bg-rose-50 px-4 mb-4" style="height:58px"><span class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-down h-5 w-5"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline><polyline points="16 17 22 17 22 11"></polyline></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-rose-700/80">Liquidit\xE4tsl\xFCcke, 30 Tage</span><span class="block text-2xl font-bold text-rose-700 tabular-nums">\u20AC340k</span></span><span class="vr-trace ml-auto shrink-0 rounded-full bg-white px-3 py-1.5 text-sm font-bold text-gray-600 ring-1 ring-gray-200">\xFCber 14 Konten</span></div><div class="relative" style="height:202px"><div class="vr-row-cash absolute left-0 right-0 flex items-center gap-3 rounded-xl border bg-white px-3" style="top:0;height:62px"><span class="flex w-6 shrink-0 items-center justify-center text-base font-bold text-gray-300 tabular-nums">1</span><span class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-banknote h-5 w-5"><rect width="20" height="12" x="2" y="6" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg></span><span class="min-w-0 flex-1 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Eingegangene Zahlungen zuordnen</span><span class="block text-sm text-gray-500 truncate">Bleibt im Finanzteam</span></span><span class="shrink-0 text-right leading-tight"><span class="block text-base font-bold text-gray-900 tabular-nums">\u20AC180k</span><span class="block text-sm text-gray-500">in 2 Tagen</span></span><span class="flex w-[92px] shrink-0 items-center justify-end"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check vr-tick h-5 w-5 text-emerald-600"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span></div><div class="vr-row-run absolute left-0 right-0 flex items-center gap-3 rounded-xl border bg-white px-3" style="top:70px;height:62px"><span class="flex w-6 shrink-0 items-center justify-center text-base font-bold text-gray-300 tabular-nums">2</span><span class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-clock h-5 w-5"><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"></path><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h5"></path><path d="M17.5 17.5 16 16.3V14"></path><circle cx="16" cy="16" r="6"></circle></svg></span><span class="min-w-0 flex-1 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Zahllauf auf den F\xE4lligkeitstag legen</span><span class="block text-sm text-gray-500 truncate">Fristen bleiben gewahrt</span></span><span class="shrink-0 text-right leading-tight"><span class="block text-base font-bold text-gray-900 tabular-nums">\u20AC310k</span><span class="block text-sm text-gray-500">in 9 Tagen</span></span><span class="flex w-[92px] shrink-0 items-center justify-end"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check vr-tick h-5 w-5 text-emerald-600"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span></div><div class="vr-row-chase absolute left-0 right-0 flex items-center gap-3 rounded-xl border bg-white px-3" style="top:140px;height:62px"><span class="flex w-6 shrink-0 items-center justify-center text-base font-bold text-gray-300 tabular-nums">3</span><span class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call h-5 w-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.05 2a9 9 0 0 1 8 7.94"></path><path d="M14.05 6A5 5 0 0 1 18 10"></path></svg></span><span class="min-w-0 flex-1 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Ihre drei gr\xF6\xDFten Konten eskalieren</span><span class="block text-sm text-gray-500 truncate">Das sp\xFCren Ihre Kunden</span></span><span class="shrink-0 text-right leading-tight"><span class="block text-base font-bold text-gray-900 tabular-nums">\u20AC160k</span><span class="block text-sm text-gray-500">in 15 Tagen</span></span><span class="flex w-[92px] shrink-0 items-center justify-end"><span class="vr-spare rounded-full bg-gray-100 px-2 py-1 text-xs font-bold text-gray-500 whitespace-nowrap">nicht n\xF6tig</span></span></div></div><div class="vr-foot mt-4 flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4" style="height:66px"><span class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-emerald-700/80">Aus eigener Kraft gedeckt</span><span class="block text-2xl font-bold text-emerald-900 tabular-nums">\u20AC490k</span></span><span class="ml-auto shrink-0 rounded-full bg-white px-3 py-1.5 text-sm font-bold text-emerald-800 ring-1 ring-emerald-200">L\xFCcke bis Tag 9 gedeckt</span></div></div></div></div></div></div>`,"vero-memory":`<div class="relative overflow-hidden"><style>
+        @keyframes vmPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+        @keyframes vmCust  { 0%,4%{opacity:0;transform:translateY(8px);} 11%,100%{opacity:1;transform:none;} }
+
+        
+        @keyframes vmRow_who {
+          0%,10%       { opacity:0; transform: translateX(-14px); }
+          17%,100% { opacity:1; transform: none; }
+        }
+        /* the memory is SPENT, not just stored - it lights up as it gets used */
+        @keyframes vmCite_who {
+          0%,40%       { border-color:#e5e7eb; background:#ffffff; box-shadow:0 0 0 0 rgba(15,23,42,0); }
+          43%      { border-color:#0f172a; background:#f8fafc; box-shadow:0 0 0 3px rgba(15,23,42,.10); }
+          54%     { border-color:#0f172a; background:#f8fafc; box-shadow:0 0 0 3px rgba(15,23,42,.10); }
+          60%,100%{ border-color:#cbd5e1; background:#ffffff; box-shadow:0 0 0 0 rgba(15,23,42,0); }
+        }
+        @keyframes vmRow_when {
+          0%,18%       { opacity:0; transform: translateX(-14px); }
+          25%,100% { opacity:1; transform: none; }
+        }
+        /* the memory is SPENT, not just stored - it lights up as it gets used */
+        @keyframes vmCite_when {
+          0%,44%       { border-color:#e5e7eb; background:#ffffff; box-shadow:0 0 0 0 rgba(15,23,42,0); }
+          47%      { border-color:#0f172a; background:#f8fafc; box-shadow:0 0 0 3px rgba(15,23,42,.10); }
+          58%     { border-color:#0f172a; background:#f8fafc; box-shadow:0 0 0 3px rgba(15,23,42,.10); }
+          64%,100%{ border-color:#cbd5e1; background:#ffffff; box-shadow:0 0 0 0 rgba(15,23,42,0); }
+        }
+        @keyframes vmRow_what {
+          0%,26%       { opacity:0; transform: translateX(-14px); }
+          33%,100% { opacity:1; transform: none; }
+        }
+        /* the memory is SPENT, not just stored - it lights up as it gets used */
+        @keyframes vmCite_what {
+          0%,48%       { border-color:#e5e7eb; background:#ffffff; box-shadow:0 0 0 0 rgba(15,23,42,0); }
+          51%      { border-color:#0f172a; background:#f8fafc; box-shadow:0 0 0 3px rgba(15,23,42,.10); }
+          62%     { border-color:#0f172a; background:#f8fafc; box-shadow:0 0 0 3px rgba(15,23,42,.10); }
+          68%,100%{ border-color:#cbd5e1; background:#ffffff; box-shadow:0 0 0 0 rgba(15,23,42,0); }
+        }
+
+        @keyframes vmToday { 0%,30%{opacity:0;transform:translateY(6px);} 37%,100%{opacity:1;transform:none;} }
+        @keyframes vmAct   { 0%,52%{opacity:0;transform:translateY(8px);} 60%,100%{opacity:1;transform:none;} }
+
+        @keyframes vmSt1 { 0%,28%{opacity:1;} 32%,100%{opacity:0;} }
+        @keyframes vmSt2 { 0%,28%{opacity:0;} 32%,52%{opacity:1;} 56%,100%{opacity:0;} }
+        @keyframes vmSt3 { 0%,52%{opacity:0;} 56%,100%{opacity:1;} }
+
+        .vm-pulse { animation: vmPulse 1.4s ease-in-out infinite; }
+        .vm-cust  { animation: vmCust 10s ease-out infinite; opacity:0; }
+        
+        .vm-row-who { animation: vmRow_who 10s ease-out infinite, vmCite_who 10s ease-out infinite; opacity:0; }
+        .vm-row-when { animation: vmRow_when 10s ease-out infinite, vmCite_when 10s ease-out infinite; opacity:0; }
+        .vm-row-what { animation: vmRow_what 10s ease-out infinite, vmCite_what 10s ease-out infinite; opacity:0; }
+        .vm-today { animation: vmToday 10s ease-out infinite; opacity:0; }
+        .vm-act   { animation: vmAct 10s ease-out infinite; opacity:0; }
+        .vm-s1 { animation: vmSt1 10s linear infinite; }
+        .vm-s2 { animation: vmSt2 10s linear infinite; opacity:0; }
+        .vm-s3 { animation: vmSt3 10s linear infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-16"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Nie zweimal<br/>dasselbe erkl\xE4ren.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">Jede E-Mail, jeder Anruf und jeder Abzug wird zu Wissen \xFCber dieses Konto. Neun Jahre Kontext, eingesetzt f\xFCr die n\xE4chste Rechnung, ohne dass jemand etwas erkl\xE4ren muss.</p></div><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="relative block h-[24px] w-[300px] min-w-0"><span class="vm-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Was Vero \xFCber Merrick wei\xDF</span><span class="vm-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Nutzt alle drei</span><span class="vm-s3 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">Versendet, ohne R\xFCckfrage</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-slate-800"><span class="vm-pulse w-2 h-2 rounded-full bg-slate-800"></span> Live</span></div><div class="vm-cust flex items-center gap-3 rounded-xl bg-slate-900 px-4 mb-3" style="height:56px"><span class="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag h-5 w-5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-base font-bold text-white">Merrick Retail</span><span class="block text-sm text-slate-300">Kunde seit 2017 \xB7 2.140 Rechnungen</span></span></div><div class="relative" style="height:172px"><div class="vm-row-who absolute left-0 right-0 flex items-center gap-3 rounded-xl border px-3" style="top:0;height:52px"><span class="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-5 w-5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Freigabe bei Ana, nicht accounts@</span><span class="block text-sm text-gray-500">aus 14 E-Mail-Verl\xE4ufen</span></span></div><div class="vm-row-when absolute left-0 right-0 flex items-center gap-3 rounded-xl border px-3" style="top:60px;height:52px"><span class="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history h-5 w-5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Zahlt neun Tage nach dem Kontoauszug</span><span class="block text-sm text-gray-500">aus 2.140 Rechnungen</span></span></div><div class="vm-row-what absolute left-0 right-0 flex items-center gap-3 rounded-xl border px-3" style="top:120px;height:52px"><span class="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale h-5 w-5"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">K\xFCrzt bei Transportsch\xE4den</span><span class="block text-sm text-gray-500">aus 6 Abzugsf\xE4llen</span></span></div></div><div class="vm-today mt-4 flex items-center gap-3 rounded-xl border border-dashed border-gray-300 bg-gray-50/70 px-3" style="height:52px"><span class="w-9 h-9 rounded-lg bg-white text-gray-500 border border-gray-200 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-5 w-5"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span><span class="text-sm font-bold text-gray-900">Heute \xB7 neue Rechnung, \u20AC120k</span></div><div class="vm-act mt-3 flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-3.5" style="height:66px"><span class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send h-5 w-5"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-base font-bold text-emerald-900">An Ana, passend zum Kontoauszug</span><span class="block text-sm font-semibold text-emerald-700/80">Mit den Fotos der Paletten, bevor sie danach fragt</span></span></div></div></div></div></div></div>`,"vero-tools":`<link rel="preload" as="image" href="/logos/sap.svg"/><link rel="preload" as="image" href="/logos/integrations/outlook.png"/><link rel="preload" as="image" href="/logos/integrations/teams.png"/><div class="relative overflow-hidden"><style>
+        @keyframes vtRing  { 0%{transform:scale(.9);opacity:.5;} 70%{transform:scale(1.5);opacity:0;} 100%{transform:scale(1.5);opacity:0;} }
+        @keyframes vtPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+        
+        /* the request goes out ... */
+        @keyframes vtOut_sap {
+          0%,6%       { stroke-dashoffset:100; opacity:0; }
+          8%      { opacity:1; }
+          15%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        /* ... and the same line comes back green when the system answers */
+        @keyframes vtBack_sap {
+          0%,18%       { stroke-dashoffset:100; opacity:0; }
+          20%      { opacity:1; }
+          26%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes vtCard_sap {
+          0%,6%        { opacity:0; transform: translateX(10px); }
+          13%,100%  { opacity:1; transform: none; }
+        }
+        @keyframes vtWait_sap {
+          0%,11%    { opacity:0; }
+          14%,18% { opacity:1; }
+          20%,100% { opacity:0; }
+        }
+        @keyframes vtDone_sap {
+          0%,20%   { opacity:0; transform: scale(.6); }
+          26%,100% { opacity:1; transform: scale(1); }
+        }
+        @keyframes vtDet_sap {
+          0%,20%   { opacity:0; }
+          27%,100% { opacity:1; }
+        }
+        /* the request goes out ... */
+        @keyframes vtOut_outlook {
+          0%,22%       { stroke-dashoffset:100; opacity:0; }
+          24%      { opacity:1; }
+          31%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        /* ... and the same line comes back green when the system answers */
+        @keyframes vtBack_outlook {
+          0%,34%       { stroke-dashoffset:100; opacity:0; }
+          36%      { opacity:1; }
+          42%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes vtCard_outlook {
+          0%,22%        { opacity:0; transform: translateX(10px); }
+          29%,100%  { opacity:1; transform: none; }
+        }
+        @keyframes vtWait_outlook {
+          0%,27%    { opacity:0; }
+          30%,34% { opacity:1; }
+          36%,100% { opacity:0; }
+        }
+        @keyframes vtDone_outlook {
+          0%,36%   { opacity:0; transform: scale(.6); }
+          42%,100% { opacity:1; transform: scale(1); }
+        }
+        @keyframes vtDet_outlook {
+          0%,36%   { opacity:0; }
+          43%,100% { opacity:1; }
+        }
+        /* the request goes out ... */
+        @keyframes vtOut_teams {
+          0%,38%       { stroke-dashoffset:100; opacity:0; }
+          40%      { opacity:1; }
+          47%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        /* ... and the same line comes back green when the system answers */
+        @keyframes vtBack_teams {
+          0%,54%       { stroke-dashoffset:100; opacity:0; }
+          56%      { opacity:1; }
+          62%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes vtCard_teams {
+          0%,38%        { opacity:0; transform: translateX(10px); }
+          45%,100%  { opacity:1; transform: none; }
+        }
+        @keyframes vtWait_teams {
+          0%,43%    { opacity:0; }
+          46%,54% { opacity:1; }
+          56%,100% { opacity:0; }
+        }
+        @keyframes vtDone_teams {
+          0%,56%   { opacity:0; transform: scale(.6); }
+          62%,100% { opacity:1; transform: scale(1); }
+        }
+        @keyframes vtDet_teams {
+          0%,56%   { opacity:0; }
+          63%,100% { opacity:1; }
+        }
+
+        @keyframes vtFoot { 0%,60%{opacity:0;transform:translateY(6px);} 68%,100%{opacity:1;transform:none;} }
+        @keyframes vtSt1 { 0%,30%{opacity:1;} 34%,100%{opacity:0;} }
+        @keyframes vtSt2 { 0%,30%{opacity:0;} 34%,58%{opacity:1;} 62%,100%{opacity:0;} }
+        @keyframes vtSt3 { 0%,58%{opacity:0;} 62%,100%{opacity:1;} }
+
+        .vt-ring  { animation: vtRing 2.6s ease-out infinite; }
+        .vt-ring2 { animation: vtRing 2.6s ease-out infinite; animation-delay:1.3s; }
+        .vt-pulse { animation: vtPulse 1.4s ease-in-out infinite; }
+        
+        .vt-out-sap  { animation: vtOut_sap 10s ease-out infinite; opacity:0; }
+        .vt-back-sap { animation: vtBack_sap 10s ease-out infinite; opacity:0; }
+        .vt-card-sap { animation: vtCard_sap 10s ease-out infinite; opacity:0; }
+        .vt-wait-sap { animation: vtWait_sap 10s linear infinite; opacity:0; }
+        .vt-done-sap { animation: vtDone_sap 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .vt-det-sap  { animation: vtDet_sap 10s ease-out infinite; opacity:0; }
+        .vt-out-outlook  { animation: vtOut_outlook 10s ease-out infinite; opacity:0; }
+        .vt-back-outlook { animation: vtBack_outlook 10s ease-out infinite; opacity:0; }
+        .vt-card-outlook { animation: vtCard_outlook 10s ease-out infinite; opacity:0; }
+        .vt-wait-outlook { animation: vtWait_outlook 10s linear infinite; opacity:0; }
+        .vt-done-outlook { animation: vtDone_outlook 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .vt-det-outlook  { animation: vtDet_outlook 10s ease-out infinite; opacity:0; }
+        .vt-out-teams  { animation: vtOut_teams 10s ease-out infinite; opacity:0; }
+        .vt-back-teams { animation: vtBack_teams 10s ease-out infinite; opacity:0; }
+        .vt-card-teams { animation: vtCard_teams 10s ease-out infinite; opacity:0; }
+        .vt-wait-teams { animation: vtWait_teams 10s linear infinite; opacity:0; }
+        .vt-done-teams { animation: vtDone_teams 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .vt-det-teams  { animation: vtDet_teams 10s ease-out infinite; opacity:0; }
+        .vt-foot { animation: vtFoot 10s ease-out infinite; opacity:0; }
+        .vt-s1 { animation: vtSt1 10s linear infinite; }
+        .vt-s2 { animation: vtSt2 10s linear infinite; opacity:0; }
+        .vt-s3 { animation: vtSt3 10s linear infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-16"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">In Ihren eigenen<br/>Systemen handeln.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">Das ist kein Rat auf einem Dashboard. Die Gutschrift wird in SAP gebucht, die Mahnung geht aus Ihrem eigenen Postfach, Ihr Kreditorenteam wird in Teams gefragt, und die Antwort landet wieder auf dem Konto, zu dem sie geh\xF6rt.</p></div><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">1</span></div></div><span class="relative block h-[24px] w-[300px] min-w-0"><span class="vt-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Aktionen von heute Morgen</span><span class="vt-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Wartet auf Ihr Kreditorenteam</span><span class="vt-s3 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">Alle drei zur\xFCckgemeldet</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-slate-800"><span class="vt-pulse w-2 h-2 rounded-full bg-slate-800"></span> Live</span></div><div class="relative" style="height:216px"><svg class="absolute inset-0 pointer-events-none" width="592" height="216" fill="none" aria-hidden="true"><g><path class="vt-out-sap" d="M100,108 C141.8,108 134.2,32 174,32" stroke="#0f172a" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vt-back-sap" d="M100,108 C141.8,108 134.2,32 174,32" stroke="#16a34a" stroke-opacity="0.9" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></g><g><path class="vt-out-outlook" d="M100,108 C141.8,108 134.2,108 174,108" stroke="#0f172a" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vt-back-outlook" d="M100,108 C141.8,108 134.2,108 174,108" stroke="#16a34a" stroke-opacity="0.9" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></g><g><path class="vt-out-teams" d="M100,108 C141.8,108 134.2,184 174,184" stroke="#0f172a" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vt-back-teams" d="M100,108 C141.8,108 134.2,184 174,184" stroke="#16a34a" stroke-opacity="0.9" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></g></svg><div class="absolute" style="left:66px;top:108px;transform:translate(-50%,-50%);z-index:20"><div class="relative flex items-center justify-center"><span class="vt-ring absolute w-[72px] h-[72px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><span class="vt-ring2 absolute w-[72px] h-[72px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><div class="relative w-[64px] h-[64px] rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:34px;height:34px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:14.28px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">1</span></div></div></div></div><span class="absolute left-1/2 -translate-x-1/2 top-[76px] text-sm font-bold text-slate-900">Vero</span></div><div class="vt-card-sap absolute flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-3" style="left:176px;right:0;top:0;height:64px"><span class="flex items-center justify-center shrink-0 rounded-lg border border-gray-100 bg-white" style="width:76px;height:44px"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxuczp4PSJuc19leHRlbmQ7IiB4bWxuczppPSJuc19haTsiIHhtbG5zOmdyYXBoPSJuc19ncmFwaHM7IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDkxIDQ1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA5MSA0NTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgogPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KICAuc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8xXyk7fQoJLnN0MXtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7fQogPC9zdHlsZT4KIDxtZXRhZGF0YT4KICA8c2Z3IHhtbG5zPSJuc19zZnc7Ij4KICAgPHNsaWNlcz4KICAgPC9zbGljZXM+CiAgIDxzbGljZVNvdXJjZUJvdW5kcyBib3R0b21MZWZ0T3JpZ2luPSJ0cnVlIiBoZWlnaHQ9IjQ1IiB3aWR0aD0iOTEiIHg9IjAiIHk9IjAiPgogICA8L3NsaWNlU291cmNlQm91bmRzPgogIDwvc2Z3PgogPC9tZXRhZGF0YT4KIDxnPgogIDxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNDUuNDgzIiB5MT0iNDYiIHgyPSI0NS40ODMiIHkyPSIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgNDYpIj4KICAgPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBBRUVGIj4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjAuMjEyIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA5N0RDIj4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjAuNTE5IiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3Q0M1Ij4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjAuNzkyIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA2Q0I4Ij4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDY2QjMiPgogICA8L3N0b3A+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMCw0NWg0Nkw5MSwwSDBWNDUiPgogIDwvcGF0aD4KICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNTQsOWgtOWwwLDIxLjFMMzcuMiw5aC03LjhsLTYuNywxNy43Yy0wLjctNC41LTUuNC02LTktNy4yYy0yLjQtMC44LTUtMS45LTQuOS0zLjJjMC0xLDEuNC0yLDQuMS0xLjkKCQljMS44LDAuMSwzLjQsMC4yLDYuNiwxLjhsMy4xLTUuNGMtMi45LTEuNS02LjktMi40LTEwLjEtMi40aDBjLTMuOCwwLTcsMS4yLTksMy4zYy0xLjQsMS40LTIuMSwzLjItMi4xLDUuMmMwLDIuNywxLDQuNywzLjEsNi4zCgkJYzEuOCwxLjMsNC4xLDIuMiw2LjEsMi44YzIuNSwwLjgsNC41LDEuNCw0LjUsMi45YzAsMC41LTAuMiwxLTAuNiwxLjRjLTAuNiwwLjYtMS42LDAuOS0yLjksMC45QzguOSwzMS4xLDcsMzAuNyw0LDI5bC0yLjgsNS41CgkJYzMsMS43LDYuMiwyLjYsOS44LDIuNmwwLjgsMGMzLjEtMC4xLDUuNy0wLjgsNy43LTIuNGMwLjEtMC4xLDAuMi0wLjIsMC4zLTAuM0wxOS42LDM2bDcuNiwwbDEuNC0zLjVjMS40LDAuNSwzLjEsMC44LDQuOCwwLjgKCQljMS43LDAsMy4zLTAuMyw0LjctMC43bDAuOSwzLjRsMTMuNiwwbDAtNy45aDIuOWM3LDAsMTEuMS0zLjYsMTEuMS05LjVDNjYuNiwxMS45LDYyLjUsOSw1NCw5eiBNMzMuMywyNy4xYy0xLDAtMi0wLjItMi45LTAuNQoJCWwyLjgtOWgwLjFsMi44LDlDMzUuMywyNi45LDM0LjMsMjcuMSwzMy4zLDI3LjFMMzMuMywyNy4xeiBNNTQuNSwyMS45aC0ydi03LjJoMmMyLjYsMCw0LjcsMC45LDQuNywzLjYKCQlDNTkuMiwyMSw1Ny4xLDIxLjksNTQuNSwyMS45Ij4KICA8L3BhdGg+CiA8L2c+Cjwvc3ZnPg==" alt="SAP" style="max-height:22px;max-width:58px"/></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Gutschrift gebucht</span><span class="vt-det-sap block text-sm text-gray-500 truncate">Direkt ins Hauptbuch, keine Aufgabe</span></span><span class="relative ml-auto flex h-6 w-6 shrink-0 items-center justify-center"><span class="vt-wait-sap absolute h-2 w-2 rounded-full bg-slate-300"></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check vt-done-sap absolute h-6 w-6 text-emerald-600"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span></div><div class="vt-card-outlook absolute flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-3" style="left:176px;right:0;top:76px;height:64px"><span class="flex items-center justify-center shrink-0 rounded-lg border border-gray-100 bg-white" style="width:76px;height:44px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAABBVBMVEVMaXEQeMMVgNdQ2f4yr+USfNRAxfUnpukAhdMop+oDZLgmqOoIJ2EUftYShNoWg9EDY7kCY7knqesDZ74Nc9INNnYLKmgoqOoDZLgUkN8AeNQTf9cRfNb///8QetUNbtAVgdhQ2f8Ja84PeNQPddMCdNMoqusOctEKZ8wprvIqq+xT3f8jnuEdfa5P2P/6/f4ReL4EYK4RitkAdM8FcsggjscHZroCbcITiNMSgsoTVHMTjtwOVIoFT5kWieQCQHYOdtsUk+NMmd8XYYUKWqU3u/IhltWDu+kEQoyqz/Agib+VxO3M4vbZ6vgUbbEnhNddpOLt9fwzi9oCN2hsrOUrtfwurOjZo0SSAAAAF3RSTlMALPzuGWH+/gLE7+7+T9d9pI674e3Oi+Ey8YAAAAAJcEhZcwAACxMAAAsTAQCanBgAAAQESURBVHic7ZZpd5s4FIblTDzytHbSdhawkcBFyDiUFOPEWxya2qY23pe0/f8/ZY7EYhaPS2Y+zHyY5xOHc94H3XsRCID/HCVQeiPm423ptOBNL6eg9xZkFSVQeJUzL3Z/vcwaSqDQzS14dVog/i8o/OMe3CVAZoLvP8c5LaglaBuNIwb88iHGT1xQSpIS3LUFAQoR8MuHjxHvuaCUWUEvwWBqCknB+4CPwQoKxSTX9zF67mY6NRvnBJWLTynqHMnn/vF2Oj27gqtPFymCqIQQQnJ9M+mYZwX1OGE2iCOEpNZkkVsgZeJIfoFAkiQpvEQvF0gsLrHJU1pDoUHOLZBYviaNZ/P5fDZG1O+gLMsoK0i9SPWo+NpuhX1WYxrkfYERceJVrod5eYmxxfMWxjPq5wnqPbT61YghzGwmyadem2HLwuvlbLlmF1+5gRDUfbJ7NOKuDY8Ir2OC2tiysDVDlFK0xBbeb4lMCNGY4P64t2jbODbEiAvIHFts4awW6l9zgZwRRHsTxgXydo/x+kJmvUPkYGG8kgnRtNwCusMWXlIpaN0KY+tAiabpJJcASXSGw8bJMqKsC2Oq5RQghKQgwgUEqUw3VjVN17Uzgob5ewEAf8/FBITIoUD/keCp/EcoCEsgDJXpDqqu68o5gQGfys++APEmzilicU3TVmwkiq4riib+hQAKBlyUy5tAQNgY91sqE02T1TGzqbqiKIp+WgChIUw3rjMYMUHU+DllnVfJirfgpGBoCI2GIBjGdONu+qPREISTO+yZ4aDp2pjl5yqLK6oiPtm92I+qDtn/CZotdzPg2wvwvExkumPb0Fqv1ha28HobCuxnx44fa/hCRMdpDUcxASGE3O32wecA4xXPq6p6UtB1nG7bj/sCv/VE3S737INgrb4qYb6ZFfRcx+6HcSbgk9cYiiqPd7vxQWmG+axAtB13MDrmqyCKs/dOUZtNng7izabilo+Cruh47n01FvcFYdwnirN8U7XLz47ID25d0fW8btC7o0CLxXnjY49ndCePnucyhet5rPhhSkDS8ePTA0Gn43qObTtesvhQcPX5XLzZtCcLszFwPC+afEpQ+e1znLRGfJgsTHgDW3ar3++3TwjAZYWfKyrFSrFYuX5M8fDAfu+wcQMHrVa/3051oFpNHHFKoPCQYjK57bATCmwY5qA1yCpA4pAFCrdZOkK0gVtckRLEOClYRF8gwYAdpkgsAqQEnTRTGDtinagDpAQwfipkHOO+ojFlinakABlBitQNCA3IWxEawI8EGaDA6ohGCl4s4HWYUR3gbwiOdfTbw7Qg2bNzdQQjBUnB5WsD5kTgdVwlBKAErr/dvACzX0wKACgV3/2Sn3eVdP5f4E/giq/UqYVQDAAAAABJRU5ErkJggg==" alt="Outlook" style="max-height:30px;max-width:30px"/></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Mahnung an Ana versendet</span><span class="vt-det-outlook block text-sm text-gray-500 truncate">Auf Deutsch, aus Ihrem Postfach</span></span><span class="relative ml-auto flex h-6 w-6 shrink-0 items-center justify-center"><span class="vt-wait-outlook absolute h-2 w-2 rounded-full bg-slate-300"></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check vt-done-outlook absolute h-6 w-6 text-emerald-600"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span></div><div class="vt-card-teams absolute flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-3" style="left:176px;right:0;top:152px;height:64px"><span class="flex items-center justify-center shrink-0 rounded-lg border border-gray-100 bg-white" style="width:76px;height:44px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAA51BMVEVMaXF6gepRWshqcdtUXMp6g+xVXcNwdOFPWcl6gupDSqp/h/JYYMJgZtN9he97g+x7gup8hO5RWsdPWcZ7g+xRWsxyet9PV8ZQWclRW85SW8lVXchgaM9ia9hES6R7g+tQWclQWL9TW8BNVb1KUrpES7VHTrhASLNVXcE9RK9mbMP///90fN5VX9d6gup+hu6Ci/lGSoVOV8dXX8L29vxqct5TXNJ7g+vh4vRIUMFeZLSEjPxhaMVZXqpcZc0+QXORltZYYco5PYJGTak/RaODi/puddBMU7BMUJChpt27veaBhs47QIet+ZsmAAAAH3RSTlMAc3IiBfphAvz9Y/78E+akVMvGRozlPbGe99OO9f3WNCFPEgAAAAlwSFlzAAALEwAACxMBAJqcGAAAA9RJREFUeJzNl2t3mkoUhjcCDhMUEO+xLRBQjHYCuRyWDTZp06NNc/r/f0/XDAMMxgueT31WXMTo+7BnmAkbgL8aBCBLHVXtSDJ7c35eNtU4cpwoVk35fAMCy9g4GDv0lRqDcw0ILF3HTgbGun6mAYFsFHmq0I128ZmCAOjruMBMhbzj4LTHS0A8mh8PFuBUBREvAUG7ObTtURcdG5MC0qaSdxwcWzSBoNsnJElIMmwfMSDobdSqQN30QKH5caIxiH3EgMCMdypQU5POXLufaC5DI5P/I2gQnndddyyzudyHAr0NvqFUh4BgmBdAS2geXOIIrM85xUqwQAHlUhQ0AEBu7qfxYb1erx8X2y0uVxICtCvotp4Evgt4lJ+3j9usBJxKNA/Dcg60pAtw+dQSmM/nVxzvigrcH7eZAMcdeg0RNAuBlvTbAK3WPWOeUY2zEhaf6WaKDbahESg2N2h0BAj256/yPBOoWE87/B8CArlP2DpyyYj+6f5o3PN+vm6djW5ItP58lwxdQgjp0/MDE+zEy7Tn39kXk540UISthxDIjcmkydfx/buzlwbf990h+xpSFLq6FH7IRPQNQBF/W4n8mtF4ITiy6eb56VdLkTcuuPt00ZAqNERkVkFW9tsDZblcsmNegU8nMRbY3JCEcBIy7kIxeLpw57+Wy4dti/7G0kHg/6CXUQBHH++0guQSypnzfW/6bbl8WMz8IAhYPAgCKhA39U30z12xnV3XLQQe/ZkxQZBVH5wj8Bi5oIzP6gm8nEKQxYPZbFZH4O0I2Bxk8ToCr1x3FQGL1xB4wrrNr0KZn9YW+H4pmBbx6XRaU+Bn5IIyX0/g54RUsJ6W8VoCnxMEXBAW8TAMTwr8Ii4I+NnDMAz/rSkIGBUBjdcVBJzwv9Vq1QrLeD1BICw8Pvw8fl1HEAhxYfA0fn19fUKgQeXs7+InBf1McDB+QqAlNhypvoaATODySyU+FcOnhzAeQDf4UmXGi+D5l3eCj4VAIyPWYFxU+fT7peT5+bUqcJynXKAlfdrF79x4EFw8C9y+ft0RYJcLtGTcZXd8pQoMHr9W2O5OQXZLcEmf5fdgP4osqgOIPiQkSRJCxqMDbSaC5nZRwlusvP64026ObNseNeRDzTYCpSP0mFF1AnTWL2dfPHTbRjDQq416mU9NQPRpgfYGB+JADVKq7jPQARyOCSDo7TPknVoNEPTiaPdxQS06tVoGy0idsgqMsR6bxx4w9j0zRqmOVYwxVrETbwzr+EMSvDPAwDT0NI4cPY3VjiV2evUMCKA9kExD7fQsmXW5fyd/AH6ZcWVLgxNAAAAAAElFTkSuQmCC" alt="Microsoft Teams" style="max-height:30px;max-width:30px"/></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Zahllauf Donnerstag stoppen lassen</span><span class="vt-det-teams block text-sm text-gray-500 truncate">In vier Minuten, von einem Menschen</span></span><span class="relative ml-auto flex h-6 w-6 shrink-0 items-center justify-center"><span class="vt-wait-teams absolute h-2 w-2 rounded-full bg-slate-300"></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check vt-done-teams absolute h-6 w-6 text-emerald-600"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span></div></div><div class="vt-foot mt-4 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4" style="height:62px"><span class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-5 w-5"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-gray-500">Diese Woche in Ihre Systeme geschrieben</span><span class="block text-2xl font-bold text-gray-900 tabular-nums">1.560 Aktionen</span></span></div></div></div></div></div></div>`,"vero-guardrails":`<div class="relative overflow-hidden"><style>
+        @keyframes vgPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+        @keyframes vgIn    { 0%,3%{opacity:0;transform:translateY(8px);} 11%,100%{opacity:1;transform:none;} }
+
+        
+        @keyframes vgRow_credit {
+          0%,6%       { opacity:0; transform: translateY(8px); }
+          13%,100% { opacity:1; transform: none; }
+        }
+        @keyframes vgRow_plan {
+          0%,12%       { opacity:0; transform: translateY(8px); }
+          19%,100% { opacity:1; transform: none; }
+        }
+        @keyframes vgRow_writeoff {
+          0%,18%       { opacity:0; transform: translateY(8px); }
+          25%,100% { opacity:1; transform: none; }
+        }
+
+        /* the threshold is dragged, and the fill follows it */
+        @keyframes vgHandle {
+          0%,44%   { transform: translateX(59px); }
+          58%,100% { transform: translateX(237px); }
+        }
+        @keyframes vgFill {
+          0%,44%   { width:59px; }
+          58%,100% { width:237px; }
+        }
+        @keyframes vgGrab {
+          0%,38%   { opacity:0; transform: translate(10px,24px); }
+          42%      { opacity:1; transform: translate(10px,24px); }
+          46%      { opacity:1; transform: translate(0,0); }
+          58%      { opacity:1; transform: translate(0,0); }
+          70%      { opacity:0; transform: translate(0,0); }
+          100%     { opacity:0; transform: translate(10px,24px); }
+        }
+        /* the number counts up as it is dragged */
+        @keyframes vgV1 { 0%,46%{opacity:1;} 48%,100%{opacity:0;} }
+        @keyframes vgV2 { 0%,46%{opacity:0;} 48%,53%{opacity:1;} 55%,100%{opacity:0;} }
+        @keyframes vgV3 { 0%,53%{opacity:0;} 55%,100%{opacity:1;} }
+
+        /* the row that changes side when the limit moves */
+        @keyframes vgAsk  { 0%,56%{opacity:1;} 59%,100%{opacity:0;} }
+        @keyframes vgAuto { 0%,56%{opacity:0;} 59%,100%{opacity:1;} }
+        @keyframes vgLit {
+          0%,56%   { border-color:#fde68a; background:#fffbeb; }
+          60%      { border-color:#16a34a; background:#f0fdf4; box-shadow:0 0 0 3px rgba(22,163,74,.14); }
+          70%,100% { border-color:#bbf7d0; background:#f0fdf4; box-shadow:0 0 0 0 rgba(22,163,74,0); }
+        }
+
+        @keyframes vgFoot { 0%,30%{opacity:0;transform:translateY(6px);} 38%,100%{opacity:1;transform:none;} }
+        @keyframes vgSt1 { 0%,36%{opacity:1;} 40%,100%{opacity:0;} }
+        @keyframes vgSt2 { 0%,36%{opacity:0;} 40%,56%{opacity:1;} 60%,100%{opacity:0;} }
+        @keyframes vgSt3 { 0%,56%{opacity:0;} 60%,100%{opacity:1;} }
+
+        .vg-pulse { animation: vgPulse 1.4s ease-in-out infinite; }
+        .vg-in    { animation: vgIn 10s ease-out infinite; opacity:0; }
+        
+        .vg-row-credit { animation: vgRow_credit 10s ease-out infinite; opacity:0; }
+        .vg-row-plan { animation: vgRow_plan 10s ease-out infinite; opacity:0; }
+        .vg-row-writeoff { animation: vgRow_writeoff 10s ease-out infinite; opacity:0; }
+        .vg-handle { animation: vgHandle 10s cubic-bezier(.4,0,.2,1) infinite; }
+        .vg-fill   { animation: vgFill 10s cubic-bezier(.4,0,.2,1) infinite; }
+        .vg-grab   { animation: vgGrab 10s cubic-bezier(.4,0,.2,1) infinite; opacity:0; }
+        .vg-v1 { animation: vgV1 10s linear infinite; }
+        .vg-v2 { animation: vgV2 10s linear infinite; opacity:0; }
+        .vg-v3 { animation: vgV3 10s linear infinite; opacity:0; }
+        .vg-ask  { animation: vgAsk 10s linear infinite; }
+        .vg-auto { animation: vgAuto 10s linear infinite; opacity:0; }
+        .vg-lit  { animation: vgRow_plan 10s ease-out infinite, vgLit 10s ease-out infinite; opacity:0; }
+        .vg-foot { animation: vgFoot 10s ease-out infinite; opacity:0; }
+        .vg-s1 { animation: vgSt1 10s linear infinite; }
+        .vg-s2 { animation: vgSt2 10s linear infinite; opacity:0; }
+        .vg-s3 { animation: vgSt3 10s linear infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-16"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Sie entscheiden,<br/>was allein l\xE4uft.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">Eine Zahl legt fest, wie weit der Agent allein geht. Darunter passiert die Arbeit einfach. Dar\xFCber kommt sie mit allem, was er gefunden hat, und wartet. Und manches l\xE4uft nie automatisch, wie Sie die Grenze auch setzen.</p></div><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="relative block h-[24px] w-[300px] min-w-0"><span class="vg-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Ihre Automatisierungsgrenze</span><span class="vg-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Anhebung auf \u20AC2.000</span><span class="vg-s3 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">Ratenpl\xE4ne laufen jetzt allein</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-slate-800"><span class="vg-pulse w-2 h-2 rounded-full bg-slate-800"></span> Live</span></div><div class="vg-in"><div class="flex items-baseline gap-3"><span class="text-sm font-semibold text-gray-500">Vero handelt allein bis</span><span class="relative block h-[32px] w-[110px]"><span class="vg-v1 absolute inset-0 text-2xl font-bold text-gray-900 tabular-nums leading-[32px]">\u20AC500</span><span class="vg-v2 absolute inset-0 text-2xl font-bold text-gray-900 tabular-nums leading-[32px]">\u20AC1,200</span><span class="vg-v3 absolute inset-0 text-2xl font-bold text-slate-900 tabular-nums leading-[32px]">\u20AC2,000</span></span></div><div class="relative mt-2 mb-1" style="height:26px"><span class="absolute left-0 right-0 top-[10px] h-1.5 rounded-full bg-gray-200"></span><span class="vg-fill absolute left-0 top-[10px] h-1.5 rounded-full bg-slate-900"></span><span class="vg-handle absolute top-0" style="left:-11px"><span class="block h-[22px] w-[22px] rounded-full border-2 border-slate-900 bg-white shadow"></span><svg class="vg-grab absolute pointer-events-none" style="left:8px;top:7px;width:20px;height:20px;z-index:40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3l14 8.5-6.2 1.2L10 19 5 3z" fill="#111827" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></span></div></div><div class="relative mt-4" style="height:184px"><div class="vg-row-credit absolute left-0 right-0 flex items-center gap-3 rounded-xl border px-3 border-emerald-200 bg-emerald-50/60" style="top:0;height:56px"><span class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-white text-slate-700 border border-gray-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand-coins h-5 w-5"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"></path><path d="m2 16 6 6"></path><circle cx="16" cy="9" r="2.9"></circle><circle cx="6" cy="5" r="3"></circle></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">K\xFCrzung gutschreiben</span><span class="block text-sm text-gray-500 tabular-nums">\u20AC280</span></span><span class="ml-auto shrink-0 rounded-full bg-emerald-600 px-2.5 py-1 text-xs font-bold text-white">L\xE4uft allein</span></div><div class="vg-lit absolute left-0 right-0 flex items-center gap-3 rounded-xl border px-3 " style="top:64px;height:56px"><span class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-white text-slate-700 border border-gray-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-check h-5 w-5"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="m9 16 2 2 4-4"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Ratenplan vereinbaren</span><span class="block text-sm text-gray-500 tabular-nums">\u20AC1,400</span></span><span class="relative ml-auto block h-[26px] w-[104px] shrink-0"><span class="vg-ask absolute inset-0 inline-flex items-center justify-center rounded-full bg-amber-500 text-xs font-bold text-white">Zu Ihnen</span><span class="vg-auto absolute inset-0 inline-flex items-center justify-center rounded-full bg-emerald-600 text-xs font-bold text-white">L\xE4uft allein</span></span></div><div class="vg-row-writeoff absolute left-0 right-0 flex items-center gap-3 rounded-xl border px-3 border-slate-300 bg-slate-50" style="top:128px;height:56px"><span class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-slate-900 text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ban h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="m4.9 4.9 14.2 14.2"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Saldo komplett ausbuchen</span><span class="block text-sm text-gray-500 tabular-nums">jeder Betrag</span></span><span class="ml-auto inline-flex shrink-0 items-center gap-1 rounded-full bg-slate-900 px-2.5 py-1 text-xs font-bold text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock h-3 w-3"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Immer Sie</span></div></div><div class="vg-foot mt-4 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4" style="height:62px"><span class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-percent h-5 w-5"><line x1="19" x2="5" y1="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-gray-500">Innerhalb Ihrer Grenzen erledigt</span><span class="block text-2xl font-bold text-gray-900 tabular-nums">97%</span></span><span class="ml-auto shrink-0 rounded-full bg-white px-3 py-1.5 text-sm font-bold text-slate-700 ring-1 ring-slate-200">3% zu Ihnen</span></div></div></div></div></div></div>`,"vero-handoff":`<div class="relative overflow-hidden"><style>
+        @keyframes vhPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+        
+        @keyframes vhRow_read {
+          0%,6%       { opacity:0; transform: translateY(10px); }
+          13%,100% { opacity:1; transform: none; }
+        }
+        @keyframes vhGot_read {
+          0%,11%    { opacity:0; }
+          18%,100% { opacity:1; }
+        }
+        @keyframes vhRow_check {
+          0%,16%       { opacity:0; transform: translateY(10px); }
+          23%,100% { opacity:1; transform: none; }
+        }
+        @keyframes vhGot_check {
+          0%,21%    { opacity:0; }
+          28%,100% { opacity:1; }
+        }
+        @keyframes vhRow_think {
+          0%,26%       { opacity:0; transform: translateY(10px); }
+          33%,100% { opacity:1; transform: none; }
+        }
+        @keyframes vhGot_think {
+          0%,31%    { opacity:0; }
+          38%,100% { opacity:1; }
+        }
+
+        /* the rail draws down as the work happens, then stops short */
+        @keyframes vhRail { 0%,6%{height:0;} 46%,100%{height:100%;} }
+
+        @keyframes vhAsk  { 0%,50%{opacity:0;transform:translateY(10px);} 60%,100%{opacity:1;transform:none;} }
+        /* it keeps breathing because it is still waiting on a person */
+        @keyframes vhWait {
+          0%,60%   { box-shadow:0 0 0 0 rgba(217,119,6,0); }
+          70%      { box-shadow:0 0 0 5px rgba(217,119,6,.14); }
+          82%      { box-shadow:0 0 0 0 rgba(217,119,6,0); }
+          92%      { box-shadow:0 0 0 5px rgba(217,119,6,.14); }
+          100%     { box-shadow:0 0 0 0 rgba(217,119,6,0); }
+        }
+        @keyframes vhFoot { 0%,62%{opacity:0;transform:translateY(6px);} 70%,100%{opacity:1;transform:none;} }
+
+        @keyframes vhSt1 { 0%,26%{opacity:1;} 30%,100%{opacity:0;} }
+        @keyframes vhSt2 { 0%,26%{opacity:0;} 30%,52%{opacity:1;} 56%,100%{opacity:0;} }
+        @keyframes vhSt3 { 0%,52%{opacity:0;} 56%,100%{opacity:1;} }
+
+        .vh-pulse { animation: vhPulse 1.4s ease-in-out infinite; }
+        
+        .vh-row-read { animation: vhRow_read 10s ease-out infinite; opacity:0; }
+        .vh-got-read { animation: vhGot_read 10s ease-out infinite; opacity:0; }
+        .vh-row-check { animation: vhRow_check 10s ease-out infinite; opacity:0; }
+        .vh-got-check { animation: vhGot_check 10s ease-out infinite; opacity:0; }
+        .vh-row-think { animation: vhRow_think 10s ease-out infinite; opacity:0; }
+        .vh-got-think { animation: vhGot_think 10s ease-out infinite; opacity:0; }
+        .vh-rail { animation: vhRail 10s cubic-bezier(.4,0,.3,1) infinite; }
+        .vh-ask  { animation: vhAsk 10s ease-out infinite, vhWait 10s ease-out infinite; opacity:0; }
+        .vh-foot { animation: vhFoot 10s ease-out infinite; opacity:0; }
+        .vh-s1 { animation: vhSt1 10s linear infinite; }
+        .vh-s2 { animation: vhSt2 10s linear infinite; opacity:0; }
+        .vh-s3 { animation: vhSt3 10s linear infinite; opacity:0; }
+      </style><div class="tf-wrap relative z-10 max-w-[1300px] mx-auto px-16 py-20"><div class="tf-row flex items-center gap-16"><div class="flex-1 min-w-0"><h2 class="text-5xl font-bold text-gray-900 leading-tight mb-6">Wissen, wann er<br/>Sie wirklich braucht.</h2><p class="text-xl text-gray-600 leading-relaxed max-w-md">Wenn der Agent sich nicht sicher ist, h\xE4lt er an. Sie bekommen, was er gelesen hat, womit er es abgeglichen hat und was er f\xFCr richtig h\xE4lt, dazu eine einzige Frage. Statt einer unerkl\xE4rten Ausnahme in einer Warteschlange.</p></div><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="min-w-0 leading-tight"><span class="block text-base font-bold text-gray-900">Northbay \xB7 K\xFCrzung \u20AC18.400</span><span class="relative block h-[20px] w-[280px]"><span class="vh-s1 absolute inset-0 text-sm text-gray-500 leading-[20px]">Bearbeitet den Fall</span><span class="vh-s2 absolute inset-0 text-sm text-gray-500 leading-[20px]">Zwei Lesarten der Bonusklausel</span><span class="vh-s3 absolute inset-0 text-sm font-semibold text-amber-700 leading-[20px]">Angehalten, Sofia gefragt</span></span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-slate-800"><span class="vh-pulse w-2 h-2 rounded-full bg-slate-800"></span> Live</span></div><div class="relative" style="height:184px"><div class="absolute w-[2px] rounded-full bg-gray-100" style="left:19px;top:14px;bottom:14px"></div><div class="vh-rail absolute w-[2px] rounded-full bg-slate-300" style="left:19px;top:14px"></div><div class="vh-row-read absolute left-0 right-0 flex items-center gap-3" style="top:0;height:56px"><span class="relative z-10 w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border-2 border-white bg-slate-100 text-slate-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-search h-5 w-5"><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3"></path><path d="m9 18-1.5-1.5"></path><circle cx="5" cy="14" r="3"></circle></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold truncate text-gray-900">Fall gegen den Vertrag gepr\xFCft</span><span class="vh-got-read block text-sm text-gray-500 truncate">Bonusklausel, 2023 unterzeichnet</span></span></div><div class="vh-row-check absolute left-0 right-0 flex items-center gap-3" style="top:64px;height:56px"><span class="relative z-10 w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border-2 border-white bg-slate-100 text-slate-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers h-5 w-5"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold truncate text-gray-900">14 fr\xFChere F\xE4lle dieses Kontos gepr\xFCft</span><span class="vh-got-check block text-sm text-gray-500 truncate">Neun mit 4%, f\xFCnf mit 6% geregelt</span></span></div><div class="vh-row-think absolute left-0 right-0 flex items-center gap-3" style="top:128px;height:56px"><span class="relative z-10 w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border-2 border-white bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb h-5 w-5"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold truncate text-amber-800">Tendiert zu 4%, aber unsicher</span><span class="vh-got-think block text-sm text-gray-500 truncate">Alle f\xFCnf 6%-F\xE4lle waren Q4-Aktionen</span></span></div></div><div class="vh-ask mt-2 rounded-xl border-2 border-amber-300 bg-amber-50/70 p-3.5"><div class="flex items-center gap-3"><span class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-help h-5 w-5"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-base font-bold text-gray-900">Welcher Satz gilt f\xFCr eine Q4-Bestellung, die in Q1 geliefert wurde?</span><span class="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round h-4 w-4"><circle cx="12" cy="8" r="5"></circle><path d="M20 21a8 8 0 0 0-16 0"></path></svg> Wartet auf Sofia, Credit Managerin</span></span><span class="ml-auto flex shrink-0 gap-2"><span class="inline-flex h-9 w-14 items-center justify-center rounded-lg bg-white text-sm font-bold text-gray-900 ring-1 ring-gray-200">4%</span><span class="inline-flex h-9 w-14 items-center justify-center rounded-lg bg-white text-sm font-bold text-gray-900 ring-1 ring-gray-200">6%</span></span></div></div><div class="vh-foot mt-3 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4" style="height:62px"><span class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round h-5 w-5"><circle cx="12" cy="8" r="5"></circle><path d="M20 21a8 8 0 0 0-16 0"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-gray-500">Diesen Monat an Menschen \xFCbergeben</span><span class="block text-2xl font-bold text-gray-900 tabular-nums">9 F\xE4lle</span></span><span class="ml-auto shrink-0 rounded-full bg-white px-3 py-1.5 text-sm font-bold text-slate-700 ring-1 ring-slate-200">jeweils mit vollem Verlauf</span></div></div></div></div></div></div>`};var c=()=>location.pathname.startsWith("/de/")||location.pathname==="/de";var e={css:"",stories:{},locale:"en"};function p({css:o,stories:t,locale:a}){e.css=o,e.stories=t,e.locale=a||"en",customElements.get("transformance-story")||customElements.define("transformance-story",n)}var h=":host(.tf-off) *{animation-play-state:paused!important}",n=class extends HTMLElement{connectedCallback(){if(this._wired)return;this._wired=!0;let t=this.getAttribute("data-story")||"";if(e.locale==="en"&&c()){this.style.display="none";return}if(!e.stories[t]){console.warn("[transformance-story] unknown story:",t,"(locale "+e.locale+")");return}if(this._html=e.stories[t],this.style.display="block",this.style.minHeight=(this.getAttribute("data-h")||560)+"px",!("IntersectionObserver"in window)){this._mount();return}let a=new IntersectionObserver(i=>{if(!i.some(d=>d.isIntersecting))return;a.disconnect();let s=()=>this._mount();"requestIdleCallback"in window?requestIdleCallback(s,{timeout:600}):requestAnimationFrame(()=>setTimeout(s,0))},{rootMargin:"400px 0px"});a.observe(this)}disconnectedCallback(){this._vis&&(this._vis.disconnect(),this._vis=null)}_mount(){if(this._mounted)return;this._mounted=!0;let t=this.attachShadow({mode:"open"}),a=document.createElement("style");a.textContent=e.css+h,t.appendChild(a),t.appendChild(document.createRange().createContextualFragment(this._html)),this.style.minHeight="",this._vis=new IntersectionObserver(i=>{i.forEach(s=>this.classList.toggle("tf-off",!s.isIntersecting))},{rootMargin:"100px 0px"}),this._vis.observe(this)}};p({css:r,stories:l,locale:"de"});})();
