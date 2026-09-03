@@ -362,3 +362,15 @@ Webflow** — gitignored; publishing always uses `--tag`.
   chosen to cover every page TYPE and both locales, which is what the loader's
   logic actually keys off; it doesn't need per-page coverage to be correct,
   but a wider sample after applying to staging is still worth doing.
+
+**One gotcha for hashing `loader.js` specifically.** It's the one file kept
+unminified (readable for debugging), so unlike every minified single-line
+`dist/*.js`, it has real internal newlines — and this machine has
+`core.autocrlf=true`, so git checks it out locally as CRLF while storing and
+serving LF. A local `openssl dgst` on `dist/loader.js` will NOT match the CDN
+hash; this was caught by diffing CDN vs local bytes after publishing
+`stories-3` (132-byte gap, resolved to identical after stripping `\r`). Not a
+defect — loader.js carries no SRI of its own (nothing loads it via
+`integrity=`) — but a reason to never hand-verify this one file's bytes
+without normalizing line endings first, or better, just trust the
+already-established rule: fetch the CDN copy back and diff against that.
