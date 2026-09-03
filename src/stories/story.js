@@ -67,9 +67,19 @@ class TransformanceStory extends HTMLElement {
     }
     this._html = REGISTRY.stories[id];
 
-    /* Reserve the space now so the late mount cannot move anything. */
+    /* Reserve the space now so the late mount cannot move anything.
+
+       Two numbers, because a section is not one height: below 1024 the copy
+       stacks above the card and every section grows by 150-350px. One value
+       cannot serve both - the desktop number under-reserves on a phone (a real
+       shift, on the viewport where these vitals are actually measured) and the
+       mobile number over-reserves on desktop (a gap that snaps shut on mount).
+       So `data-h` is the desktop reserve and `data-h-sm` the mobile one; the
+       verifier prints both. Falls back to `data-h` if only one is given. */
     this.style.display = 'block';
-    this.style.minHeight = (this.getAttribute('data-h') || 560) + 'px';
+    const small = window.matchMedia('(max-width: 1023px)').matches;
+    const h = (small && this.getAttribute('data-h-sm')) || this.getAttribute('data-h') || 560;
+    this.style.minHeight = h + 'px';
 
     if (!('IntersectionObserver' in window)) { this._mount(); return; }
 
