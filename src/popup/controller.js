@@ -178,18 +178,22 @@ const POPUP_MARGIN = 24;
 const POPUP_HEIGHT_ESTIMATE = 420; // conservative — actual card height varies with content
 
 /**
- * True if a solution page's hero animation card (#heroMockup) is currently
- * on screen where the popup would render (fixed, bottom-right corner).
- * No-ops on pages without that element (blogs, glossary, etc).
+ * True if any animated story card (the hero's #heroMockup, or any
+ * <transformance-story> - Collections has five more in its body sections) is
+ * currently on screen where the popup would render (fixed, bottom-right
+ * corner). No-ops on pages without those elements (blogs, glossary, etc).
  */
 function heroOverlapsPopup() {
-  const hero = document.getElementById('heroMockup');
-  if (!hero) return false;
-  const r = hero.getBoundingClientRect();
-  if (r.width === 0 || r.height === 0) return false;
   const popupLeft = window.innerWidth - POPUP_WIDTH - POPUP_MARGIN;
   const popupTop = window.innerHeight - POPUP_HEIGHT_ESTIMATE - POPUP_MARGIN;
-  return r.right > popupLeft && r.bottom > popupTop;
+  const els = [document.getElementById('heroMockup'), ...document.querySelectorAll('transformance-story')];
+  for (const el of els) {
+    if (!el) continue;
+    const r = el.getBoundingClientRect();
+    if (r.width === 0 || r.height === 0) continue;
+    if (r.right > popupLeft && r.bottom > popupTop && r.top < window.innerHeight && r.left < window.innerWidth) return true;
+  }
+  return false;
 }
 
 let installed = false;
