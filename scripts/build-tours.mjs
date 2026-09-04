@@ -27,7 +27,9 @@ const OUT_FILE = path.join(OUT_DIR, 'player.js');
 // English; the full DE layer adds ~20 KB gz over the 58 KB EN-only baseline
 // (→ ~78 KB). Website team is aware. Trim DE strings if you want to pull back
 // toward the original 42 KB target.
-const BUDGET_GZ_KB = 80;
+// Raised again 80 → 81 (2026-09-04) for the popup's hero-overlap defer check
+// (~0.1 KB gz) — see src/popup/controller.js heroOverlapsPopup().
+const BUDGET_GZ_KB = 81;
 
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 

@@ -171,6 +171,27 @@ function scrollPercent(el) {
   return (scrolled + viewport) / docHeight * 100;
 }
 
+const HERO_DEFER_MS = 300;
+const HERO_MAX_DEFER_MS = 8000;
+const POPUP_WIDTH = 360;
+const POPUP_MARGIN = 24;
+const POPUP_HEIGHT_ESTIMATE = 420; // conservative — actual card height varies with content
+
+/**
+ * True if a solution page's hero animation card (#heroMockup) is currently
+ * on screen where the popup would render (fixed, bottom-right corner).
+ * No-ops on pages without that element (blogs, glossary, etc).
+ */
+function heroOverlapsPopup() {
+  const hero = document.getElementById('heroMockup');
+  if (!hero) return false;
+  const r = hero.getBoundingClientRect();
+  if (r.width === 0 || r.height === 0) return false;
+  const popupLeft = window.innerWidth - POPUP_WIDTH - POPUP_MARGIN;
+  const popupTop = window.innerHeight - POPUP_HEIGHT_ESTIMATE - POPUP_MARGIN;
+  return r.right > popupLeft && r.bottom > popupTop;
+}
+
 let installed = false;
 
 const DEBUG = (() => {
@@ -222,11 +243,21 @@ export function installPopup() {
   const trigger = (source) => {
     if (shown) return;
     shown = true;
-    shownAt = Date.now();
     cleanupTriggers();
-    el.show();
-    dbg('popup shown', { source, variant: ctx.variant });
-    track('popup_shown', { variant: ctx.variant, slug: ctx.slug, kind: ctx.kind, trigger: source });
+
+    const deferStart = Date.now();
+    const attemptShow = () => {
+      if (heroOverlapsPopup() && Date.now() - deferStart < HERO_MAX_DEFER_MS) {
+        dbg('deferring — hero card still under popup position', { source });
+        setTimeout(attemptShow, HERO_DEFER_MS);
+        return;
+      }
+      shownAt = Date.now();
+      el.show();
+      dbg('popup shown', { source, variant: ctx.variant });
+      track('popup_shown', { variant: ctx.variant, slug: ctx.slug, kind: ctx.kind, trigger: source });
+    };
+    attemptShow();
   };
 
   const cleanupTriggers = () => {
