@@ -118,11 +118,20 @@ try {
   if (!pages.size) skipped.push('stories (no marker)');
   for (const page of pages) {
     const en = PARTS['story-' + page];
-    if (en) inject(en); else skipped.push('story-' + page + ' (no bundle built)');
-    if (isDE() && STORY_DE_PAGES.includes(page)) {
-      const de = PARTS['story-' + page + '.de'];
-      if (de) inject(de); else skipped.push('story-' + page + '.de (listed but no bundle)');
-    }
+    const wantDE = isDE() && STORY_DE_PAGES.includes(page);
+    const de = wantDE ? PARTS['story-' + page + '.de'] : null;
+    /* A German page with a German bundle gets ONLY the German bundle. Both
+       bundles define the same <transformance-story> element with their own
+       registry, and dynamically inserted scripts run in ARRIVAL order - so
+       injecting both is a race, and whenever the English one won, story.js's
+       "English bundle on /de/" guard hid every story on the page (seen on 3
+       of 5 DE pages, 2026-09-05). Without a German bundle the English one
+       would render nothing on /de/ anyway, so it is skipped rather than
+       fetched. */
+    if (de) inject(de);
+    else if (wantDE) skipped.push('story-' + page + '.de (listed but no bundle)');
+    else if (en) inject(en);
+    else skipped.push('story-' + page + ' (no bundle built)');
   }
 } catch (e) { skipped.push('stories: ' + e.message); }
 

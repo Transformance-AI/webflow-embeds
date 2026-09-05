@@ -197,7 +197,8 @@ const synth = [
     name: 'DE page with vero story (has a DE bundle)',
     body: '<transformance-story data-story="vero-loop"></transformance-story>',
     path: '/de/solutions/vero-agent',
-    wantLoaded: ['popup', 'story-vero', 'story-vero.de'],
+    wantLoaded: ['popup', 'story-vero.de'],
+    wantNotLoaded: ['story-vero'],
   },
   {
     /* collections is not in STORY_DE_PAGES, so the loader must not even
