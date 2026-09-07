@@ -193,6 +193,7 @@ var SOLUTION_IMAGE_MAPS = {
 ],
 };
 function syncSolutionsImages() { if(_lgv3isDE())return;
+if (document.querySelector('transformance-story')) return;
 var m = _lgv3P().match(/^\/solutions\/([a-z-]+?)(?:---wip)?\/?$/);
 if (!m) return;
 var key = m[1];
@@ -201,9 +202,8 @@ if (!expected) return;
 if (document.body.dataset.lgv3SolImg === '1') return;
 document.body.dataset.lgv3SolImg = '1';
 var realImgs = Array.from(document.querySelectorAll('section img, main img, .container img')).filter(function (img) {
-var r = img.getBoundingClientRect();
 var src = (img.src || '').toLowerCase();
-if (r.width < 100 && r.height < 100) return false;
+if (img.complete && img.naturalWidth && img.naturalWidth < 100 && img.naturalHeight < 100) return false;
 if (src.indexOf('logo') !== -1 || src.indexOf('icon') !== -1) return false;
 if (img.closest('.section.footer-a, .navbar, nav, header.navbar')) return false;
 return true;
