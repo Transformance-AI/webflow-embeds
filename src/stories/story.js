@@ -60,6 +60,62 @@ export function mountStories({ css, cssFor, stories, locale }) {
 
 const PAUSE_CSS = ':host(.tf-off) *{animation-play-state:paused!important}';
 
+/* ---------------------------------------------------------------------------
+   Two things below exist purely to keep mobile blocking time down. Measured on
+   the rebuilt home page (12 Lighthouse runs a side, alternated): seven cards
+   cost about 380 ms more total blocking time than the static images they
+   replaced. None of it was attributable to a script - the bundle itself is
+   12 ms of scripting - because it is browser work our code triggers: seven
+   shadow roots, seven ~21 KB stylesheets parsed, several hundred nodes built.
+   --------------------------------------------------------------------------- */
+
+/* ONE parsed stylesheet per unique sheet, shared by every shadow root using it.
+   Each card was building its own <style> element with its own 21 KB copy, so a
+   seven-card page parsed ~150 KB of CSS seven separate times. A constructable
+   stylesheet is parsed once and adopting it costs essentially nothing, so the
+   home page's six distinct sheets are parsed six times instead of seven - and
+   any page repeating a sheet across cards saves proportionally more.
+   Falls back to the old <style> path where CSSStyleSheet is unavailable. */
+const SHEETS = new Map();
+function sheetFor(css) {
+  if (SHEETS.has(css)) return SHEETS.get(css);
+  let sheet = null;
+  try {
+    sheet = new CSSStyleSheet();
+    sheet.replaceSync(css + PAUSE_CSS);
+  } catch (e) { sheet = null; }
+  SHEETS.set(css, sheet);
+  return sheet;
+}
+
+function schedule(fn) {
+  if ('requestIdleCallback' in window) requestIdleCallback(fn, { timeout: 600 });
+  else requestAnimationFrame(function () { setTimeout(fn, 0); });
+}
+
+/* Mounts are serialised through ONE queue, one card per idle slot.
+
+   Every card schedules itself the moment it comes within 400px of the
+   viewport, and on a page where several sit close together that means several
+   mounts land back to back inside a single task. Total blocking time counts
+   everything a task runs past 50 ms, so six 40 ms mounts in one task score far
+   worse than six separate 40 ms tasks scoring zero. Spreading them changes
+   nothing a visitor can see - each card is still built before it scrolls into
+   view - it just stops them piling into one long task. */
+const QUEUE = [];
+let draining = false;
+function enqueue(job) {
+  QUEUE.push(job);
+  if (draining) return;
+  draining = true;
+  const step = function () {
+    const next = QUEUE.shift();
+    if (next) { try { next(); } catch (e) { /* one bad card must not stall the rest */ } }
+    if (QUEUE.length) schedule(step); else draining = false;
+  };
+  schedule(step);
+}
+
 class TransformanceStory extends HTMLElement {
   connectedCallback() {
     if (this._wired) return;
@@ -98,10 +154,9 @@ class TransformanceStory extends HTMLElement {
     const near = new IntersectionObserver((entries) => {
       if (!entries.some((e) => e.isIntersecting)) return;
       near.disconnect();
-      /* Never build during the critical path, even if it is already in view. */
-      const go = () => this._mount();
-      if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 600 });
-      else requestAnimationFrame(() => setTimeout(go, 0));
+      /* Never build during the critical path, even if it is already in view,
+         and never alongside another card - see the queue above. */
+      enqueue(() => this._mount());
     }, { rootMargin: '400px 0px' });
     near.observe(this);
   }
@@ -115,10 +170,15 @@ class TransformanceStory extends HTMLElement {
     this._mounted = true;
 
     const root = this.attachShadow({ mode: 'open' });
-    const style = document.createElement('style');
-    const sheet = (REGISTRY.cssFor && REGISTRY.cssFor[this._id]) || REGISTRY.css;
-    style.textContent = sheet + PAUSE_CSS;
-    root.appendChild(style);
+    const css = (REGISTRY.cssFor && REGISTRY.cssFor[this._id]) || REGISTRY.css;
+    const shared = sheetFor(css);
+    if (shared) {
+      root.adoptedStyleSheets = [shared];
+    } else {
+      const style = document.createElement('style');
+      style.textContent = css + PAUSE_CSS;
+      root.appendChild(style);
+    }
     root.appendChild(document.createRange().createContextualFragment(this._html));
 
     /* The real height takes over from the reservation. */
