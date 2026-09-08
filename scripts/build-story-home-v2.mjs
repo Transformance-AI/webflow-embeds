@@ -126,6 +126,57 @@ async function emit(locale) {
   return { name, rawKb: raw.length / 1024, gzKb, over: gzKb > BUDGET_GZ_KB, cards: Object.keys(stories).length };
 }
 
+/* A THIRD, bilingual bundle: dist/story-home-v2.all.js
+
+   Webflow applies page scripts per PAGE, not per locale, so the home page and
+   /de are the same page and get the same script list. That leaves no way to
+   hand the German bundle to /de and the English one to /en without either
+   (a) extending the site-level loader's parts table, which touches a script
+   shared with ten live pages, or (b) loading both, which is the arrival-order
+   race that hid every story on 3 of 5 German pages on 2026-09-05 - both
+   bundles define the same element and only the first to run wins.
+
+   So home ships ONE bundle carrying both languages and picking at runtime.
+   The per-page bundles deliberately do NOT do this ("a German page should not
+   download the English markup to throw it away"), and that reasoning still
+   holds for them - they are selected by the loader, which knows the locale
+   before it fetches. Home is not, so it pays roughly 18 KB gz to keep the
+   site-level loader untouched on the day we go live. That is a trade made
+   knowingly, and it can be undone later by adding homev2 to the loader's
+   parts table, at which point this file simply stops being applied. */
+async function emitBilingual() {
+  const en = {}, de = {}, cssFor = {};
+  for (const [publicId, srcId, p] of CARDS) {
+    const enUrl = pathToFileURL(path.join(DATA, `${p}.js`)).href;
+    const deUrl = pathToFileURL(path.join(DATA, `${p}.de.js`)).href;
+    const enMod = await import(enUrl);
+    en[publicId] = enMod.CARDS[srcId];
+    cssFor[publicId] = enMod.CSS;
+    if (!existsSync(path.join(DATA, `${p}.de.js`))) return { skipped: `no ${p}.de.js` };
+    const deMap = (await import(deUrl)).CARDS_DE;
+    if (!deMap || !deMap[srcId]) return { skipped: `no German ${srcId}` };
+    de[publicId] = deMap[srcId];
+  }
+  const entry = path.join(TMP, 'home-v2-all.js');
+  writeFileSync(entry, [
+    `const EN = ${JSON.stringify(en)};`,
+    `const DE = ${JSON.stringify(de)};`,
+    `const cssFor = ${JSON.stringify(cssFor)};`,
+    "import { mountStories } from '../story.js';",
+    "const p = location.pathname;",
+    "const isDE = p === '/de' || p.indexOf('/de/') === 0;",
+    "mountStories({ stories: isDE ? DE : EN, cssFor, locale: isDE ? 'de' : 'en' });",
+  ].join(String.fromCharCode(10)));
+
+  const outfile = path.join(OUT_DIR, 'story-home-v2.all.js');
+  await build({ entryPoints: [entry], outfile, bundle: true, minify: true,
+                format: 'iife', target: ['es2020'], legalComments: 'none' });
+  const raw = readFileSync(outfile);
+  const gzKb = gzipSync(raw, { level: 9 }).length / 1024;
+  return { name: 'story-home-v2.all.js', rawKb: raw.length / 1024, gzKb,
+           over: gzKb > BUDGET_GZ_KB * 2, cards: Object.keys(en).length * 2 };
+}
+
 mkdirSync(TMP, { recursive: true });
 mkdirSync(OUT_DIR, { recursive: true });
 
@@ -136,4 +187,18 @@ for (const locale of ['en', 'de']) {
   if (r.over) failed = true;
   console.log(`${r.over ? '✗' : '✓'} dist/${r.name}`.padEnd(34), `${r.cards} cards`.padEnd(10), `${r.rawKb.toFixed(0)} KB → ${r.gzKb.toFixed(1)} KB gz`);
 }
+/* Bilingual bundle NOT emitted by default. It works, but it costs ~24 KB gz
+   over shipping the two per-locale bundles (59.2 vs 35.2), and on a page we
+   just spent real effort bringing to blocking-time parity that is a step
+   backwards for every visitor. Home instead ships both bundles and picks one
+   with a small page-level script (`storyhomev2pick`), which keeps 35 KB per
+   locale AND leaves the site-level loader untouched. Set BILINGUAL=1 to build
+   it if the picker ever has to go. */
+const bi = process.env.BILINGUAL ? await emitBilingual() : { skipped: 'not requested (set BILINGUAL=1)' };
+if (bi.skipped) console.log('  story-home-v2.all'.padEnd(34), 'skipped -', bi.skipped);
+else {
+  if (bi.over) failed = true;
+  console.log(`${bi.over ? '✗' : '✓'} dist/${bi.name}`.padEnd(34), `${bi.cards} cards`.padEnd(10), `${bi.rawKb.toFixed(0)} KB → ${bi.gzKb.toFixed(1)} KB gz`);
+}
+
 if (failed) { console.error(`✗ Over the ${BUDGET_GZ_KB} KB gz budget.`); process.exit(1); }
