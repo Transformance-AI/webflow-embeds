@@ -58,16 +58,29 @@ function wantsTours() { return has('transformance-tour[data-tour]'); }
 /* Hero: <transformance-hero> is likewise real markup, homepage only. */
 function wantsHero() { return has('transformance-hero'); }
 
-/* Banners are NOT real markup at load time. Editor sanitizes custom
-   elements out of rich-text fields, so editors type a plain-text marker
-   instead — [tf-banner:<topic>] — and banners.js's own scanner converts it
-   to <transformance-banner> after it loads. The loader has to look for the
-   TEXT marker, using the identical pattern banners/scanner.js matches
-   against, or it will decide not to load the very script that would have
-   found the marker. */
+/* Banners arrive in TWO forms and the loader has to accept both.
+
+   1. A real <transformance-banner> element. Webflow DESIGNER's rich-text
+      Embed survives into the published HTML, and this is what the content
+      actually uses: 132 of 204 live posts carry the element, plus glossary
+      terms. This is the common case.
+   2. A plain-text marker, [tf-banner:<topic>]. Webflow EDITOR (the simpler
+      tool non-technical staff use) sanitizes custom elements out of
+      rich-text, so an Editor user cannot paste form 1; they type the
+      marker and banners.js's own scanner converts it after load. Nobody
+      has used this yet, but it is the reason the feature is usable by
+      non-developers at all, so it stays.
+
+   Checking only the marker was the 2026-09-07 regression: the loader
+   looked for the form nobody uses, decided not to load banners.js, and so
+   never loaded the script that would have rendered the elements that were
+   right there in the DOM. Banners went dark on 132 posts in both locales.
+   Form 1 must be checked FIRST and on its own - it is a querySelector on
+   markup already parsed, not a textContent scan. */
 const BANNER_MARKER_RE = /\[tf-banner:\s*[a-z0-9-]+\s*\]/i;
 function wantsBanners() {
   try {
+    if (document.querySelector('transformance-banner')) return true;
     const richtexts = document.querySelectorAll('.w-richtext');
     const scope = richtexts.length ? richtexts : [document.body];
     for (const el of scope) if (BANNER_MARKER_RE.test(el.textContent || '')) return true;

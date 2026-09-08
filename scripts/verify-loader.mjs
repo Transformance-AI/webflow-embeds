@@ -150,7 +150,17 @@ for (const c of REAL_CASES) {
   const [tf, gotTour, gotBanner, popupEl] = await tab.evaluate(() => [
     window.__tf || null,
     !!document.querySelector('transformance-tour[data-tour]'),
-    /\[tf-banner:\s*[a-z0-9-]+\s*\]/i.test(document.body.textContent || ''),
+    /* A page "wants banners" if it carries EITHER form: the plain-text
+       marker an Editor user types, or a real <transformance-banner>
+       element pasted through a Designer rich-text embed. This oracle used
+       to test the marker alone - the identical question wantsBanners()
+       asks - so detector and oracle shared one blind spot and agreed with
+       each other while both were wrong. That is why the suite was 16/16
+       green on 2026-09-08 while banners were dead on 132 live posts.
+       Deriving the expectation from the markup that actually renders a
+       banner is what makes this test able to fail. */
+    (/\[tf-banner:\s*[a-z0-9-]+\s*\]/i.test(document.body.textContent || '')
+      || !!document.querySelector('transformance-banner')),
     !!document.querySelector('transformance-popup'),
   ]);
 
