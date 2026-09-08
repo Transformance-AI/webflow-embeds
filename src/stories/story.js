@@ -36,10 +36,21 @@ import { isDE } from '../shared/locale.js';
    register function would define (and upgrade) the element before the data
    existed, and every connectedCallback would bail on an empty registry. Hence
    one function that does both, called by the per-page entry. */
-const REGISTRY = { css: '', stories: {}, locale: 'en' };
+const REGISTRY = { css: '', cssFor: null, stories: {}, locale: 'en' };
 
-export function mountStories({ css, stories, locale }) {
-  REGISTRY.css = css;
+/* `cssFor` is for the combined home bundle only. The per-page bundles each
+   carry ONE Tailwind sheet that every card on that page was generated
+   against, so one `css` string serves them all. Home v2 mixes cards from five
+   different pages, and those five sheets genuinely disagree - same selector,
+   different declarations (e.g. the `:root,:host` variable block, and a
+   `space-y` utility that differs between clearmatch and collections). Merging
+   them would silently restyle a card with another page's values. So a
+   combined bundle passes a story-id -> sheet map instead and each shadow root
+   gets exactly the sheet its markup was exported with. Omit it and behaviour
+   is unchanged. */
+export function mountStories({ css, cssFor, stories, locale }) {
+  REGISTRY.css = css || '';
+  REGISTRY.cssFor = cssFor || null;
   REGISTRY.stories = stories;
   REGISTRY.locale = locale || 'en';
   if (!customElements.get('transformance-story')) {
@@ -55,6 +66,7 @@ class TransformanceStory extends HTMLElement {
     this._wired = true;
 
     const id = this.getAttribute('data-story') || '';
+    this._id = id;
 
     /* Safety net: the English bundle pasted onto a German page renders nothing
        rather than English copy. Wrong script is a mistake; English on a /de/
@@ -104,7 +116,8 @@ class TransformanceStory extends HTMLElement {
 
     const root = this.attachShadow({ mode: 'open' });
     const style = document.createElement('style');
-    style.textContent = REGISTRY.css + PAUSE_CSS;
+    const sheet = (REGISTRY.cssFor && REGISTRY.cssFor[this._id]) || REGISTRY.css;
+    style.textContent = sheet + PAUSE_CSS;
     root.appendChild(style);
     root.appendChild(document.createRange().createContextualFragment(this._html));
 
