@@ -60,6 +60,9 @@ const OUT_DIR = path.join(ROOT, 'dist');
    touching it is the point. */
 const CARDS = [
   ['homev2-vero-loop', 'vero-loop', 'vero'],             // hero
+  ['homev2-vero-tools', 'vero-tools', 'vero'],           // 'Meet Vero' band
+                                                         // (the hero carries vero-loop now,
+                                                         //  so this band needs its own beat)
   ['homev2-clearmatch-loop', 'clearmatch-loop', 'clearmatch'],
   ['homev2-collections-loop', 'collections-loop', 'collections'],
   ['homev2-claimiq-loop', 'claimiq-loop', 'claimiq'],

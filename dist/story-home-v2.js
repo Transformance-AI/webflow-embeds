@@ -111,7 +111,131 @@
         .vl-s2 { animation: vlSt2 10s linear infinite; opacity:0; }
         .vl-s3 { animation: vlSt3 10s linear infinite; opacity:0; }
         .vl-s4 { animation: vlSt4 10s linear infinite; opacity:0; }
-      </style><div class="tf-cardonly"><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-3 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="relative block h-[24px] w-[300px] min-w-0"><span class="vl-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Reading the whole book</span><span class="vl-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Predicting what lands, and when</span><span class="vl-s3 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Ready for you</span><span class="vl-s4 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">312 actions released</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-slate-800"><span class="vl-pulse w-2 h-2 rounded-full bg-slate-800"></span> Live</span></div><div class="relative" style="height:230px"><svg class="absolute inset-0 pointer-events-none" width="245" height="230" fill="none" aria-hidden="true"><path class="vl-lead0" d="M140,24 C159.8,24 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vl-lead1" d="M140,74 C159.8,74 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vl-lead2" d="M140,124 C159.8,124 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vl-lead3" d="M140,180 C159.8,180 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.7" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></svg><div class="vl-sig0 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:4px;width:140px;height:40px"><span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database h-4 w-4"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Your ERP</span></div><div class="vl-sig1 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:54px;width:140px;height:40px"><span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-landmark h-4 w-4"><line x1="3" x2="21" y1="22" y2="22"></line><line x1="6" x2="6" y1="18" y2="11"></line><line x1="10" x2="10" y1="18" y2="11"></line><line x1="14" x2="14" y1="18" y2="11"></line><line x1="18" x2="18" y1="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Your banks</span></div><div class="vl-sig2 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:104px;width:140px;height:40px"><span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-4 w-4"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Your inbox</span></div><div class="vl-sig3 absolute left-0 flex items-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-2 shadow-sm" style="top:154px;width:140px;height:52px"><span class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain h-4 w-4"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500">Model</span><span class="block text-xs font-bold text-gray-900 truncate">Pay dates</span><span class="block text-[10px] text-gray-400 truncate">AR and AP, daily</span></span></div><div class="absolute" style="left:205px;top:105px;transform:translate(-50%,-50%);z-index:20"><div class="relative flex items-center justify-center"><span class="vl-ring absolute w-[76px] h-[76px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><span class="vl-ring2 absolute w-[76px] h-[76px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><div class="relative w-[64px] h-[64px] rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:34px;height:34px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:14.28px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div></div></div></div><div class="vl-head absolute top-0 px-1" style="left:245px;right:0"><span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Prepared overnight</span></div><div class="vl-row0 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:22px;height:46px;border-color:#7c3aed33"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-violet-100 text-violet-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call h-4 w-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.05 2a9 9 0 0 1 8 7.94"></path><path d="M14.05 6A5 5 0 0 1 18 10"></path></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">41 accounts to chase</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#7c3aed">CollectPulse</span></div><div class="vl-row1 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:76px;height:46px;border-color:#16a34a33"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-emerald-100 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-banknote h-4 w-4"><rect width="20" height="12" x="2" y="6" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">\u20AC2.4M ready to apply</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#16a34a">ClearMatch</span></div><div class="vl-row2 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:130px;height:46px;border-color:#d9770633"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale h-4 w-4"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">18 deductions to dispute</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#d97706">ClaimIQ</span></div><div class="vl-row3 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:184px;height:46px;border-color:#4f46e533"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-indigo-100 text-indigo-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up h-4 w-4"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">A week 6 gap to close</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#4f46e5">CashPulse</span></div></div><div class="vl-total mt-4 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4" style="height:62px"><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-gray-500">Waiting for you at 8am</span><span class="block text-2xl font-bold text-gray-900 tabular-nums">312 actions</span></span><span class="relative ml-auto shrink-0"><span class="vl-btn relative block h-[40px] w-[150px] rounded-xl"><span class="vl-a absolute inset-0 inline-flex items-center justify-center rounded-xl bg-slate-900 text-sm font-bold text-white">Release all</span><span class="vl-b absolute inset-0 inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-50 text-sm font-bold text-emerald-700 ring-1 ring-emerald-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg> Released</span></span><svg class="vl-cursor absolute pointer-events-none" style="right:8px;bottom:-2px;width:20px;height:20px;z-index:40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3l14 8.5-6.2 1.2L10 19 5 3z" fill="#111827" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></span></div></div></div></div>`,"homev2-clearmatch-loop":`<style>
+      </style><div class="tf-cardonly"><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-3 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="relative block h-[24px] w-[300px] min-w-0"><span class="vl-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Reading the whole book</span><span class="vl-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Predicting what lands, and when</span><span class="vl-s3 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Ready for you</span><span class="vl-s4 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">312 actions released</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-slate-800"><span class="vl-pulse w-2 h-2 rounded-full bg-slate-800"></span> Live</span></div><div class="relative" style="height:230px"><svg class="absolute inset-0 pointer-events-none" width="245" height="230" fill="none" aria-hidden="true"><path class="vl-lead0" d="M140,24 C159.8,24 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vl-lead1" d="M140,74 C159.8,74 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vl-lead2" d="M140,124 C159.8,124 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vl-lead3" d="M140,180 C159.8,180 153.2,105 171,105" stroke="#0f172a" stroke-opacity="0.7" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></svg><div class="vl-sig0 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:4px;width:140px;height:40px"><span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database h-4 w-4"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Your ERP</span></div><div class="vl-sig1 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:54px;width:140px;height:40px"><span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-landmark h-4 w-4"><line x1="3" x2="21" y1="22" y2="22"></line><line x1="6" x2="6" y1="18" y2="11"></line><line x1="10" x2="10" y1="18" y2="11"></line><line x1="14" x2="14" y1="18" y2="11"></line><line x1="18" x2="18" y1="18" y2="11"></line><polygon points="12 2 20 7 4 7"></polygon></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Your banks</span></div><div class="vl-sig2 absolute left-0 flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-2" style="top:104px;width:140px;height:40px"><span class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-4 w-4"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span><span class="text-xs font-semibold text-gray-700 leading-tight">Your inbox</span></div><div class="vl-sig3 absolute left-0 flex items-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-2 shadow-sm" style="top:154px;width:140px;height:52px"><span class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain h-4 w-4"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"></path><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"></path><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"></path><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"></path><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"></path><path d="M3.477 10.896a4 4 0 0 1 .585-.396"></path><path d="M19.938 10.5a4 4 0 0 1 .585.396"></path><path d="M6 18a4 4 0 0 1-1.967-.516"></path><path d="M19.967 17.484A4 4 0 0 1 18 18"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500">Model</span><span class="block text-xs font-bold text-gray-900 truncate">Pay dates</span><span class="block text-[10px] text-gray-400 truncate">AR and AP, daily</span></span></div><div class="absolute" style="left:205px;top:105px;transform:translate(-50%,-50%);z-index:20"><div class="relative flex items-center justify-center"><span class="vl-ring absolute w-[76px] h-[76px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><span class="vl-ring2 absolute w-[76px] h-[76px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><div class="relative w-[64px] h-[64px] rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:34px;height:34px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:14.28px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div></div></div></div><div class="vl-head absolute top-0 px-1" style="left:245px;right:0"><span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Prepared overnight</span></div><div class="vl-row0 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:22px;height:46px;border-color:#7c3aed33"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-violet-100 text-violet-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call h-4 w-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.05 2a9 9 0 0 1 8 7.94"></path><path d="M14.05 6A5 5 0 0 1 18 10"></path></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">41 accounts to chase</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#7c3aed">CollectPulse</span></div><div class="vl-row1 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:76px;height:46px;border-color:#16a34a33"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-emerald-100 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-banknote h-4 w-4"><rect width="20" height="12" x="2" y="6" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">\u20AC2.4M ready to apply</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#16a34a">ClearMatch</span></div><div class="vl-row2 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:130px;height:46px;border-color:#d9770633"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-amber-100 text-amber-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale h-4 w-4"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">18 deductions to dispute</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#d97706">ClaimIQ</span></div><div class="vl-row3 absolute flex items-center gap-2.5 rounded-xl border bg-white px-3" style="left:245px;right:0;top:184px;height:46px;border-color:#4f46e533"><span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-indigo-100 text-indigo-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up h-4 w-4"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></span><span class="min-w-0 truncate text-sm font-bold text-gray-900">A week 6 gap to close</span><span class="ml-auto shrink-0 text-xs font-bold" style="color:#4f46e5">CashPulse</span></div></div><div class="vl-total mt-4 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4" style="height:62px"><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-gray-500">Waiting for you at 8am</span><span class="block text-2xl font-bold text-gray-900 tabular-nums">312 actions</span></span><span class="relative ml-auto shrink-0"><span class="vl-btn relative block h-[40px] w-[150px] rounded-xl"><span class="vl-a absolute inset-0 inline-flex items-center justify-center rounded-xl bg-slate-900 text-sm font-bold text-white">Release all</span><span class="vl-b absolute inset-0 inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-50 text-sm font-bold text-emerald-700 ring-1 ring-emerald-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg> Released</span></span><svg class="vl-cursor absolute pointer-events-none" style="right:8px;bottom:-2px;width:20px;height:20px;z-index:40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3l14 8.5-6.2 1.2L10 19 5 3z" fill="#111827" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg></span></div></div></div></div>`,"homev2-vero-tools":`<style>
+        @keyframes vtRing  { 0%{transform:scale(.9);opacity:.5;} 70%{transform:scale(1.5);opacity:0;} 100%{transform:scale(1.5);opacity:0;} }
+        @keyframes vtPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+        
+        /* the request goes out ... */
+        @keyframes vtOut_sap {
+          0%,6%       { stroke-dashoffset:100; opacity:0; }
+          8%      { opacity:1; }
+          15%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        /* ... and the same line comes back green when the system answers */
+        @keyframes vtBack_sap {
+          0%,18%       { stroke-dashoffset:100; opacity:0; }
+          20%      { opacity:1; }
+          26%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes vtCard_sap {
+          0%,6%        { opacity:0; transform: translateX(10px); }
+          13%,100%  { opacity:1; transform: none; }
+        }
+        @keyframes vtWait_sap {
+          0%,11%    { opacity:0; }
+          14%,18% { opacity:1; }
+          20%,100% { opacity:0; }
+        }
+        @keyframes vtDone_sap {
+          0%,20%   { opacity:0; transform: scale(.6); }
+          26%,100% { opacity:1; transform: scale(1); }
+        }
+        @keyframes vtDet_sap {
+          0%,20%   { opacity:0; }
+          27%,100% { opacity:1; }
+        }
+        /* the request goes out ... */
+        @keyframes vtOut_outlook {
+          0%,22%       { stroke-dashoffset:100; opacity:0; }
+          24%      { opacity:1; }
+          31%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        /* ... and the same line comes back green when the system answers */
+        @keyframes vtBack_outlook {
+          0%,34%       { stroke-dashoffset:100; opacity:0; }
+          36%      { opacity:1; }
+          42%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes vtCard_outlook {
+          0%,22%        { opacity:0; transform: translateX(10px); }
+          29%,100%  { opacity:1; transform: none; }
+        }
+        @keyframes vtWait_outlook {
+          0%,27%    { opacity:0; }
+          30%,34% { opacity:1; }
+          36%,100% { opacity:0; }
+        }
+        @keyframes vtDone_outlook {
+          0%,36%   { opacity:0; transform: scale(.6); }
+          42%,100% { opacity:1; transform: scale(1); }
+        }
+        @keyframes vtDet_outlook {
+          0%,36%   { opacity:0; }
+          43%,100% { opacity:1; }
+        }
+        /* the request goes out ... */
+        @keyframes vtOut_teams {
+          0%,38%       { stroke-dashoffset:100; opacity:0; }
+          40%      { opacity:1; }
+          47%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        /* ... and the same line comes back green when the system answers */
+        @keyframes vtBack_teams {
+          0%,54%       { stroke-dashoffset:100; opacity:0; }
+          56%      { opacity:1; }
+          62%,100% { stroke-dashoffset:0; opacity:1; }
+        }
+        @keyframes vtCard_teams {
+          0%,38%        { opacity:0; transform: translateX(10px); }
+          45%,100%  { opacity:1; transform: none; }
+        }
+        @keyframes vtWait_teams {
+          0%,43%    { opacity:0; }
+          46%,54% { opacity:1; }
+          56%,100% { opacity:0; }
+        }
+        @keyframes vtDone_teams {
+          0%,56%   { opacity:0; transform: scale(.6); }
+          62%,100% { opacity:1; transform: scale(1); }
+        }
+        @keyframes vtDet_teams {
+          0%,56%   { opacity:0; }
+          63%,100% { opacity:1; }
+        }
+
+        @keyframes vtFoot { 0%,60%{opacity:0;transform:translateY(6px);} 68%,100%{opacity:1;transform:none;} }
+        @keyframes vtSt1 { 0%,30%{opacity:1;} 32%,100%{opacity:0;} }
+        @keyframes vtSt2 { 0%,32%{opacity:0;} 34%,58%{opacity:1;} 60%,100%{opacity:0;} }
+        @keyframes vtSt3 { 0%,60%{opacity:0;} 62%,100%{opacity:1;} }
+
+        .vt-ring  { animation: vtRing 2.6s ease-out infinite; }
+        .vt-ring2 { animation: vtRing 2.6s ease-out infinite; animation-delay:1.3s; }
+        .vt-pulse { animation: vtPulse 1.4s ease-in-out infinite; }
+        
+        .vt-out-sap  { animation: vtOut_sap 10s ease-out infinite; opacity:0; }
+        .vt-back-sap { animation: vtBack_sap 10s ease-out infinite; opacity:0; }
+        .vt-card-sap { animation: vtCard_sap 10s ease-out infinite; opacity:0; }
+        .vt-wait-sap { animation: vtWait_sap 10s linear infinite; opacity:0; }
+        .vt-done-sap { animation: vtDone_sap 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .vt-det-sap  { animation: vtDet_sap 10s ease-out infinite; opacity:0; }
+        .vt-out-outlook  { animation: vtOut_outlook 10s ease-out infinite; opacity:0; }
+        .vt-back-outlook { animation: vtBack_outlook 10s ease-out infinite; opacity:0; }
+        .vt-card-outlook { animation: vtCard_outlook 10s ease-out infinite; opacity:0; }
+        .vt-wait-outlook { animation: vtWait_outlook 10s linear infinite; opacity:0; }
+        .vt-done-outlook { animation: vtDone_outlook 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .vt-det-outlook  { animation: vtDet_outlook 10s ease-out infinite; opacity:0; }
+        .vt-out-teams  { animation: vtOut_teams 10s ease-out infinite; opacity:0; }
+        .vt-back-teams { animation: vtBack_teams 10s ease-out infinite; opacity:0; }
+        .vt-card-teams { animation: vtCard_teams 10s ease-out infinite; opacity:0; }
+        .vt-wait-teams { animation: vtWait_teams 10s linear infinite; opacity:0; }
+        .vt-done-teams { animation: vtDone_teams 10s cubic-bezier(.3,1.5,.5,1) infinite; opacity:0; }
+        .vt-det-teams  { animation: vtDet_teams 10s ease-out infinite; opacity:0; }
+        .vt-foot { animation: vtFoot 10s ease-out infinite; opacity:0; }
+        .vt-s1 { animation: vtSt1 10s linear infinite; }
+        .vt-s2 { animation: vtSt2 10s linear infinite; opacity:0; }
+        .vt-s3 { animation: vtSt3 10s linear infinite; opacity:0; }
+      </style><div class="tf-cardonly"><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="relative block h-[24px] w-[300px] min-w-0"><span class="vt-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">This morning\u2019s actions</span><span class="vt-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Waiting on your AP team</span><span class="vt-s3 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">All three came back</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-slate-800"><span class="vt-pulse w-2 h-2 rounded-full bg-slate-800"></span> Live</span></div><div class="relative" style="height:216px"><svg class="absolute inset-0 pointer-events-none" width="592" height="216" fill="none" aria-hidden="true"><g><path class="vt-out-sap" d="M100,108 C141.8,108 134.2,32 174,32" stroke="#0f172a" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vt-back-sap" d="M100,108 C141.8,108 134.2,32 174,32" stroke="#16a34a" stroke-opacity="0.9" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></g><g><path class="vt-out-outlook" d="M100,108 C141.8,108 134.2,108 174,108" stroke="#0f172a" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vt-back-outlook" d="M100,108 C141.8,108 134.2,108 174,108" stroke="#16a34a" stroke-opacity="0.9" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></g><g><path class="vt-out-teams" d="M100,108 C141.8,108 134.2,184 174,184" stroke="#0f172a" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="vt-back-teams" d="M100,108 C141.8,108 134.2,184 174,184" stroke="#16a34a" stroke-opacity="0.9" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></g></svg><div class="absolute" style="left:66px;top:108px;transform:translate(-50%,-50%);z-index:20"><div class="relative flex items-center justify-center"><span class="vt-ring absolute w-[72px] h-[72px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><span class="vt-ring2 absolute w-[72px] h-[72px] rounded-full" style="box-shadow:0 0 0 2px rgba(15,23,42,.35)"></span><div class="relative w-[64px] h-[64px] rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:34px;height:34px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:14.28px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">1</span></div></div></div></div><span class="absolute left-1/2 -translate-x-1/2 top-[76px] text-sm font-bold text-slate-900">Vero</span></div><div class="vt-card-sap absolute flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-3" style="left:176px;right:0;top:0;height:64px"><span class="flex items-center justify-center shrink-0 rounded-lg border border-gray-100 bg-white" style="width:76px;height:44px"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxuczp4PSJuc19leHRlbmQ7IiB4bWxuczppPSJuc19haTsiIHhtbG5zOmdyYXBoPSJuc19ncmFwaHM7IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDkxIDQ1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA5MSA0NTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgogPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KICAuc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8xXyk7fQoJLnN0MXtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7fQogPC9zdHlsZT4KIDxtZXRhZGF0YT4KICA8c2Z3IHhtbG5zPSJuc19zZnc7Ij4KICAgPHNsaWNlcz4KICAgPC9zbGljZXM+CiAgIDxzbGljZVNvdXJjZUJvdW5kcyBib3R0b21MZWZ0T3JpZ2luPSJ0cnVlIiBoZWlnaHQ9IjQ1IiB3aWR0aD0iOTEiIHg9IjAiIHk9IjAiPgogICA8L3NsaWNlU291cmNlQm91bmRzPgogIDwvc2Z3PgogPC9tZXRhZGF0YT4KIDxnPgogIDxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNDUuNDgzIiB5MT0iNDYiIHgyPSI0NS40ODMiIHkyPSIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgNDYpIj4KICAgPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBBRUVGIj4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjAuMjEyIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA5N0RDIj4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjAuNTE5IiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3Q0M1Ij4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjAuNzkyIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA2Q0I4Ij4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDY2QjMiPgogICA8L3N0b3A+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMCw0NWg0Nkw5MSwwSDBWNDUiPgogIDwvcGF0aD4KICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNTQsOWgtOWwwLDIxLjFMMzcuMiw5aC03LjhsLTYuNywxNy43Yy0wLjctNC41LTUuNC02LTktNy4yYy0yLjQtMC44LTUtMS45LTQuOS0zLjJjMC0xLDEuNC0yLDQuMS0xLjkKCQljMS44LDAuMSwzLjQsMC4yLDYuNiwxLjhsMy4xLTUuNGMtMi45LTEuNS02LjktMi40LTEwLjEtMi40aDBjLTMuOCwwLTcsMS4yLTksMy4zYy0xLjQsMS40LTIuMSwzLjItMi4xLDUuMmMwLDIuNywxLDQuNywzLjEsNi4zCgkJYzEuOCwxLjMsNC4xLDIuMiw2LjEsMi44YzIuNSwwLjgsNC41LDEuNCw0LjUsMi45YzAsMC41LTAuMiwxLTAuNiwxLjRjLTAuNiwwLjYtMS42LDAuOS0yLjksMC45QzguOSwzMS4xLDcsMzAuNyw0LDI5bC0yLjgsNS41CgkJYzMsMS43LDYuMiwyLjYsOS44LDIuNmwwLjgsMGMzLjEtMC4xLDUuNy0wLjgsNy43LTIuNGMwLjEtMC4xLDAuMi0wLjIsMC4zLTAuM0wxOS42LDM2bDcuNiwwbDEuNC0zLjVjMS40LDAuNSwzLjEsMC44LDQuOCwwLjgKCQljMS43LDAsMy4zLTAuMyw0LjctMC43bDAuOSwzLjRsMTMuNiwwbDAtNy45aDIuOWM3LDAsMTEuMS0zLjYsMTEuMS05LjVDNjYuNiwxMS45LDYyLjUsOSw1NCw5eiBNMzMuMywyNy4xYy0xLDAtMi0wLjItMi45LTAuNQoJCWwyLjgtOWgwLjFsMi44LDlDMzUuMywyNi45LDM0LjMsMjcuMSwzMy4zLDI3LjFMMzMuMywyNy4xeiBNNTQuNSwyMS45aC0ydi03LjJoMmMyLjYsMCw0LjcsMC45LDQuNywzLjYKCQlDNTkuMiwyMSw1Ny4xLDIxLjksNTQuNSwyMS45Ij4KICA8L3BhdGg+CiA8L2c+Cjwvc3ZnPg==" alt="SAP" style="max-height:22px;max-width:58px"/></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Credit note posted</span><span class="vt-det-sap block text-sm text-gray-500 truncate">Straight into the ledger, not a to-do</span></span><span class="relative ml-auto flex h-6 w-6 shrink-0 items-center justify-center"><span class="vt-wait-sap absolute h-2 w-2 rounded-full bg-slate-300"></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check vt-done-sap absolute h-6 w-6 text-emerald-600"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span></div><div class="vt-card-outlook absolute flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-3" style="left:176px;right:0;top:76px;height:64px"><span class="flex items-center justify-center shrink-0 rounded-lg border border-gray-100 bg-white" style="width:76px;height:44px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAABBVBMVEVMaXEQeMMVgNdQ2f4yr+USfNRAxfUnpukAhdMop+oDZLgmqOoIJ2EUftYShNoWg9EDY7kCY7knqesDZ74Nc9INNnYLKmgoqOoDZLgUkN8AeNQTf9cRfNb///8QetUNbtAVgdhQ2f8Ja84PeNQPddMCdNMoqusOctEKZ8wprvIqq+xT3f8jnuEdfa5P2P/6/f4ReL4EYK4RitkAdM8FcsggjscHZroCbcITiNMSgsoTVHMTjtwOVIoFT5kWieQCQHYOdtsUk+NMmd8XYYUKWqU3u/IhltWDu+kEQoyqz/Agib+VxO3M4vbZ6vgUbbEnhNddpOLt9fwzi9oCN2hsrOUrtfwurOjZo0SSAAAAF3RSTlMALPzuGWH+/gLE7+7+T9d9pI674e3Oi+Ey8YAAAAAJcEhZcwAACxMAAAsTAQCanBgAAAQESURBVHic7ZZpd5s4FIblTDzytHbSdhawkcBFyDiUFOPEWxya2qY23pe0/f8/ZY7EYhaPS2Y+zHyY5xOHc94H3XsRCID/HCVQeiPm423ptOBNL6eg9xZkFSVQeJUzL3Z/vcwaSqDQzS14dVog/i8o/OMe3CVAZoLvP8c5LaglaBuNIwb88iHGT1xQSpIS3LUFAQoR8MuHjxHvuaCUWUEvwWBqCknB+4CPwQoKxSTX9zF67mY6NRvnBJWLTynqHMnn/vF2Oj27gqtPFymCqIQQQnJ9M+mYZwX1OGE2iCOEpNZkkVsgZeJIfoFAkiQpvEQvF0gsLrHJU1pDoUHOLZBYviaNZ/P5fDZG1O+gLMsoK0i9SPWo+NpuhX1WYxrkfYERceJVrod5eYmxxfMWxjPq5wnqPbT61YghzGwmyadem2HLwuvlbLlmF1+5gRDUfbJ7NOKuDY8Ir2OC2tiysDVDlFK0xBbeb4lMCNGY4P64t2jbODbEiAvIHFts4awW6l9zgZwRRHsTxgXydo/x+kJmvUPkYGG8kgnRtNwCusMWXlIpaN0KY+tAiabpJJcASXSGw8bJMqKsC2Oq5RQghKQgwgUEqUw3VjVN17Uzgob5ewEAf8/FBITIoUD/keCp/EcoCEsgDJXpDqqu68o5gQGfys++APEmzilicU3TVmwkiq4riib+hQAKBlyUy5tAQNgY91sqE02T1TGzqbqiKIp+WgChIUw3rjMYMUHU+DllnVfJirfgpGBoCI2GIBjGdONu+qPREISTO+yZ4aDp2pjl5yqLK6oiPtm92I+qDtn/CZotdzPg2wvwvExkumPb0Fqv1ha28HobCuxnx44fa/hCRMdpDUcxASGE3O32wecA4xXPq6p6UtB1nG7bj/sCv/VE3S737INgrb4qYb6ZFfRcx+6HcSbgk9cYiiqPd7vxQWmG+axAtB13MDrmqyCKs/dOUZtNng7izabilo+Cruh47n01FvcFYdwnirN8U7XLz47ID25d0fW8btC7o0CLxXnjY49ndCePnucyhet5rPhhSkDS8ePTA0Gn43qObTtesvhQcPX5XLzZtCcLszFwPC+afEpQ+e1znLRGfJgsTHgDW3ar3++3TwjAZYWfKyrFSrFYuX5M8fDAfu+wcQMHrVa/3051oFpNHHFKoPCQYjK57bATCmwY5qA1yCpA4pAFCrdZOkK0gVtckRLEOClYRF8gwYAdpkgsAqQEnTRTGDtinagDpAQwfipkHOO+ojFlinakABlBitQNCA3IWxEawI8EGaDA6ohGCl4s4HWYUR3gbwiOdfTbw7Qg2bNzdQQjBUnB5WsD5kTgdVwlBKAErr/dvACzX0wKACgV3/2Sn3eVdP5f4E/giq/UqYVQDAAAAABJRU5ErkJggg==" alt="Outlook" style="max-height:30px;max-width:30px"/></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Reminder sent to Ana</span><span class="vt-det-outlook block text-sm text-gray-500 truncate">In German, from your own mailbox</span></span><span class="relative ml-auto flex h-6 w-6 shrink-0 items-center justify-center"><span class="vt-wait-outlook absolute h-2 w-2 rounded-full bg-slate-300"></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check vt-done-outlook absolute h-6 w-6 text-emerald-600"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span></div><div class="vt-card-teams absolute flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-3" style="left:176px;right:0;top:152px;height:64px"><span class="flex items-center justify-center shrink-0 rounded-lg border border-gray-100 bg-white" style="width:76px;height:44px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAA51BMVEVMaXF6gepRWshqcdtUXMp6g+xVXcNwdOFPWcl6gupDSqp/h/JYYMJgZtN9he97g+x7gup8hO5RWsdPWcZ7g+xRWsxyet9PV8ZQWclRW85SW8lVXchgaM9ia9hES6R7g+tQWclQWL9TW8BNVb1KUrpES7VHTrhASLNVXcE9RK9mbMP///90fN5VX9d6gup+hu6Ci/lGSoVOV8dXX8L29vxqct5TXNJ7g+vh4vRIUMFeZLSEjPxhaMVZXqpcZc0+QXORltZYYco5PYJGTak/RaODi/puddBMU7BMUJChpt27veaBhs47QIet+ZsmAAAAH3RSTlMAc3IiBfphAvz9Y/78E+akVMvGRozlPbGe99OO9f3WNCFPEgAAAAlwSFlzAAALEwAACxMBAJqcGAAAA9RJREFUeJzNl2t3mkoUhjcCDhMUEO+xLRBQjHYCuRyWDTZp06NNc/r/f0/XDAMMxgueT31WXMTo+7BnmAkbgL8aBCBLHVXtSDJ7c35eNtU4cpwoVk35fAMCy9g4GDv0lRqDcw0ILF3HTgbGun6mAYFsFHmq0I128ZmCAOjruMBMhbzj4LTHS0A8mh8PFuBUBREvAUG7ObTtURcdG5MC0qaSdxwcWzSBoNsnJElIMmwfMSDobdSqQN30QKH5caIxiH3EgMCMdypQU5POXLufaC5DI5P/I2gQnndddyyzudyHAr0NvqFUh4BgmBdAS2geXOIIrM85xUqwQAHlUhQ0AEBu7qfxYb1erx8X2y0uVxICtCvotp4Evgt4lJ+3j9usBJxKNA/Dcg60pAtw+dQSmM/nVxzvigrcH7eZAMcdeg0RNAuBlvTbAK3WPWOeUY2zEhaf6WaKDbahESg2N2h0BAj256/yPBOoWE87/B8CArlP2DpyyYj+6f5o3PN+vm6djW5ItP58lwxdQgjp0/MDE+zEy7Tn39kXk540UISthxDIjcmkydfx/buzlwbf990h+xpSFLq6FH7IRPQNQBF/W4n8mtF4ITiy6eb56VdLkTcuuPt00ZAqNERkVkFW9tsDZblcsmNegU8nMRbY3JCEcBIy7kIxeLpw57+Wy4dti/7G0kHg/6CXUQBHH++0guQSypnzfW/6bbl8WMz8IAhYPAgCKhA39U30z12xnV3XLQQe/ZkxQZBVH5wj8Bi5oIzP6gm8nEKQxYPZbFZH4O0I2Bxk8ToCr1x3FQGL1xB4wrrNr0KZn9YW+H4pmBbx6XRaU+Bn5IIyX0/g54RUsJ6W8VoCnxMEXBAW8TAMTwr8Ii4I+NnDMAz/rSkIGBUBjdcVBJzwv9Vq1QrLeD1BICw8Pvw8fl1HEAhxYfA0fn19fUKgQeXs7+InBf1McDB+QqAlNhypvoaATODySyU+FcOnhzAeQDf4UmXGi+D5l3eCj4VAIyPWYFxU+fT7peT5+bUqcJynXKAlfdrF79x4EFw8C9y+ft0RYJcLtGTcZXd8pQoMHr9W2O5OQXZLcEmf5fdgP4osqgOIPiQkSRJCxqMDbSaC5nZRwlusvP64026ObNseNeRDzTYCpSP0mFF1AnTWL2dfPHTbRjDQq416mU9NQPRpgfYGB+JADVKq7jPQARyOCSDo7TPknVoNEPTiaPdxQS06tVoGy0idsgqMsR6bxx4w9j0zRqmOVYwxVrETbwzr+EMSvDPAwDT0NI4cPY3VjiV2evUMCKA9kExD7fQsmXW5fyd/AH6ZcWVLgxNAAAAAAElFTkSuQmCC" alt="Microsoft Teams" style="max-height:30px;max-width:30px"/></span><span class="min-w-0 leading-tight"><span class="block text-sm font-bold text-gray-900 truncate">Asked AP to hold Thursday\u2019s run</span><span class="vt-det-teams block text-sm text-gray-500 truncate">Answered in four minutes, by a person</span></span><span class="relative ml-auto flex h-6 w-6 shrink-0 items-center justify-center"><span class="vt-wait-teams absolute h-2 w-2 rounded-full bg-slate-300"></span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check vt-done-teams absolute h-6 w-6 text-emerald-600"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></span></div></div><div class="vt-foot mt-4 flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4" style="height:62px"><span class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-5 w-5"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-gray-500">Written into your systems this week</span><span class="block text-2xl font-bold text-gray-900 tabular-nums">1,560 actions</span></span></div></div></div></div>`,"homev2-clearmatch-loop":`<style>
         @keyframes calRing  { 0%{transform:scale(.9);opacity:.5;} 70%{transform:scale(1.5);opacity:0;} 100%{transform:scale(1.5);opacity:0;} }
         @keyframes calPulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
 
@@ -710,6 +834,944 @@
         .hs-s2 { animation: hsSt2 10s linear infinite; opacity:0; }
         .hs-s3 { animation: hsSt3 10s linear infinite; opacity:0; }
       </style><div class="tf-cardonly"><div class="tf-card relative w-[640px] shrink-0" style="--card-w:640px"><div class="bg-white rounded-2xl shadow-xl border border-gray-100/80 p-6"><div class="flex items-center gap-3 pb-3.5 mb-4 border-b border-gray-100"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:30px;height:30px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:12.6px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">1</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div><span class="relative block h-[24px] w-[320px] min-w-0"><span class="hs-s1 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Whatever you already run</span><span class="hs-s2 absolute inset-0 text-base font-bold text-gray-900 leading-[24px] whitespace-nowrap">Connected where the data sits</span><span class="hs-s3 absolute inset-0 text-base font-bold text-emerald-800 leading-[24px] whitespace-nowrap">Nothing moved, nothing rebuilt</span></span><span class="ml-auto inline-flex items-center gap-1.5 shrink-0 text-sm font-bold text-violet-700"><span class="hs-pulse w-2 h-2 rounded-full bg-violet-600"></span> Live</span></div><div class="relative" style="height:204px"><svg class="absolute inset-0 pointer-events-none" width="592" height="204" fill="none" aria-hidden="true"><path class="hs-pipe-sap" d="M94,64 V96" stroke="#6d28d9" stroke-opacity="0.45" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="hs-pipe-oracle" d="M296,64 V96" stroke="#6d28d9" stroke-opacity="0.45" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path><path class="hs-pipe-dyn" d="M498,64 V96" stroke="#6d28d9" stroke-opacity="0.45" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="100" pathLength="100"></path></svg><span class="hs-tile-sap absolute flex items-center justify-center rounded-xl border border-gray-200 bg-white" style="left:0;top:0;width:188px;height:64px"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxuczp4PSJuc19leHRlbmQ7IiB4bWxuczppPSJuc19haTsiIHhtbG5zOmdyYXBoPSJuc19ncmFwaHM7IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDkxIDQ1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA5MSA0NTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgogPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KICAuc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8xXyk7fQoJLnN0MXtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7fQogPC9zdHlsZT4KIDxtZXRhZGF0YT4KICA8c2Z3IHhtbG5zPSJuc19zZnc7Ij4KICAgPHNsaWNlcz4KICAgPC9zbGljZXM+CiAgIDxzbGljZVNvdXJjZUJvdW5kcyBib3R0b21MZWZ0T3JpZ2luPSJ0cnVlIiBoZWlnaHQ9IjQ1IiB3aWR0aD0iOTEiIHg9IjAiIHk9IjAiPgogICA8L3NsaWNlU291cmNlQm91bmRzPgogIDwvc2Z3PgogPC9tZXRhZGF0YT4KIDxnPgogIDxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNDUuNDgzIiB5MT0iNDYiIHgyPSI0NS40ODMiIHkyPSIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgNDYpIj4KICAgPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBBRUVGIj4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjAuMjEyIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA5N0RDIj4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjAuNTE5IiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3Q0M1Ij4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjAuNzkyIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA2Q0I4Ij4KICAgPC9zdG9wPgogICA8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDY2QjMiPgogICA8L3N0b3A+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMCw0NWg0Nkw5MSwwSDBWNDUiPgogIDwvcGF0aD4KICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNTQsOWgtOWwwLDIxLjFMMzcuMiw5aC03LjhsLTYuNywxNy43Yy0wLjctNC41LTUuNC02LTktNy4yYy0yLjQtMC44LTUtMS45LTQuOS0zLjJjMC0xLDEuNC0yLDQuMS0xLjkKCQljMS44LDAuMSwzLjQsMC4yLDYuNiwxLjhsMy4xLTUuNGMtMi45LTEuNS02LjktMi40LTEwLjEtMi40aDBjLTMuOCwwLTcsMS4yLTksMy4zYy0xLjQsMS40LTIuMSwzLjItMi4xLDUuMmMwLDIuNywxLDQuNywzLjEsNi4zCgkJYzEuOCwxLjMsNC4xLDIuMiw2LjEsMi44YzIuNSwwLjgsNC41LDEuNCw0LjUsMi45YzAsMC41LTAuMiwxLTAuNiwxLjRjLTAuNiwwLjYtMS42LDAuOS0yLjksMC45QzguOSwzMS4xLDcsMzAuNyw0LDI5bC0yLjgsNS41CgkJYzMsMS43LDYuMiwyLjYsOS44LDIuNmwwLjgsMGMzLjEtMC4xLDUuNy0wLjgsNy43LTIuNGMwLjEtMC4xLDAuMi0wLjIsMC4zLTAuM0wxOS42LDM2bDcuNiwwbDEuNC0zLjVjMS40LDAuNSwzLjEsMC44LDQuOCwwLjgKCQljMS43LDAsMy4zLTAuMyw0LjctMC43bDAuOSwzLjRsMTMuNiwwbDAtNy45aDIuOWM3LDAsMTEuMS0zLjYsMTEuMS05LjVDNjYuNiwxMS45LDYyLjUsOSw1NCw5eiBNMzMuMywyNy4xYy0xLDAtMi0wLjItMi45LTAuNQoJCWwyLjgtOWgwLjFsMi44LDlDMzUuMywyNi45LDM0LjMsMjcuMSwzMy4zLDI3LjFMMzMuMywyNy4xeiBNNTQuNSwyMS45aC0ydi03LjJoMmMyLjYsMCw0LjcsMC45LDQuNywzLjYKCQlDNTkuMiwyMSw1Ny4xLDIxLjksNTQuNSwyMS45Ij4KICA8L3BhdGg+CiA8L2c+Cjwvc3ZnPg==" alt="SAP" style="max-height:30px;max-width:62px"/></span><span class="hs-tile-oracle absolute flex items-center justify-center rounded-xl border border-gray-200 bg-white" style="left:202px;top:0;width:188px;height:64px"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxuczp4PSJuc19leHRlbmQ7IiB4bWxuczppPSJuc19haTsiIHhtbG5zOmdyYXBoPSJuc19ncmFwaHM7IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ2MS42IDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NjEuNiA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgogPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KICAuc3Qwe2ZpbGw6I0M3NDYzNDt9CiA8L3N0eWxlPgogPG1ldGFkYXRhPgogIDxzZncgeG1sbnM9Im5zX3NmdzsiPgogICA8c2xpY2VzPgogICA8L3NsaWNlcz4KICAgPHNsaWNlU291cmNlQm91bmRzIGJvdHRvbUxlZnRPcmlnaW49InRydWUiIGhlaWdodD0iNjAiIHdpZHRoPSI0NjEuNiIgeD0iLTMwLjQiIHk9Ii0yMzAuNSI+CiAgIDwvc2xpY2VTb3VyY2VCb3VuZHM+CiAgPC9zZnc+CiA8L21ldGFkYXRhPgogPHBhdGggY2xhc3M9InN0MCIgZD0iTTE5OS43LDM5aDMwLjRsLTE2LjEtMjZsLTI5LjYsNDYuOWgtMTMuNGwzNi01Ni4zYzIuNy0zLjksOC4xLTQuOCwxMS45LTIuMWMwLjgsMC42LDEuNSwxLjIsMi4xLDJsMzYuMSw1Ni40CgloLTEzLjRsLTYuMy0xMC41aC0zMC44TDE5OS43LDM5IE0zMzkuNSw0OS41VjAuNmgtMTEuNHY1My43YzAsMS41LDAuNiwzLDEuNyw0YzEuMSwxLjEsMi42LDEuNyw0LjIsMS43aDUxLjlsNi44LTEwLjVMMzM5LjUsNDkuNQoJIE0xNTAuNiw0MC43YzExLjEsMCwyMC4xLTksMjAuMS0yMC4xcy05LTIwLjEtMjAuMS0yMC4xaC00OS45djU5LjRIMTEyVjExLjFoMzcuOGM1LjMsMCw5LjYsNC4zLDkuNiw5LjZzLTQuMyw5LjYtOS42LDkuNmgtMzIuMgoJbDM0LjEsMjkuNmgxNi42bC0yMi45LTE5LjJIMTUwLjYgTTMwLjUsNTkuOUg2NWMxNi40LTAuNCwyOS4zLTE0LjEsMjguOS0zMC40QzkzLjUsMTMuNyw4MC43LDEsNjUsMC42SDMwLjUKCUMxNC4xLDAuMiwwLjQsMTMuMSwwLDI5LjVzMTIuNSwzMCwyOC45LDMwLjRDMjkuNCw2MCwyOS45LDYwLDMwLjUsNTkuOSBNNjQuMiw0OS41aC0zM2MtMTAuNi0wLjMtMTguOS05LjItMTguNi0xOS44CgljMC4zLTEwLjEsOC41LTE4LjMsMTguNi0xOC42aDMzYzEwLjYtMC4zLDE5LjUsOCwxOS44LDE4LjZjMC4zLDEwLjYtOCwxOS41LTE4LjYsMTkuOEM2NSw0OS41LDY0LjYsNDkuNSw2NC4yLDQ5LjUgTTI4MC45LDU5LjkKCWgzNS4ybDYuNy0xMC40aC00MS4xYy0xMC42LDAuMy0xOS41LTgtMTkuOC0xOC42Yy0wLjMtMTAuNiw4LTE5LjUsMTguNi0xOS44YzAuNCwwLDAuOCwwLDEuMiwwaDMzLjVsNi44LTEwLjVoLTQxCgljLTE2LjQtMC40LTMwLDEyLjUtMzAuNCwyOC45Yy0wLjQsMTYuNCwxMi41LDMwLDI4LjksMzAuNEMyNzkuOSw2MCwyODAuNCw2MCwyODAuOSw1OS45IE00MjAuNSw0OS41Yy04LjYsMC0xNi4yLTUuNy0xOC41LTE0aDQ4LjgKCWw2LjctMTAuNUg0MDJjMi4zLTguMyw5LjktMTQsMTguNS0xNEg0NTRsNi43LTEwLjVoLTQxQzQwMy4zLDEsMzkwLjQsMTQuNiwzOTAuOCwzMWMwLjQsMTUuOCwxMy4xLDI4LjUsMjguOSwyOC45aDM1LjJsNi43LTEwLjQKCUw0MjAuNSw0OS41Ij4KIDwvcGF0aD4KPC9zdmc+" alt="Oracle" style="max-height:20px;max-width:140px"/></span><span class="hs-tile-dyn absolute flex items-center justify-center rounded-xl border border-gray-200 bg-white" style="left:404px;top:0;width:188px;height:64px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAACYVBMVEVMaXFvbcUAUtOMmfNbVbkAaedjdNAbWdCCiepvf/EHaucAUssDUckBU9J3e9szb9pxlfR4jPE3W8efk/IAZucAUtBBdNlxW7iknPZwUK9Dc+hAVb9pjPBjdOYlatmWke8KVc+ml/dXVr0ibugeU8VTVr1jUbYWYNQJa+cZUsQtUsFUUbhNUrs4U8EdceURb+hNhvNgU7gEVMwHVs5GUr4idOp2deYRWcyUd9hnUraAd+cFbe2QgOmglPBxVLExU8EGauZfUrhZkfhAge9oc+YFaud5ivCjlPOCeemfkfKFeOY+buZbkvemlPNTYtJXfO0AUssAUskAUs1KUrtPUbpFUrw4Ur8zUsBAUr5VUrkAaOdaUrgBUsdfUbYAUtAobecQa+cebOcAaugAU9MnUsI8Ur+OkfWTkvSEkPUrUsIXUsQdUsOYkvSJkPUvUsEwbeciUsNoUbQAa+d/j/VkUbU4buiMfemDfOmfk/RtUbNFcOcPUsYHUsZ9d+c/b+hLcedRcudXc+hcc+eHiO5vge91d+iYfudceutQe+xxUbAAbvZldOdbgu6ck/SPjvBhc+drdeeBjPBwdecAVtlDfe96fesAV92WhuxxifF0UK2snv9oeupweupFdutfVcA4d+uehO2Phex5hu1ih/AAbPBwSqJyTKcAV+BVVsRlf/BIVscwV8wudOs8VslYjfWdje6jkPFxU7aJfvV6nP9+gfEyefgAcvidoP8zbOZTefdIU8AZdvcfVs6Qnv9PU75rmf+IZsUPV9CGnf9pVb5xVr11V7s7beZ/W7V5WMAnZuFnZdQlWvMRAAAAuXRSTlMADPtfMfwTAgEEh/yhpCIyYv5b+/z8HV9e4YO1/XtD/tX+f32cmP5tyvz7/N71W6/+zu648/r8hf7z6fmONLXZ4OPt5vvvVaRu3rv7p8L89f///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////pTFajYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAWtSURBVHiclZfpVxNXGIffpElmhiU0LCJi2RQBAQUX3LXWurY9h2AkBAhtDSAuUakRUUgrZIMQozEJBEgwLLJjgIJFsYob9s/quXNnAiQxy+8Dh+HwPPe9772Z3AuAQ0JORsaBOBKAoAiIPBTEj1mtY9yMnE0AQBBkpAICYse4XK6ie4y7d5cAGSN0EEigUCiQo3tPbBoHgIxoKgQjUChqkpIU3daM7WlURO0gGEENnaQyRTeXbWl4UyEgtpuL6ZqasrKy0ugyhTV6L25pOA4CYruTWBoJSkujo0sV1j174wVAhtFSAgvKaL4URSwWi6OrxQrFnphwWkoggXdwjKNUt7aK37/POBBHIUeQMgiItSb50dXVra0t1/Ly3ry5fSKHF7QdBMRYozfQNN7Scu3a9eu3a2uvTk3tTI0P0lKCFWwcHNEIv3lTKpXOzBSmxuNd+jWB2EtXr9EYLy8vr6uomJwsyE6jgCACC8Qsz5aOBt+JBsd4xaVLl15Pvi3IEoCfgYAYBS3wLf3mlLS8vI6hL168KJFI3o4X8PwMBC3w9u22d+aFqSdmZlhcIpFIZLL8/IGTm4D0F7T6Di6Vls/EgyA+dd/kazy4TCaTVVVVyQeyfUsgIEbRwgxeW3vV27c6ulhhVsE4xqsQLpfvOCT0KYGAmPd56xeNpisqKnhAoQ8CJ3s8Hw8ul8tVKtWnZKB8BNvf5DGDM12vQxN/TVdAEgRkDWB6h0rV2NgYUFC7vnSmbW+ZfhMkVTzA0vfv3/8cQDC1k95vGxeNFQAFyR+9eGdnYIF03YZhF40VkCA81MjinaMrm/0E2VOFvjsGdX1NIEiZw3Rv7+jzWX9BXOHMBppZtDUBJ2WOxZ8f7PMVAAlxqfsm2Q3j3THyDYLOXoSPftFn+guAJOk9Nz4uyWcGR2u2Y4MADf5lRT87mxBAAPRnVJhVLBsfyMe4SqVqXN+D0ee9Kwfdsx6PJ+Gfb/wFACR695K8rOKqtSXHAvQNw0lZOah3u91uj8eTHlgAzIuT4mWf/PiRXrI5HpD0C5k4dlTvduv1PT09PZ70rwsAbVsSgJN8/NCnz3P/FVMk+kfh5l8y+/QoSNATVAB46wMIko+nHOehyW8+m9DXlzmr1zc1NQ0ODg6azebgAmC+R0gOCdSxs+f7+jITEppnEU8bzGbzv6EEQFLoq+TY0fOZNI1C85omjUYTWkDQEz93oWm+uZnBmx813aOj0Wg0yhACkgTOmQuH5+fvqdMfsbmB+YUFjcZiCS4gQXiUptVqtfnRDTb31Gq73W5fGLJYLB+CCUgQHp63l5QgXm328lfUOp3dbh8aGhoKIaDg3EJJiQ7HfMUbnU7ndDqRQST68G1QwXcLT9lovHy97qnT6XRqtdohkejvEALtj0+YaK7Us3E+6e/v79dqtQ5HGIIuJhovr3zS1YUNDocjlGDiMRtLvRKnXtn1+LHBYJiYmNBu3RpS0M7GwvBKpaW9vd1gMBhME8OhBa/a2IiUDThK7cO2tjYkMA0Pb30XXLDl1UM2IoZvaGhDjx0dHSaTKQzBX2wcDXfoNBgeoMcO2jA8HFLwgI0D43cM9JPL5cKGd2eCC2w//YmzSgscpger9KPL5bLZOopML34Q+p9yvKFgy+LqXZwl0x3RsGt1aQk/Pnv2zGazFRW9+Nn3hLI+FGxbXLrFZMl1l/311q3paWxABYQQ/Bo400hhKzoVF2QCgATLvwfO/v3Ti4untmwKygMFUcu/Bc7y8v7duwSBDprrQ0HUS/4fPuHz+SMvj+RuQ8flUBchyl/A5182jnwfFeYdiGIElZWV9A9EG0/vZq4dYVx/KCSoZIJKNx5BEw9dOhsKooyJDJ44Yrycuy0O/TXM6xusCRIT6YlHeIFkBYmJlSPG07t3RXyFxQeuI8YRIz83B53JIyjdGxLScnPDXbP/AXB/CjMRj4zmAAAAAElFTkSuQmCC" alt="Microsoft Dynamics" style="max-height:34px;max-width:34px"/></span><div class="hs-bus absolute left-0 right-0 flex items-center gap-3 rounded-xl bg-violet-700 px-4" style="top:96px;height:56px"><span class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0"><div title="Vero \u2014 thinking" class="flex-shrink-0 " style="width:26px;height:26px;background-color:#111827;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none"><div style="font-family:&quot;Courier New&quot;, Courier, monospace;color:#6EE7B7;display:flex;font-size:10.92px;line-height:1;font-weight:bold;transition:color 0.3s ease;width:3ch;justify-content:space-between;margin-top:0.05em"><span style="width:1ch;text-align:center;display:inline-block">0</span><span style="width:1ch;text-align:center;display:inline-block">0</span></div></div></span><span class="min-w-0 leading-tight"><span class="block text-base font-bold text-white">Vero, on your data</span><span class="block text-sm text-violet-100">Reads the open items, writes the entries back</span></span><span class="ml-auto shrink-0 rounded-full bg-white/15 px-2.5 py-1 text-xs font-bold text-white">In place</span></div><span class="hs-chip-mig absolute inline-flex items-center justify-center gap-1.5 rounded-full bg-white px-2.5 text-sm font-bold text-gray-700 ring-1 ring-gray-200" style="left:0;top:168px;width:188px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ban h-4 w-4 text-violet-700"><circle cx="12" cy="12" r="10"></circle><path d="m4.9 4.9 14.2 14.2"></path></svg> No migration</span><span class="hs-chip-proc absolute inline-flex items-center justify-center gap-1.5 rounded-full bg-white px-2.5 text-sm font-bold text-gray-700 ring-1 ring-gray-200" style="left:202px;top:168px;width:188px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw h-4 w-4 text-violet-700"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg> No new process</span><span class="hs-chip-ro absolute inline-flex items-center justify-center gap-1.5 rounded-full bg-white px-2.5 text-sm font-bold text-gray-700 ring-1 ring-gray-200" style="left:404px;top:168px;width:188px;height:36px"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye h-4 w-4 text-violet-700"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg> Read-only to start</span></div><div class="hs-foot mt-3 flex items-center gap-3 rounded-xl border border-violet-200 bg-violet-50/70 px-4" style="height:66px"><span class="w-10 h-10 rounded-xl bg-violet-700 text-white flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plug h-5 w-5"><path d="M12 22v-5"></path><path d="M9 8V2"></path><path d="M15 8V2"></path><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"></path></svg></span><span class="min-w-0 leading-tight"><span class="block text-sm font-semibold text-violet-800/80">Time to first connection</span><span class="block text-2xl font-bold text-violet-900 tabular-nums">3 days</span></span><span class="ml-auto shrink-0 rounded-full bg-white px-3 py-1.5 text-sm font-bold text-violet-800 ring-1 ring-violet-200">and 20 more, NetSuite and Sage included</span></div></div></div></div>`},w={"homev2-vero-loop":`/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-100: oklch(96.2% 0.059 95.617);
+    --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-amber-600: oklch(66.6% 0.179 58.318);
+    --color-amber-700: oklch(55.5% 0.163 48.998);
+    --color-amber-800: oklch(47.3% 0.137 46.201);
+    --color-emerald-50: oklch(97.9% 0.021 166.113);
+    --color-emerald-100: oklch(95% 0.052 163.051);
+    --color-emerald-200: oklch(90.5% 0.093 164.15);
+    --color-emerald-600: oklch(59.6% 0.145 163.225);
+    --color-emerald-700: oklch(50.8% 0.118 165.612);
+    --color-emerald-800: oklch(43.2% 0.095 166.913);
+    --color-emerald-900: oklch(37.8% 0.077 168.94);
+    --color-indigo-100: oklch(93% 0.034 272.788);
+    --color-indigo-700: oklch(45.7% 0.24 277.023);
+    --color-violet-100: oklch(94.3% 0.029 294.588);
+    --color-violet-700: oklch(49.1% 0.27 292.581);
+    --color-rose-50: oklch(96.9% 0.015 12.422);
+    --color-rose-100: oklch(94.1% 0.03 12.58);
+    --color-rose-200: oklch(89.2% 0.058 10.001);
+    --color-rose-600: oklch(58.6% 0.253 17.585);
+    --color-rose-700: oklch(51.4% 0.222 16.935);
+    --color-slate-50: oklch(98.4% 0.003 247.858);
+    --color-slate-100: oklch(96.8% 0.007 247.896);
+    --color-slate-200: oklch(92.9% 0.013 255.508);
+    --color-slate-300: oklch(86.9% 0.022 252.894);
+    --color-slate-500: oklch(55.4% 0.046 257.417);
+    --color-slate-700: oklch(37.2% 0.044 257.287);
+    --color-slate-800: oklch(27.9% 0.041 260.031);
+    --color-slate-900: oklch(20.8% 0.042 265.755);
+    --color-gray-50: oklch(98.5% 0.002 247.839);
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
+    --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-900: oklch(21% 0.034 264.665);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-md: 28rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --tracking-wider: 0.05em;
+    --leading-tight: 1.25;
+    --leading-relaxed: 1.625;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+@layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .visible {
+    visibility: visible;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .static {
+    position: static;
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .top-\\[10px\\] {
+    top: 10px;
+  }
+  .top-\\[76px\\] {
+    top: 76px;
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
+  .left-1\\/2 {
+    left: calc(1/2 * 100%);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .ml-auto {
+    margin-left: auto;
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline {
+    display: inline;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .h-1\\.5 {
+    height: calc(var(--spacing) * 1.5);
+  }
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .h-6 {
+    height: calc(var(--spacing) * 6);
+  }
+  .h-7 {
+    height: calc(var(--spacing) * 7);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+  .h-9 {
+    height: calc(var(--spacing) * 9);
+  }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-\\[20px\\] {
+    height: 20px;
+  }
+  .h-\\[22px\\] {
+    height: 22px;
+  }
+  .h-\\[24px\\] {
+    height: 24px;
+  }
+  .h-\\[26px\\] {
+    height: 26px;
+  }
+  .h-\\[32px\\] {
+    height: 32px;
+  }
+  .h-\\[40px\\] {
+    height: 40px;
+  }
+  .h-\\[64px\\] {
+    height: 64px;
+  }
+  .h-\\[72px\\] {
+    height: 72px;
+  }
+  .h-\\[76px\\] {
+    height: 76px;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
+  .w-7 {
+    width: calc(var(--spacing) * 7);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
+  .w-9 {
+    width: calc(var(--spacing) * 9);
+  }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
+  .w-14 {
+    width: calc(var(--spacing) * 14);
+  }
+  .w-\\[2px\\] {
+    width: 2px;
+  }
+  .w-\\[22px\\] {
+    width: 22px;
+  }
+  .w-\\[64px\\] {
+    width: 64px;
+  }
+  .w-\\[72px\\] {
+    width: 72px;
+  }
+  .w-\\[76px\\] {
+    width: 76px;
+  }
+  .w-\\[92px\\] {
+    width: 92px;
+  }
+  .w-\\[104px\\] {
+    width: 104px;
+  }
+  .w-\\[110px\\] {
+    width: 110px;
+  }
+  .w-\\[150px\\] {
+    width: 150px;
+  }
+  .w-\\[280px\\] {
+    width: 280px;
+  }
+  .w-\\[300px\\] {
+    width: 300px;
+  }
+  .w-\\[330px\\] {
+    width: 330px;
+  }
+  .w-\\[640px\\] {
+    width: 640px;
+  }
+  .max-w-\\[1300px\\] {
+    max-width: 1300px;
+  }
+  .max-w-md {
+    max-width: var(--container-md);
+  }
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .-translate-x-1\\/2 {
+    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .items-baseline {
+    align-items: baseline;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+  .gap-1\\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-2\\.5 {
+    gap: calc(var(--spacing) * 2.5);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-12 {
+    gap: calc(var(--spacing) * 12);
+  }
+  .gap-16 {
+    gap: calc(var(--spacing) * 16);
+  }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
+  }
+  .border-amber-300 {
+    border-color: var(--color-amber-300);
+  }
+  .border-emerald-200 {
+    border-color: var(--color-emerald-200);
+  }
+  .border-gray-100 {
+    border-color: var(--color-gray-100);
+  }
+  .border-gray-100\\/80 {
+    border-color: color-mix(in srgb, oklch(96.7% 0.003 264.542) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-gray-100) 80%, transparent);
+    }
+  }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
+  .border-gray-300 {
+    border-color: var(--color-gray-300);
+  }
+  .border-rose-200 {
+    border-color: var(--color-rose-200);
+  }
+  .border-slate-200 {
+    border-color: var(--color-slate-200);
+  }
+  .border-slate-300 {
+    border-color: var(--color-slate-300);
+  }
+  .border-slate-900 {
+    border-color: var(--color-slate-900);
+  }
+  .border-white {
+    border-color: var(--color-white);
+  }
+  .bg-amber-50\\/70 {
+    background-color: color-mix(in srgb, oklch(98.7% 0.022 95.277) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-50) 70%, transparent);
+    }
+  }
+  .bg-amber-100 {
+    background-color: var(--color-amber-100);
+  }
+  .bg-amber-500 {
+    background-color: var(--color-amber-500);
+  }
+  .bg-amber-600 {
+    background-color: var(--color-amber-600);
+  }
+  .bg-emerald-50 {
+    background-color: var(--color-emerald-50);
+  }
+  .bg-emerald-50\\/60 {
+    background-color: color-mix(in srgb, oklch(97.9% 0.021 166.113) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-50) 60%, transparent);
+    }
+  }
+  .bg-emerald-100 {
+    background-color: var(--color-emerald-100);
+  }
+  .bg-emerald-600 {
+    background-color: var(--color-emerald-600);
+  }
+  .bg-gray-50\\/70 {
+    background-color: color-mix(in srgb, oklch(98.5% 0.002 247.839) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-gray-50) 70%, transparent);
+    }
+  }
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
+  }
+  .bg-gray-200 {
+    background-color: var(--color-gray-200);
+  }
+  .bg-indigo-100 {
+    background-color: var(--color-indigo-100);
+  }
+  .bg-rose-50 {
+    background-color: var(--color-rose-50);
+  }
+  .bg-rose-100 {
+    background-color: var(--color-rose-100);
+  }
+  .bg-slate-50 {
+    background-color: var(--color-slate-50);
+  }
+  .bg-slate-100 {
+    background-color: var(--color-slate-100);
+  }
+  .bg-slate-300 {
+    background-color: var(--color-slate-300);
+  }
+  .bg-slate-800 {
+    background-color: var(--color-slate-800);
+  }
+  .bg-slate-900 {
+    background-color: var(--color-slate-900);
+  }
+  .bg-violet-100 {
+    background-color: var(--color-violet-100);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-white\\/10 {
+    background-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .p-3\\.5 {
+    padding: calc(var(--spacing) * 3.5);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-2\\.5 {
+    padding-inline: calc(var(--spacing) * 2.5);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-3\\.5 {
+    padding-inline: calc(var(--spacing) * 3.5);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-16 {
+    padding-inline: calc(var(--spacing) * 16);
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+  .py-1\\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
+  .py-20 {
+    padding-block: calc(var(--spacing) * 20);
+  }
+  .pb-3\\.5 {
+    padding-bottom: calc(var(--spacing) * 3.5);
+  }
+  .text-right {
+    text-align: right;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\\[10px\\] {
+    font-size: 10px;
+  }
+  .leading-\\[20px\\] {
+    --tw-leading: 20px;
+    line-height: 20px;
+  }
+  .leading-\\[24px\\] {
+    --tw-leading: 24px;
+    line-height: 24px;
+  }
+  .leading-\\[32px\\] {
+    --tw-leading: 32px;
+    line-height: 32px;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .leading-tight {
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+  .text-amber-700 {
+    color: var(--color-amber-700);
+  }
+  .text-amber-800 {
+    color: var(--color-amber-800);
+  }
+  .text-emerald-600 {
+    color: var(--color-emerald-600);
+  }
+  .text-emerald-700 {
+    color: var(--color-emerald-700);
+  }
+  .text-emerald-700\\/80 {
+    color: color-mix(in srgb, oklch(50.8% 0.118 165.612) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-emerald-700) 80%, transparent);
+    }
+  }
+  .text-emerald-800 {
+    color: var(--color-emerald-800);
+  }
+  .text-emerald-900 {
+    color: var(--color-emerald-900);
+  }
+  .text-gray-300 {
+    color: var(--color-gray-300);
+  }
+  .text-gray-400 {
+    color: var(--color-gray-400);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-gray-700 {
+    color: var(--color-gray-700);
+  }
+  .text-gray-900 {
+    color: var(--color-gray-900);
+  }
+  .text-indigo-700 {
+    color: var(--color-indigo-700);
+  }
+  .text-rose-600 {
+    color: var(--color-rose-600);
+  }
+  .text-rose-700 {
+    color: var(--color-rose-700);
+  }
+  .text-rose-700\\/80 {
+    color: color-mix(in srgb, oklch(51.4% 0.222 16.935) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-rose-700) 80%, transparent);
+    }
+  }
+  .text-slate-300 {
+    color: var(--color-slate-300);
+  }
+  .text-slate-500 {
+    color: var(--color-slate-500);
+  }
+  .text-slate-700 {
+    color: var(--color-slate-700);
+  }
+  .text-slate-800 {
+    color: var(--color-slate-800);
+  }
+  .text-slate-900 {
+    color: var(--color-slate-900);
+  }
+  .text-violet-700 {
+    color: var(--color-violet-700);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .tabular-nums {
+    --tw-numeric-spacing: tabular-nums;
+    font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
+  }
+  .shadow {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xl {
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-1 {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-emerald-200 {
+    --tw-ring-color: var(--color-emerald-200);
+  }
+  .ring-gray-200 {
+    --tw-ring-color: var(--color-gray-200);
+  }
+  .ring-slate-200 {
+    --tw-ring-color: var(--color-slate-200);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
+  }
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-ordinal: initial;
+      --tw-slashed-zero: initial;
+      --tw-numeric-figure: initial;
+      --tw-numeric-spacing: initial;
+      --tw-numeric-fraction: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-ease: initial;
+    }
+  }
+}
+@layer base {
+  *,*::before,*::after{box-sizing:border-box;border:0 solid;margin:0;padding:0}
+  svg{display:block}
+  img{max-width:100%;height:auto}
+}
+:host{all:initial;display:block;contain:layout style;
+  font-family:var(--font-sans);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;color:var(--color-gray-900);text-align:left}
+
+/* Below the two-column breakpoint the copy stacks above the card, and the card
+   keeps its intrinsic width inside a swipeable rail. It is drawn at fixed pixel
+   geometry, so scaling it to a phone would put 14px body text at 8px. A rail
+   keeps it legible and is the same pattern any wide table uses. */
+@media (max-width: 1023px) {
+  .tf-wrap{padding-left:1.25rem;padding-right:1.25rem;padding-top:3rem;padding-bottom:3rem}
+  .tf-row{flex-direction:column;align-items:stretch;gap:2rem}
+  .tf-row > div:first-child{max-width:none}
+  .tf-row > div:first-child h2{font-size:2rem;line-height:1.15}
+  .tf-row > div:first-child p{font-size:1.0625rem}
+  .tf-card{overflow-x:auto;overflow-y:hidden;max-width:100%;width:auto;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding-bottom:1.25rem}
+  .tf-card::-webkit-scrollbar{display:none}
+  .tf-card > *{width:var(--card-w,640px);flex:none}
+  /* Do NOT re-width the card here. Its internals are absolutely positioned
+     against a fixed inner width, so squeezing it to a round number silently
+     truncates every lane inside. The rail scrolls; the card keeps its size. */
+}
+`,"homev2-vero-tools":`/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
