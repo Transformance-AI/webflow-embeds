@@ -898,29 +898,6 @@ seen[title] = true;
 });
 if (removed > 0) document.body.dataset.lgv3BlogDedup = '1';
 }
-function lgv3FixDeductionsKpis() {
-if (!/^\/solutions\/deductions(---wip)?\/?$/.test(_lgv3P())) return;
-if (document.body.dataset.lgv3DedKpiFixed === '1') return;
-var SWAPS = [
-{ matchLabel: /disputed revenue resolved/i, label: 'Annual leakage recovered',     value: '1-2% of revenue' },
-{ matchLabel: /backlog cleared/i,           label: 'Median time to resolution',    value: '<10 days' },
-{ matchLabel: /auto-classified/i,           label: 'Auto-classification accuracy', value: '90-95%' }
-];
-document.querySelectorAll('.stat-cell').forEach(function (cell) {
-var labelEl = cell.querySelector('.stat-label');
-var valueEl = cell.querySelector('.stat-value');
-if (!labelEl || !valueEl) return;
-var currentLabel = (labelEl.textContent || '').trim();
-var match = null;
-for (var i = 0; i < SWAPS.length; i++) {
-if (SWAPS[i].matchLabel.test(currentLabel)) { match = SWAPS[i]; break; }
-}
-if (!match) return;
-labelEl.textContent = match.label;
-valueEl.textContent = match.value;
-});
-document.body.dataset.lgv3DedKpiFixed = '1';
-}
 function lgv3FixCfSolutionKpis() {
 if (!/^\/solutions\/cash-flow-forecasting(---wip)?\/?$/.test(_lgv3P())) return;
 if (document.body.dataset.lgv3CfKpiFixed === '1') return;
@@ -1925,7 +1902,6 @@ function init() {
 lgv3TagBody(); 
 lgv3SwapCfForecastCopy(); 
 lgv3FixCfSolutionKpis(); 
-lgv3FixDeductionsKpis(); 
 lgv3DedupeBlogCards(); 
 lgv3FixDeadHtmlLinks(); 
 lgv3FixDsoLogoSrc(); 
