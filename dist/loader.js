@@ -25,7 +25,7 @@
  * from what was actually built.
  */
 
-const PARTS = /*__LOADER_PARTS_JSON__*/{"popup":{"name":"popup","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/popup.js","integrity":"sha256-tPINELi8c7Ol44BsUnVjGxBdvOklbAKhycR8Mw6LR4Q="},"tours":{"name":"tours","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/tours.js","integrity":"sha256-VfF1RD3+J1Qy6gFfWywEbKyRz6zJDIFzvhjVFiz9L3c="},"hero":{"name":"hero","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/hero.js","integrity":"sha256-wzBpzs3haW7JuAlx83eYvMJe3GPXx45NzhA+VC4aHYA="},"banners":{"name":"banners","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/banners.js","integrity":"sha256-fbevA+UWL7Gh+gP5mngrKirv6Lm2X+X7mIw84SBQAgw="},"story-cashpulse.de":{"name":"story-cashpulse.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-cashpulse.de.js","integrity":"sha256-RL06ZkD1THStUfxtCjWsXHm+ZjvS5p1xzlCUx9AV/ho="},"story-cashpulse":{"name":"story-cashpulse","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-cashpulse.js","integrity":"sha256-RXmKd4NmOANui+AEbgq4cFBzl/MwtrX0/Z27yhumrCo="},"story-claimiq.de":{"name":"story-claimiq.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-claimiq.de.js","integrity":"sha256-h8wq+FkgWO9FRxBz+QG95PJt/LJAW6+tOG/If7fcGbA="},"story-claimiq":{"name":"story-claimiq","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-claimiq.js","integrity":"sha256-eW4B+FExPHSiFvRK1OE3Sxqi4CHQieUCk36a08yEgTo="},"story-clearmatch.de":{"name":"story-clearmatch.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-clearmatch.de.js","integrity":"sha256-28VC1oqFHaL7xDmKIoGOmaaeRjaILzHCyS7ysW8ZLCM="},"story-clearmatch":{"name":"story-clearmatch","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-clearmatch.js","integrity":"sha256-8DK2aRVM3vYXr9q7WsXrjvL8SNJ4UDSfM2UVK1C3yfk="},"story-collections.de":{"name":"story-collections.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-collections.de.js","integrity":"sha256-/ngqPsE/aLoW1IeA7qXfxlTh/4Iuz6iV7RERokSxNLk="},"story-collections":{"name":"story-collections","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-collections.js","integrity":"sha256-f0zQuEDNXL7QMLmyDWtfD8e1FaBFzxlGy5nIiG3JNIc="},"story-home":{"name":"story-home","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-home.js","integrity":"sha256-KzR4UgOwfhb+D6FrLmbiwSIUAlnUAsP7v81GYjH+LMs="},"story-vero.de":{"name":"story-vero.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-vero.de.js","integrity":"sha256-bBEU7ApKM9TRM9RoXOWXJmtTtxPVnMaAptnSXTlFQW8="},"story-vero":{"name":"story-vero","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-8/dist/story-vero.js","integrity":"sha256-d8Xxspyl9sBR5Y/deKgjmynHD8//RD4/sum6V3r1bf8="}};
+const PARTS = /*__LOADER_PARTS_JSON__*/{"popup":{"name":"popup","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/popup.js","integrity":"sha256-kSzGe4qZVZxkB5LlCZci8mZgok3KFEGGcFCb2K4+8y0="},"tours":{"name":"tours","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/tours.js","integrity":"sha256-VfF1RD3+J1Qy6gFfWywEbKyRz6zJDIFzvhjVFiz9L3c="},"hero":{"name":"hero","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/hero.js","integrity":"sha256-wzBpzs3haW7JuAlx83eYvMJe3GPXx45NzhA+VC4aHYA="},"banners":{"name":"banners","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/banners.js","integrity":"sha256-fbevA+UWL7Gh+gP5mngrKirv6Lm2X+X7mIw84SBQAgw="},"story-cashpulse.de":{"name":"story-cashpulse.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-cashpulse.de.js","integrity":"sha256-Rz5MCG7nK/2ywAN3K7sYSlEF5lAbe58CMzrSg3ar0J4="},"story-cashpulse":{"name":"story-cashpulse","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-cashpulse.js","integrity":"sha256-SdrhcstDfZ3F8COv1KnInabcIn/xGnWneDgD5bWJIDA="},"story-claimiq.de":{"name":"story-claimiq.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-claimiq.de.js","integrity":"sha256-/Lxzqkd8NgYXGJE8PDbRKOWpG1gAXT5eMYUmpKnZqn4="},"story-claimiq":{"name":"story-claimiq","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-claimiq.js","integrity":"sha256-YyWbftBQhSYMtQ6oh5HyUp6oEXhtgAmT5HYHiSBMCHc="},"story-clearmatch.de":{"name":"story-clearmatch.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-clearmatch.de.js","integrity":"sha256-dnSQuACz/4OOlc2f/Oddvm7Uwbbpl0ldF0H+w0r3/ZI="},"story-clearmatch":{"name":"story-clearmatch","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-clearmatch.js","integrity":"sha256-jA0I3bNrzByAJotgZ/dpKN7A8NKElaXZgHUhJrRpsL4="},"story-collections.de":{"name":"story-collections.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-collections.de.js","integrity":"sha256-4mLHWqfW6ghqft9ye3zCQ9qxEUwI5FhyxVmcYcYm+k0="},"story-collections":{"name":"story-collections","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-collections.js","integrity":"sha256-4KoHmUawWEGzfy22hmdhSn0/j34B2pak5/9lxGB0UIM="},"story-home":{"name":"story-home","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-home.js","integrity":"sha256-UVRst0hN2HHLaR+KnuQULAMYwkgqEUiVgcwQSwAu4kU="},"story-vero.de":{"name":"story-vero.de","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-vero.de.js","integrity":"sha256-s7b6ngNUNz4oWwwuGNxfGmUIhJjYIpQ/rGLKJkE+RfE="},"story-vero":{"name":"story-vero","src":"https://cdn.jsdelivr.net/gh/Transformance-AI/webflow-embeds@stories-9/dist/story-vero.js","integrity":"sha256-rC08dcqkOQE+u1ptHDwfU4NXq1btoTHPLgXzbMnZJUo="}};
 const STORY_DE_PAGES = /*__LOADER_STORY_DE_JSON__*/["cashpulse","claimiq","clearmatch","collections","vero"];
 
 const isDE = () =>
@@ -58,16 +58,29 @@ function wantsTours() { return has('transformance-tour[data-tour]'); }
 /* Hero: <transformance-hero> is likewise real markup, homepage only. */
 function wantsHero() { return has('transformance-hero'); }
 
-/* Banners are NOT real markup at load time. Editor sanitizes custom
-   elements out of rich-text fields, so editors type a plain-text marker
-   instead — [tf-banner:<topic>] — and banners.js's own scanner converts it
-   to <transformance-banner> after it loads. The loader has to look for the
-   TEXT marker, using the identical pattern banners/scanner.js matches
-   against, or it will decide not to load the very script that would have
-   found the marker. */
+/* Banners arrive in TWO forms and the loader has to accept both.
+
+   1. A real <transformance-banner> element. Webflow DESIGNER's rich-text
+      Embed survives into the published HTML, and this is what the content
+      actually uses: 132 of 204 live posts carry the element, plus glossary
+      terms. This is the common case.
+   2. A plain-text marker, [tf-banner:<topic>]. Webflow EDITOR (the simpler
+      tool non-technical staff use) sanitizes custom elements out of
+      rich-text, so an Editor user cannot paste form 1; they type the
+      marker and banners.js's own scanner converts it after load. Nobody
+      has used this yet, but it is the reason the feature is usable by
+      non-developers at all, so it stays.
+
+   Checking only the marker was the 2026-09-07 regression: the loader
+   looked for the form nobody uses, decided not to load banners.js, and so
+   never loaded the script that would have rendered the elements that were
+   right there in the DOM. Banners went dark on 132 posts in both locales.
+   Form 1 must be checked FIRST and on its own - it is a querySelector on
+   markup already parsed, not a textContent scan. */
 const BANNER_MARKER_RE = /\[tf-banner:\s*[a-z0-9-]+\s*\]/i;
 function wantsBanners() {
   try {
+    if (document.querySelector('transformance-banner')) return true;
     const richtexts = document.querySelectorAll('.w-richtext');
     const scope = richtexts.length ? richtexts : [document.body];
     for (const el of scope) if (BANNER_MARKER_RE.test(el.textContent || '')) return true;

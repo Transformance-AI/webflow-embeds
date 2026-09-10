@@ -215,11 +215,36 @@ const synth = [
        ATTEMPT a story-collections.de fetch (which would 404) - it should
        fall straight back to the English bundle with no skip message,
        since there was never an attempt to skip. */
-    name: 'DE page with collections story (NO DE bundle yet)',
+    /* Updated 2026-09-08. This case was written on 2026-09-03, when no German
+       collections bundle existed and the loader correctly fell back to the
+       English one. story-collections.de.js was built on 2026-09-06, so the
+       old expectation had become a test asserting the OLD world - it failed
+       against correct behaviour. Production agrees with the new expectation:
+       /de/loesungen/forderungsmanagement loads story-collections.de.
+
+       The assertion that matters here is wantNotLoaded. Injecting both
+       bundles is the arrival-order race that hid every story on 3 of 5 DE
+       pages on 2026-09-05: both define the same element, and whenever the
+       English one won, story.js's "English bundle on /de/" guard hid the lot.
+       It is invisible in the DOM whenever the German bundle happens to win,
+       so it has to be asserted on what was LOADED, never on what rendered. */
+    name: 'DE page with collections story (DE bundle exists)',
     body: '<transformance-story data-story="collections-loop"></transformance-story>',
     path: '/de/solutions/collections',
-    wantLoaded: ['popup', 'story-collections'],
-    wantNotLoaded: ['story-collections.de'],
+    wantLoaded: ['popup', 'story-collections.de'],
+    wantNotLoaded: ['story-collections'],
+  },
+  {
+    /* The "no German bundle" path still needs covering, and home is now the
+       only page that exercises it: it is absent from STORY_DE_PAGES, so a
+       German page carrying a home story gets the English bundle rather than
+       nothing. Keeps the branch under test now that all five listed pages
+       have German builds. */
+    name: 'DE page with a story whose page has no DE build (home)',
+    body: '<transformance-story data-story="home-loop"></transformance-story>',
+    path: '/de/',
+    wantLoaded: ['popup', 'story-home'],
+    wantNotLoaded: ['story-home.de'],
   },
   {
     name: 'plain page, no markers at all',

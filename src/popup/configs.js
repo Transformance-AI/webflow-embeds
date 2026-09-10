@@ -38,8 +38,13 @@ export const POPUP_VARIANTS = {
     ctaSecondaryUrl: '/solutions/cash-application',
   },
   'collections': {
-    headline: 'Cut DSO by 8 to 15 days with autonomous AI collectors.',
-    body: '70+ languages. 15 to 20 calls per hour per agent versus 15 to 20 per day for a human.',
+    // 2026-09-09 (Paul): both numbers here were stale and contradicted every page
+    // surface. DSO is 8 to 12 days (three page surfaces per locale, the FAQ
+    // structured data, and a customer quote all say 8-12; only this popup said
+    // 8-15). Languages are 30+, not 70+ — 70+ survived here from an older
+    // generation of the Collections copy.
+    headline: 'Cut DSO by 8 to 12 days with autonomous AI collectors.',
+    body: '30+ languages. 15 to 20 calls per hour per agent versus 15 to 20 per day for a human.',
     ctaPrimary: 'Book a 15-min call',
     ctaPrimaryUrl: '/meeting',
     ctaSecondary: 'Visit CollectPulse →',
@@ -134,8 +139,9 @@ export const POPUP_VARIANTS_DE = {
     ctaSecondaryUrl: '/solutions/cash-application',
   },
   'collections': {
-    headline: 'DSO mit autonomen KI-Agenten um 8 bis 15 Tage senken.',
-    body: 'Über 70 Sprachen. 15 bis 20 Anrufe pro Stunde und Agent, gegenüber 15 bis 20 pro Tag für einen Mitarbeiter.',
+    // 2026-09-09 (Paul): same two stale claims as the English entry above.
+    headline: 'DSO mit autonomen KI-Agenten um 8 bis 12 Tage senken.',
+    body: 'Über 30 Sprachen. 15 bis 20 Anrufe pro Stunde und Agent, gegenüber 15 bis 20 pro Tag für einen Mitarbeiter.',
     ctaPrimary: 'Termin buchen',
     ctaPrimaryUrl: '/meeting',
     ctaSecondary: 'Mehr zu CollectPulse →',
