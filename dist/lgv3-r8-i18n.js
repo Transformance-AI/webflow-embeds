@@ -449,7 +449,7 @@ var blocks = Array.prototype.slice.call(document.querySelectorAll('.letter-block
 if (!blocks.length) return;
 var container = blocks[0].parentNode;
 var byLetter = {};
-blocks.forEach(function (b) { var id = (b.id || '').replace(/^letter-/, '').toUpperCase(); if (id) byLetter[id] = b; });
+blocks.forEach(function (b) { var id = (b.id || '').replace(/^letter-/, '').toUpperCase(); if (id === 'NUM') id = '#'; if (id) byLetter[id] = b; });
 function headSetLetter(block, letter) {
 var head = block.querySelector('.letter-head'); if (!head) return;
 var w = document.createTreeWalker(head, NodeFilter.SHOW_TEXT, null, false), n;
@@ -458,7 +458,7 @@ while ((n = w.nextNode())) { if (/[A-Z0-9#]/i.test(n.nodeValue)) { n.nodeValue =
 function ensureBlock(letter) {
 if (byLetter[letter]) return byLetter[letter];
 var tpl = blocks[0].cloneNode(true);
-tpl.id = 'letter-' + letter.toLowerCase();
+tpl.id = letter === '#' ? 'letter-num' : 'letter-' + letter.toLowerCase();
 headSetLetter(tpl, letter);
 var g = tpl.querySelector('.entry-grid'); if (g) g.innerHTML = '';
 container.appendChild(tpl); byLetter[letter] = tpl; return tpl;
@@ -496,7 +496,8 @@ function lgv3GlossSlug(s) { return (s || '').toLowerCase().replace(/[^a-z0-9]+/g
 function lgv3GlossaryIsNative() {
 return !!document.querySelector('.entry-card.w-dyn-item, .w-dyn-item > .entry-card');
 }
-var LGV3_GLOSSARY_CLUSTER_DE = {'cash application': 'Zahlungsabgleich', 'ar collections': 'Forderungsmanagement', 'deductions': 'Abzüge', 'general o2c': 'Order-to-Cash', 'ai in finance': 'KI / ML', 'cash flow forecasting': 'Cashflow'};
+var LGV3_GLOSSARY_CLUSTER_SLUG = {'cash application': 'cash-application', 'zahlungsabgleich': 'cash-application', 'ar collections': 'ar-collections', 'forderungsmanagement': 'ar-collections', 'deductions': 'deductions', 'abzüge': 'deductions', 'general o2c': 'general-o2c', 'order-to-cash': 'general-o2c', 'ai in finance': 'ai-in-finance', 'ki / ml': 'ai-in-finance', 'cash flow forecasting': 'cash-flow-forecasting', 'liquiditätsplanung': 'cash-flow-forecasting', 'cashflow': 'cash-flow-forecasting'};
+var LGV3_GLOSSARY_CLUSTER_DE = {'cash-application': 'Zahlungsabgleich', 'ar-collections': 'Forderungsmanagement', 'deductions': 'Abzüge', 'general-o2c': 'Order-to-Cash', 'ai-in-finance': 'KI / ML', 'cash-flow-forecasting': 'Liquiditätsplanung'};
 function lgv3GlossaryRecount() {
 document.querySelectorAll('.letter-block').forEach(function (block) {
 var n = Array.prototype.filter.call(block.querySelectorAll('.entry-card'), function (c) { return c.style.display !== 'none'; }).length;
@@ -523,20 +524,22 @@ cards.forEach(function (card) {
 var eb = card.querySelector('.entry-eyebrow');
 var raw = eb ? (eb.textContent || '').trim() : '';
 // category slug comes from the English CMS option, before any translation
-if (raw && !card.getAttribute('data-cms-category')) card.setAttribute('data-cms-category', lgv3GlossSlug(raw));
-if (isDE && eb) { var de = LGV3_GLOSSARY_CLUSTER_DE[raw.toLowerCase()]; if (de) eb.textContent = de; }
+var slug = LGV3_GLOSSARY_CLUSTER_SLUG[raw.toLowerCase()] || card.getAttribute('data-cms-category') || raw;
+if (slug) card.setAttribute('data-cms-category', slug);
+if (isDE && eb && LGV3_GLOSSARY_CLUSTER_DE[slug]) eb.textContent = LGV3_GLOSSARY_CLUSTER_DE[slug];
 });
 if (isDE) {
-// the German CMS has duplicate terms; show one card per German name (shortest URL wins)
+// the German CMS has copies of one term (slug-xxxxx); show one card per term (shortest URL wins). Different terms that share a German name stay visible.
 var seen = {};
 cards.forEach(function (card) {
 var h = card.querySelector('h3'); var n = (h ? h.textContent : '').trim().toLowerCase();
 if (!n) return;
-var a = card.querySelector('a[href]'); var href = a ? a.getAttribute('href') : '';
-var prev = seen[n];
-if (!prev) { seen[n] = {card: card, href: href}; return; }
+var a = card.querySelector('h3 a[href]') || card.querySelector('a[href]'); var href = a ? a.getAttribute('href') : '';
+var key = n + '|' + href.replace(/-[0-9a-f]{5}$/, '');
+var prev = seen[key];
+if (!prev) { seen[key] = {card: card, href: href}; return; }
 var loser = href.length < prev.href.length ? prev.card : card;
-if (loser === prev.card) seen[n] = {card: card, href: href};
+if (loser === prev.card) seen[key] = {card: card, href: href};
 loser.style.display = 'none'; loser.setAttribute('data-lgv3-stale', '1');
 });
 }
