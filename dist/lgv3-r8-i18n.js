@@ -491,11 +491,64 @@ if (cs && /\d+\s*terms?/i.test(cs.textContent || '')) { cs.textContent = vis + '
 else { var w = document.createTreeWalker(head, NodeFilter.SHOW_TEXT, null, false), n; while ((n = w.nextNode())) { if (/\d+\s*TERMS?/i.test(n.nodeValue)) { n.nodeValue = n.nodeValue.replace(/\d+\s*TERMS?/i, vis + ' TERMS'); break; } } }
 });
 }
+// Native mode: the hub renders its terms server-side from CMS Collection Lists, so no scrape is needed.
+function lgv3GlossSlug(s) { return (s || '').toLowerCase().replace(/[^a-z0-9]+/g, ''); }
+function lgv3GlossaryIsNative() {
+return !!document.querySelector('.entry-card.w-dyn-item, .w-dyn-item > .entry-card');
+}
+var LGV3_GLOSSARY_CLUSTER_DE = {'cash application': 'Zahlungsabgleich', 'ar collections': 'Forderungsmanagement', 'deductions': 'Abzüge', 'general o2c': 'Order-to-Cash', 'ai in finance': 'KI / ML', 'cash flow forecasting': 'Cashflow'};
+function lgv3GlossaryRecount() {
+document.querySelectorAll('.letter-block').forEach(function (block) {
+var n = Array.prototype.filter.call(block.querySelectorAll('.entry-card'), function (c) { return c.style.display !== 'none'; }).length;
+var num = block.querySelector('[data-cms-computed="letter-count"]');
+var lc = block.querySelector('.letter-count');
+if (num) num.textContent = String(n);
+else if (lc && /\d+/.test(lc.textContent || '')) lc.textContent = lc.textContent.replace(/\d+/, String(n));
+block.style.display = n > 0 ? '' : 'none';
+});
+var all = document.querySelectorAll('.entry-card');
+document.querySelectorAll('.filter-pill').forEach(function (pill) {
+var pc = pill.querySelector('.pill-count'); if (!pc) return;
+var slug = lgv3GlossSlug(pill.getAttribute('data-cms-filter') || '');
+pc.textContent = String(Array.prototype.filter.call(all, function (c) {
+if (c.getAttribute('data-lgv3-stale') === '1') return false;
+return !slug || slug === 'all' || slug === 'allterms' || lgv3GlossSlug(c.getAttribute('data-cms-category')) === slug;
+}).length);
+});
+}
+function lgv3GlossaryNativeFinish() {
+var isDE = _lgv3isDE();
+var cards = Array.prototype.slice.call(document.querySelectorAll('.entry-card'));
+cards.forEach(function (card) {
+var eb = card.querySelector('.entry-eyebrow');
+var raw = eb ? (eb.textContent || '').trim() : '';
+// category slug comes from the English CMS option, before any translation
+if (raw && !card.getAttribute('data-cms-category')) card.setAttribute('data-cms-category', lgv3GlossSlug(raw));
+if (isDE && eb) { var de = LGV3_GLOSSARY_CLUSTER_DE[raw.toLowerCase()]; if (de) eb.textContent = de; }
+});
+if (isDE) {
+// the German CMS has duplicate terms; show one card per German name (shortest URL wins)
+var seen = {};
+cards.forEach(function (card) {
+var h = card.querySelector('h3'); var n = (h ? h.textContent : '').trim().toLowerCase();
+if (!n) return;
+var a = card.querySelector('a[href]'); var href = a ? a.getAttribute('href') : '';
+var prev = seen[n];
+if (!prev) { seen[n] = {card: card, href: href}; return; }
+var loser = href.length < prev.href.length ? prev.card : card;
+if (loser === prev.card) seen[n] = {card: card, href: href};
+loser.style.display = 'none'; loser.setAttribute('data-lgv3-stale', '1');
+});
+}
+try { lgv3RegroupGlossaryDE(); } catch (e) { console.warn('DE glossary regroup failed:', e); }
+lgv3GlossaryRecount();
+}
 function lgv3FillMissingGlossaryTerms() {
 if (!/^\/glossary(---wip)?\/?$/.test(_lgv3P())) return;
 if (document.body.dataset.lgv3GlossaryFilled === '1') return;
 var firstGrid = document.querySelector('.entry-grid');
 if (!firstGrid) return;
+if (lgv3GlossaryIsNative()) { try { lgv3GlossaryNativeFinish(); } catch (e) { console.warn('Glossary native finish failed:', e); } document.body.dataset.lgv3GlossaryFilled = '1'; return; }
 function gridForLetter(letter) {
 var lower = (letter || '').toLowerCase();
 var block = document.getElementById('letter-' + lower);
@@ -605,7 +658,7 @@ var titleLink = card.querySelector('a[href*="glossary"]');
 var nameEl = card.querySelector('h3, .entry-name, .entry-title');
 var name = nameEl ? nameEl.textContent.trim() : (titleLink ? titleLink.textContent.trim() : '');
 if (!name) return;
-var url = (_lgv3isDE() && titleLink && titleLink.getAttribute('href')) ? titleLink.getAttribute('href') : '/glossary/' + slugify(name);
+var url = ((_lgv3isDE() || lgv3GlossaryIsNative()) && titleLink && titleLink.getAttribute('href')) ? titleLink.getAttribute('href') : '/glossary/' + slugify(name);
 if (titleLink) titleLink.href = url;
 card.style.position = card.style.position || 'relative';
 card.style.cursor = 'pointer';
@@ -629,13 +682,14 @@ var pillSlug = typeof lgv3SlugifyCategory === 'function' ? lgv3SlugifyCategory(f
 var showAll = pillSlug === '' || pillSlug === 'all' || pillSlug === 'allterms';
 var liveCards = document.querySelectorAll('.entry-card');
 liveCards.forEach(function (card) {
+if (card.getAttribute('data-lgv3-stale') === '1') { card.style.display = 'none'; return; }
 var cardCatEl = card.querySelector('.entry-category, .entry-eyebrow, .cat, [data-cms-field="category"]');
 var rawCat = (card.getAttribute('data-category') || card.getAttribute('data-cms-category') || (cardCatEl ? cardCatEl.textContent : '') || '');
 var cardSlug = typeof lgv3SlugifyCategory === 'function' ? lgv3SlugifyCategory(rawCat) : rawCat.toLowerCase().replace(/[^a-z0-9]+/g, '');
 var visible = showAll || cardSlug === pillSlug || cardSlug.indexOf(pillSlug) !== -1 || pillSlug.indexOf(cardSlug) !== -1;
 card.style.display = visible ? '' : 'none';
 });
-document.querySelectorAll('.letter-group, .az-section, [class*="letter-group"], [class*="az-group"]').forEach(function (group) {
+document.querySelectorAll((lgv3GlossaryIsNative() ? '.letter-block, ' : '') + '.letter-group, .az-section, [class*="letter-group"], [class*="az-group"]').forEach(function (group) {
 var visibleCards = Array.from(group.querySelectorAll('.entry-card')).filter(function (c) { return c.style.display !== 'none'; });
 group.style.display = visibleCards.length > 0 ? '' : 'none';
 var countEl = group.querySelector('.letter-count, [class*="count"], [class*="terms-count"]');
@@ -643,6 +697,7 @@ if (countEl && /\d+\s*terms?/i.test(countEl.textContent || '')) {
 countEl.textContent = visibleCards.length + ' terms';
 }
 });
+if (lgv3GlossaryIsNative()) lgv3GlossaryRecount();
 });
 });
 var search = document.querySelector('.search-input, input[placeholder*="Search"]');
@@ -677,6 +732,7 @@ var q = (e.target.value || '').toLowerCase().trim();
 var liveCards = document.querySelectorAll('.entry-card');
 var visibleCount = 0;
 liveCards.forEach(function (card) {
+if (card.getAttribute('data-lgv3-stale') === '1') { card.style.display = 'none'; return; }
 var text = (card.textContent || '').toLowerCase();
 var ds = card.dataset || {};
 var attrText = ((ds.term || '') + ' ' + (ds.title || '') + ' ' + (ds.name || '')).toLowerCase();
@@ -689,10 +745,11 @@ if (q) {
 pills.forEach(function (p) { p.classList.remove('active'); });
 (pills[0] || {}).classList && pills[0].classList.add('active');
 }
-document.querySelectorAll('.letter-group, .az-section, [class*="letter-group"]').forEach(function (group) {
+document.querySelectorAll((lgv3GlossaryIsNative() ? '.letter-block, ' : '') + '.letter-group, .az-section, [class*="letter-group"]').forEach(function (group) {
 var any = Array.from(group.querySelectorAll('.entry-card')).some(function (c) { return c.style.display !== 'none'; });
 group.style.display = any ? '' : 'none';
 });
+if (lgv3GlossaryIsNative()) lgv3GlossaryRecount();
 if (q !== '' && visibleCount === 0) showEmptyMsg(); else hideEmptyMsg();
 });
 }
