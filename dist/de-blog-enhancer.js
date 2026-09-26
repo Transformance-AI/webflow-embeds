@@ -6,7 +6,15 @@
  * Styling reuses the already-global liquid-glass CSS classes, so no CSS is needed here. */
 (function () {
   function lgv3BlogLocale(){var m=location.pathname.match(/^\/([a-z]{2})\/blog-posts\//);return m?m[1]:'';}
-  if (!lgv3BlogLocale()) return; // primary-locale blog pages are handled by the main script
+  if (!lgv3BlogLocale()) {
+    // Primary-locale (EN) blog pages: layout is the main script's job. Only the hero keyword gradient runs
+    // here (Paul 2026-09-26: EN titles lacked the highlight DE has had since 2026-07-02).
+    if (!/^\/blog-posts\//.test(location.pathname)) return;
+    var enRun = function () { try { gradientHeroKeyword(); } catch (e) {} };
+    if (document.readyState !== 'loading') enRun(); else document.addEventListener('DOMContentLoaded', enRun);
+    setTimeout(enRun, 800); setTimeout(enRun, 2000); setTimeout(enRun, 4000);
+    return;
+  }
   function lgv3IsBlogPost(){return /^\/(?:[a-z]{2}\/)?blog-posts\//.test(location.pathname);}
   var DE_MONTHS = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
   function lgv3DeDate(s){var d=new Date(s);if(isNaN(d.getTime()))return null;return d.getDate()+'. '+DE_MONTHS[d.getMonth()]+' '+d.getFullYear();}
@@ -136,12 +144,34 @@
     return m ? m[1] : '';
   }
 
+  /* EN counterpart (2026-09-26): same conservative rules - no pattern match, no gradient. Tested on all 54
+   * live EN titles (54/54 get a topic keyword, never a filler word or the year). */
+  function pickHeroKeywordEN(t) {
+    var m, n = function (s) { return s.trim().split(/\s+/).length; };
+    // "X vs Y: …" / "X vs. Y?" at the start (max 5 words)
+    m = t.match(/^([^:?!]{3,60}?\bvs\.? [^:?!]{2,40}?)(?:[:?!]|$)/);
+    if (m && n(m[1]) <= 5) return m[1].trim();
+    // "Best X Software/Tools/…" or "N Best X …" (the product category)
+    m = t.match(/\bBest ((?:[A-Z0-9][\w&-]*\s){0,4}(?:Software|Tools|Platforms|Solutions|Alternatives|Competitors))\b/);
+    if (m) return m[1].trim();
+    // definitional titles: "What Is/Are X?" (max 4 words)
+    m = t.match(/^What (?:Is|Are|Does) (?:an? |the )?(.+?)(?:\?|:|,| and | in | for |$)/i);
+    if (m && n(m[1]) <= 4) return m[1].trim();
+    // keyword-first colon titles: "Cash Conversion Cycle: Formula, …" (max 4 words)
+    m = t.match(/^([^:?!]{3,48}?):/);
+    if (m && n(m[1]) <= 4 && !/^(How|Why|When|Where|The|A|An)\b/.test(m[1])) return m[1].trim();
+    // last resort: a known head term anywhere in the title; the earliest match wins
+    m = t.match(/\b(AI Calling Agents?|EU AI Act|AI Vendor Evaluation|Claims Automation|Partial Payments|Accounts Receivable Automation|AR Automation|Deductions Management|Claims Management|Payment Reconciliation|Cash Application|Order[- ]to[- ]Cash|Invoice-to-Cash|13[- ]Week Cash Flow Forecast|Cash Flow Forecast(?:s|ing)?|Cash Forecast(?:ing)?|Collections Management|Dunning Automation|Dunning|Trade Deductions|Cash Discount Deductions|AR Aging Report|Accounts Receivable|Payment Prediction|Working Capital|Cost per Invoice|E-Invoicing|Instant Payments|Generative AI|Explainable AI|AI Agents?|Machine Learning|Financial Controlling|Deductions|DSO|RPA|O2C)\b/i);
+    return m ? m[1] : '';
+  }
+
   function gradientHeroKeyword() {
-    if (lgv3BlogLocale() !== 'de') return;
+    var loc = lgv3BlogLocale();
+    if (loc && loc !== 'de') return;
     var h1 = document.querySelector('.blog-intro-section h1');
     if (!h1 || h1.querySelector('.lgv3-kw-grad')) return;
     var t = h1.textContent.trim();
-    var kw = pickHeroKeyword(t);
+    var kw = loc === 'de' ? pickHeroKeyword(t) : pickHeroKeywordEN(t);
     var idx = kw ? t.indexOf(kw) : -1;
     if (idx < 0) return;
     if (!document.getElementById('lgv3-kw-grad-css')) {
