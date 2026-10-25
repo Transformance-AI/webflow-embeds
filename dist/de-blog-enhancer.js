@@ -141,7 +141,7 @@
     // Abzugsmanagement, RPA, Forderungen, Liquiditätsplanung, plural -Prognosen — covers the
     // question-form titles "Warum sind Cashflow-Prognosen so oft ungenau?" etc.; 2026-10-25: Wave D
     // question titles + Zahlungsavis, the last DE miss)
-    m = t.match(/\b(Zahlungszuordnung|Zahlungsabgleich|Forderungsmanagement|Abzugsmanagement|Debitorenbuchhaltung|Debitorenautomatisierung|Rechnungsverarbeitung|Liquiditätsplanung|Mahnwesen|Cash Application|Order-to-Cash|Cashflow-Prognosen?|Working Capital|KI-Agenten?|Skonto-Abzüge|Zahlung ohne Verwendungszweck|Rechnung nie erhalten|Liquiditätsprognose|Kreditlimit|Zahlungsavis|Mahnungen|DSO|RPA|Forderungen)\b/);
+    m = t.match(/\b(Zahlungszuordnung|Zahlungsabgleich|Forderungsmanagement|Abzugsmanagement|Debitorenbuchhaltung|Debitorenautomatisierung|Rechnungsverarbeitung|Liquiditätsplanung|Mahnwesen|Cash Application|Order-to-Cash|Cashflow-Prognosen?|Working Capital|KI-Agenten?|Skonto-Abzüge|Zahlung ohne Verwendungszweck|Rechnung nie erhalten|Debitorenmanagement|Abzüge des Handels|Großhandelsabzüge|Liquiditätsprognose|Kreditlimit|Zahlungsavis|Mahnungen|DSO|RPA|Forderungen)\b/);
     return m ? m[1] : '';
   }
 
@@ -163,7 +163,7 @@
     if (m && n(m[1]) <= 4 && !/^(How|Why|When|Where|The|A|An)\b/.test(m[1])) return m[1].trim();
     // last resort: a known head term anywhere in the title; the earliest match wins (2026-10-25: +Wave D question
     // titles and the 4 live misses; bare "Collections" stays last so it never beats a longer term)
-    m = t.match(/\b(AI Calling Agents?|EU AI Act|AI Vendor Evaluation|Claims Automation|Partial Payments|Accounts Receivable Automation|AR Automation|Deductions Management|Claims Management|Payment Reconciliation|Cash Application|Order[- ]to[- ]Cash|Invoice-to-Cash|13[- ]Week Cash Flow Forecast|Cash Flow Forecast(?:s|ing)?|Cash Forecast(?:ing)?|Collections Management|Dunning Automation|Dunning|Trade Deductions|Cash Discount Deductions|AR Aging Report|Accounts Receivable|Payment Prediction|Working Capital|Cost per Invoice|E-Invoicing|Instant Payments|Generative AI|Explainable AI|AI Agents?|Machine Learning|Financial Controlling|Deductions|German Mittelstand|SAP ECC|Remittance Advice|Promise to Pay|Credit Limits?|Overdue Invoices?|Invoice Never Arrived|Payment With No Reference|Collections Agents?|DSO|RPA|O2C|Collections)\b/i);
+    m = t.match(/\b(AI Calling Agents?|EU AI Act|AI Vendor Evaluation|Claims Automation|Partial Payments|Accounts Receivable Automation|AR Automation|Deductions Management|Claims Management|Payment Reconciliation|Cash Application|Order[- ]to[- ]Cash|Invoice-to-Cash|13[- ]Week Cash Flow Forecast|Cash Flow Forecast(?:s|ing)?|Cash Forecast(?:ing)?|Collections Management|Dunning Automation|Dunning|Trade Deductions|Cash Discount Deductions|AR Aging Report|Accounts Receivable|Payment Prediction|Working Capital|Cost per Invoice|E-Invoicing|Instant Payments|Generative AI|Explainable AI|AI Agents?|Machine Learning|Financial Controlling|Deductions|German Mittelstand|SAP ECC|Remittance Advice|Promise to Pay|Credit Limits?|Overdue Invoices?|Invoice Never Arrived|Payment With No Reference|Collections Agents?|Short-Paid Freight Invoices|Seasonal Receivables|Down Payments|Chargebacks?|DSO|RPA|O2C|Collections)\b/i);
     return m ? m[1] : '';
   }
 
