@@ -1,4 +1,4 @@
-/* Transformance — German blog enhancer (locale-only).
+/* Transformance — German blog enhancer (locale-only). v1.3.2 (2026-10-27): keywords for the Wave F ERP-integration titles.
  * Adds the breadcrumb, single author·date·category·reading-time meta row, German date,
  * and floating "In diesem Artikel" TOC to /<locale>/blog-posts/ pages. The main
  * liquid-glass-v3 script path-gates these to /blog-posts/ and skips localized URLs, so this
@@ -142,6 +142,13 @@
     // question-form titles "Warum sind Cashflow-Prognosen so oft ungenau?" etc.; 2026-10-25: Wave D
     // question titles + Zahlungsavis, the last DE miss)
     m = t.match(/\b(Zahlungszuordnung|Zahlungsabgleich|Forderungsmanagement|Abzugsmanagement|Debitorenbuchhaltung|Debitorenautomatisierung|Rechnungsverarbeitung|Liquiditätsplanung|Mahnwesen|Cash Application|Order-to-Cash|Cashflow-Prognosen?|Working Capital|KI-Agenten?|Skonto-Abzüge|Zahlung ohne Verwendungszweck|Rechnung nie erhalten|Debitorenmanagement|Abzüge des Handels|Großhandelsabzüge|Liquiditätsprognose|Kreditlimit|Zahlungsavis|Mahnungen|DSO|RPA|Forderungen)\b/);
+    if (m) return m[1];
+    // 1.3.2 (2026-10-27): Wave F ERP-integration titles, only when nothing above matched: "Schnittstelle zu SAP ECC" ->
+    // the ERP, "Oracle-Schnittstelle" / "ERP-Schnittstellen" -> the compound, "Business Central Schnittstelle", "offene Posten"
+    m = t.match(/Schnittstelle zu (SAP ECC|SAP S\/4HANA|NetSuite|Odoo|Oracle(?: Fusion)?|Business Central|Dynamics 365(?: F&O)?)/);
+    if (m) return m[1];
+    m = t.match(/(\S+-Schnittstellen?\b|Business Central Schnittstelle|offene Posten)/);
+    if (m) return m[1];
     return m ? m[1] : '';
   }
 
@@ -164,6 +171,12 @@
     // last resort: a known head term anywhere in the title; the earliest match wins (2026-10-25: +Wave D question
     // titles and the 4 live misses; bare "Collections" stays last so it never beats a longer term)
     m = t.match(/\b(AI Calling Agents?|EU AI Act|AI Vendor Evaluation|Claims Automation|Partial Payments|Accounts Receivable Automation|AR Automation|Deductions Management|Claims Management|Payment Reconciliation|Cash Application|Order[- ]to[- ]Cash|Invoice-to-Cash|13[- ]Week Cash Flow Forecast|Cash Flow Forecast(?:s|ing)?|Cash Forecast(?:ing)?|Collections Management|Dunning Automation|Dunning|Trade Deductions|Cash Discount Deductions|AR Aging Report|Accounts Receivable|Payment Prediction|Working Capital|Cost per Invoice|E-Invoicing|Instant Payments|Generative AI|Explainable AI|AI Agents?|Machine Learning|Financial Controlling|Deductions|German Mittelstand|SAP ECC|Remittance Advice|Promise to Pay|Credit Limits?|Overdue Invoices?|Invoice Never Arrived|Payment With No Reference|Collections Agents?|Short-Paid Freight Invoices|Seasonal Receivables|Down Payments|Chargebacks?|DSO|RPA|O2C|Collections)\b/i);
+    if (m) return m[1];
+    // 1.3.2 (2026-10-27): Wave F ERP-integration titles, only when nothing above matched: "integrate with SAP S/4HANA" /
+    // "connect to Oracle Fusion" -> the ERP name (stops before "and" / "?"), plus "ERP systems" and "open items"
+    m = t.match(/\b(?:integrate with|connect to) ((?:SAP|Microsoft|Oracle|Dynamics|NetSuite|Odoo|Business|Infor)\b[\w\/&.-]*(?: [A-Z0-9][\w\/&.-]*)*)/);
+    if (m) return m[1];
+    m = t.match(/\b(ERP systems|open items)\b/i);
     return m ? m[1] : '';
   }
 
