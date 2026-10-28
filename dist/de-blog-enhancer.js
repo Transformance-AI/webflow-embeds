@@ -1,4 +1,4 @@
-/* Transformance — German blog enhancer (locale-only). v1.3.2 (2026-10-27): keywords for the Wave F ERP-integration titles.
+/* Transformance — German blog enhancer (locale-only). v1.3.3 (2026-10-28): keywords for the Wave F batch F2 titles.
  * Adds the breadcrumb, single author·date·category·reading-time meta row, German date,
  * and floating "In diesem Artikel" TOC to /<locale>/blog-posts/ pages. The main
  * liquid-glass-v3 script path-gates these to /blog-posts/ and skips localized URLs, so this
@@ -149,6 +149,8 @@
     if (m) return m[1];
     m = t.match(/(\S+-Schnittstellen?\b|Business Central Schnittstelle|offene Posten)/);
     if (m) return m[1];
+    // 1.3.3 (2026-10-28): Wave F batch F2 titles, only when nothing above matched
+    m = t.match(/(S\/4HANA-Migration|Debitorenprozess)/);
     return m ? m[1] : '';
   }
 
@@ -177,6 +179,9 @@
     m = t.match(/\b(?:integrate with|connect to) ((?:SAP|Microsoft|Oracle|Dynamics|NetSuite|Odoo|Business|Infor)\b[\w\/&.-]*(?: [A-Z0-9][\w\/&.-]*)*)/);
     if (m) return m[1];
     m = t.match(/\b(ERP systems|open items)\b/i);
+    if (m) return m[1];
+    // 1.3.3 (2026-10-28): Wave F batch F2 titles, only when nothing above matched
+    m = t.match(/(S\/4HANA migration|intercompany and multi-currency payments|multi-currency payments|intercompany payments|AR process)\b/i);
     return m ? m[1] : '';
   }
 
