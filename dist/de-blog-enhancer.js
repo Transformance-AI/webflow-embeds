@@ -1,4 +1,4 @@
-/* Transformance — German blog enhancer (locale-only). v1.3.4 (2026-10-29): exact-title keywords for the Wave F F3/F4 titles.
+/* Transformance — German blog enhancer (locale-only). v1.3.5 (2026-10-29): exact-title keywords for the Wave F F3/F4 titles.
  * Adds the breadcrumb, single author·date·category·reading-time meta row, German date,
  * and floating "In diesem Artikel" TOC to /<locale>/blog-posts/ pages. The main
  * liquid-glass-v3 script path-gates these to /blog-posts/ and skips localized URLs, so this
@@ -124,8 +124,9 @@
    * in the brand text-gradient (same stops as the comparison/review heros). Conservative: no
    * pattern match -> NO gradient (never highlight a filler word or the year). */
   /* 1.3.4 (2026-10-29): per-page keywords, matched on the exact title and checked before every pattern rule, so
-   * no other title can change. Use for titles the patterns miss or highlight badly. */
-  var KW_BY_TITLE = {
+   * no other title can change. Use for titles the patterns miss or highlight badly. A function, not a var: the EN
+   * path returns at the top of this file before any var below it is assigned (1.3.4 as a var broke every EN title). */
+  function kwByTitle(t) { var map = {
     'Was ist ein guter Forderungsumschlag je Branche?': 'Forderungsumschlag',
     'Warum stauen sich ungeklärte Zahlungen und wie bauen Sie sie ab?': 'ungeklärte Zahlungen',
     'Wie werden Sie bezahlt, wenn Kunden Ariba oder Coupa verlangen?': 'Ariba oder Coupa',
@@ -139,11 +140,11 @@
     'What do ACH return codes and SEPA R-transactions mean for AR?': 'ACH return codes',
     'What B2B dunning cadence works by customer segment and terms?': 'B2B dunning cadence',
     'How does late payment interest work in Germany under §288 BGB?': 'late payment interest'
-  };
+  }; return Object.prototype.hasOwnProperty.call(map, t) ? map[t] : ''; }
 
   function pickHeroKeyword(t) {
     var m;
-    if (KW_BY_TITLE[t]) return KW_BY_TITLE[t];
+    m = kwByTitle(t); if (m) return m;
     // hyphenated German keyword compound ("HighRadius-Alternativen", "Cashflow-Prognose-Software")
     m = t.match(/(\S+-(?:Alternativen|Wettbewerber|Software|Tools|Plattformen|Lösungen|Automatisierung|Prognose|Management|Vergleich))\b/);
     if (m) return m[1];
@@ -177,7 +178,7 @@
    * live EN titles (54/54 get a topic keyword, never a filler word or the year). */
   function pickHeroKeywordEN(t) {
     var m, n = function (s) { return s.trim().split(/\s+/).length; };
-    if (KW_BY_TITLE[t]) return KW_BY_TITLE[t];
+    m = kwByTitle(t); if (m) return m;
     // "X vs Y: …" / "X vs. Y?" at the start (max 5 words)
     m = t.match(/^([^:?!]{3,60}?\bvs\.? [^:?!]{2,40}?)(?:[:?!]|$)/);
     if (m && n(m[1]) <= 5) return m[1].trim();
