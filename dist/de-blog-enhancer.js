@@ -1,4 +1,4 @@
-/* Transformance — German blog enhancer (locale-only). v1.3.5 (2026-10-29): exact-title keywords for the Wave F F3/F4 titles.
+/* Transformance — German blog enhancer (locale-only). v1.3.6 (2026-10-30): exact-title keywords for the Wave F F3/F4 + F3 part 2 titles.
  * Adds the breadcrumb, single author·date·category·reading-time meta row, German date,
  * and floating "In diesem Artikel" TOC to /<locale>/blog-posts/ pages. The main
  * liquid-glass-v3 script path-gates these to /blog-posts/ and skips localized URLs, so this
@@ -139,7 +139,18 @@
     'ACH, wire or SEPA Instant: which rail, what remittance data?': 'ACH, wire or SEPA Instant',
     'What do ACH return codes and SEPA R-transactions mean for AR?': 'ACH return codes',
     'What B2B dunning cadence works by customer segment and terms?': 'B2B dunning cadence',
-    'How does late payment interest work in Germany under §288 BGB?': 'late payment interest'
+    'How does late payment interest work in Germany under §288 BGB?': 'late payment interest',
+    'What is a good cash application auto-match rate?': 'cash application auto-match rate',
+    'How do you calculate countback DSO for seasonal sales?': 'countback DSO',
+    'How accurate is AI payment matching, and who decides the rest?': 'AI payment matching',
+    'What does one manually applied payment cost, and what is the ROI?': 'manually applied payment',
+    'Was kostet der manuelle Zahlungsabgleich pro Zahlung?': 'manuelle Zahlungsabgleich',
+    'What breaks first when AR hits 50,000+ invoices a month?': '50,000+ invoices a month',
+    'Debitoren bei 50.000 Rechnungen im Monat: Wo hakt es zuerst?': '50.000 Rechnungen im Monat',
+    'How much cash does one day of DSO tie up?': 'one day of DSO',
+    'Wie viel Liquidität bindet ein Tag DSO?': 'ein Tag DSO',
+    'What is a good DSO by industry in 2026?': 'DSO by industry',
+    'Was ist eine gute DSO je Branche im Jahr 2026?': 'DSO je Branche'
   }; return Object.prototype.hasOwnProperty.call(map, t) ? map[t] : ''; }
 
   function pickHeroKeyword(t) {
