@@ -1,4 +1,4 @@
-/* Transformance — German blog enhancer (locale-only). v1.3.6 (2026-10-30): exact-title keywords for the Wave F F3/F4 + F3 part 2 titles.
+/* Transformance — German blog enhancer (locale-only). v1.3.7 (2026-11-06): exact-title keywords for the deduction (C09-C12), consumer goods (J02-J13) and legacy/mid-market ERP (Wave I) titles.
  * Adds the breadcrumb, single author·date·category·reading-time meta row, German date,
  * and floating "In diesem Artikel" TOC to /<locale>/blog-posts/ pages. The main
  * liquid-glass-v3 script path-gates these to /blog-posts/ and skips localized URLs, so this
@@ -150,7 +150,50 @@
     'How much cash does one day of DSO tie up?': 'one day of DSO',
     'Wie viel Liquidität bindet ein Tag DSO?': 'ein Tag DSO',
     'What is a good DSO by industry in 2026?': 'DSO by industry',
-    'Was ist eine gute DSO je Branche im Jahr 2026?': 'DSO je Branche'
+    'Was ist eine gute DSO je Branche im Jahr 2026?': 'DSO je Branche',
+    "What does a B2B invoice dispute workflow look like, step by step?": "B2B invoice dispute workflow",
+    "Wie läuft eine Rechnungsreklamation im B2B Schritt für Schritt?": "Rechnungsreklamation",
+    "How should you code customer deductions with reason codes?": "reason codes",
+    "Wie ordnen Sie Kundenabzügen den richtigen Abzugsgrund zu?": "Abzugsgrund",
+    "What should you email a customer who short-paid an invoice?": "short-paid an invoice",
+    "Minderzahlung: Was schreiben Sie dem Kunden, der gekürzt hat?": "Minderzahlung",
+    "How do food and beverage makers handle retailer deductions?": "food and beverage makers",
+    "How do you check a retailer's debit note before you accept it?": "retailer's debit note",
+    "How do you check year-end rebate and trade terms deductions?": "year-end rebate and trade terms deductions",
+    "How do you reconcile trade promotion accruals with deductions?": "trade promotion accruals",
+    "Konditionsrückstellungen mit Abzügen des Handels abstimmen": "Konditionsrückstellungen",
+    "How do you check and dispute an OTIF fine from a retailer?": "OTIF fine",
+    "How do you match retailer portal deduction backup to an invoice?": "retailer portal deduction backup",
+    "Belege aus dem Lieferantenportal des Handels richtig zuordnen": "Lieferantenportal des Handels",
+    "What should mid-market CPG brands automate first in deductions?": "mid-market CPG brands",
+    "What does order-to-cash look like for grocery suppliers?": "order-to-cash",
+    "How do CPG suppliers validate unsaleables and swell claims?": "unsaleables and swell claims",
+    "How do you validate distributor chargebacks in food and beverage?": "distributor chargebacks",
+    "How do you match payments from a central settlement agent?": "central settlement agent",
+    "Can you automate AR on SAP R/3 or ECC without S/4HANA?": "SAP R/3 or ECC",
+    "How does AR automation work with an on-premise ERP?": "on-premise ERP",
+    "Wie funktioniert Debitorenautomatisierung mit On-Premises-ERP?": "On-Premises-ERP",
+    "How can AI agents help JD Edwards teams automate AR?": "JD Edwards",
+    "How can AI agents help Epicor teams automate accounts receivable?": "Epicor",
+    "How can AI agents help SAP Business One teams automate AR?": "SAP Business One",
+    "Debitorenbuchhaltung in SAP Business One: wie helfen KI-Agenten?": "SAP Business One",
+    "How can AI agents help Infor teams automate accounts receivable?": "Infor",
+    "How can AI agents help Dynamics NAV, GP and AX teams with AR?": "Dynamics NAV, GP and AX",
+    "Wie helfen KI-Agenten bei Debitoren in Dynamics NAV (Navision)?": "Dynamics NAV (Navision)",
+    "How can AI agents help Sage X3 teams with accounts receivable?": "Sage X3",
+    "Wie unterstützen KI-Agenten Sage X3 bei der Debitorenbuchhaltung?": "Sage X3",
+    "How can AI agents automate accounts receivable on IFS Cloud?": "IFS Cloud",
+    "How can AI agents help Oracle E-Business Suite teams with AR?": "Oracle E-Business Suite",
+    "How can AI agents help Acumatica teams automate order-to-cash?": "Acumatica",
+    "How can AI agents help QAD Adaptive ERP teams with AR?": "QAD Adaptive ERP",
+    "How can AI agents automate accounts receivable in Abas ERP?": "Abas ERP",
+    "Wie hilft KI bei der Debitorenbuchhaltung in Abas ERP?": "Abas ERP",
+    "How can AI agents automate accounts receivable in Proalpha ERP?": "Proalpha ERP",
+    "Wie hilft KI bei der Debitorenbuchhaltung in Proalpha ERP?": "Proalpha ERP",
+    "How can AI agents help Sage Intacct teams automate AR?": "Sage Intacct",
+    "How can AI agents help Deltek Costpoint teams automate AR?": "Deltek Costpoint",
+    "How can AI agents help SYSPRO teams automate accounts receivable?": "SYSPRO",
+    "How can AI agents automate accounts receivable in Unit4 ERPx?": "Unit4 ERPx"
   }; return Object.prototype.hasOwnProperty.call(map, t) ? map[t] : ''; }
 
   function pickHeroKeyword(t) {
