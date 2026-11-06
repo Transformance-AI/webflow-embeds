@@ -1,4 +1,4 @@
-/* Transformance — German blog enhancer (locale-only). v1.3.7 (2026-11-06): exact-title keywords for the deduction (C09-C12), consumer goods (J02-J13) and legacy/mid-market ERP (Wave I) titles.
+/* Transformance — German blog enhancer (locale-only). v1.3.8 (2026-11-06): exact-title keywords for the Wave K mid-market ERP titles (on top of 1.3.7: C09-C12, J02-J13, Wave I).
  * Adds the breadcrumb, single author·date·category·reading-time meta row, German date,
  * and floating "In diesem Artikel" TOC to /<locale>/blog-posts/ pages. The main
  * liquid-glass-v3 script path-gates these to /blog-posts/ and skips localized URLs, so this
@@ -193,7 +193,23 @@
     "How can AI agents help Sage Intacct teams automate AR?": "Sage Intacct",
     "How can AI agents help Deltek Costpoint teams automate AR?": "Deltek Costpoint",
     "How can AI agents help SYSPRO teams automate accounts receivable?": "SYSPRO",
-    "How can AI agents automate accounts receivable in Unit4 ERPx?": "Unit4 ERPx"
+    "How can AI agents automate accounts receivable in Unit4 ERPx?": "Unit4 ERPx",
+    "How can AI agents help Business Central teams automate AR?": "Business Central",
+    "Debitorenbuchhaltung in Business Central: wie helfen KI-Agenten?": "Business Central",
+    "How do food and beverage makers automate AR on their ERP?": "food and beverage makers",
+    "ERP in der Lebensmittelindustrie: Zahlungsabgleich automatisieren": "Lebensmittelindustrie",
+    "How can AI agents help Odoo teams automate accounts receivable?": "Odoo",
+    "Debitorenbuchhaltung in Odoo: wie helfen KI-Agenten?": "Odoo",
+    "How can AI agents help Aptean teams automate accounts receivable?": "Aptean",
+    "How can AI agents help Deacom teams automate accounts receivable?": "Deacom",
+    "How can AI agents help SAP Business ByDesign teams automate AR?": "SAP Business ByDesign",
+    "SAP Business ByDesign: Debitorenbuchhaltung mit KI automatisieren": "SAP Business ByDesign",
+    "How can wholesale distributors automate AR on their ERP?": "wholesale distributors",
+    "ERP im Großhandel: Debitorenbuchhaltung mit KI automatisieren": "Großhandel",
+    "How can AI agents automate accounts receivable in CSB-System?": "CSB-System",
+    "Debitorenbuchhaltung in CSB-System mit KI-Agenten automatisieren": "CSB-System",
+    "How can AI agents automate AR on a German mid-market ERP?": "German mid-market ERP",
+    "Debitorenbuchhaltung im Mittelstand mit KI automatisieren": "Mittelstand"
   }; return Object.prototype.hasOwnProperty.call(map, t) ? map[t] : ''; }
 
   function pickHeroKeyword(t) {
