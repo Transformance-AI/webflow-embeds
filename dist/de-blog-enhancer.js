@@ -1,4 +1,4 @@
-/* Transformance — German blog enhancer (locale-only). v1.3.8 (2026-11-06): exact-title keywords for the Wave K mid-market ERP titles (on top of 1.3.7: C09-C12, J02-J13, Wave I).
+/* Transformance — German blog enhancer (locale-only). v1.3.9 (2026-11-11): exact-title keywords for the Wave K part 3 ERP titles (on top of 1.3.8).
  * Adds the breadcrumb, single author·date·category·reading-time meta row, German date,
  * and floating "In diesem Artikel" TOC to /<locale>/blog-posts/ pages. The main
  * liquid-glass-v3 script path-gates these to /blog-posts/ and skips localized URLs, so this
@@ -209,7 +209,15 @@
     "How can AI agents automate accounts receivable in CSB-System?": "CSB-System",
     "Debitorenbuchhaltung in CSB-System mit KI-Agenten automatisieren": "CSB-System",
     "How can AI agents automate AR on a German mid-market ERP?": "German mid-market ERP",
-    "Debitorenbuchhaltung im Mittelstand mit KI automatisieren": "Mittelstand"
+    "Debitorenbuchhaltung im Mittelstand mit KI automatisieren": "Mittelstand",
+    "How can AI agents help Sage 100 teams with accounts receivable?": "Sage 100",
+    "How can AI agents help Plex teams automate accounts receivable?": "Plex",
+    "How can AI agents help BatchMaster teams automate AR?": "BatchMaster",
+    "How can AI agents help with multi-currency AR in Sage 300?": "Sage 300",
+    "How can AI agents automate AR in Sage 100 for Germany?": "Sage 100 for Germany",
+    "Debitorenbuchhaltung in Sage 100 mit KI-Agenten automatisieren": "Sage 100",
+    "How can AI agents help Global Shop Solutions teams automate AR?": "Global Shop Solutions",
+    "How can AI agents help Macola teams automate accounts receivable?": "Macola"
   }; return Object.prototype.hasOwnProperty.call(map, t) ? map[t] : ''; }
 
   function pickHeroKeyword(t) {
