@@ -1,4 +1,4 @@
-/* Transformance — German blog enhancer (locale-only). v1.3.9 (2026-11-11): exact-title keywords for the Wave K part 3 ERP titles (on top of 1.3.8).
+/* Transformance — German blog enhancer (locale-only). v1.3.10 (2026-11-14): exact-title keywords for the Batch N MCP / multi-ERP / multi-entity / integration titles, month-proof prefix for the ERP MCP overview (on top of 1.3.9).
  * Adds the breadcrumb, single author·date·category·reading-time meta row, German date,
  * and floating "In diesem Artikel" TOC to /<locale>/blog-posts/ pages. The main
  * liquid-glass-v3 script path-gates these to /blog-posts/ and skips localized URLs, so this
@@ -217,8 +217,27 @@
     "How can AI agents automate AR in Sage 100 for Germany?": "Sage 100 for Germany",
     "Debitorenbuchhaltung in Sage 100 mit KI-Agenten automatisieren": "Sage 100",
     "How can AI agents help Global Shop Solutions teams automate AR?": "Global Shop Solutions",
-    "How can AI agents help Macola teams automate accounts receivable?": "Macola"
-  }; return Object.prototype.hasOwnProperty.call(map, t) ? map[t] : ''; }
+    "How can AI agents help Macola teams automate accounts receivable?": "Macola",
+    "Vero MCP server: one connection for AR and order-to-cash": "Vero MCP server",
+    "Vero MCP-Server: eine Verbindung für Order-to-Cash": "Vero MCP-Server",
+    "How do you automate finance when entities run different ERPs?": "different ERPs",
+    "Wie automatisieren Sie Finanzprozesse bei mehreren ERP-Systemen?": "mehreren ERP-Systemen",
+    "Why is cash forecasting so hard for multi-entity groups?": "multi-entity groups",
+    "Warum ist die Liquiditätsplanung im Konzern so schwierig?": "Liquiditätsplanung im Konzern",
+    "What is an agent-run integration platform for finance?": "agent-run integration platform",
+    "Was ist eine KI-gestützte Integrationsplattform für Finanzteams?": "KI-gestützte Integrationsplattform",
+    "How do AI agents build and test an ERP integration?": "ERP integration",
+    "Wie testet man eine ERP-Schnittstelle, die KI-Agenten aufbauen?": "ERP-Schnittstelle",
+    "Can AR automation connect to a custom or legacy ERP?": "custom or legacy ERP",
+    "Lässt sich Forderungsmanagement an ein Altsystem anbinden?": "Altsystem",
+    "What does IT need to do when you roll out AR automation?": "AR automation",
+    "IT-Aufwand bei der Automatisierung im Forderungsmanagement": "Forderungsmanagement"
+  }; if (Object.prototype.hasOwnProperty.call(map, t)) return map[t];
+  // 1.3.10 (2026-11-14): the ERP MCP overview H1 carries a month that changes every month ("(November 2026)",
+  // "(December 2026)" ...), so it matches on the fixed question prefix; the monthly refresh needs no release.
+  if (t.indexOf('Which ERPs have an MCP server?') === 0) return 'MCP server';
+  if (t.indexOf('Welche ERP-Systeme haben einen MCP-Server?') === 0) return 'MCP-Server';
+  return ''; }
 
   function pickHeroKeyword(t) {
     var m;
