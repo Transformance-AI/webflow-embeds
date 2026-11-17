@@ -1,4 +1,4 @@
-/* Transformance — German blog enhancer (locale-only). v1.3.10 (2026-11-14): exact-title keywords for the Batch N MCP / multi-ERP / multi-entity / integration titles, month-proof prefix for the ERP MCP overview (on top of 1.3.9).
+/* Transformance — German blog enhancer (locale-only). v1.3.11 (2026-11-17): exact-title keywords for the Batch O collections and onboarding titles (on top of 1.3.10). v1.3.10 (2026-11-14): exact-title keywords for the Batch N MCP / multi-ERP / multi-entity / integration titles, month-proof prefix for the ERP MCP overview (on top of 1.3.9).
  * Adds the breadcrumb, single author·date·category·reading-time meta row, German date,
  * and floating "In diesem Artikel" TOC to /<locale>/blog-posts/ pages. The main
  * liquid-glass-v3 script path-gates these to /blog-posts/ and skips localized URLs, so this
@@ -231,7 +231,25 @@
     "Can AR automation connect to a custom or legacy ERP?": "custom or legacy ERP",
     "Lässt sich Forderungsmanagement an ein Altsystem anbinden?": "Altsystem",
     "What does IT need to do when you roll out AR automation?": "AR automation",
-    "IT-Aufwand bei der Automatisierung im Forderungsmanagement": "Forderungsmanagement"
+    "IT-Aufwand bei der Automatisierung im Forderungsmanagement": "Forderungsmanagement",
+    "What should an AR collections call say at each dunning stage?": "collections call",
+    "Telefonisches Mahngespräch: Was sagen Sie in welcher Mahnstufe?": "Mahngespräch",
+    "Does automated dunning damage B2B customer relationships?": "automated dunning",
+    "Schadet automatisiertes Mahnwesen der B2B-Kundenbeziehung?": "automatisiertes Mahnwesen",
+    "How do distributors collect from thousands of small B2B accounts?": "small B2B accounts",
+    "Wie betreuen Großhändler Tausende Kleinkunden im Forderungsmanagement?": "Tausende Kleinkunden",
+    "How can AI triage a shared accounts receivable inbox?": "accounts receivable inbox",
+    "Wie sortiert KI das Sammelpostfach der Debitorenbuchhaltung?": "Sammelpostfach",
+    "How do you test AR automation before go-live?": "AR automation",
+    "Wie testet man Zahlungsabgleich-Software vor dem Go-live?": "Zahlungsabgleich-Software",
+    "What data does an AR automation vendor need to start?": "data",
+    "Welche Daten braucht Zahlungsabgleich-Software zum Start?": "Daten",
+    "How do you connect bank statements to cash application?": "bank statements",
+    "Wie binden Sie Kontoauszüge per EBICS an den Zahlungsabgleich an?": "Kontoauszüge per EBICS",
+    "Which systems besides the ERP feed accounts receivable?": "besides the ERP",
+    "Welche Systeme neben dem ERP speisen die Debitorenbuchhaltung?": "neben dem ERP",
+    "What master data cleanup comes before cash application?": "master data cleanup",
+    "Stammdatenpflege vor dem Zahlungsabgleich: was zuerst bereinigen?": "Stammdatenpflege"
   }; if (Object.prototype.hasOwnProperty.call(map, t)) return map[t];
   // 1.3.10 (2026-11-14): the ERP MCP overview H1 carries a month that changes every month ("(November 2026)",
   // "(December 2026)" ...), so it matches on the fixed question prefix; the monthly refresh needs no release.
